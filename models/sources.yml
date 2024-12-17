@@ -1,0 +1,29 @@
+sources:
+  - name: production_copy
+    database: production_copy
+    schema: public
+    loader: airflow
+    freshness:
+      warn_after: { count: 28, period: hour }
+      error_after: { count: 56, period: hour }
+    tables:
+      - name: tenant
+        columns:
+          - name: id
+            data_tests:
+              - unique
+      - name: user_account
+        columns:
+          - name: id
+            data_tests:
+              - unique
+      - name: apartment_sharing
+        columns:
+          - name: id
+            data_tests:
+              - unique
+      - name: document
+        columns:
+          - name: id
+            data_tests:
+              - unique

@@ -1,0 +1,57 @@
+[sqlfluff]
+# set templater = dbt for ci jobs
+templater = dbt
+project_dir = ./
+dialect = postgres
+verbose = 0
+nocolor = False
+max_line_length = 120
+
+exclude_rules = L031, L016, L027, RF06, RF04
+# L016 - We allow longer lines as some of our queries are complex. Maybe should limit in future?
+# L031 - Avoid aliases in from and join - why?
+# L027 - Asks for qualified columns for ambiguous ones, but we don't qualify our columns, and they are not really ambiguous (or Redshift would complain)
+# RFO6 - Unnecessary quotes identifier
+# RF04 - Keywords should not be used as identifiers
+#ignore_templated_areas = True
+#encoding = autodetect
+
+[sqlfluff:indentation]
+tab_space_size = 4
+
+[sqlfluff:layout:type:comma]
+line_position = leading
+
+# Some rules can be configured directly from the config common to other rules.
+[sqlfluff:rules]
+allow_scalar = True
+single_table_references = consistent
+unquoted_identifiers_policy = all
+
+# Inconsistent capitalisation of keywords (SELECT, FROM, WHERE)
+[sqlfluff:rules:capitalisation.keywords]
+capitalisation_policy = lower
+
+# Inconsistent capitalisation of unquoted identifiers.
+[sqlfluff:rules:capitalisation.identifiers]
+extended_capitalisation_policy = lower
+
+
+# Inconsistent capitalisation of function names (SUM, COUNT)
+[sqlfluff:rules:capitalisation.functions]
+extended_capitalisation_policy = upper
+
+# Inconsistent capitalisation of boolean/null literal (true, false, null)
+[sqlfluff:rules:capitalisation.literals]
+capitalisation_policy = lower
+
+# Inconsistent capitalisation of datatypes (VARCHAR, TIMESTAMP)
+[sqlfluff:rules:capitalisation.types]
+extended_capitalisation_policy = upper
+
+[sqlfluff:templater.jinja]
+apply_dbt_builtins = True
+load_macros_from_path=macros
+
+[sqlfluff:templater:jinja.macros]
+dbt_json_extract = {% macro json_extract(string, string_path) %}{{string}}_{{string_path}}{% endmacro %}

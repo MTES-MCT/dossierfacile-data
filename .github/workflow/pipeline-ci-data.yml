@@ -1,0 +1,32 @@
+name: Pipeline CI Data
+on: pull_request
+
+jobs:
+
+  run-ci-pipeline:
+    # Containers must run in Linux based operating systems
+    runs-on: ubuntu-latest
+
+    steps:
+      # Downloads a copy of the code in your repository before running CI tests
+      - name: Check out repository code
+        uses: actions/checkout@v3
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.11.x"
+
+      - name: Install dbt
+        run: pip install dbt-postgres==1.6.0
+
+      - name: Instal dbt deps
+        run: dbt deps
+
+      - name: Install SQLFluff
+        run: pip install sqlfluff==3.3.0
+
+      - name: Install SQLFluff dbt templater
+        run: pip install sqlfluff-templater-dbt==3.3.0
+        
+      - name: Lint with SQLFluff
+        run: sqlfluff lint --dialect postgres
