@@ -17,7 +17,7 @@ jobs:
           python-version: "3.11.x"
 
       - name: Install dbt
-        run: pip install dbt-postgres==1.6.0
+        run: pip install dbt-postgres==1.9.0
 
       - name: Instal dbt deps
         run: dbt deps
