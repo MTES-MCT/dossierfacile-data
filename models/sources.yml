@@ -1,12 +1,17 @@
 sources:
-  - name: production_copy
-    database: production_copy
+  - name: dossierfacile
+    database: dossierfacile
     schema: public
     loader: airflow
     freshness:
       warn_after: { count: 28, period: hour }
       error_after: { count: 56, period: hour }
     tables:
+      - name: tenant_log
+        columns: 
+          - name: id 
+            data_tests:
+              - unique 
       - name: tenant
         columns:
           - name: id

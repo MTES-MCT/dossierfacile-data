@@ -1,0 +1,9 @@
+models:
+  - name: tenant_log_clean
+    description: "A starter dbt model to clean tenant_log table"
+    columns:
+      - name: id
+        description: "The primary key for this table"
+        data_tests:
+          - unique
+          - not_null

@@ -1,6 +1,6 @@
 [sqlfluff]
 # set templater = dbt for ci jobs
-templater = dbt
+templater = jinja
 project_dir = ./
 dialect = postgres
 verbose = 0

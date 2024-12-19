@@ -1,0 +1,9 @@
+models:
+  - name: analytics_test
+    description: "A starter dbt model for tenant table"
+    columns:
+      - name: id
+        description: "The primary key for this table"
+        data_tests:
+          - unique
+          - not_null
