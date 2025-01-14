@@ -32,3 +32,10 @@ sources:
           - name: id
             data_tests:
               - unique
+  - name: dbt_dev
+    database: dossierfacile
+    schema: dbt_dev
+    tables:
+      - name: tenant_log_2
+      - name: tenant_2
+      - name: user_account_2
