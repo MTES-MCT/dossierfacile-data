@@ -1,5 +1,5 @@
 models:
-  - name: tenant_log_clean
+  - name: staging_tenant_log
     description: "A starter dbt model to clean tenant_log table"
     columns:
       - name: id
