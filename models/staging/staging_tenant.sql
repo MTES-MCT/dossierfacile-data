@@ -1,7 +1,7 @@
 select
     tenant_type
     , honor_declaration
-    , clarification
+    , clarification -- commentaire de l utilisateur à destination du proprietaire
     , status
     , operator_comment
     , abroad
