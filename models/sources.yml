@@ -37,10 +37,3 @@ sources:
           - name: id
             data_tests:
               - unique
-  - name: dbt_dev
-    database: dossierfacile
-    schema: dbt_dev
-    tables:
-      - name: staging_tenant_log
-      - name: staging_tenant
-      - name: staging_user_account

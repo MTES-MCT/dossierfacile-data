@@ -19,9 +19,9 @@ select
     , MIN(case when log_type in ('ACCOUNT_VALIDATED', 'ACCOUNT_DENIED') then staging_tenant_log.creation_date end) as firstoperation_date
     , MIN(case when log_type = 'ACCOUNT_VALIDATED' then staging_tenant_log.creation_date end) as validation_date
     , MAX(case when log_type = 'ACCOUNT_VALIDATED' then 1 else 0 end) as validation_flag
-from {{ source('dbt_dev', 'staging_tenant_log') }}
-left join {{ source ('dbt_dev', 'staging_user_account') }} on {{ source ('dbt_dev', 'staging_tenant_log') }}.tenant_id = {{ source ('dbt_dev', 'staging_user_account') }}.id
-left join {{ source ('dbt_dev', 'staging_tenant') }} on {{ source ('dbt_dev', 'staging_tenant_log') }}.tenant_id = {{ source ('dbt_dev', 'staging_tenant') }}.id
+from {{ ref('staging_tenant_log') }} as staging_tenant_log
+left join {{ ref('staging_user_account') }} on staging_tenant_log.tenant_id = {{ ref('staging_user_account') }}.id
+left join {{ ref('staging_tenant') }} on staging_tenant_log.tenant_id = {{ ref('staging_tenant') }}.id
 group by
     staging_tenant_log.tenant_id
     , apartment_sharing_id
