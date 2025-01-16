@@ -32,6 +32,11 @@ sources:
           - name: id
             data_tests:
               - unique
+      - name: property
+        columns:
+          - name: id
+            data_tests:
+              - unique
   - name: dbt_dev
     database: dossierfacile
     schema: dbt_dev

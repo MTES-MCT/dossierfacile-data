@@ -16,6 +16,5 @@ select
     , CAST(creation_date as TIMESTAMP) as creation_date
     , CAST(last_login_date as TIMESTAMP) as last_login_date
     , CAST(update_date_time as TIMESTAMP) as update_date_time
-    , CAST(france_connect_birth_date as TIMESTAMP) as france_connect_birth_date
+    , CAST(case when france_connect_birth_date = 'birthdate' then null else france_connect_birth_date end as TIMESTAMP) as france_connect_birth_date
 from {{ source('dossierfacile', 'user_account') }}
-where france_connect_birth_date <> 'birthdate'

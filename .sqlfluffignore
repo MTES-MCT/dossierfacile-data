@@ -2,5 +2,4 @@ target/
 dbt_packages/
 dbt_modules/
 macros/
-!macros/filter_recent_data.sql
 env/
