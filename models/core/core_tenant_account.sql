@@ -18,11 +18,12 @@ with tenant_log_status as (
         tenant_id
         , MIN(creation_date) as creation_date
         , MIN(completion_date) as first_completion_date
-        -- on considère que le tenant est complet dès qu'il a été complété, validé ou refusé au moins une fois ?
+        -- on considère que le tenant est complet dès qu'il a été complété, validé ou refusé au moins une fois
+        -- cas des couples où l'un des deux conjoints n'a pas de log de completion
         , MAX(completion_flag) as completion_flag
         , MIN(operation_date) as first_operation_date
         , MIN(validation_date) as first_validation_date
-        -- on considère que le tenant est validé dès qu'il a été validé au moins une fois ?
+        -- on considère que le tenant est validé dès qu'il a été validé au moins une fois
         , MAX(validation_flag) as validation_flag
     from tenant_log_status
     group by
