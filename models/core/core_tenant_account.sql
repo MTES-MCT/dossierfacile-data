@@ -30,8 +30,23 @@ with tenant_log_status as (
         tenant_id
 )
 
+, tenant_status_details as (
+    select
+        tenant_id
+        , creation_date
+        , first_completion_date
+        , completion_flag
+        , first_operation_date
+        , first_validation_date
+        , validation_flag
+        , EXTRACT(epoch from first_completion_date - creation_date) / 3600 as time_to_complete
+        , EXTRACT(epoch from first_validation_date - first_completion_date) / 3600 as time_to_review
+        , case when first_validation_date = first_operation_date then 1 else 0 end as validation_without_denied
+    from tenant_status
+)
+
 select
-    tenant_status.tenant_id as id
+    tenant_status_details.tenant_id as id
 
     , staging_tenant.apartment_sharing_id
     , staging_tenant.tenant_type
@@ -49,14 +64,18 @@ select
     , staging_user_account.france_connect_birth_place
     , staging_user_account.france_connect_birth_country
 
-    , tenant_status.creation_date
-    , tenant_status.first_completion_date
-    , tenant_status.completion_flag
-    , tenant_status.first_operation_date
-    , tenant_status.first_validation_date
-    , tenant_status.validation_flag
-from tenant_status
+    , tenant_status_details.creation_date
+    , tenant_status_details.first_completion_date
+    , tenant_status_details.completion_flag
+    , tenant_status_details.first_operation_date
+    , tenant_status_details.first_validation_date
+    , tenant_status_details.validation_flag
+    , tenant_status_details.time_to_complete
+    , tenant_status_details.time_to_review
+    , tenant_status_details.validation_without_denied
+
+from tenant_status_details
 left join {{ ref('staging_user_account') }} as staging_user_account
-    on tenant_status.tenant_id = staging_user_account.id
+    on tenant_status_details.tenant_id = staging_user_account.id
 left join {{ ref('staging_tenant') }} as staging_tenant
-    on tenant_status.tenant_id = staging_tenant.id
+    on tenant_status_details.tenant_id = staging_tenant.id

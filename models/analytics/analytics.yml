@@ -1,5 +1,5 @@
 models:
-  - name: analytics_test
+  - name: analytics_tenant_account
     description: "A starter dbt model for tenant table"
     columns:
       - name: id
