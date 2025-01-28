@@ -1,0 +1,1001 @@
+id,tenant_id,operator_id,log_type,creation_date,message_id,user_apis,json_profile,migrate,log_details
+20909367,1240003,,ACCOUNT_EDITED,2024-07-15T09:15:42.239063,,,,,"{""tenantId"": 1240003, ""editionType"": ""DELETE"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_RESIDENCE_PERMIT""}"
+20909368,1088966,,ACCOUNT_EDITED,2024-07-15T09:15:42.438152,,,,,"{""tenantId"": 1088966, ""editionType"": ""ADD"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""TENANT""}"
+20909369,1252851,,ACCOUNT_EDITED,2024-07-15T09:15:42.777659,,,,,"{""editionType"": ""DELETE"", ""guarantorId"": 926378, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909370,1257235,,ACCOUNT_COMPLETED,2024-07-15T09:15:42.955139,,,,,
+20909371,1252851,,ACCOUNT_EDITED,2024-07-15T09:15:44.870782,,,,,"{""editionType"": ""DELETE"", ""guarantorId"": 926378, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909372,1219224,,ACCOUNT_EDITED,2024-07-15T09:15:49.545594,,,,,
+20909373,1088966,,ACCOUNT_EDITED,2024-07-15T09:15:51.333286,,,,,"{""tenantId"": 1088966, ""editionType"": ""DELETE"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""TENANT""}"
+20909374,1240003,,ACCOUNT_EDITED,2024-07-15T09:15:53.908368,,,,,"{""tenantId"": 1240003, ""editionType"": ""ADD"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_PASSPORT""}"
+20909375,1257245,,ACCOUNT_EDITED,2024-07-15T09:15:57.358622,,,,,"{""step"": ""Names""}"
+20909376,1251162,,ACCOUNT_COMPLETED,2024-07-15T09:16:01.220746,,,,,
+20909377,1257222,,ACCOUNT_EDITED,2024-07-15T09:16:03.284215,,,,,"{""tenantId"": 1257222, ""editionType"": ""ADD"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""TENANT""}"
+20909378,558336,597834,ACCOUNT_VALIDATED,2024-07-15T09:16:05.360833,,,,,
+20909379,1246927,,ACCOUNT_EDITED,2024-07-15T09:16:05.375685,,,,,"{""tenantId"": 1246927, ""editionType"": ""DELETE"", ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_NAME""}"
+20909380,1257244,,ACCOUNT_EDITED,2024-07-15T09:16:06.018656,,,,,"{""tenantId"": 1257244, ""editionType"": ""ADD"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_IDENTITY_CARD""}"
+20909381,1254486,,ACCOUNT_EDITED,2024-07-15T09:16:07.074758,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929432, ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_IDENTITY_CARD""}"
+20909382,1246431,589134,ACCOUNT_DENIED,2024-07-15T09:16:07.936816,755620,,,,
+20909383,1254045,,ACCOUNT_EDITED,2024-07-15T09:16:08.034161,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929429, ""documentCategory"": ""TAX"", ""documentSubCategory"": ""OTHER_TAX""}"
+20909384,1257235,,ZIP_DOWNLOAD,2024-07-15T09:16:09.381674,,,,,
+20909385,1219224,,ACCOUNT_EDITED,2024-07-15T09:16:09.783196,,,,,
+20909386,1252851,,ACCOUNT_EDITED,2024-07-15T09:16:12.348624,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 926378, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909387,1253774,,ACCOUNT_COMPLETED,2024-07-15T09:16:12.990034,,,,,
+20909388,1257235,,ZIP_DOWNLOAD,2024-07-15T09:16:13.160317,,,,,
+20909389,1243702,,ACCOUNT_EDITED,2024-07-15T09:16:13.473485,,,,,"{""editionType"": ""DELETE"", ""guarantorId"": 916793, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""INDEPENDENT""}"
+20909390,1131403,,ACCOUNT_EDITED,2024-07-15T09:16:19.719406,,,,,
+20909391,1219539,,ACCOUNT_EDITED,2024-07-15T09:16:21.2213,,,,,"{""tenantId"": 1219539, ""editionType"": ""ADD"", ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20909392,1088966,,ACCOUNT_EDITED,2024-07-15T09:16:23.233137,,,,,"{""tenantId"": 1088966, ""editionType"": ""ADD"", ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""INDEPENDENT""}"
+20909393,1252851,,ACCOUNT_EDITED,2024-07-15T09:16:23.64871,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 926378, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909394,1249895,546579,ACCOUNT_DENIED,2024-07-15T09:16:24.050418,755621,,,,
+20909395,932265,,ACCOUNT_EDITED,2024-07-15T09:16:25.388326,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 674596, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909396,1246927,,ACCOUNT_EDITED,2024-07-15T09:16:26.291885,,,,,"{""tenantId"": 1246927, ""editionType"": ""ADD"", ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_PARENTS""}"
+20909397,1257222,,ACCOUNT_EDITED,2024-07-15T09:16:27.673281,,,,,"{""tenantId"": 1257222, ""editionType"": ""ADD"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""TENANT""}"
+20909398,1215651,1199667,ACCOUNT_DENIED,2024-07-15T09:16:29.367518,755622,,,,
+20909399,932265,,ACCOUNT_EDITED,2024-07-15T09:16:32.031191,,,,,"{""editionType"": ""DELETE"", ""guarantorId"": 674596, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909400,1257245,,APPLICATION_TYPE_CHANGED,2024-07-15T09:16:32.363229,,,,,"{""newType"": ""COUPLE"", ""oldType"": ""ALONE""}"
+20909401,1257246,,ACCOUNT_CREATED,2024-07-15T09:16:32.412916,,,,,
+20909402,1257245,,ACCOUNT_EDITED,2024-07-15T09:16:32.50488,,,,,
+20909403,1187672,566428,ACCOUNT_DENIED,2024-07-15T09:16:33.798546,755623,,,,
+20909404,1252851,,ACCOUNT_EDITED,2024-07-15T09:16:35.815022,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 926378, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909405,1219224,,ACCOUNT_EDITED,2024-07-15T09:16:35.827459,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929433, ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_IDENTITY_CARD""}"
+20909406,932265,,ACCOUNT_EDITED,2024-07-15T09:16:36.151756,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 674596, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909407,669174,,ACCOUNT_EDITED,2024-07-15T09:16:42.884815,,,,,"{""tenantId"": 669174, ""editionType"": ""ADD"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_PASSPORT""}"
+20909408,1252851,,ACCOUNT_COMPLETED,2024-07-15T09:16:45.503167,,,,,
+20909409,1257241,,ACCOUNT_EDITED,2024-07-15T09:16:46.387645,,,,,"{""tenantId"": 1257241, ""editionType"": ""ADD"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""GUEST_PARENTS""}"
+20909410,1257247,,FC_ACCOUNT_CREATION,2024-07-15T09:16:48.726452,,,,,
+20909411,1254450,1143873,ACCOUNT_DENIED,2024-07-15T09:16:50.537925,755624,,,,
+20909412,1224182,,ACCOUNT_EDITED,2024-07-15T09:16:51.612138,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 898879, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""INDEPENDENT""}"
+20909413,1257245,,ACCOUNT_EDITED,2024-07-15T09:16:53.867594,,,,,"{""tenantId"": 1257245, ""editionType"": ""ADD"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_PASSPORT""}"
+20909414,1253774,,ZIP_DOWNLOAD,2024-07-15T09:16:56.105312,,,,,
+20909415,932265,,ACCOUNT_COMPLETED,2024-07-15T09:16:58.994686,,,,,
+20909416,1257247,,ACCOUNT_EDITED,2024-07-15T09:16:59.922946,,,,,"{""step"": ""Names""}"
+20909417,1240844,,ACCOUNT_EDITED,2024-07-15T09:17:02.013374,,,,,
+20909418,1257211,,ACCOUNT_EDITED,2024-07-15T09:17:02.58624,,,,,"{""tenantId"": 1257211, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909419,1242293,,ACCOUNT_EDITED,2024-07-15T09:17:02.727053,,,,,
+20909420,1088966,,ACCOUNT_COMPLETED,2024-07-15T09:17:08.565378,,,,,
+20909426,1219539,,ACCOUNT_EDITED,2024-07-15T09:17:11.479441,,,,,"{""tenantId"": 1219539, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909427,1242293,,ACCOUNT_EDITED,2024-07-15T09:17:13.249523,,,,,
+20909428,669174,,ACCOUNT_EDITED,2024-07-15T09:17:13.738005,,,,,"{""tenantId"": 669174, ""editionType"": ""ADD"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""TENANT""}"
+20909429,1153747,,ACCOUNT_EDITED,2024-07-15T09:17:16.885221,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929425, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDD""}"
+20909430,1256480,,ACCOUNT_COMPLETED,2024-07-15T09:17:20.199623,,,,,
+20909431,1246927,,ACCOUNT_COMPLETED,2024-07-15T09:17:21.045877,,,,,
+20909432,855985,,ACCOUNT_EDITED,2024-07-15T09:17:22.074422,,,,,"{""tenantId"": 855985, ""editionType"": ""ADD"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_RESIDENCE_PERMIT""}"
+20909433,1257241,,ACCOUNT_EDITED,2024-07-15T09:17:23.113088,,,,,"{""tenantId"": 1257241, ""editionType"": ""ADD"", ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI_TRIAL""}"
+20909434,1257222,,ACCOUNT_EDITED,2024-07-15T09:17:29.633487,,,,,"{""tenantId"": 1257222, ""editionType"": ""ADD"", ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDD""}"
+20909435,1088966,,ZIP_DOWNLOAD,2024-07-15T09:17:30.50849,,,,,
+20909436,1131403,,ACCOUNT_EDITED,2024-07-15T09:17:32.203572,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 822620, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20909437,1257249,,ACCOUNT_CREATED,2024-07-15T09:17:35.304548,,,,,
+20909438,1243702,,ACCOUNT_EDITED,2024-07-15T09:17:45.803825,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 916793, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""INDEPENDENT""}"
+20909439,1257248,,ACCOUNT_EDITED,2024-07-15T09:17:48.48745,,,,,"{""step"": ""Names""}"
+20909440,1254426,1143873,ACCOUNT_VALIDATED,2024-07-15T09:17:53.19261,,,,,
+20909441,1257249,,ACCOUNT_EDITED,2024-07-15T09:17:54.039888,,,,,"{""step"": ""Names""}"
+20909442,1257249,,ACCOUNT_EDITED,2024-07-15T09:17:54.269684,,,,,
+20909443,1257249,,ACCOUNT_EDITED,2024-07-15T09:17:54.294197,,,,,
+20909444,1243702,,ACCOUNT_EDITED,2024-07-15T09:17:55.124946,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 916793, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""INDEPENDENT""}"
+20909445,1254333,546579,ACCOUNT_DENIED,2024-07-15T09:17:56.257167,755626,,,,
+20909446,352062,,ACCOUNT_EDITED,2024-07-15T09:17:58.642845,,,,,"{""tenantId"": 352062, ""editionType"": ""ADD"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""TENANT""}"
+20909447,1257241,,ACCOUNT_EDITED,2024-07-15T09:18:05.213591,,,,,"{""tenantId"": 1257241, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909448,1257247,,ACCOUNT_EDITED,2024-07-15T09:18:08.553661,,,,,"{""tenantId"": 1257247, ""editionType"": ""ADD"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""TENANT""}"
+20909449,1251953,1143873,ACCOUNT_VALIDATED,2024-07-15T09:18:09.001852,,,,,
+20909450,1196680,1199667,ACCOUNT_VALIDATED,2024-07-15T09:18:12.172726,,,,,
+20909451,1257250,,ACCOUNT_CREATED_VIA_KC,2024-07-15T09:18:14.709005,,,,,
+20909452,1257251,,ACCOUNT_CREATED_VIA_KC,2024-07-15T09:18:17.512268,,,,,
+20909453,1131403,,ACCOUNT_EDITED,2024-07-15T09:18:24.121765,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 822620, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909454,1257201,,ACCOUNT_COMPLETED,2024-07-15T09:18:26.861807,,,,,
+20909455,1195215,589134,ACCOUNT_DENIED,2024-07-15T09:18:29.967241,755627,,,,
+20909456,1257249,,ACCOUNT_EDITED,2024-07-15T09:18:32.979189,,,,,"{""tenantId"": 1257249, ""editionType"": ""ADD"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""GUEST_PARENTS""}"
+20909457,1257252,,ACCOUNT_CREATED,2024-07-15T09:18:35.82427,,,,,
+20909458,1242293,,ACCOUNT_EDITED,2024-07-15T09:18:37.993897,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929434, ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_IDENTITY_CARD""}"
+20909459,1224182,,ACCOUNT_EDITED,2024-07-15T09:18:46.209105,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 898879, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909460,1254247,,ACCOUNT_EDITED,2024-07-15T09:18:48.807515,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 926630, ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""OWNER""}"
+20909461,1257249,,ACCOUNT_EDITED,2024-07-15T09:18:50.040012,,,,,"{""tenantId"": 1257249, ""editionType"": ""ADD"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_PASSPORT""}"
+20909462,1251873,,ACCOUNT_EDITED,2024-07-15T09:18:50.732887,,,,,"{""tenantId"": 1251873, ""editionType"": ""ADD"", ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""UNEMPLOYED""}"
+20909463,1257250,,ACCOUNT_EDITED,2024-07-15T09:18:53.99788,,,,,"{""step"": ""Names""}"
+20909464,1257252,,ACCOUNT_EDITED,2024-07-15T09:18:54.018295,,,,,"{""step"": ""Names""}"
+20909465,1257252,,ACCOUNT_EDITED,2024-07-15T09:18:54.326063,,,,,
+20909466,1257252,,ACCOUNT_EDITED,2024-07-15T09:18:54.365834,,,,,
+20909467,1219539,,APPLICATION_TYPE_CHANGED,2024-07-15T09:18:56.434569,,,,,"{""newType"": ""GROUP"", ""oldType"": ""ALONE""}"
+20909468,1257253,,ACCOUNT_CREATED,2024-07-15T09:18:56.781569,,,,,
+20909469,1219539,,ACCOUNT_EDITED,2024-07-15T09:18:57.089676,,,,,
+20909470,1257253,,ACCOUNT_EDITED,2024-07-15T09:18:57.665407,,,,,"{""step"": ""Names""}"
+20909471,1257253,,ACCOUNT_EDITED,2024-07-15T09:18:58.257385,,,,,
+20909472,1257229,,ACCOUNT_EDITED,2024-07-15T09:18:59.304501,,,,,"{""tenantId"": 1257229, ""editionType"": ""ADD"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_IDENTITY_CARD""}"
+20909473,352062,,ACCOUNT_COMPLETED,2024-07-15T09:19:00.63758,,,,,
+20909474,914257,,ACCOUNT_EDITED,2024-07-15T09:19:02.003517,,,,,"{""step"": ""Names""}"
+20909475,669174,,ACCOUNT_EDITED,2024-07-15T09:19:04.738417,,,,,"{""tenantId"": 669174, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909476,1254486,,ACCOUNT_EDITED,2024-07-15T09:19:05.462595,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929432, ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""TENANT""}"
+20909477,1257251,,ACCOUNT_EDITED,2024-07-15T09:19:06.652382,,,,,"{""step"": ""Names""}"
+20909478,1257211,,ACCOUNT_EDITED,2024-07-15T09:19:08.199202,,,,,"{""tenantId"": 1257211, ""editionType"": ""ADD"", ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_PARENTS""}"
+20909479,1257249,,ACCOUNT_EDITED,2024-07-15T09:19:10.012219,,,,,"{""tenantId"": 1257249, ""editionType"": ""ADD"", ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""STUDENT""}"
+20909480,1257248,,ACCOUNT_EDITED,2024-07-15T09:19:20.141489,,,,,"{""tenantId"": 1257248, ""editionType"": ""ADD"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_IDENTITY_CARD""}"
+20909481,1257211,,ACCOUNT_EDITED,2024-07-15T09:19:21.055007,,,,,
+20909482,1257229,,ACCOUNT_EDITED,2024-07-15T09:19:22.441717,,,,,"{""tenantId"": 1257229, ""editionType"": ""ADD"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_IDENTITY_CARD""}"
+20909483,1227104,,ACCOUNT_EDITED,2024-07-15T09:19:24.013617,,,,,"{""tenantId"": 1227104, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909484,1220975,,ACCOUNT_LINK,2024-07-15T09:19:24.711153,,,,,
+20909485,1254247,,ACCOUNT_COMPLETED,2024-07-15T09:19:26.794201,,,,,
+20909486,1254362,546579,ACCOUNT_VALIDATED,2024-07-15T09:19:28.376978,,,,,
+20909487,1219224,,ACCOUNT_EDITED,2024-07-15T09:19:30.638119,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929433, ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""OWNER""}"
+20909488,1254083,1143873,ACCOUNT_VALIDATED,2024-07-15T09:19:33.986517,,,,,
+20909489,1219453,,ACCOUNT_EDITED,2024-07-15T09:19:34.931963,,,,,"{""tenantId"": 1219453, ""editionType"": ""ADD"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_PASSPORT""}"
+20909490,1242293,,ACCOUNT_EDITED,2024-07-15T09:19:35.019468,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929434, ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_IDENTITY_CARD""}"
+20909491,1257222,,ACCOUNT_EDITED,2024-07-15T09:19:37.050503,,,,,"{""tenantId"": 1257222, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909492,1257211,,ACCOUNT_EDITED,2024-07-15T09:19:39.454273,,,,,
+20909493,1254486,,ACCOUNT_EDITED,2024-07-15T09:19:41.349938,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929432, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20909494,1257181,,ACCOUNT_EDITED,2024-07-15T09:19:45.47475,,,,,"{""tenantId"": 1257181, ""editionType"": ""ADD"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_IDENTITY_CARD""}"
+20909495,1224182,,ACCOUNT_EDITED,2024-07-15T09:19:48.458736,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 898879, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909496,1257249,,ACCOUNT_EDITED,2024-07-15T09:19:48.685757,,,,,"{""tenantId"": 1257249, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""NO_INCOME""}"
+20909497,1220975,,ACCOUNT_EDITED,2024-07-15T09:19:52.425326,,,,,"{""step"": ""Names""}"
+20909498,1219224,,ACCOUNT_EDITED,2024-07-15T09:19:54.127491,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929433, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20909499,1255030,,ACCOUNT_EDITED,2024-07-15T09:19:54.490091,,,,,"{""tenantId"": 1255030, ""editionType"": ""ADD"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_PASSPORT""}"
+20909500,1257249,,ACCOUNT_EDITED,2024-07-15T09:19:57.965219,,,,,"{""tenantId"": 1257249, ""editionType"": ""ADD"", ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_PARENTS""}"
+20909501,1257222,,ACCOUNT_EDITED,2024-07-15T09:19:59.92962,,,,,"{""tenantId"": 1257222, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909502,1257211,,ACCOUNT_EDITED,2024-07-15T09:20:01.303185,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929440, ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""OWNER""}"
+20909503,1257244,,ACCOUNT_EDITED,2024-07-15T09:20:06.295033,,,,,"{""tenantId"": 1257244, ""editionType"": ""ADD"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""GUEST_PARENTS""}"
+20909504,880753,589134,ACCOUNT_DENIED,2024-07-15T09:20:06.655207,755628,,,,
+20909505,1257222,,ACCOUNT_EDITED,2024-07-15T09:20:06.967529,,,,,"{""tenantId"": 1257222, ""editionType"": ""ADD"", ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_PARENTS""}"
+20909506,1256867,,ACCOUNT_EDITED,2024-07-15T09:20:09.017278,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929232, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909507,1242293,,ACCOUNT_EDITED,2024-07-15T09:20:10.411317,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929434, ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""OWNER""}"
+20909508,1257222,,ACCOUNT_EDITED,2024-07-15T09:20:13.101578,,,,,
+20909509,1257222,,ACCOUNT_EDITED,2024-07-15T09:20:14.167453,,,,,
+20909510,1243702,,ACCOUNT_EDITED,2024-07-15T09:20:15.578865,,,,,"{""editionType"": ""DELETE"", ""guarantorId"": 916793, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909511,1254382,546579,ACCOUNT_DENIED,2024-07-15T09:20:15.679683,755629,,,,
+20909512,1227104,,ACCOUNT_EDITED,2024-07-15T09:20:17.3221,,,,,"{""editionType"": ""DELETE"", ""guarantorId"": 922696, ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_IDENTITY_CARD""}"
+20909513,1257222,,ACCOUNT_EDITED,2024-07-15T09:20:20.539968,,,,,
+20909514,1255030,,ACCOUNT_EDITED,2024-07-15T09:20:25.686337,,,,,"{""tenantId"": 1255030, ""editionType"": ""DELETE"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_PASSPORT""}"
+20909515,1253837,,ACCOUNT_EDITED,2024-07-15T09:20:25.814665,,,,,"{""tenantId"": 1253837, ""editionType"": ""ADD"", ""documentCategory"": ""TAX"", ""documentSubCategory"": ""OTHER_TAX""}"
+20909516,1257211,,ACCOUNT_EDITED,2024-07-15T09:20:30.400621,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929440, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""PUBLIC""}"
+20909517,1257249,,ACCOUNT_EDITED,2024-07-15T09:20:32.549926,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929435, ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_IDENTITY_CARD""}"
+20909518,1257244,,ACCOUNT_EDITED,2024-07-15T09:20:35.077183,,,,,"{""tenantId"": 1257244, ""editionType"": ""ADD"", ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""STUDENT""}"
+20909519,1255030,,ACCOUNT_EDITED,2024-07-15T09:20:35.327654,,,,,"{""tenantId"": 1255030, ""editionType"": ""ADD"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_PASSPORT""}"
+20909520,1257252,,ACCOUNT_EDITED,2024-07-15T09:20:37.556471,,,,,"{""tenantId"": 1257252, ""editionType"": ""ADD"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_IDENTITY_CARD""}"
+20909521,1242293,,ACCOUNT_EDITED,2024-07-15T09:20:38.284221,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929434, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""INDEPENDENT""}"
+20909522,1234077,,ACCOUNT_EDITED,2024-07-15T09:20:39.307731,,,,,"{""tenantId"": 1234077, ""editionType"": ""DELETE"", ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""OTHER""}"
+20909523,1257229,,ACCOUNT_EDITED,2024-07-15T09:20:42.29399,,,,,"{""tenantId"": 1257229, ""editionType"": ""ADD"", ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""INDEPENDENT""}"
+20909524,1257249,,ACCOUNT_EDITED,2024-07-15T09:20:46.445684,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929435, ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""OWNER""}"
+20909525,1257250,,ACCOUNT_EDITED,2024-07-15T09:20:46.557745,,,,,"{""tenantId"": 1257250, ""editionType"": ""ADD"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_PASSPORT""}"
+20909526,1153747,,ACCOUNT_EDITED,2024-07-15T09:20:48.906647,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929425, ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_NAME""}"
+20909527,1250557,597834,ACCOUNT_DENIED,2024-07-15T09:20:50.92529,755630,,,,
+20909528,1250114,546579,ACCOUNT_VALIDATED,2024-07-15T09:20:51.389031,,,,,
+20925775,1224507,,ACCOUNT_EDITED,2024-07-15T12:57:12.953603,,,,,"{""step"": ""Names""}"
+20909529,1116762,,ACCOUNT_EDITED,2024-07-15T09:20:51.450321,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 805802, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""PUBLIC""}"
+20909530,1234077,,ACCOUNT_EDITED,2024-07-15T09:20:52.245059,,,,,"{""tenantId"": 1234077, ""editionType"": ""ADD"", ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""OTHER""}"
+20909531,1257248,,ACCOUNT_EDITED,2024-07-15T09:20:53.116662,,,,,"{""tenantId"": 1257248, ""editionType"": ""ADD"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_IDENTITY_CARD""}"
+20909532,1211479,,ACCOUNT_EDITED,2024-07-15T09:20:56.09683,,,,,"{""tenantId"": 1211479, ""editionType"": ""ADD"", ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""RETIRED""}"
+20909533,1257222,,ACCOUNT_EDITED,2024-07-15T09:20:56.483259,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929441, ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_IDENTITY_CARD""}"
+20909534,1257222,,ACCOUNT_EDITED,2024-07-15T09:20:58.746349,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929441, ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_IDENTITY_CARD""}"
+20909535,1237836,,ACCOUNT_EDITED,2024-07-15T09:20:58.970393,,,,,"{""tenantId"": 1237836, ""editionType"": ""DELETE"", ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20909536,1257249,,ACCOUNT_EDITED,2024-07-15T09:21:05.404236,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929435, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20909537,1159784,,ACCOUNT_EDITED,2024-07-15T09:21:06.596333,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 841125, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20909538,1257187,,ACCOUNT_EDITED,2024-07-15T09:21:10.367696,,,,,"{""tenantId"": 1257187, ""editionType"": ""ADD"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""TENANT""}"
+20909539,1254486,,ACCOUNT_EDITED,2024-07-15T09:21:13.858165,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929432, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909540,1219453,,ACCOUNT_EDITED,2024-07-15T09:21:14.38148,,,,,
+20909541,1234077,,ACCOUNT_COMPLETED,2024-07-15T09:21:14.667312,,,,,
+20909542,1257211,,ACCOUNT_EDITED,2024-07-15T09:21:15.136805,,,,,"{""tenantId"": 1257211, ""editionType"": ""DELETE"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909543,1253014,589134,ACCOUNT_VALIDATED,2024-07-15T09:21:18.329815,,,,,
+20909544,1237836,,ACCOUNT_EDITED,2024-07-15T09:21:18.965617,,,,,"{""tenantId"": 1237836, ""editionType"": ""ADD"", ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20909545,1159784,,ACCOUNT_COMPLETED,2024-07-15T09:21:22.541052,,,,,
+20909546,1256732,,ACCOUNT_EDITED,2024-07-15T09:21:24.769603,,,,,"{""step"": ""Names""}"
+20909547,1159784,,ZIP_DOWNLOAD,2024-07-15T09:21:26.617866,,,,,
+20909548,1257211,,ACCOUNT_EDITED,2024-07-15T09:21:27.170137,,,,,"{""tenantId"": 1257211, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""NO_INCOME""}"
+20909549,669174,,ACCOUNT_EDITED,2024-07-15T09:21:28.052081,,,,,"{""tenantId"": 669174, ""editionType"": ""ADD"", ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_NAME""}"
+20909550,1251873,,ACCOUNT_EDITED,2024-07-15T09:21:28.111249,,,,,"{""tenantId"": 1251873, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909551,1242293,,ACCOUNT_EDITED,2024-07-15T09:21:28.998404,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929434, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909552,1243702,,ACCOUNT_EDITED,2024-07-15T09:21:29.758085,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 916793, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909553,1240844,,ACCOUNT_EDITED,2024-07-15T09:21:31.729789,,,,,"{""tenantId"": 1240846, ""editionType"": ""DELETE"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909554,1219224,,ACCOUNT_EDITED,2024-07-15T09:21:31.886911,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929433, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909555,1180222,,ZIP_DOWNLOAD,2024-07-15T09:21:32.626956,,,,,
+20909556,914257,,ACCOUNT_EDITED,2024-07-15T09:21:34.915373,,,,,"{""tenantId"": 914257, ""editionType"": ""ADD"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_IDENTITY_CARD""}"
+20909557,1257181,,ACCOUNT_EDITED,2024-07-15T09:21:37.64216,,,,,"{""tenantId"": 1257181, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909558,1219224,,ACCOUNT_EDITED,2024-07-15T09:21:37.980736,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929433, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909559,1257181,,ACCOUNT_EDITED,2024-07-15T09:21:40.021617,,,,,"{""tenantId"": 1257181, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909560,1257229,,ACCOUNT_EDITED,2024-07-15T09:21:40.743099,,,,,"{""tenantId"": 1257229, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909561,1257249,,ACCOUNT_EDITED,2024-07-15T09:21:41.959007,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929435, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909562,1240846,,ACCOUNT_EDITED,2024-07-15T09:21:41.987673,,,,,"{""tenantId"": 1240846, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909563,1257244,,ACCOUNT_EDITED,2024-07-15T09:21:42.652703,,,,,"{""tenantId"": 1257244, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""NO_INCOME""}"
+20909564,1251873,,ACCOUNT_EDITED,2024-07-15T09:21:45.485012,,,,,"{""tenantId"": 1251873, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909565,1177166,,ACCOUNT_EDITED,2024-07-15T09:21:48.348923,,,,,"{""tenantId"": 1177166, ""editionType"": ""DELETE"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_IDENTITY_CARD""}"
+20909566,1257252,,ACCOUNT_EDITED,2024-07-15T09:21:53.154188,,,,,"{""tenantId"": 1257252, ""editionType"": ""DELETE"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_IDENTITY_CARD""}"
+20909567,1257244,,ACCOUNT_EDITED,2024-07-15T09:21:53.330589,,,,,"{""tenantId"": 1257244, ""editionType"": ""ADD"", ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_PARENTS""}"
+20909568,1222807,,ACCOUNT_EDITED,2024-07-15T09:21:57.35874,,,,,"{""tenantId"": 1222807, ""editionType"": ""ADD"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""GUEST_PARENTS""}"
+20909569,1255030,,ACCOUNT_EDITED,2024-07-15T09:22:00.385696,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 927382, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20909570,1221357,,ACCOUNT_EDITED,2024-07-15T09:22:02.913557,,,,,"{""tenantId"": 1221357, ""editionType"": ""ADD"", ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_NAME""}"
+20909571,1251873,,ACCOUNT_EDITED,2024-07-15T09:22:03.639571,,,,,"{""tenantId"": 1251873, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20927039,1258299,,ACCOUNT_EDITED,2024-07-15T13:14:04.762625,,,,,"{""step"": ""Names""}"
+20909572,1251873,,ACCOUNT_EDITED,2024-07-15T09:22:06.002382,,,,,"{""tenantId"": 1251873, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909573,1254486,,ACCOUNT_EDITED,2024-07-15T09:22:06.627709,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929432, ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_NAME""}"
+20909574,1257181,,ACCOUNT_EDITED,2024-07-15T09:22:07.993324,,,,,"{""tenantId"": 1257181, ""editionType"": ""ADD"", ""documentCategory"": ""TAX"", ""documentSubCategory"": ""OTHER_TAX""}"
+20909575,1257249,,ACCOUNT_EDITED,2024-07-15T09:22:08.782296,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929435, ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_NAME""}"
+20909576,1242293,,ACCOUNT_EDITED,2024-07-15T09:22:09.323784,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929434, ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_NAME""}"
+20909577,1256732,,ACCOUNT_EDITED,2024-07-15T09:22:10.026192,,,,,"{""tenantId"": 1256732, ""editionType"": ""ADD"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_PASSPORT""}"
+20909578,1255030,,ACCOUNT_EDITED,2024-07-15T09:22:14.454178,,,,,"{""editionType"": ""DELETE"", ""guarantorId"": 927382, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20909579,1254387,1199667,ACCOUNT_DENIED,2024-07-15T09:22:17.605345,755631,,,,
+20909580,1250665,,ZIP_DOWNLOAD,2024-07-15T09:22:17.860126,,,,,
+20909581,690304,,ACCOUNT_COMPLETED,2024-07-15T09:22:19.330601,,,,,
+20909582,1254486,,ACCOUNT_EDITED,2024-07-15T09:22:21.479778,,,,,
+20909583,1243702,,ACCOUNT_EDITED,2024-07-15T09:22:23.321631,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 916793, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909584,1257244,,ACCOUNT_EDITED,2024-07-15T09:22:24.169094,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929430, ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_IDENTITY_CARD""}"
+20909585,1242293,,ACCOUNT_COMPLETED,2024-07-15T09:22:25.371705,,,,,
+20909586,1246799,566428,ACCOUNT_DENIED,2024-07-15T09:22:26.947355,755632,,,,
+20909587,31319,,ACCOUNT_EDITED,2024-07-15T07:22:27.55655,,,,,
+20909588,1255030,,ACCOUNT_EDITED,2024-07-15T09:22:28.18529,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 927382, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20909589,31319,,ACCOUNT_EDITED,2024-07-15T07:22:29.052504,,,,,
+20909590,1219224,,ACCOUNT_EDITED,2024-07-15T09:22:29.779034,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929433, ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_NAME""}"
+20909591,31319,,ACCOUNT_EDITED,2024-07-15T07:22:30.308708,,,,,
+20909592,31319,,ACCOUNT_EDITED,2024-07-15T07:22:31.696071,,,,,
+20909593,31319,,ACCOUNT_EDITED,2024-07-15T07:22:33.010323,,,,,
+20909594,1254486,,ACCOUNT_EDITED,2024-07-15T09:22:33.071353,,,,,
+20909595,1256867,,ACCOUNT_EDITED,2024-07-15T09:22:34.068558,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929232, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909596,31319,,ACCOUNT_EDITED,2024-07-15T07:22:34.244146,,,,,
+20909597,1257244,,ACCOUNT_EDITED,2024-07-15T09:22:35.700324,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929430, ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""OWNER""}"
+20909598,1257254,,ACCOUNT_CREATED_VIA_KC,2024-07-15T09:22:36.086781,,,,,
+20909599,690304,,ZIP_DOWNLOAD,2024-07-15T09:22:36.871936,,,,,
+20909600,1237836,,ACCOUNT_EDITED,2024-07-15T09:22:37.455174,,,,,"{""tenantId"": 1237836, ""editionType"": ""DELETE"", ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20909601,1237836,,ACCOUNT_EDITED,2024-07-15T09:22:39.507577,,,,,"{""tenantId"": 1237836, ""editionType"": ""DELETE"", ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20909602,1255030,,ACCOUNT_EDITED,2024-07-15T09:22:39.723435,,,,,"{""editionType"": ""DELETE"", ""guarantorId"": 927382, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20909603,1240844,,ACCOUNT_EDITED,2024-07-15T09:22:40.633828,,,,,"{""tenantId"": 1240846, ""editionType"": ""DELETE"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909604,1257249,,ACCOUNT_EDITED,2024-07-15T09:22:43.283417,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929436, ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_IDENTITY_CARD""}"
+20909605,1257245,,ACCOUNT_EDITED,2024-07-15T09:22:43.348931,,,,,"{""tenantId"": 1257245, ""editionType"": ""ADD"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""GUEST_PARENTS""}"
+20909606,1246476,,FC_ACCOUNT_LINK,2024-07-15T09:22:45.484261,,,,,
+20909607,1257222,,ACCOUNT_EDITED,2024-07-15T09:22:47.47566,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929441, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""PUBLIC""}"
+20909608,1255030,,ACCOUNT_EDITED,2024-07-15T09:22:49.156442,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 927382, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20909609,1247707,,ACCOUNT_EDITED,2024-07-15T09:22:50.768207,,,,,
+20909610,1237836,,ACCOUNT_EDITED,2024-07-15T09:22:55.186221,,,,,"{""tenantId"": 1237836, ""editionType"": ""ADD"", ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20909611,1240846,,ACCOUNT_EDITED,2024-07-15T09:22:56.174399,,,,,"{""tenantId"": 1240846, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909612,1257249,,ACCOUNT_EDITED,2024-07-15T09:22:57.334289,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929436, ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""OWNER""}"
+20909613,1240846,,ACCOUNT_EDITED,2024-07-15T09:23:00.295534,,,,,"{""tenantId"": 1240846, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909614,1257245,,ACCOUNT_EDITED,2024-07-15T09:23:00.566618,,,,,"{""tenantId"": 1257245, ""editionType"": ""ADD"", ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDD""}"
+20909615,1254321,,ACCOUNT_EDITED,2024-07-15T09:23:02.397981,,,,,"{""editionType"": ""DELETE"", ""guarantorId"": 926753, ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_NAME""}"
+20909616,1218812,,ACCOUNT_EDITED,2024-07-15T09:23:04.75918,,,,,
+20909617,1257251,,ACCOUNT_EDITED,2024-07-15T09:23:06.112884,,,,,"{""tenantId"": 1257251, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""NO_INCOME""}"
+20909618,1257211,,ACCOUNT_EDITED,2024-07-15T09:23:06.920928,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929440, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909619,1178243,1143873,ACCOUNT_DENIED,2024-07-15T09:23:07.036255,755633,,,,
+20909620,1254321,,ACCOUNT_EDITED,2024-07-15T09:23:10.706765,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 926753, ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_NAME""}"
+20909621,1247707,,ACCOUNT_EDITED,2024-07-15T09:23:11.592625,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929445, ""documentCategory"": ""GUARANTEE_PROVIDER_CERTIFICATE"", ""documentSubCategory"": ""VISALE""}"
+20909622,1257249,,ACCOUNT_EDITED,2024-07-15T09:23:11.996272,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929436, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""PUBLIC""}"
+20909623,31319,,ACCOUNT_EDITED,2024-07-15T07:23:13.111123,,,,,
+20909624,1219224,,ACCOUNT_EDITED,2024-07-15T09:23:13.458728,,,,,"{""tenantId"": 1219224, ""editionType"": ""ADD"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_IDENTITY_CARD""}"
+20909625,1257254,,ACCOUNT_EDITED,2024-07-15T09:23:16.793309,,,,,"{""step"": ""Names""}"
+20909626,1257255,,ACCOUNT_CREATED_VIA_KC,2024-07-15T09:23:18.052495,,,,,
+20909627,1254321,,ACCOUNT_COMPLETED,2024-07-15T09:23:21.777983,,,,,
+20909628,1256867,,ACCOUNT_EDITED,2024-07-15T09:23:26.518538,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929232, ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_NAME""}"
+20909629,1249598,546579,ACCOUNT_VALIDATED,2024-07-15T09:23:30.990742,,,,,
+20909630,1219224,,ACCOUNT_EDITED,2024-07-15T09:23:39.034506,,,,,
+20909631,1251945,1199667,ACCOUNT_VALIDATED,2024-07-15T09:23:40.619192,,,,,
+20909632,1240846,,ACCOUNT_EDITED,2024-07-15T09:23:41.111204,,,,,"{""tenantId"": 1240846, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909633,1257222,,ACCOUNT_EDITED,2024-07-15T09:23:41.256961,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929441, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909634,1257252,,ACCOUNT_EDITED,2024-07-15T09:23:48.715145,,,,,"{""tenantId"": 1257252, ""editionType"": ""ADD"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_IDENTITY_CARD""}"
+20909635,1257211,,ACCOUNT_EDITED,2024-07-15T09:23:49.551348,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929440, ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_NAME""}"
+20909636,1253360,589134,ACCOUNT_DENIED,2024-07-15T09:23:50.443155,755634,,,,
+20909637,1219224,,ACCOUNT_EDITED,2024-07-15T09:23:50.495675,,,,,
+20909638,1221357,,ACCOUNT_EDITED,2024-07-15T09:23:50.644737,,,,,
+20909639,1256867,,ACCOUNT_COMPLETED,2024-07-15T09:23:57.202871,,,,,
+20909640,1257249,,ACCOUNT_EDITED,2024-07-15T09:24:01.192952,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929436, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909641,1244812,546579,ACCOUNT_DENIED,2024-07-15T09:24:02.838126,755635,,,,
+20909642,1257181,,ACCOUNT_EDITED,2024-07-15T09:24:10.804298,,,,,"{""tenantId"": 1257181, ""editionType"": ""ADD"", ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20909643,1219224,,ACCOUNT_EDITED,2024-07-15T09:24:11.256109,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929447, ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_PASSPORT""}"
+20909644,1255030,,ACCOUNT_EDITED,2024-07-15T09:24:12.713278,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 927382, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909645,1251959,,ACCOUNT_EDITED,2024-07-15T09:24:15.328276,,,,,"{""tenantId"": 1251959, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909646,1257249,,ACCOUNT_EDITED,2024-07-15T09:24:21.201048,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929436, ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_NAME""}"
+20909647,812744,,ACCOUNT_EDITED,2024-07-15T09:24:22.132047,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 610442, ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""GUEST""}"
+20909648,1241541,,ACCOUNT_DELETE,2024-07-15T09:24:23.504213,,{23},"{""id"": 1241541, ""status"": ""INCOMPLETE"", ""zipCode"": """", ""documents"": [{""id"": 6916264, ""name"": ""dossierfacile-pdf-6916264"", ""subCategory"": ""CDD"", ""documentStatus"": ""TO_PROCESS"", ""documentCategory"": ""PROFESSIONAL""}, {""id"": 6916276, ""name"": ""dossierfacile-pdf-6916276"", ""monthlySum"": 2000, ""subCategory"": ""SALARY"", ""documentStatus"": ""TO_PROCESS"", ""documentCategory"": ""FINANCIAL""}, {""id"": 6916240, ""name"": ""dossierfacile-pdf-6916240"", ""subCategory"": ""FRENCH_IDENTITY_CARD"", ""documentStatus"": ""TO_PROCESS"", ""documentCategory"": ""IDENTIFICATION""}, {""id"": 6916250, ""name"": ""dossierfacile-pdf-6916250"", ""subCategory"": ""OWNER"", ""documentStatus"": ""TO_PROCESS"", ""documentCategory"": ""RESIDENCY""}, {""id"": 6916296, ""name"": ""dossierfacile-pdf-6916296"", ""subCategory"": ""MY_NAME"", ""documentStatus"": ""TO_PROCESS"", ""documentCategory"": ""TAX""}], ""guarantors"": [{""id"": 914821, ""lastName"": ""REGULIER"", ""documents"": [], ""firstName"": ""Ruben"", ""typeGuarantor"": ""NATURAL_PERSON""}, {""id"": 914822, ""lastName"": ""MORVILLE"", ""documents"": [], ""firstName"": ""Jean Junior"", ""typeGuarantor"": ""NATURAL_PERSON""}], ""tenantType"": ""CREATE"", ""hashedEmail"": ""ae24924bb2e845c82f2d9ec8be38170d090cdce7170afa6fed64607f30e9e7e2"", ""franceConnect"": false, ""hashedLastname"": ""165a5a91ec7f163c1f446485336d17ccfb418eee2fa4011635be0dd889d1f438"", ""lastUpdateDate"": ""2024-07-12T16:00:41.628864"", ""hashedFirstname"": ""97a26a937be4b4097a02c0c9fffb6c9a9fe3382de68b6eca7d65e1f7337babc5"", ""creationDateTime"": ""2024-07-09T12:28:54.737014"", ""honorDeclaration"": false, ""hashedPreferredName"": ""e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855""}",,
+20909649,1257245,,ACCOUNT_EDITED,2024-07-15T09:24:28.8614,,,,,"{""tenantId"": 1257245, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909650,1257211,,ACCOUNT_EDITED,2024-07-15T09:24:30.905459,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929440, ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_IDENTITY_CARD""}"
+20909651,1257256,,FC_ACCOUNT_CREATION,2024-07-15T09:24:34.234339,,,,,
+20909652,1241614,546579,ACCOUNT_DENIED,2024-07-15T09:24:38.107655,755636,,,,
+20909653,1257249,,ACCOUNT_COMPLETED,2024-07-15T09:24:38.354599,,,,,
+20909654,1257256,,ACCOUNT_EDITED,2024-07-15T09:24:45.925724,,,,,"{""step"": ""Names""}"
+20909655,1257245,,ACCOUNT_EDITED,2024-07-15T09:24:46.258497,,,,,"{""tenantId"": 1257245, ""editionType"": ""ADD"", ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_PARENTS""}"
+20909656,1253357,597834,ACCOUNT_DENIED,2024-07-15T09:24:46.285443,755637,,,,
+20909657,1257251,,ACCOUNT_EDITED,2024-07-15T09:24:47.123396,,,,,"{""tenantId"": 1257251, ""editionType"": ""ADD"", ""documentCategory"": ""TAX"", ""documentSubCategory"": ""OTHER_TAX""}"
+20909658,1211479,,ACCOUNT_EDITED,2024-07-15T09:24:48.308011,,,,,"{""tenantId"": 1211479, ""editionType"": ""ADD"", ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""RETIRED""}"
+20909659,1190117,,ACCOUNT_EDITED,2024-07-15T09:24:50.798834,,,,,"{""editionType"": ""DELETE"", ""guarantorId"": 868362, ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_PASSPORT""}"
+20909660,1257249,,ACCOUNT_COMPLETED,2024-07-15T09:24:51.406127,,,,,
+20909661,1257245,,ACCOUNT_EDITED,2024-07-15T09:24:56.871006,,,,,
+20909662,690304,,ACCOUNT_COMPLETED,2024-07-15T09:25:02.176071,,,,,
+20909663,1190117,,ACCOUNT_EDITED,2024-07-15T09:25:02.853537,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 868362, ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_IDENTITY_CARD""}"
+20909664,1257245,,ACCOUNT_EDITED,2024-07-15T09:25:04.299924,,,,,
+20909665,1257251,,ACCOUNT_EDITED,2024-07-15T09:25:05.050004,,,,,
+20909666,1225119,1199667,ACCOUNT_DENIED,2024-07-15T09:25:07.286506,755638,,,,
+20909667,1257222,,ACCOUNT_EDITED,2024-07-15T09:25:07.565806,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929441, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909668,578710,589134,ACCOUNT_DENIED,2024-07-15T09:25:13.403314,755639,,,,
+20909671,1257245,,ACCOUNT_EDITED,2024-07-15T09:25:28.024898,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929449, ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_PASSPORT""}"
+20909672,1257251,,ACCOUNT_EDITED,2024-07-15T09:25:37.430746,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929450, ""documentCategory"": ""GUARANTEE_PROVIDER_CERTIFICATE"", ""documentSubCategory"": ""OTHER_GUARANTEE""}"
+20909673,1246476,,ACCOUNT_EDITED,2024-07-15T09:25:40.571453,,,,,"{""tenantId"": 1246476, ""editionType"": ""ADD"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""GUEST""}"
+20909674,469628,,ACCOUNT_EDITED,2024-07-15T09:25:41.515,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 298623, ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""OWNER""}"
+20909675,1257229,,ACCOUNT_EDITED,2024-07-15T09:25:42.110737,,,,,"{""tenantId"": 1257229, ""editionType"": ""ADD"", ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_NAME""}"
+20909676,1219224,,ACCOUNT_EDITED,2024-07-15T09:25:42.92251,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929447, ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""OWNER""}"
+20909677,690304,,ACCOUNT_COMPLETED,2024-07-15T09:25:43.470751,,,,,
+20909678,1254460,546579,ACCOUNT_VALIDATED,2024-07-15T09:25:43.650666,,,,,
+20909679,1257211,,ACCOUNT_EDITED,2024-07-15T09:25:47.931829,,,,,"{""tenantId"": 1257211, ""editionType"": ""ADD"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_IDENTITY_CARD""}"
+20909680,1257256,,ACCOUNT_EDITED,2024-07-15T09:25:50.317249,,,,,"{""tenantId"": 1257256, ""editionType"": ""ADD"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""TENANT""}"
+20909681,1257247,,ACCOUNT_EDITED,2024-07-15T09:25:52.826783,,,,,"{""tenantId"": 1257247, ""editionType"": ""ADD"", ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""STUDENT""}"
+20909682,1257257,,ACCOUNT_CREATED_VIA_KC,2024-07-15T09:25:54.785894,,,,,
+20909683,1249050,,ACCOUNT_EDITED,2024-07-15T09:25:56.051207,,,,,"{""tenantId"": 1249052, ""editionType"": ""DELETE"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""GUEST""}"
+20909684,1246476,,ACCOUNT_EDITED,2024-07-15T09:26:01.977192,,,,,"{""tenantId"": 1246476, ""editionType"": ""DELETE"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""GUEST""}"
+20909685,1251097,,ACCOUNT_EDITED,2024-07-15T09:26:03.062513,,,,,"{""tenantId"": 1251097, ""editionType"": ""ADD"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""GUEST_PARENTS""}"
+20909686,1257256,,ACCOUNT_EDITED,2024-07-15T09:26:07.091151,,,,,"{""tenantId"": 1257256, ""editionType"": ""ADD"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""TENANT""}"
+20909687,1254486,,ACCOUNT_EDITED,2024-07-15T09:26:12.250585,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929444, ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_IDENTITY_CARD""}"
+20909688,1257222,,ACCOUNT_EDITED,2024-07-15T09:26:13.159051,,,,,
+20909689,1257256,,ACCOUNT_EDITED,2024-07-15T09:26:14.903384,,,,,"{""tenantId"": 1257256, ""editionType"": ""DELETE"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""TENANT""}"
+20909690,1257229,,ACCOUNT_EDITED,2024-07-15T09:26:15.818349,,,,,
+20909691,1257245,,ACCOUNT_EDITED,2024-07-15T09:26:20.571335,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929449, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20909692,1219224,,ACCOUNT_EDITED,2024-07-15T09:26:23.803724,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929447, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""INDEPENDENT""}"
+20909693,1255592,,ZIP_DOWNLOAD,2024-07-15T09:26:25.006767,,,,,
+20909694,1257211,,ACCOUNT_COMPLETED,2024-07-15T09:26:25.198477,,,,,
+20909695,1257229,,ACCOUNT_EDITED,2024-07-15T09:26:29.470707,,,,,
+20909696,690304,,ACCOUNT_COMPLETED,2024-07-15T09:26:30.089451,,,,,
+20909697,1257222,,ACCOUNT_EDITED,2024-07-15T09:26:31.2343,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929442, ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_IDENTITY_CARD""}"
+20909698,1257251,,ACCOUNT_EDITED,2024-07-15T09:26:34.711584,,,,,"{""tenantId"": 1257251, ""editionType"": ""ADD"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""OTHER_IDENTIFICATION""}"
+20909699,1251506,,ACCOUNT_EDITED,2024-07-15T09:26:34.946008,,,,,"{""editionType"": ""DELETE"", ""guarantorId"": 923926, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20909700,1254477,597834,ACCOUNT_DENIED,2024-07-15T09:26:35.075198,755641,,,,
+20909701,1251506,,ACCOUNT_EDITED,2024-07-15T09:26:36.81666,,,,,"{""editionType"": ""DELETE"", ""guarantorId"": 923926, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20909702,1257214,,ACCOUNT_EDITED,2024-07-15T09:26:38.201324,,,,,"{""tenantId"": 1257214, ""editionType"": ""ADD"", ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20909703,1251506,,ACCOUNT_EDITED,2024-07-15T09:26:39.19983,,,,,"{""editionType"": ""DELETE"", ""guarantorId"": 923926, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20909704,1216113,589134,ACCOUNT_DENIED,2024-07-15T09:26:44.649911,755642,,,,
+20909705,1251506,,ACCOUNT_EDITED,2024-07-15T09:26:46.097577,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 923926, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20909706,1251506,,ACCOUNT_EDITED,2024-07-15T09:26:49.775817,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 923926, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20909707,1255592,,ZIP_DOWNLOAD,2024-07-15T09:26:50.384476,,,,,
+20909708,1246032,597834,ACCOUNT_VALIDATED,2024-07-15T09:26:51.225205,,,,,
+20909709,1251506,,ACCOUNT_EDITED,2024-07-15T09:26:52.803912,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 923926, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20909710,1086421,1199667,ACCOUNT_VALIDATED,2024-07-15T09:26:54.721432,,,,,
+20909711,1257257,,ACCOUNT_EDITED,2024-07-15T09:26:56.587544,,,,,"{""step"": ""Names""}"
+20909712,1177848,,ACCOUNT_EDITED,2024-07-15T09:26:57.137897,,,,,"{""tenantId"": 1177848, ""editionType"": ""ADD"", ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CTT""}"
+20909713,1251506,,ACCOUNT_EDITED,2024-07-15T09:26:58.026361,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 923926, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20909714,1211479,,ACCOUNT_EDITED,2024-07-15T09:26:58.583657,,,,,"{""tenantId"": 1211479, ""editionType"": ""ADD"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""DRIVERS_LICENSE""}"
+20909715,1257222,,ACCOUNT_EDITED,2024-07-15T09:26:58.657568,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929442, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20909716,1219224,,ACCOUNT_EDITED,2024-07-15T09:27:02.964324,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929447, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909717,1257256,,ACCOUNT_EDITED,2024-07-15T09:27:04.511793,,,,,"{""tenantId"": 1257256, ""editionType"": ""ADD"", ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""STUDENT""}"
+20909718,1257258,,ACCOUNT_CREATED_VIA_KC,2024-07-15T09:27:06.896297,,,,,
+20927408,1258329,,ACCOUNT_CREATED_VIA_KC,2024-07-15T13:19:13.290991,,,,,
+20909719,1219224,,ACCOUNT_EDITED,2024-07-15T09:27:09.482261,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929447, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909720,1257247,,ACCOUNT_EDITED,2024-07-15T09:27:10.88327,,,,,"{""tenantId"": 1257247, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909721,1257256,,ACCOUNT_EDITED,2024-07-15T09:27:11.162518,,,,,"{""tenantId"": 1257256, ""editionType"": ""DELETE"", ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""STUDENT""}"
+20909722,1257245,,ACCOUNT_EDITED,2024-07-15T09:27:13.639743,,,,,"{""editionType"": ""DELETE"", ""guarantorId"": 929449, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20909723,1257222,,ACCOUNT_EDITED,2024-07-15T09:27:15.83248,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929442, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909724,1177848,,ACCOUNT_COMPLETED,2024-07-15T09:27:16.557119,,,,,
+20909725,1257259,,FC_ACCOUNT_CREATION,2024-07-15T09:27:17.315042,,,,,
+20909726,1251506,,ACCOUNT_EDITED,2024-07-15T09:27:18.462638,,,,,"{""editionType"": ""DELETE"", ""guarantorId"": 923926, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20909727,1219224,,ACCOUNT_EDITED,2024-07-15T09:27:18.736281,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929447, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909728,1191089,597834,ACCOUNT_DENIED,2024-07-15T09:27:18.892324,755643,,,,
+20909729,1257245,,ACCOUNT_EDITED,2024-07-15T09:27:18.991656,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929449, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20909730,1257247,,ACCOUNT_EDITED,2024-07-15T09:27:21.154382,,,,,"{""tenantId"": 1257247, ""editionType"": ""DELETE"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909731,1257181,,ACCOUNT_EDITED,2024-07-15T09:27:21.824722,,,,,"{""tenantId"": 1257181, ""editionType"": ""ADD"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""TENANT""}"
+20909732,469628,,ACCOUNT_EDITED,2024-07-15T09:27:24.026526,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 298623, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20909733,469628,,ACCOUNT_EDITED,2024-07-15T09:27:26.43185,,,,,"{""editionType"": ""DELETE"", ""guarantorId"": 298623, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20909734,1257259,,ACCOUNT_EDITED,2024-07-15T09:27:27.362442,,,,,"{""step"": ""Names""}"
+20909735,1257222,,ACCOUNT_EDITED,2024-07-15T09:27:28.187193,,,,,"{""editionType"": ""DELETE"", ""guarantorId"": 929442, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20909736,1254444,1143873,ACCOUNT_DENIED,2024-07-15T09:27:34.795292,755644,,,,
+20909737,1257260,,FC_ACCOUNT_CREATION,2024-07-15T09:27:36.871979,,,,,
+20909738,1257256,,ACCOUNT_EDITED,2024-07-15T09:27:37.07464,,,,,"{""tenantId"": 1257256, ""editionType"": ""ADD"", ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDD""}"
+20909739,1257260,,ACCOUNT_EDITED,2024-07-15T09:27:45.370542,,,,,"{""step"": ""Names""}"
+20909740,914257,,ACCOUNT_EDITED,2024-07-15T09:27:46.89058,,,,,"{""tenantId"": 914257, ""editionType"": ""ADD"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""TENANT""}"
+20909741,1246476,,ACCOUNT_EDITED,2024-07-15T09:27:47.068316,,,,,"{""tenantId"": 1246476, ""editionType"": ""ADD"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""GUEST""}"
+20909742,1257222,,ACCOUNT_EDITED,2024-07-15T09:27:47.609272,,,,,"{""editionType"": ""DELETE"", ""guarantorId"": 929442, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20909743,1257222,,ACCOUNT_EDITED,2024-07-15T09:27:50.674533,,,,,"{""editionType"": ""DELETE"", ""guarantorId"": 929442, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20909744,1257259,,APPLICATION_TYPE_CHANGED,2024-07-15T09:27:53.66365,,,,,"{""newType"": ""COUPLE"", ""oldType"": ""ALONE""}"
+20909745,1254433,589134,ACCOUNT_DENIED,2024-07-15T09:27:53.828367,755645,,,,
+20909746,1257261,,ACCOUNT_CREATED,2024-07-15T09:27:53.989431,,,,,
+20909747,1257259,,ACCOUNT_EDITED,2024-07-15T09:27:54.076844,,,,,
+20909748,1249711,,ACCOUNT_EDITED,2024-07-15T09:27:56.077831,,,,,"{""editionType"": ""DELETE"", ""guarantorId"": 928173, ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""OWNER""}"
+20909749,1257222,,ACCOUNT_EDITED,2024-07-15T09:27:56.532465,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929442, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20909750,1257229,,ACCOUNT_EDITED,2024-07-15T09:27:57.644927,,,,,"{""tenantId"": 1257229, ""editionType"": ""ADD"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""OWNER""}"
+20909751,812744,,ACCOUNT_EDITED,2024-07-15T09:27:59.619016,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 610442, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""PENSION""}"
+20909752,1257245,,ACCOUNT_EDITED,2024-07-15T09:28:02.244946,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929449, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909753,1251097,,ACCOUNT_EDITED,2024-07-15T09:28:02.307247,,,,,"{""tenantId"": 1251097, ""editionType"": ""DELETE"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""GUEST_PARENTS""}"
+20909754,1256732,,ACCOUNT_EDITED,2024-07-15T09:28:03.299817,,,,,"{""tenantId"": 1256732, ""editionType"": ""ADD"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""TENANT""}"
+20909755,1249711,,ACCOUNT_EDITED,2024-07-15T09:28:10.334923,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 928173, ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""OWNER""}"
+20909756,914257,,ACCOUNT_EDITED,2024-07-15T09:28:11.884513,,,,,"{""tenantId"": 914257, ""editionType"": ""ADD"", ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""STUDENT""}"
+20909757,1254430,1199667,ACCOUNT_DENIED,2024-07-15T09:28:11.958711,755646,,,,
+20909758,1220559,586437,ACCOUNT_DENIED,2024-07-15T09:28:13.420957,755647,,,,
+20909759,812744,,ACCOUNT_EDITED,2024-07-15T09:28:17.880816,,,,,"{""editionType"": ""DELETE"", ""guarantorId"": 610442, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""PENSION""}"
+20909760,1257176,,ACCOUNT_EDITED,2024-07-15T09:28:18.581723,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929387, ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_NAME""}"
+20909761,1177166,,ACCOUNT_EDITED,2024-07-15T09:28:19.08537,,,,,"{""tenantId"": 1177166, ""editionType"": ""ADD"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_IDENTITY_CARD""}"
+20909762,1251506,,ACCOUNT_EDITED,2024-07-15T09:28:19.587712,,,,,"{""editionType"": ""DELETE"", ""guarantorId"": 923926, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909763,1219224,,ACCOUNT_EDITED,2024-07-15T09:28:20.673525,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929447, ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_NAME""}"
+20909764,1251506,,ACCOUNT_EDITED,2024-07-15T09:28:21.594801,,,,,"{""editionType"": ""DELETE"", ""guarantorId"": 923926, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909765,1251506,,ACCOUNT_EDITED,2024-07-15T09:28:23.258749,,,,,"{""editionType"": ""DELETE"", ""guarantorId"": 923926, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909766,1246476,,ACCOUNT_EDITED,2024-07-15T09:28:25.410906,,,,,"{""tenantId"": 1246476, ""editionType"": ""ADD"", ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20909767,1251506,,ACCOUNT_EDITED,2024-07-15T09:28:28.839544,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 923926, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909768,1257179,,ACCOUNT_EDITED,2024-07-15T09:28:28.931684,,,,,"{""tenantId"": 1257179, ""editionType"": ""ADD"", ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20909769,1257245,,ACCOUNT_EDITED,2024-07-15T09:28:30.910996,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929449, ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_NAME""}"
+20909770,1257222,,ACCOUNT_EDITED,2024-07-15T09:28:31.736666,,,,,"{""editionType"": ""DELETE"", ""guarantorId"": 929441, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909771,1251506,,ACCOUNT_EDITED,2024-07-15T09:28:31.754882,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 923926, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909772,1246928,,ACCOUNT_EDITED,2024-07-15T09:28:31.998785,,,,,"{""tenantId"": 1246928, ""editionType"": ""ADD"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""GUEST_PARENTS""}"
+20909773,469628,,ACCOUNT_EDITED,2024-07-15T09:28:32.066257,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 298623, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20909774,1251506,,ACCOUNT_EDITED,2024-07-15T09:28:34.521626,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 923926, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909775,914257,,ACCOUNT_EDITED,2024-07-15T09:28:36.995327,,,,,"{""tenantId"": 914257, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SCHOLARSHIP""}"
+20909776,1257262,,FC_ACCOUNT_CREATION,2024-07-15T09:28:40.460261,,,,,
+20909777,1254481,589134,ACCOUNT_VALIDATED,2024-07-15T09:28:42.121582,,,,,
+20909778,1257176,,ACCOUNT_EDITED,2024-07-15T09:28:42.32877,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929387, ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_NAME""}"
+20909779,1153747,,ACCOUNT_EDITED,2024-07-15T09:28:43.83502,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929425, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909780,1257246,,ACCOUNT_EDITED,2024-07-15T09:28:46.921604,,,,,"{""step"": ""Names""}"
+20909781,1251279,546579,ACCOUNT_DENIED,2024-07-15T09:28:50.178142,755648,,,,
+20909782,1251506,,ACCOUNT_COMPLETED,2024-07-15T09:28:51.581645,,,,,
+20909783,1257214,,ACCOUNT_EDITED,2024-07-15T09:28:51.909031,,,,,"{""tenantId"": 1257214, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909784,1257179,,ACCOUNT_COMPLETED,2024-07-15T09:28:52.490921,,,,,
+20909785,1257260,,APPLICATION_TYPE_CHANGED,2024-07-15T09:28:53.590099,,,,,"{""newType"": ""COUPLE"", ""oldType"": ""ALONE""}"
+20909786,1257263,,ACCOUNT_CREATED,2024-07-15T09:28:53.876023,,,,,
+20909787,1257260,,ACCOUNT_EDITED,2024-07-15T09:28:53.941205,,,,,
+20909788,1257264,,ACCOUNT_CREATED,2024-07-15T09:28:54.591255,,,,,
+20909789,1257264,,ACCOUNT_EDITED,2024-07-15T09:28:54.794981,,,,,"{""step"": ""Names""}"
+20909790,1257247,,ACCOUNT_EDITED,2024-07-15T09:28:57.906914,,,,,"{""tenantId"": 1257247, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909791,1257176,,ACCOUNT_EDITED,2024-07-15T09:28:58.044578,,,,,"{""editionType"": ""DELETE"", ""guarantorId"": 929387, ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_NAME""}"
+20909792,1257264,,ACCOUNT_EDITED,2024-07-15T09:29:00.431651,,,,,
+20909793,1254429,1199667,ACCOUNT_VALIDATED,2024-07-15T09:29:01.594854,,,,,
+20909794,1257246,,ACCOUNT_EDITED,2024-07-15T09:29:03.218782,,,,,"{""tenantId"": 1257246, ""editionType"": ""ADD"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_IDENTITY_CARD""}"
+20909795,812744,,ACCOUNT_EDITED,2024-07-15T09:29:04.362666,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 610442, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""PENSION""}"
+20909796,469628,,ACCOUNT_EDITED,2024-07-15T09:29:06.865692,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 298623, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909797,1256732,,ACCOUNT_EDITED,2024-07-15T09:29:10.696164,,,,,"{""tenantId"": 1256732, ""editionType"": ""DELETE"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""TENANT""}"
+20909798,1197001,106085,ACCOUNT_DENIED,2024-07-15T09:29:11.559135,755649,,,,
+20909799,469628,,ACCOUNT_EDITED,2024-07-15T09:29:12.857243,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 298623, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909800,812744,,ACCOUNT_COMPLETED,2024-07-15T09:29:13.449273,,,,,
+20909801,1257256,,ACCOUNT_EDITED,2024-07-15T09:29:13.92397,,,,,"{""tenantId"": 1257256, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909802,1256732,,ACCOUNT_EDITED,2024-07-15T09:29:16.780842,,,,,"{""tenantId"": 1256732, ""editionType"": ""ADD"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""TENANT""}"
+20909803,1220975,,APPLICATION_TYPE_CHANGED,2024-07-15T09:29:21.681501,,,,,"{""newType"": ""COUPLE"", ""oldType"": ""ALONE""}"
+20909804,1257265,,ACCOUNT_CREATED,2024-07-15T09:29:22.057624,,,,,
+20909805,1220975,,ACCOUNT_EDITED,2024-07-15T09:29:22.135433,,,,,
+20909806,1257260,,ACCOUNT_EDITED,2024-07-15T09:29:24.305217,,,,,"{""tenantId"": 1257260, ""editionType"": ""ADD"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_IDENTITY_CARD""}"
+20909807,1257176,,ACCOUNT_EDITED,2024-07-15T09:29:24.573903,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929400, ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_NAME""}"
+20909808,914257,,ACCOUNT_EDITED,2024-07-15T09:29:28.948949,,,,,"{""tenantId"": 914257, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SCHOLARSHIP""}"
+20909809,1206474,,ACCOUNT_EDITED,2024-07-15T09:29:29.505908,,,,,"{""tenantId"": 1206474, ""editionType"": ""ADD"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""TENANT""}"
+20909810,1246928,,ACCOUNT_EDITED,2024-07-15T09:29:29.86814,,,,,"{""tenantId"": 1246928, ""editionType"": ""ADD"", ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20909811,1250599,,ZIP_DOWNLOAD,2024-07-15T09:29:33.119119,,,,,
+20909812,1257246,,ACCOUNT_EDITED,2024-07-15T09:29:34.94578,,,,,"{""tenantId"": 1257246, ""editionType"": ""ADD"", ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""INTERNSHIP""}"
+20909813,1252964,,ACCOUNT_EDITED,2024-07-15T09:29:37.239211,,,,,"{""tenantId"": 1252964, ""editionType"": ""ADD"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_IDENTITY_CARD""}"
+20909814,1257233,,ACCOUNT_EDITED,2024-07-15T09:29:37.7129,,,,,"{""tenantId"": 1257233, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909815,1241611,586437,ACCOUNT_DENIED,2024-07-15T09:29:37.816905,755650,,,,
+20911642,1257260,,ACCOUNT_EDITED,2024-07-15T10:07:14.044184,,,,,"{""tenantId"": 1257260, ""editionType"": ""ADD"", ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_PARENTS""}"
+20909816,914257,,ACCOUNT_EDITED,2024-07-15T09:29:38.245495,,,,,"{""tenantId"": 914257, ""editionType"": ""DELETE"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SCHOLARSHIP""}"
+20909817,1257266,,ACCOUNT_CREATED_VIA_KC,2024-07-15T09:29:40.096468,,,,,
+20909818,1250599,,ZIP_DOWNLOAD,2024-07-15T09:29:40.670656,,,,,
+20909819,1257176,,ACCOUNT_EDITED,2024-07-15T09:29:41.379837,,,,,"{""tenantId"": 1257176, ""editionType"": ""ADD"", ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_PARENTS""}"
+20909820,1252964,,ACCOUNT_EDITED,2024-07-15T09:29:43.251929,,,,,"{""tenantId"": 1252964, ""editionType"": ""DELETE"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_IDENTITY_CARD""}"
+20909821,914257,,ACCOUNT_EDITED,2024-07-15T09:29:47.080515,,,,,"{""tenantId"": 914257, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SCHOLARSHIP""}"
+20909822,1238719,,ACCOUNT_EDITED,2024-07-15T09:29:51.588298,,,,,"{""editionType"": ""DELETE"", ""guarantorId"": 912303, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909823,914257,,ACCOUNT_EDITED,2024-07-15T09:29:52.776875,,,,,"{""tenantId"": 914257, ""editionType"": ""DELETE"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SCHOLARSHIP""}"
+20909824,469628,,ACCOUNT_EDITED,2024-07-15T09:29:54.081919,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 298623, ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_NAME""}"
+20909825,1096055,,ACCOUNT_COMPLETED,2024-07-15T09:29:56.999334,,,,,
+20909826,1257256,,ACCOUNT_EDITED,2024-07-15T09:29:57.196947,,,,,"{""tenantId"": 1257256, ""editionType"": ""DELETE"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""TENANT""}"
+20909827,1257256,,ACCOUNT_EDITED,2024-07-15T09:29:59.200679,,,,,"{""tenantId"": 1257256, ""editionType"": ""DELETE"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""TENANT""}"
+20909828,1233308,589134,ACCOUNT_VALIDATED,2024-07-15T09:29:59.365015,,,,,
+20909829,1257244,,ACCOUNT_EDITED,2024-07-15T09:30:00.579016,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929430, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20909830,1254380,1143873,ACCOUNT_DENIED,2024-07-15T09:30:00.97734,755651,,,,
+20909831,1257256,,ACCOUNT_EDITED,2024-07-15T09:30:01.060347,,,,,"{""tenantId"": 1257256, ""editionType"": ""DELETE"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""TENANT""}"
+20909832,1257246,,ACCOUNT_EDITED,2024-07-15T09:30:03.894506,,,,,"{""tenantId"": 1257246, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909833,914257,,ACCOUNT_EDITED,2024-07-15T09:30:06.62341,,,,,"{""tenantId"": 914257, ""editionType"": ""ADD"", ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_PARENTS""}"
+20909834,1257256,,ACCOUNT_EDITED,2024-07-15T09:30:07.566133,,,,,"{""tenantId"": 1257256, ""editionType"": ""ADD"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""TENANT""}"
+20909835,1244835,546579,ACCOUNT_VALIDATED,2024-07-15T09:30:10.490811,,,,,
+20909836,1257267,,FC_ACCOUNT_CREATION,2024-07-15T09:30:13.943664,,,,,
+20909837,1257256,,ACCOUNT_EDITED,2024-07-15T09:30:15.703796,,,,,"{""tenantId"": 1257256, ""editionType"": ""ADD"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""TENANT""}"
+20909838,1257246,,ACCOUNT_EDITED,2024-07-15T09:30:16.423339,,,,,"{""tenantId"": 1257246, ""editionType"": ""ADD"", ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_PARENTS""}"
+20909839,1254462,1199667,ACCOUNT_DENIED,2024-07-15T09:30:19.220074,755652,,,,
+20909840,1257246,,ACCOUNT_EDITED,2024-07-15T09:30:21.524551,,,,,
+20909841,1257267,,ACCOUNT_EDITED,2024-07-15T09:30:23.896649,,,,,"{""step"": ""Names""}"
+20909842,924070,,ACCOUNT_EDITED,2024-07-15T09:30:27.02597,,,,,
+20909843,1257268,,ACCOUNT_CREATED_VIA_KC,2024-07-15T09:30:28.148873,,,,,
+20909844,1246928,,ACCOUNT_EDITED,2024-07-15T09:30:28.471944,,,,,"{""tenantId"": 1246928, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909845,1257246,,ACCOUNT_EDITED,2024-07-15T09:30:28.550228,,,,,
+20909846,914257,,ACCOUNT_EDITED,2024-07-15T09:30:30.100728,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 645476, ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_IDENTITY_CARD""}"
+20909847,1238719,,ACCOUNT_EDITED,2024-07-15T09:30:33.552047,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 912303, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909848,1246928,,ACCOUNT_EDITED,2024-07-15T09:30:37.028155,,,,,"{""tenantId"": 1246928, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909849,1257246,,ACCOUNT_EDITED,2024-07-15T09:30:38.544719,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929452, ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_IDENTITY_CARD""}"
+20909850,1257247,,ACCOUNT_EDITED,2024-07-15T09:30:39.426702,,,,,"{""tenantId"": 1257247, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909851,924070,,ACCOUNT_EDITED,2024-07-15T09:30:46.753509,,,,,"{""tenantId"": 924070, ""editionType"": ""DELETE"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""TENANT""}"
+20909852,1252022,,ACCOUNT_COMPLETED,2024-07-15T09:30:48.215281,,,,,
+20909853,924070,,ACCOUNT_EDITED,2024-07-15T09:30:48.696261,,,,,"{""tenantId"": 924070, ""editionType"": ""DELETE"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""TENANT""}"
+20909854,987376,589134,ACCOUNT_DENIED,2024-07-15T09:30:49.041294,755653,,,,
+20909855,924070,,ACCOUNT_EDITED,2024-07-15T09:30:50.380697,,,,,"{""tenantId"": 924070, ""editionType"": ""DELETE"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""TENANT""}"
+20909856,1257247,,ACCOUNT_EDITED,2024-07-15T09:30:53.799562,,,,,"{""tenantId"": 1257247, ""editionType"": ""ADD"", ""documentCategory"": ""TAX"", ""documentSubCategory"": ""LESS_THAN_YEAR""}"
+20909857,1257269,,ACCOUNT_CREATED,2024-07-15T09:30:58.039137,,,,,
+20909858,1257267,,APPLICATION_TYPE_CHANGED,2024-07-15T09:30:59.001551,,,,,"{""newType"": ""COUPLE"", ""oldType"": ""ALONE""}"
+20909859,1257270,,ACCOUNT_CREATED,2024-07-15T09:30:59.040641,,,,,
+20909860,1257267,,ACCOUNT_EDITED,2024-07-15T09:30:59.114043,,,,,
+20909861,1254486,,ACCOUNT_EDITED,2024-07-15T09:30:59.404289,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929444, ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""OWNER""}"
+20909862,1257256,,ACCOUNT_EDITED,2024-07-15T09:30:59.436682,,,,,"{""tenantId"": 1257256, ""editionType"": ""ADD"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_IDENTITY_CARD""}"
+20909863,1257246,,ACCOUNT_EDITED,2024-07-15T09:31:00.45448,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929452, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20909864,1257216,,ACCOUNT_EDITED,2024-07-15T09:31:07.101567,,,,,"{""tenantId"": 1257216, ""editionType"": ""ADD"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_IDENTITY_CARD""}"
+20909865,1178657,1143873,ACCOUNT_VALIDATED,2024-07-15T09:31:11.76746,,,,,
+20909866,1252964,,ACCOUNT_EDITED,2024-07-15T09:31:12.852445,,,,,"{""editionType"": ""DELETE"", ""guarantorId"": 925766, ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""OWNER""}"
+20909868,1257267,,ACCOUNT_EDITED,2024-07-15T09:31:20.422377,,,,,"{""tenantId"": 1257267, ""editionType"": ""ADD"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_IDENTITY_CARD""}"
+20909869,1246928,,ACCOUNT_EDITED,2024-07-15T09:31:20.419349,,,,,"{""tenantId"": 1246928, ""editionType"": ""ADD"", ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_NAME""}"
+20909870,1256421,,ACCOUNT_EDITED,2024-07-15T09:31:22.389263,,,,,"{""tenantId"": 1256421, ""editionType"": ""ADD"", ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""STUDENT""}"
+20909871,1254486,,ACCOUNT_EDITED,2024-07-15T09:31:23.905549,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929444, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""PUBLIC""}"
+20909872,1224182,,ACCOUNT_EDITED,2024-07-15T09:31:24.370193,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929271, ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""OWNER""}"
+20909873,1257271,,FC_ACCOUNT_CREATION,2024-07-15T09:31:26.820189,,,,,
+20909874,1131403,,ACCOUNT_EDITED,2024-07-15T09:31:27.538638,,,,,
+20909875,1257247,,ACCOUNT_EDITED,2024-07-15T09:31:28.661442,,,,,
+20909876,1254486,,ACCOUNT_EDITED,2024-07-15T09:31:28.822182,,,,,"{""editionType"": ""DELETE"", ""guarantorId"": 929444, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""PUBLIC""}"
+20909877,1257214,,ACCOUNT_EDITED,2024-07-15T09:31:31.218466,,,,,"{""tenantId"": 1257214, ""editionType"": ""ADD"", ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_NAME""}"
+20909878,1257271,,ACCOUNT_EDITED,2024-07-15T09:31:34.955424,,,,,"{""step"": ""Names""}"
+20909879,1257246,,ACCOUNT_EDITED,2024-07-15T09:31:38.084961,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929452, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909880,1131403,,ACCOUNT_EDITED,2024-07-15T09:31:38.823578,,,,,
+20909881,1252964,,ACCOUNT_EDITED,2024-07-15T09:31:42.370546,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 925766, ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""OWNER""}"
+20909882,1254486,,ACCOUNT_EDITED,2024-07-15T09:31:43.619226,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929444, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""PUBLIC""}"
+20909883,1142044,,ACCOUNT_DELETE,2024-07-15T09:31:44.05419,,{},"{""id"": 1142044, ""status"": ""VALIDATED"", ""zipCode"": ""74150"", ""documents"": [{""id"": 6132561, ""name"": ""dossierfacile-pdf-6132561"", ""subCategory"": ""FRENCH_IDENTITY_CARD"", ""documentStatus"": ""VALIDATED"", ""documentCategory"": ""IDENTIFICATION""}, {""id"": 6132621, ""name"": ""dossierfacile-pdf-6132621"", ""monthlySum"": 2197, ""subCategory"": ""SALARY"", ""documentStatus"": ""VALIDATED"", ""documentCategory"": ""FINANCIAL""}, {""id"": 6132603, ""name"": ""dossierfacile-pdf-6132603"", ""subCategory"": ""PUBLIC"", ""documentStatus"": ""VALIDATED"", ""documentCategory"": ""PROFESSIONAL""}, {""id"": 6132632, ""name"": ""dossierfacile-pdf-6132632"", ""subCategory"": ""MY_NAME"", ""documentStatus"": ""VALIDATED"", ""documentCategory"": ""TAX""}, {""id"": 6132861, ""name"": ""dossierfacile-pdf-6132861"", ""subCategory"": ""TENANT"", ""documentStatus"": ""VALIDATED"", ""documentCategory"": ""RESIDENCY""}], ""guarantors"": [{""id"": 832726, ""lastName"": ""Guilloteau"", ""documents"": [{""id"": 6186350, ""name"": ""dossierfacile-pdf-6186350"", ""subCategory"": ""FRENCH_IDENTITY_CARD"", ""documentStatus"": ""VALIDATED"", ""documentCategory"": ""IDENTIFICATION""}, {""id"": 6186704, ""name"": ""dossierfacile-pdf-6186704"", ""monthlySum"": 3048, ""subCategory"": ""SALARY"", ""documentStatus"": ""VALIDATED"", ""documentCategory"": ""FINANCIAL""}, {""id"": 6186495, ""name"": ""dossierfacile-pdf-6186495"", ""subCategory"": ""MY_NAME"", ""documentStatus"": ""VALIDATED"", ""documentCategory"": ""TAX""}, {""id"": 6186561, ""name"": ""dossierfacile-pdf-6186561"", ""subCategory"": ""INDEPENDENT"", ""documentStatus"": ""VALIDATED"", ""documentCategory"": ""PROFESSIONAL""}, {""id"": 6192470, ""name"": ""dossierfacile-pdf-6192470"", ""subCategory"": ""OWNER"", ""documentStatus"": ""VALIDATED"", ""documentCategory"": ""RESIDENCY""}], ""firstName"": ""Philippe"", ""typeGuarantor"": ""NATURAL_PERSON""}, {""id"": 832804, ""lastName"": ""Guilloteau"", ""documents"": [{""id"": 6186825, ""name"": ""dossierfacile-pdf-6186825"", ""subCategory"": ""PUBLIC"", ""documentStatus"": ""VALIDATED"", ""documentCategory"": ""PROFESSIONAL""}, {""id"": 6186859, ""name"": ""dossierfacile-pdf-6186859"", ""monthlySum"": 3051, ""subCategory"": ""SALARY"", ""documentStatus"": ""VALIDATED"", ""documentCategory"": ""FINANCIAL""}, {""id"": 6186793, ""name"": ""dossierfacile-pdf-6186793"", ""subCategory"": ""MY_NAME"", ""documentStatus"": ""VALIDATED"", ""documentCategory"": ""TAX""}, {""id"": 6192510, ""name"": ""dossierfacile-pdf-6192510"", ""subCategory"": ""FRENCH_PASSPORT"", ""documentStatus"": ""VALIDATED"", ""documentCategory"": ""IDENTIFICATION""}, {""id"": 6192500, ""name"": ""dossierfacile-pdf-6192500"", ""subCategory"": ""OWNER"", ""documentStatus"": ""VALIDATED"", ""documentCategory"": ""RESIDENCY""}], ""firstName"": ""Sylvie"", ""typeGuarantor"": ""NATURAL_PERSON""}], ""tenantType"": ""CREATE"", ""hashedEmail"": ""f9512dd6d09bef179db34b56c71ddbdbc1d2306f2841f45a04ec65aea212456f"", ""franceConnect"": true, ""hashedLastname"": ""b2fdb89ad06900afb3348d8b6f66fdddfb61c76705c19a926929daeb88e836a3"", ""lastUpdateDate"": ""2024-06-05T17:21:09.685419"", ""hashedFirstname"": ""185ccecd0641350f9595e3e24aa1b1a0355d030342689fb80870d5e1a914f4b3"", ""creationDateTime"": ""2024-06-02T10:57:06.948745"", ""honorDeclaration"": true, ""hashedPreferredName"": ""e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855""}",,
+20909885,613000,,DO_NOT_ARCHIVE,2024-07-15T09:31:46.711,,,,,
+20909886,1185784,,ZIP_DOWNLOAD,2024-07-15T09:31:49.040862,,,,,
+20909887,1257246,,ACCOUNT_EDITED,2024-07-15T09:31:50.274066,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929452, ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_NAME""}"
+20909888,1246928,,ACCOUNT_COMPLETED,2024-07-15T09:31:51.94876,,,,,
+20909889,1207331,,ACCOUNT_EDITED,2024-07-15T09:31:53.902018,,,,,"{""editionType"": ""DELETE"", ""guarantorId"": 928905, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20909890,1029665,546579,ACCOUNT_VALIDATED,2024-07-15T09:31:53.908585,,,,,
+20909891,1220975,,ACCOUNT_EDITED,2024-07-15T09:31:54.348942,,,,,"{""tenantId"": 1220975, ""editionType"": ""ADD"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_IDENTITY_CARD""}"
+20909892,1257256,,ACCOUNT_EDITED,2024-07-15T09:31:58.061909,,,,,"{""tenantId"": 1257256, ""editionType"": ""ADD"", ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_NAME""}"
+20909893,1257267,,ACCOUNT_EDITED,2024-07-15T09:31:58.415915,,,,,"{""tenantId"": 1257267, ""editionType"": ""ADD"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""TENANT""}"
+20909894,1220721,,ACCOUNT_EDITED,2024-07-15T09:32:01.113041,,,,,
+20909895,1207331,,ACCOUNT_EDITED,2024-07-15T09:32:08.703707,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 928905, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20909896,1257229,,ACCOUNT_COMPLETED,2024-07-15T09:32:09.046051,,,,,
+20909897,1257273,,ACCOUNT_CREATED_VIA_KC,2024-07-15T09:32:09.468083,,,,,
+20909898,1257244,,ACCOUNT_EDITED,2024-07-15T09:32:10.792923,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929430, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909899,1257247,,ACCOUNT_EDITED,2024-07-15T09:32:11.145309,,,,,"{""tenantId"": 1257247, ""editionType"": ""ADD"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_PASSPORT""}"
+20909900,1254427,597834,ACCOUNT_DENIED,2024-07-15T09:32:12.585255,755655,,,,
+20909901,1257256,,ACCOUNT_EDITED,2024-07-15T09:32:15.053909,,,,,
+20909902,1257187,,ACCOUNT_EDITED,2024-07-15T09:32:15.17532,,,,,"{""tenantId"": 1257187, ""editionType"": ""ADD"", ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""STUDENT""}"
+20909903,739376,,ACCOUNT_EDITED,2024-07-15T09:32:15.536763,,,,,"{""tenantId"": 739376, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909904,1250599,,ZIP_DOWNLOAD,2024-07-15T09:32:19.241184,,,,,
+20909905,1257273,,ACCOUNT_EDITED,2024-07-15T09:32:25.061418,,,,,"{""step"": ""Names""}"
+20909906,1220054,,ACCOUNT_COMPLETED,2024-07-15T09:32:25.162554,,,,,
+20909907,1257247,,ACCOUNT_EDITED,2024-07-15T09:32:25.5348,,,,,"{""tenantId"": 1257247, ""editionType"": ""ADD"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_PASSPORT""}"
+20909908,1069199,,ACCOUNT_EDITED,2024-07-15T09:32:27.411369,,,,,"{""tenantId"": 1069199, ""editionType"": ""DELETE"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_PASSPORT""}"
+20909909,1069199,,ACCOUNT_EDITED,2024-07-15T09:32:30.518865,,,,,"{""tenantId"": 1069199, ""editionType"": ""ADD"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_PASSPORT""}"
+20909910,1257256,,ACCOUNT_EDITED,2024-07-15T09:32:30.769798,,,,,
+20909911,1207331,,ACCOUNT_COMPLETED,2024-07-15T09:32:37.672003,,,,,
+20909912,1254410,586437,ACCOUNT_DENIED,2024-07-15T09:32:40.325358,755656,,,,
+20909913,1257274,,FC_ACCOUNT_CREATION,2024-07-15T09:32:40.426511,,,,,
+20909914,1221979,546579,ACCOUNT_VALIDATED,2024-07-15T09:32:44.617222,,,,,
+20909915,1254471,597834,ACCOUNT_VALIDATED,2024-07-15T09:32:48.277433,,,,,
+20909916,1257267,,ACCOUNT_EDITED,2024-07-15T09:32:49.582427,,,,,"{""tenantId"": 1257267, ""editionType"": ""ADD"", ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""PUBLIC""}"
+20909917,1257208,,ACCOUNT_EDITED,2024-07-15T09:32:53.046102,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929421, ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""OWNER""}"
+20909918,1219224,,ACCOUNT_COMPLETED,2024-07-15T09:32:53.749391,,,,,
+20909919,1251873,,ACCOUNT_EDITED,2024-07-15T09:32:54.29504,,,,,"{""tenantId"": 1251873, ""editionType"": ""ADD"", ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_NAME""}"
+20909920,1257256,,ACCOUNT_EDITED,2024-07-15T09:32:56.445921,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929455, ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_IDENTITY_CARD""}"
+20909921,1257275,,FC_ACCOUNT_CREATION,2024-07-15T09:32:56.456302,,,,,
+20909922,1251236,106085,ACCOUNT_DENIED,2024-07-15T09:32:58.024596,755658,,,,
+20909923,1238719,,ACCOUNT_EDITED,2024-07-15T09:33:01.704447,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 912303, ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_NAME""}"
+20909924,1257267,,ACCOUNT_EDITED,2024-07-15T09:33:02.240177,,,,,"{""tenantId"": 1257267, ""editionType"": ""ADD"", ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""PUBLIC""}"
+20909925,1257244,,ACCOUNT_EDITED,2024-07-15T09:33:03.579831,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929430, ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_NAME""}"
+20909926,1257273,,ACCOUNT_EDITED,2024-07-15T09:33:03.626644,,,,,"{""tenantId"": 1257273, ""editionType"": ""ADD"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_PASSPORT""}"
+20909927,1257276,,FC_ACCOUNT_CREATION,2024-07-15T09:33:05.035819,,,,,
+20909928,739376,,ACCOUNT_EDITED,2024-07-15T09:33:07.575853,,,,,
+20909929,1247275,1199667,ACCOUNT_VALIDATED,2024-07-15T09:33:09.701084,,,,,
+20909930,1257187,,ACCOUNT_EDITED,2024-07-15T09:33:12.726678,,,,,"{""tenantId"": 1257187, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""NO_INCOME""}"
+20909931,1257208,,ACCOUNT_EDITED,2024-07-15T09:33:14.573047,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929421, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20909932,1238719,,ACCOUNT_COMPLETED,2024-07-15T09:33:16.319223,,,,,
+20909933,924070,,ACCOUNT_EDITED,2024-07-15T09:33:18.330239,,,,,"{""tenantId"": 924070, ""editionType"": ""ADD"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""TENANT""}"
+20909934,1257276,,ACCOUNT_EDITED,2024-07-15T09:33:20.129332,,,,,"{""step"": ""Names""}"
+20909935,1257271,,APPLICATION_TYPE_CHANGED,2024-07-15T09:33:21.08795,,,,,"{""newType"": ""GROUP"", ""oldType"": ""ALONE""}"
+20909936,1257277,,ACCOUNT_CREATED,2024-07-15T09:33:21.402963,,,,,
+20909937,1257271,,ACCOUNT_EDITED,2024-07-15T09:33:21.495269,,,,,
+20909938,1257211,,ACCOUNT_COMPLETED,2024-07-15T09:33:23.396984,,,,,
+20909939,1254288,597834,ACCOUNT_VALIDATED,2024-07-15T09:33:28.700616,,,,,
+20909940,1246928,,ACCOUNT_EDITED,2024-07-15T09:33:28.779447,,,,,"{""tenantId"": 1246928, ""editionType"": ""ADD"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""GUEST_PARENTS""}"
+20909941,1257244,,ACCOUNT_COMPLETED,2024-07-15T09:33:30.992637,,,,,
+20909942,1257274,,ACCOUNT_EDITED,2024-07-15T09:33:32.789338,,,,,"{""step"": ""Names""}"
+20909943,1257262,,ACCOUNT_EDITED,2024-07-15T09:33:33.571571,,,,,"{""tenantId"": 1257262, ""editionType"": ""ADD"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_IDENTITY_CARD""}"
+20909944,283092,,ACCOUNT_EDITED,2024-07-15T09:33:34.633114,,,,,"{""tenantId"": 283092, ""editionType"": ""ADD"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""TENANT""}"
+20909945,469628,,ACCOUNT_EDITED,2024-07-15T09:33:35.872589,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 298658, ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_PASSPORT""}"
+20909946,1235750,,ACCOUNT_EDITED,2024-07-15T09:33:35.921332,,,,,"{""tenantId"": 1235750, ""editionType"": ""ADD"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""GUEST""}"
+20909947,1224281,546579,ACCOUNT_DENIED,2024-07-15T09:33:39.50329,755659,,,,
+20909948,1252964,,ACCOUNT_EDITED,2024-07-15T09:33:39.595741,,,,,"{""editionType"": ""DELETE"", ""guarantorId"": 925766, ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_NAME""}"
+20909949,1246928,,ACCOUNT_COMPLETED,2024-07-15T09:33:46.096796,,,,,
+20909950,1244620,,ACCOUNT_EDITED,2024-07-15T09:33:46.657442,,,,,"{""tenantId"": 1244620, ""editionType"": ""DELETE"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_IDENTITY_CARD""}"
+20909951,1257247,,ACCOUNT_EDITED,2024-07-15T09:33:46.875467,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929454, ""documentCategory"": ""GUARANTEE_PROVIDER_CERTIFICATE"", ""documentSubCategory"": ""VISALE""}"
+20909952,1191674,,ACCOUNT_EDITED,2024-07-15T09:33:47.39176,,,,,"{""tenantId"": 1191674, ""editionType"": ""DELETE"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""TENANT""}"
+20909953,1257256,,ACCOUNT_EDITED,2024-07-15T09:33:48.067726,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929455, ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""TENANT""}"
+20909954,1244620,,ACCOUNT_EDITED,2024-07-15T09:33:48.284143,,,,,"{""tenantId"": 1244620, ""editionType"": ""ADD"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_PASSPORT""}"
+20909955,1191674,,ACCOUNT_EDITED,2024-07-15T09:33:49.194274,,,,,"{""tenantId"": 1191674, ""editionType"": ""ADD"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""TENANT""}"
+20909956,469628,,ACCOUNT_EDITED,2024-07-15T09:33:49.853347,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 298658, ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""OWNER""}"
+20909957,1248451,,ACCOUNT_EDITED,2024-07-15T09:33:51.527942,,,,,"{""tenantId"": 1248451, ""editionType"": ""DELETE"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909958,924070,,ACCOUNT_EDITED,2024-07-15T09:33:51.641207,,,,,"{""tenantId"": 924070, ""editionType"": ""DELETE"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909959,1232121,,ACCOUNT_DELETE,2024-07-15T09:33:51.702485,,{},"{""id"": 1232121, ""status"": ""INCOMPLETE"", ""documents"": [], ""guarantors"": [], ""tenantType"": ""JOIN"", ""hashedEmail"": ""65998b81bfb3fe98e7cd81630722353cd7b3cb45374f2603988b0bf955f3bb11"", ""franceConnect"": false, ""hashedLastname"": ""a73518b7b30694da079c54280237a6291eb1ad82455d85d29eafbd609b04ca87"", ""lastUpdateDate"": ""2024-07-05T18:13:24.761728"", ""hashedFirstname"": ""a73518b7b30694da079c54280237a6291eb1ad82455d85d29eafbd609b04ca87"", ""creationDateTime"": ""2024-07-05T18:13:24.761720"", ""honorDeclaration"": false, ""hashedPreferredName"": """"}",,
+20910006,1257267,,ACCOUNT_EDITED,2024-07-15T09:35:05.644048,,,,,"{""tenantId"": 1257267, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20910007,1257214,,ACCOUNT_EDITED,2024-07-15T09:35:06.30244,,,,,"{""tenantId"": 1257214, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SOCIAL_SERVICE""}"
+20910008,882436,566428,ACCOUNT_DENIED,2024-07-15T09:35:07.470229,755665,,,,
+20909960,1239196,,ACCOUNT_DELETE,2024-07-15T09:33:53.287692,,{},"{""id"": 1239196, ""status"": ""DECLINED"", ""zipCode"": ""45800"", ""documents"": [{""id"": 6820925, ""name"": ""dossierfacile-pdf-6820925"", ""subCategory"": ""GUEST_PARENTS"", ""documentStatus"": ""VALIDATED"", ""documentCategory"": ""RESIDENCY""}, {""id"": 6820974, ""name"": ""dossierfacile-pdf-6820974"", ""subCategory"": ""STUDENT"", ""documentStatus"": ""VALIDATED"", ""documentCategory"": ""PROFESSIONAL""}, {""id"": 6821465, ""name"": ""dossierfacile-pdf-6821465"", ""subCategory"": ""FRENCH_IDENTITY_CARD"", ""documentStatus"": ""VALIDATED"", ""documentCategory"": ""IDENTIFICATION""}, {""id"": 6821023, ""name"": ""dossierfacile-pdf-6821023"", ""customText"": ""Je suis etudiante hébergée chez mes parents hors période scolaire et louant un appartement payé par mes parents en période scolaire"", ""subCategory"": ""NO_INCOME"", ""documentStatus"": ""DECLINED"", ""documentCategory"": ""FINANCIAL""}, {""id"": 6821080, ""name"": ""dossierfacile-pdf-6821080"", ""customText"": ""Je n'etais pas majeur l'année derniere a l'heure de faire les avis d'impots donc j'etais pas eligible au debut de cette année "", ""subCategory"": ""OTHER_TAX"", ""documentStatus"": ""DECLINED"", ""documentCategory"": ""TAX""}], ""guarantors"": [{""id"": 912771, ""lastName"": ""Nsungani Kumbila"", ""documents"": [{""id"": 6821107, ""name"": ""dossierfacile-pdf-6821107"", ""subCategory"": ""FRENCH_IDENTITY_CARD"", ""documentStatus"": ""VALIDATED"", ""documentCategory"": ""IDENTIFICATION""}, {""id"": 6821151, ""name"": ""dossierfacile-pdf-6821151"", ""subCategory"": ""TENANT"", ""documentStatus"": ""VALIDATED"", ""documentCategory"": ""RESIDENCY""}, {""id"": 6821204, ""name"": ""dossierfacile-pdf-6821204"", ""subCategory"": ""PUBLIC"", ""documentStatus"": ""VALIDATED"", ""documentCategory"": ""PROFESSIONAL""}, {""id"": 6821238, ""name"": ""dossierfacile-pdf-6821238"", ""monthlySum"": 1900, ""subCategory"": ""SALARY"", ""documentStatus"": ""VALIDATED"", ""documentCategory"": ""FINANCIAL""}, {""id"": 6821295, ""name"": ""dossierfacile-pdf-6821295"", ""subCategory"": ""MY_NAME"", ""documentStatus"": ""VALIDATED"", ""documentCategory"": ""TAX""}], ""firstName"": ""Mikala"", ""typeGuarantor"": ""NATURAL_PERSON""}], ""tenantType"": ""CREATE"", ""hashedEmail"": ""5238b84d48435cade21d7803860a3b95a15ac1f9a21159a1a2d6929642710ecc"", ""franceConnect"": false, ""hashedLastname"": ""13212f3e48010ec88603727f174b9b53fe5a8f4d9de5e13d1d470dc292f5cc48"", ""lastUpdateDate"": ""2024-07-08T18:19:46.921697"", ""hashedFirstname"": ""8d7c3cbd40c916e95f23ed1b6aea1d53262e1081010a727854d6ed8a5a4181c1"", ""creationDateTime"": ""2024-07-08T17:34:18.529745"", ""honorDeclaration"": true, ""hashedPreferredName"": ""e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855""}",,
+20909961,924070,,ACCOUNT_EDITED,2024-07-15T09:33:53.743312,,,,,"{""tenantId"": 924070, ""editionType"": ""DELETE"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909962,1251086,,ACCOUNT_EDITED,2024-07-15T09:33:54.313691,,,,,"{""tenantId"": 1251086, ""editionType"": ""ADD"", ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""STUDENT""}"
+20909963,924070,,ACCOUNT_EDITED,2024-07-15T09:33:55.660066,,,,,"{""tenantId"": 924070, ""editionType"": ""DELETE"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909964,1257262,,ACCOUNT_EDITED,2024-07-15T09:33:55.695678,,,,,"{""tenantId"": 1257262, ""editionType"": ""ADD"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_IDENTITY_CARD""}"
+20909966,1257233,,ACCOUNT_EDITED,2024-07-15T09:33:56.733883,,,,,"{""tenantId"": 1257233, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SOCIAL_SERVICE""}"
+20909967,1185784,,ACCOUNT_EDITED,2024-07-15T09:33:57.048491,,,,,
+20909968,1257247,,ACCOUNT_COMPLETED,2024-07-15T09:33:58.228419,,,,,
+20909969,1250599,,ZIP_DOWNLOAD,2024-07-15T09:33:59.787304,,,,,
+20909970,1235750,,ACCOUNT_EDITED,2024-07-15T09:34:02.937669,,,,,"{""tenantId"": 1235750, ""editionType"": ""ADD"", ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""INDEPENDENT""}"
+20909971,1191674,,ACCOUNT_COMPLETED,2024-07-15T09:34:03.077254,,,,,
+20909972,1257208,,ACCOUNT_EDITED,2024-07-15T09:34:04.692183,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929421, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909973,1251873,,ACCOUNT_EDITED,2024-07-15T09:34:05.124559,,,,,"{""tenantId"": 1251873, ""editionType"": ""ADD"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_IDENTITY_CARD""}"
+20909974,283092,,ACCOUNT_COMPLETED,2024-07-15T09:34:08.526809,,,,,
+20909975,1206083,566428,ACCOUNT_DENIED,2024-07-15T09:34:11.053526,755660,,,,
+20909976,542961,546579,ACCOUNT_VALIDATED,2024-07-15T09:34:11.180423,,,,,
+20909977,1254432,1199667,ACCOUNT_DENIED,2024-07-15T09:34:11.440137,755661,,,,
+20909978,827554,597834,ACCOUNT_DENIED,2024-07-15T09:34:12.086019,755662,,,,
+20909979,1257208,,ACCOUNT_EDITED,2024-07-15T09:34:18.149809,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929421, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909980,1253186,589134,ACCOUNT_DENIED,2024-07-15T09:34:20.070709,755663,,,,
+20909981,1257256,,ACCOUNT_EDITED,2024-07-15T09:34:20.436677,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929455, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20909982,1251870,,ACCOUNT_COMPLETED,2024-07-15T09:34:25.46432,,,,,
+20909983,1177756,106085,ACCOUNT_VALIDATED,2024-07-15T09:34:26.082183,,,,,
+20909984,739376,,ACCOUNT_EDITED,2024-07-15T09:34:26.527509,,,,,
+20909985,1257208,,ACCOUNT_EDITED,2024-07-15T09:34:27.097092,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929421, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909986,1235750,,ACCOUNT_EDITED,2024-07-15T09:34:27.156384,,,,,"{""tenantId"": 1235750, ""editionType"": ""DELETE"", ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""INDEPENDENT""}"
+20909987,1251086,,ACCOUNT_COMPLETED,2024-07-15T09:34:29.906977,,,,,
+20909988,1246476,,ACCOUNT_EDITED,2024-07-15T09:34:31.341382,,,,,"{""tenantId"": 1246476, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909989,1233686,597834,ACCOUNT_VALIDATED,2024-07-15T09:34:31.577485,,,,,
+20909990,1257274,,ACCOUNT_EDITED,2024-07-15T09:34:35.168376,,,,,"{""tenantId"": 1257274, ""editionType"": ""ADD"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_IDENTITY_CARD""}"
+20909991,1235750,,ACCOUNT_EDITED,2024-07-15T09:34:40.043016,,,,,"{""tenantId"": 1235750, ""editionType"": ""ADD"", ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""INDEPENDENT""}"
+20909992,1254247,,ACCOUNT_EDITED,2024-07-15T09:34:41.66737,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 926630, ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""OWNER""}"
+20909993,1251870,,ZIP_DOWNLOAD,2024-07-15T09:34:41.694425,,,,,
+20909994,1207331,,ACCOUNT_EDITED,2024-07-15T09:34:43.520064,,,,,"{""tenantId"": 1207331, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20909995,1251870,,ZIP_DOWNLOAD,2024-07-15T09:34:45.443989,,,,,
+20909996,1249082,1143873,ACCOUNT_DENIED,2024-07-15T09:34:47.28611,755664,,,,
+20909997,1257187,,ACCOUNT_EDITED,2024-07-15T09:34:49.044289,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929394, ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_NAME""}"
+20909998,1257176,,ACCOUNT_EDITED,2024-07-15T09:34:49.454745,,,,,"{""tenantId"": 1257176, ""editionType"": ""ADD"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""GUEST_PARENTS""}"
+20909999,1254247,,ACCOUNT_COMPLETED,2024-07-15T09:34:53.766659,,,,,
+20910000,1185784,,ACCOUNT_COMPLETED,2024-07-15T09:34:58.949726,,,,,
+20910001,1257216,,ACCOUNT_EDITED,2024-07-15T09:34:59.969351,,,,,"{""tenantId"": 1257216, ""editionType"": ""ADD"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""GUEST_PARENTS""}"
+20910002,739379,,ACCOUNT_EDITED,2024-07-15T09:35:00.614996,,,,,"{""tenantId"": 739379, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20910003,1207331,,ACCOUNT_COMPLETED,2024-07-15T09:35:03.364349,,,,,
+20910004,1250761,,ACCOUNT_COMPLETED,2024-07-15T09:35:03.506287,,,,,
+20910005,1257208,,ACCOUNT_EDITED,2024-07-15T09:35:03.76605,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929421, ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_NAME""}"
+20910108,1257212,,ACCOUNT_COMPLETED,2024-07-15T09:38:07.751959,,,,,
+20910009,1254292,,ACCOUNT_EDITED,2024-07-15T09:35:08.880552,,,,,"{""tenantId"": 1254292, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20910010,739376,,ACCOUNT_COMPLETED,2024-07-15T09:35:14.287716,,,,,
+20910011,1248451,,ACCOUNT_EDITED,2024-07-15T09:35:15.618293,,,,,"{""tenantId"": 1248451, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20910012,1257208,,ACCOUNT_EDITED,2024-07-15T09:35:18.144284,,,,,
+20910013,1069199,,ACCOUNT_EDITED,2024-07-15T09:35:18.172268,,,,,"{""tenantId"": 1069199, ""editionType"": ""DELETE"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""TENANT""}"
+20910014,1069199,,ACCOUNT_EDITED,2024-07-15T09:35:19.244786,,,,,"{""tenantId"": 1069199, ""editionType"": ""ADD"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""TENANT""}"
+20910015,1257216,,ACCOUNT_EDITED,2024-07-15T09:35:19.367113,,,,,"{""tenantId"": 1257216, ""editionType"": ""ADD"", ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20910016,1257262,,ACCOUNT_EDITED,2024-07-15T09:35:24.12225,,,,,
+20910017,924070,,ACCOUNT_EDITED,2024-07-15T09:35:26.38142,,,,,"{""tenantId"": 924070, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20910018,1257257,,ACCOUNT_EDITED,2024-07-15T09:35:29.091322,,,,,"{""tenantId"": 1257257, ""editionType"": ""ADD"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_IDENTITY_CARD""}"
+20910019,1211479,,ACCOUNT_EDITED,2024-07-15T09:35:30.198509,,,,,"{""tenantId"": 1211479, ""editionType"": ""ADD"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""TENANT""}"
+20910020,1257262,,ACCOUNT_EDITED,2024-07-15T09:35:34.871955,,,,,
+20910021,1257214,,ACCOUNT_EDITED,2024-07-15T09:35:35.355445,,,,,"{""tenantId"": 1257214, ""editionType"": ""DELETE"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20910022,1254351,546579,ACCOUNT_VALIDATED,2024-07-15T09:35:36.085241,,,,,
+20910023,1257208,,ACCOUNT_EDITED,2024-07-15T09:35:40.404879,,,,,
+20910024,1257262,,ACCOUNT_EDITED,2024-07-15T09:35:44.706057,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929459, ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_IDENTITY_CARD""}"
+20910025,1257256,,ACCOUNT_EDITED,2024-07-15T09:35:47.548561,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929455, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20910026,1257233,,ACCOUNT_EDITED,2024-07-15T09:35:47.636676,,,,,"{""tenantId"": 1257233, ""editionType"": ""ADD"", ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_PARENTS""}"
+20910027,1249344,,ACCOUNT_EDITED,2024-07-15T09:35:49.420041,,,,,"{""editionType"": ""DELETE"", ""guarantorId"": 926153, ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""OWNER""}"
+20910028,924070,,ACCOUNT_EDITED,2024-07-15T09:35:51.053028,,,,,"{""tenantId"": 924070, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20910029,1257273,,ACCOUNT_EDITED,2024-07-15T09:35:51.151172,,,,,"{""tenantId"": 1257273, ""editionType"": ""ADD"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""GUEST_PARENTS""}"
+20910030,1257257,,ACCOUNT_EDITED,2024-07-15T09:35:53.804048,,,,,"{""tenantId"": 1257257, ""editionType"": ""ADD"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""TENANT""}"
+20910031,914257,,ACCOUNT_EDITED,2024-07-15T09:35:57.052463,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 645476, ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""OWNER""}"
+20910032,1257233,,ACCOUNT_EDITED,2024-07-15T09:35:58.013234,,,,,
+20910033,1251753,,ACCOUNT_EDITED,2024-07-15T09:35:58.712029,,,,,"{""editionType"": ""DELETE"", ""guarantorId"": 924132, ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_NAME""}"
+20910034,1206474,,ACCOUNT_EDITED,2024-07-15T09:35:59.11861,,,,,"{""tenantId"": 1206474, ""editionType"": ""DELETE"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""TENANT""}"
+20910035,1206474,,ACCOUNT_EDITED,2024-07-15T09:36:00.126596,,,,,"{""tenantId"": 1206474, ""editionType"": ""ADD"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""TENANT""}"
+20910036,1251753,,ACCOUNT_EDITED,2024-07-15T09:36:00.163737,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 924132, ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_NAME""}"
+20910037,1257233,,ACCOUNT_EDITED,2024-07-15T09:36:05.916261,,,,,
+20910038,1249354,,ACCOUNT_EDITED,2024-07-15T09:36:08.416145,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 926153, ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""OWNER""}"
+20910039,1251095,586437,ACCOUNT_VALIDATED,2024-07-15T09:36:09.947852,,,,,
+20910040,1224281,,ACCOUNT_EDITED,2024-07-15T09:36:10.804707,,,,,"{""tenantId"": 1224281, ""editionType"": ""ADD"", ""documentCategory"": ""TAX"", ""documentSubCategory"": ""LESS_THAN_YEAR""}"
+20910041,1257256,,ACCOUNT_EDITED,2024-07-15T09:36:12.828281,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929455, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20910042,1254407,,APPLICATION_TYPE_CHANGED,2024-07-15T09:36:15.127014,,,,,"{""newType"": ""GROUP"", ""oldType"": ""ALONE""}"
+20910043,1257278,,ACCOUNT_CREATED,2024-07-15T09:36:15.438376,,,,,
+20910044,1254407,,ACCOUNT_EDITED,2024-07-15T09:36:15.76203,,,,,
+20910045,700028,,ACCOUNT_RETURNED,2024-07-15T09:36:21.738,,,,,
+20910046,700028,,ACCOUNT_EDITED,2024-07-15T09:36:22.709406,,,,,"{""tenantId"": 700028, ""editionType"": ""ADD"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_IDENTITY_CARD""}"
+20910047,1224281,,ACCOUNT_COMPLETED,2024-07-15T09:36:22.991834,,,,,
+20910048,1257279,,ACCOUNT_CREATED_VIA_KC,2024-07-15T09:36:23.303641,,,,,
+20910049,1252454,,ACCOUNT_EDITED,2024-07-15T09:36:28.543483,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 925821, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20910050,1252454,,ACCOUNT_EDITED,2024-07-15T09:36:31.865697,,,,,"{""editionType"": ""DELETE"", ""guarantorId"": 925821, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20910051,1257267,,ACCOUNT_EDITED,2024-07-15T09:36:40.387928,,,,,"{""tenantId"": 1257267, ""editionType"": ""ADD"", ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_NAME""}"
+20910052,1257250,,ACCOUNT_EDITED,2024-07-15T09:36:40.83362,,,,,"{""tenantId"": 1257250, ""editionType"": ""ADD"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""GUEST_PARENTS""}"
+20910053,1215037,,ACCOUNT_EDITED,2024-07-15T09:36:41.78304,,,,,"{""tenantId"": 1215037, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SOCIAL_SERVICE""}"
+20910054,1257279,,ACCOUNT_EDITED,2024-07-15T09:36:44.901794,,,,,"{""step"": ""Names""}"
+20910055,914257,,ACCOUNT_EDITED,2024-07-15T09:36:45.688249,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 645476, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20910056,1191089,,ACCOUNT_EDITED,2024-07-15T09:36:46.966073,,,,,"{""tenantId"": 1191089, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20910057,1257208,,ACCOUNT_EDITED,2024-07-15T09:36:48.339084,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929458, ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_PASSPORT""}"
+20910058,700028,,ACCOUNT_EDITED,2024-07-15T09:36:54.674774,,,,,"{""tenantId"": 700028, ""editionType"": ""ADD"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""TENANT""}"
+20910059,1104431,,FC_ACCOUNT_LINK,2024-07-15T09:37:00.356601,,,,,
+20910060,1235750,,ACCOUNT_EDITED,2024-07-15T09:37:02.051912,,,,,"{""tenantId"": 1235750, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20910061,1254486,,ACCOUNT_EDITED,2024-07-15T09:37:04.86455,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929444, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20910062,1191089,,ACCOUNT_EDITED,2024-07-15T09:37:06.149184,,,,,"{""tenantId"": 1191089, ""editionType"": ""DELETE"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20910063,1211479,,ACCOUNT_EDITED,2024-07-15T09:37:10.815435,,,,,"{""tenantId"": 1211479, ""editionType"": ""ADD"", ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""RETIRED""}"
+20910064,1252454,,ACCOUNT_COMPLETED,2024-07-15T09:37:11.137057,,,,,
+20910065,1104431,,ACCOUNT_EDITED,2024-07-15T09:37:15.846958,,,,,
+20910066,987211,,ACCOUNT_RETURNED,2024-07-15T09:37:16.799646,,,,,
+20910067,1257259,,ACCOUNT_EDITED,2024-07-15T09:37:17.200787,,,,,"{""tenantId"": 1257259, ""editionType"": ""ADD"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_IDENTITY_CARD""}"
+20910068,1257279,,ACCOUNT_EDITED,2024-07-15T09:37:17.24188,,,,,"{""tenantId"": 1257279, ""editionType"": ""ADD"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""DRIVERS_LICENSE""}"
+20910069,1252897,546579,ACCOUNT_DENIED,2024-07-15T09:37:19.509474,755666,,,,
+20910070,1257187,,ACCOUNT_EDITED,2024-07-15T09:37:19.629395,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929394, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20910071,1257208,,ACCOUNT_EDITED,2024-07-15T09:37:19.951993,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929458, ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""OWNER""}"
+20910072,914257,,ACCOUNT_EDITED,2024-07-15T09:37:22.396924,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 645476, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20910073,987211,,ACCOUNT_EDITED,2024-07-15T09:37:28.737336,,,,,"{""step"": ""Names""}"
+20910074,1257280,,ACCOUNT_CREATED_VIA_KC,2024-07-15T09:37:31.515999,,,,,
+20910075,1232545,,ACCOUNT_EDITED,2024-07-15T09:37:32.263195,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929245, ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""OWNER""}"
+20910076,1255287,,ACCOUNT_COMPLETED,2024-07-15T09:37:32.448749,,,,,
+20910077,1257233,,ACCOUNT_EDITED,2024-07-15T09:37:32.507048,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929460, ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_IDENTITY_CARD""}"
+20910078,1257270,,ACCOUNT_EDITED,2024-07-15T09:37:32.580078,,,,,"{""step"": ""Names""}"
+20910079,1255331,,ACCOUNT_COMPLETED,2024-07-15T09:37:33.503505,,,,,
+20910080,1257250,,ACCOUNT_EDITED,2024-07-15T09:37:36.759942,,,,,"{""tenantId"": 1257250, ""editionType"": ""ADD"", ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""STUDENT""}"
+20910081,1241250,,ACCOUNT_EDITED,2024-07-15T09:37:37.234146,,,,,"{""tenantId"": 1241250, ""editionType"": ""ADD"", ""documentCategory"": ""TAX"", ""documentSubCategory"": ""LESS_THAN_YEAR""}"
+20910082,1257214,,ACCOUNT_EDITED,2024-07-15T09:37:38.892931,,,,,"{""tenantId"": 1257214, ""editionType"": ""ADD"", ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_NAME""}"
+20910083,1251911,589134,ACCOUNT_DENIED,2024-07-15T09:37:39.224279,755667,,,,
+20910084,1249711,,ACCOUNT_EDITED,2024-07-15T09:37:40.078809,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 928173, ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_NAME""}"
+20910085,1159784,,ACCOUNT_EDITED,2024-07-15T09:37:42.572062,,,,,"{""editionType"": ""DELETE"", ""guarantorId"": 841125, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20910086,1138280,,ACCOUNT_EDITED,2024-07-15T09:37:44.356685,,,,,"{""tenantId"": 1138280, ""editionType"": ""DELETE"", ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20910087,1257279,,ACCOUNT_EDITED,2024-07-15T09:37:44.821345,,,,,"{""tenantId"": 1257279, ""editionType"": ""ADD"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""GUEST_PARENTS""}"
+20910088,1235750,,ACCOUNT_EDITED,2024-07-15T09:37:45.987997,,,,,"{""tenantId"": 1235750, ""editionType"": ""ADD"", ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_NAME""}"
+20910089,1241250,,ACCOUNT_COMPLETED,2024-07-15T09:37:46.071935,,,,,
+20910090,914257,,ACCOUNT_EDITED,2024-07-15T09:37:47.043496,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 645476, ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_NAME""}"
+20910091,1159784,,ACCOUNT_EDITED,2024-07-15T09:37:47.927325,,,,,"{""editionType"": ""DELETE"", ""guarantorId"": 841125, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20910092,1257250,,ACCOUNT_EDITED,2024-07-15T09:37:48.289126,,,,,"{""tenantId"": 1257250, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""NO_INCOME""}"
+20910093,1251493,1199667,ACCOUNT_DENIED,2024-07-15T09:37:49.626334,755668,,,,
+20910094,1254501,1143873,ACCOUNT_DENIED,2024-07-15T09:37:50.086903,755669,,,,
+20910095,1252964,,ACCOUNT_EDITED,2024-07-15T09:37:53.445924,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 925766, ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_NAME""}"
+20910096,1159784,,ACCOUNT_EDITED,2024-07-15T09:37:53.842184,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 841125, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20910097,1257212,,APPLICATION_TYPE_CHANGED,2024-07-15T09:37:55.709579,,,,,"{""newType"": ""COUPLE"", ""oldType"": ""GROUP""}"
+20910098,1257214,,APPLICATION_TYPE_CHANGED,2024-07-15T09:37:55.723564,,,,,"{""newType"": ""COUPLE"", ""oldType"": ""GROUP""}"
+20910099,1257212,,ACCOUNT_EDITED,2024-07-15T09:37:56.154676,,,,,
+20910100,1254486,,ACCOUNT_EDITED,2024-07-15T09:37:56.31345,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929444, ""documentCategory"": ""TAX"", ""documentSubCategory"": ""OTHER_TAX""}"
+20910101,1257233,,ACCOUNT_EDITED,2024-07-15T09:37:56.643601,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929460, ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""OWNER""}"
+20910102,1257208,,ACCOUNT_EDITED,2024-07-15T09:37:58.965372,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929458, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20910103,1225457,,ACCOUNT_COMPLETED,2024-07-15T09:38:05.158082,,,,,
+20910104,1138280,,ACCOUNT_EDITED,2024-07-15T09:38:05.739767,,,,,"{""tenantId"": 1138280, ""editionType"": ""DELETE"", ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20910105,1247659,,ACCOUNT_EDITED,2024-07-15T09:38:05.799365,,,,,"{""tenantId"": 1247659, ""editionType"": ""ADD"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_IDENTITY_CARD""}"
+20910106,1232545,,ACCOUNT_EDITED,2024-07-15T09:38:06.546917,,,,,
+20910107,1257208,,ACCOUNT_EDITED,2024-07-15T09:38:07.298944,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929458, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20910113,1257208,,ACCOUNT_EDITED,2024-07-15T09:38:15.298451,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929458, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20910114,1257279,,ACCOUNT_EDITED,2024-07-15T09:38:15.629369,,,,,"{""tenantId"": 1257279, ""editionType"": ""ADD"", ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""STUDENT""}"
+20910115,987211,,ACCOUNT_EDITED,2024-07-15T09:38:17.557767,,,,,"{""tenantId"": 987211, ""editionType"": ""ADD"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_PASSPORT""}"
+20910116,1232545,,ACCOUNT_EDITED,2024-07-15T09:38:19.628536,,,,,
+20910117,1253967,597834,ACCOUNT_DENIED,2024-07-15T09:38:21.103583,755670,,,,
+20910118,1257271,,ACCOUNT_EDITED,2024-07-15T09:38:25.079721,,,,,"{""tenantId"": 1257271, ""editionType"": ""ADD"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_IDENTITY_CARD""}"
+20910119,1249711,,ACCOUNT_EDITED,2024-07-15T09:38:25.137318,,,,,
+20910120,1253630,,ACCOUNT_EDITED,2024-07-15T09:38:26.062875,,,,,"{""tenantId"": 1253630, ""editionType"": ""ADD"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_IDENTITY_CARD""}"
+20910121,1251014,,ACCOUNT_EDITED,2024-07-15T09:38:26.80683,,,,,"{""tenantId"": 1251014, ""editionType"": ""ADD"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""TENANT""}"
+20910122,1251014,,ACCOUNT_EDITED,2024-07-15T09:38:32.44201,,,,,"{""tenantId"": 1251014, ""editionType"": ""ADD"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""TENANT""}"
+20910123,1257273,,ACCOUNT_EDITED,2024-07-15T09:38:32.578093,,,,,"{""tenantId"": 1257273, ""editionType"": ""ADD"", ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""STUDENT""}"
+20910124,1257270,,ACCOUNT_EDITED,2024-07-15T09:38:33.512014,,,,,"{""tenantId"": 1257270, ""editionType"": ""ADD"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_PASSPORT""}"
+20910125,1249711,,ACCOUNT_EDITED,2024-07-15T09:38:35.44992,,,,,
+20910126,879863,586437,ACCOUNT_DENIED,2024-07-15T09:38:36.288219,755671,,,,
+20910127,1254479,589134,ACCOUNT_DENIED,2024-07-15T09:38:37.633343,755672,,,,
+20910128,1257208,,ACCOUNT_EDITED,2024-07-15T09:38:39.42461,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929458, ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_NAME""}"
+20910129,1254283,546579,ACCOUNT_VALIDATED,2024-07-15T09:38:40.877036,,,,,
+20910130,1254511,1199667,ACCOUNT_DENIED,2024-07-15T09:38:42.867259,755673,,,,
+20910131,1232545,,ACCOUNT_EDITED,2024-07-15T09:38:44.703681,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929461, ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_IDENTITY_CARD""}"
+20910132,1257281,,FC_ACCOUNT_CREATION,2024-07-15T09:38:45.43904,,,,,
+20910133,1255030,,ACCOUNT_EDITED,2024-07-15T09:38:47.092852,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 927382, ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_NAME""}"
+20910134,1257282,,FC_ACCOUNT_CREATION,2024-07-15T09:38:47.923021,,,,,
+20910135,1247659,,ACCOUNT_EDITED,2024-07-15T09:38:48.056471,,,,,"{""tenantId"": 1247659, ""editionType"": ""ADD"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""TENANT""}"
+20910136,1257233,,ACCOUNT_EDITED,2024-07-15T09:38:50.656851,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929460, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20910137,1257256,,ACCOUNT_EDITED,2024-07-15T09:38:52.503997,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929455, ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_NAME""}"
+20910138,1257233,,ACCOUNT_EDITED,2024-07-15T09:38:56.340937,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929460, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20910139,1257270,,ACCOUNT_EDITED,2024-07-15T09:38:57.131667,,,,,"{""tenantId"": 1257270, ""editionType"": ""ADD"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""TENANT""}"
+20910140,1225513,,ACCOUNT_EDITED,2024-07-15T09:38:57.188188,,,,,"{""tenantId"": 1225513, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20910141,415249,,ACCOUNT_COMPLETED,2024-07-15T09:38:57.659791,,,,,
+20910142,1232545,,ACCOUNT_EDITED,2024-07-15T09:38:57.69652,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929461, ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""OWNER""}"
+20910143,1257282,,ACCOUNT_EDITED,2024-07-15T09:38:58.497142,,,,,"{""step"": ""Names""}"
+20910144,1257281,,ACCOUNT_EDITED,2024-07-15T09:39:00.103118,,,,,"{""step"": ""Names""}"
+20910145,1257216,,FC_ACCOUNT_LINK,2024-07-15T09:39:02.067633,,,,,
+20910146,1257283,,ACCOUNT_CREATED_VIA_KC,2024-07-15T09:39:05.842835,,,,,
+20910147,1257208,,ACCOUNT_EDITED,2024-07-15T09:39:06.378756,,,,,"{""tenantId"": 1257208, ""editionType"": ""ADD"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_PASSPORT""}"
+20910148,1257187,,ACCOUNT_EDITED,2024-07-15T09:39:06.410112,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929394, ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""OWNER""}"
+20910149,1254522,,ACCOUNT_EDITED,2024-07-15T09:39:07.013018,,,,,"{""step"": ""Names""}"
+20910150,1253630,,ACCOUNT_EDITED,2024-07-15T09:39:09.446527,,,,,"{""tenantId"": 1253630, ""editionType"": ""ADD"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""GUEST_PARENTS""}"
+20910151,1249213,589134,ACCOUNT_VALIDATED,2024-07-15T09:39:12.182262,,,,,
+20910152,1257284,,FC_ACCOUNT_CREATION,2024-07-15T09:39:13.828755,,,,,
+20910153,1255030,,ACCOUNT_EDITED,2024-07-15T09:39:14.416403,,,,,
+20910154,1212160,546579,ACCOUNT_DENIED,2024-07-15T09:39:20.660415,755674,,,,
+20910155,1257280,,ACCOUNT_EDITED,2024-07-15T09:39:20.803907,,,,,"{""tenantId"": 1257280, ""editionType"": ""ADD"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_RESIDENCE_PERMIT""}"
+20910156,1256421,,ACCOUNT_EDITED,2024-07-15T09:39:21.322812,,,,,"{""tenantId"": 1256421, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20910157,1257281,,ACCOUNT_EDITED,2024-07-15T09:39:21.738079,,,,,"{""tenantId"": 1257281, ""editionType"": ""ADD"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_IDENTITY_CARD""}"
+20910158,1257282,,ACCOUNT_EDITED,2024-07-15T09:39:26.258875,,,,,"{""step"": ""Names""}"
+20910159,1138280,,ACCOUNT_EDITED,2024-07-15T09:39:27.315965,,,,,"{""tenantId"": 1138280, ""editionType"": ""DELETE"", ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20910160,1257284,,ACCOUNT_EDITED,2024-07-15T09:39:28.249806,,,,,"{""step"": ""Names""}"
+20910161,914257,,ACCOUNT_COMPLETED,2024-07-15T09:39:29.319144,,,,,
+20910162,1257233,,ACCOUNT_EDITED,2024-07-15T09:39:29.833432,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929460, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20910163,1257270,,ACCOUNT_EDITED,2024-07-15T09:39:34.634838,,,,,"{""tenantId"": 1257270, ""editionType"": ""ADD"", ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""INTERMITTENT""}"
+20910164,740506,,ACCOUNT_EDITED,2024-07-15T09:39:35.043943,,,,,"{""tenantId"": 740506, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20910165,1257187,,ACCOUNT_EDITED,2024-07-15T09:39:36.115872,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929394, ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_IDENTITY_CARD""}"
+20910166,1255030,,ACCOUNT_EDITED,2024-07-15T09:39:38.318126,,,,,
+20910167,1254407,,ACCOUNT_COMPLETED,2024-07-15T09:39:38.66761,,,,,
+20910168,1257247,,ACCOUNT_COMPLETED,2024-07-15T09:39:39.837716,,,,,
+20910169,1257283,,ACCOUNT_EDITED,2024-07-15T09:39:41.150059,,,,,"{""step"": ""Names""}"
+20910170,1257216,,ACCOUNT_EDITED,2024-07-15T09:39:43.468264,,,,,"{""tenantId"": 1257216, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20910171,1252964,,ACCOUNT_EDITED,2024-07-15T09:39:43.774717,,,,,"{""editionType"": ""DELETE"", ""guarantorId"": 925766, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20910172,1257285,,ACCOUNT_CREATED_VIA_KC,2024-07-15T09:39:46.145668,,,,,
+20910173,1254486,,ACCOUNT_COMPLETED,2024-07-15T09:39:46.40331,,,,,
+20910174,1257270,,ACCOUNT_EDITED,2024-07-15T09:39:47.291946,,,,,"{""tenantId"": 1257270, ""editionType"": ""ADD"", ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""INTERMITTENT""}"
+20910175,1233563,,ACCOUNT_EDITED,2024-07-15T09:39:47.639029,,,,,"{""tenantId"": 1233563, ""editionType"": ""DELETE"", ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20910176,1257256,,ACCOUNT_COMPLETED,2024-07-15T09:39:47.723502,,,,,
+20910177,1188500,,ACCOUNT_EDITED,2024-07-15T09:39:49.696294,,,,,"{""tenantId"": 1188500, ""editionType"": ""ADD"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""GUEST_PARENTS""}"
+20910178,1251813,1199667,ACCOUNT_VALIDATED,2024-07-15T09:39:50.404136,,,,,
+20910179,1257216,,ACCOUNT_EDITED,2024-07-15T09:39:51.06984,,,,,"{""tenantId"": 1257216, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20910180,1257286,,FC_ACCOUNT_CREATION,2024-07-15T09:39:51.474419,,,,,
+20910181,1232545,,ACCOUNT_EDITED,2024-07-15T09:39:52.189701,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929461, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""PUBLIC""}"
+20910182,1253630,,ACCOUNT_EDITED,2024-07-15T09:39:52.999715,,,,,"{""tenantId"": 1253630, ""editionType"": ""ADD"", ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20910183,1251787,566428,ACCOUNT_DENIED,2024-07-15T09:39:54.761758,755675,,,,
+20910184,1233563,,ACCOUNT_EDITED,2024-07-15T09:39:54.912361,,,,,"{""tenantId"": 1233563, ""editionType"": ""ADD"", ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20910185,1247659,,ACCOUNT_EDITED,2024-07-15T09:39:55.318019,,,,,"{""tenantId"": 1247659, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20910186,1257216,,ACCOUNT_EDITED,2024-07-15T09:39:55.639984,,,,,"{""tenantId"": 1257216, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20910187,1257284,,ACCOUNT_EDITED,2024-07-15T09:39:56.066072,,,,,"{""tenantId"": 1257284, ""editionType"": ""ADD"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_IDENTITY_CARD""}"
+20910188,1257149,,ACCOUNT_EDITED,2024-07-15T09:39:56.799041,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929382, ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""OWNER""}"
+20910189,1257273,,ACCOUNT_EDITED,2024-07-15T09:39:57.951558,,,,,"{""tenantId"": 1257273, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""NO_INCOME""}"
+20910190,1254428,,ACCOUNT_EDITED,2024-07-15T09:40:01.373033,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 926814, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20910191,1257283,,ACCOUNT_EDITED,2024-07-15T09:40:01.452427,,,,,"{""tenantId"": 1257283, ""editionType"": ""ADD"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_RESIDENCE_PERMIT""}"
+20910192,1232545,,ACCOUNT_EDITED,2024-07-15T09:40:01.984581,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929461, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""PUBLIC""}"
+20910193,1255030,,ACCOUNT_EDITED,2024-07-15T09:40:03.69168,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929463, ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_IDENTITY_CARD""}"
+20910194,1254522,,ACCOUNT_EDITED,2024-07-15T09:40:06.928909,,,,,"{""tenantId"": 1254522, ""editionType"": ""ADD"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_IDENTITY_CARD""}"
+20910195,1251806,,ACCOUNT_EDITED,2024-07-15T09:40:09.30051,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 924239, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20910196,1257286,,ACCOUNT_EDITED,2024-07-15T09:40:09.541973,,,,,"{""step"": ""Names""}"
+20910197,1232545,,ACCOUNT_EDITED,2024-07-15T09:40:09.799421,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929461, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""PUBLIC""}"
+20910198,1257250,,ACCOUNT_EDITED,2024-07-15T09:40:14.423831,,,,,"{""tenantId"": 1257250, ""editionType"": ""ADD"", ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_PARENTS""}"
+20910199,1257285,,ACCOUNT_EDITED,2024-07-15T09:40:15.842835,,,,,"{""step"": ""Names""}"
+20910200,1257257,,ACCOUNT_EDITED,2024-07-15T09:40:15.988471,,,,,"{""tenantId"": 1257257, ""editionType"": ""ADD"", ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""PUBLIC""}"
+20910201,1257236,,ACCOUNT_EDITED,2024-07-15T09:40:16.081978,,,,,"{""tenantId"": 1257236, ""editionType"": ""ADD"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""GUEST_PARENTS""}"
+20910202,1220975,,ACCOUNT_EDITED,2024-07-15T09:40:18.707983,,,,,"{""tenantId"": 1220975, ""editionType"": ""ADD"", ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""STUDENT""}"
+20910203,1248451,,ACCOUNT_EDITED,2024-07-15T09:40:19.772063,,,,,"{""tenantId"": 1248451, ""editionType"": ""DELETE"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SOCIAL_SERVICE""}"
+20910204,522105,,ZIP_DOWNLOAD,2024-07-15T09:40:21.556448,,,,,
+20910205,1257149,,ACCOUNT_EDITED,2024-07-15T09:40:22.328927,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929382, ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_PASSPORT""}"
+20910206,1257250,,ACCOUNT_EDITED,2024-07-15T09:40:24.268729,,,,,
+20910207,1257273,,ACCOUNT_EDITED,2024-07-15T09:40:25.491462,,,,,
+20910208,1257279,,ACCOUNT_EDITED,2024-07-15T09:40:26.129924,,,,,"{""tenantId"": 1257279, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""NO_INCOME""}"
+20910209,1257286,,ACCOUNT_EDITED,2024-07-15T09:40:27.415503,,,,,"{""step"": ""Names""}"
+20910210,1251014,,ACCOUNT_COMPLETED,2024-07-15T09:40:27.59232,,,,,
+20910211,1251653,586437,ACCOUNT_DENIED,2024-07-15T09:40:30.292041,755676,,,,
+20910212,1257285,,APPLICATION_TYPE_CHANGED,2024-07-15T09:40:32.443896,,,,,"{""newType"": ""COUPLE"", ""oldType"": ""ALONE""}"
+20910213,1257287,,ACCOUNT_CREATED,2024-07-15T09:40:32.480594,,,,,
+20910214,1257285,,ACCOUNT_EDITED,2024-07-15T09:40:32.548862,,,,,
+20910215,1254465,597834,ACCOUNT_DENIED,2024-07-15T09:40:34.322212,755677,,,,
+20911643,1218867,,ACCOUNT_EDITED,2024-07-15T10:07:16.604385,,,,,
+20910216,1252964,,ACCOUNT_EDITED,2024-07-15T09:40:34.6516,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 925766, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20910217,1248451,,ACCOUNT_EDITED,2024-07-15T09:40:35.104259,,,,,"{""tenantId"": 1248451, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SOCIAL_SERVICE""}"
+20910218,469628,,ACCOUNT_EDITED,2024-07-15T09:40:35.152352,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 298658, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20910219,1233563,,ACCOUNT_EDITED,2024-07-15T09:40:36.6006,,,,,"{""tenantId"": 1233563, ""editionType"": ""DELETE"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20910220,827554,,ACCOUNT_EDITED,2024-07-15T09:40:37.586594,,,,,"{""tenantId"": 827554, ""editionType"": ""DELETE"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SOCIAL_SERVICE""}"
+20910221,986914,,ACCOUNT_EDITED,2024-07-15T09:40:38.740437,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 859357, ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_IDENTITY_CARD""}"
+20910222,1233563,,ACCOUNT_EDITED,2024-07-15T09:40:38.974609,,,,,"{""tenantId"": 1233563, ""editionType"": ""DELETE"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20910223,1177166,,ACCOUNT_EDITED,2024-07-15T09:40:39.100938,,,,,"{""tenantId"": 1177166, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20910224,1257273,,ACCOUNT_EDITED,2024-07-15T09:40:39.156451,,,,,
+20910225,784156,,ACCOUNT_EDITED,2024-07-15T09:40:39.236354,,,,,
+20910226,1257288,,ACCOUNT_CREATED,2024-07-15T09:40:40.137298,,,,,
+20910227,1257257,,ACCOUNT_EDITED,2024-07-15T09:40:40.422188,,,,,"{""tenantId"": 1257257, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20910228,1188500,,ACCOUNT_EDITED,2024-07-15T09:40:40.847938,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 866924, ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_IDENTITY_CARD""}"
+20910229,1233563,,ACCOUNT_EDITED,2024-07-15T09:40:41.328408,,,,,"{""tenantId"": 1233563, ""editionType"": ""DELETE"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20910230,1251014,,ZIP_DOWNLOAD,2024-07-15T09:40:42.500973,,,,,
+20910231,987211,,ACCOUNT_EDITED,2024-07-15T09:40:43.201089,,,,,"{""tenantId"": 987211, ""editionType"": ""ADD"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""GUEST_PARENTS""}"
+20910232,1251806,,ACCOUNT_EDITED,2024-07-15T09:40:46.696458,,,,,"{""editionType"": ""DELETE"", ""guarantorId"": 924239, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20910233,1149547,589134,ACCOUNT_DENIED,2024-07-15T09:40:46.74889,755678,,,,
+20910234,1257284,,ACCOUNT_EDITED,2024-07-15T09:40:48.937379,,,,,"{""tenantId"": 1257284, ""editionType"": ""ADD"", ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""STUDENT""}"
+20910235,1188500,,ACCOUNT_EDITED,2024-07-15T09:40:50.376788,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 866924, ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""OWNER""}"
+20910236,1232545,,ACCOUNT_EDITED,2024-07-15T09:40:52.430799,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929461, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20910237,1206474,,ACCOUNT_COMPLETED,2024-07-15T09:40:52.491902,,,,,
+20910238,1187627,1143873,ACCOUNT_DENIED,2024-07-15T09:40:53.391643,755679,,,,
+20910239,827554,,ACCOUNT_EDITED,2024-07-15T09:40:53.627934,,,,,"{""tenantId"": 827554, ""editionType"": ""DELETE"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SOCIAL_SERVICE""}"
+20910240,1257237,,ACCOUNT_EDITED,2024-07-15T09:40:54.436276,,,,,"{""tenantId"": 1257237, ""editionType"": ""ADD"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""GUEST_PARENTS""}"
+20910241,1254439,546579,ACCOUNT_VALIDATED,2024-07-15T09:40:55.292945,,,,,
+20910242,415249,,ACCOUNT_EDITED,2024-07-15T09:40:56.384083,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 257803, ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_NAME""}"
+20910243,1257280,,ACCOUNT_EDITED,2024-07-15T09:40:57.137257,,,,,"{""tenantId"": 1257280, ""editionType"": ""ADD"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""GUEST""}"
+20910244,1257216,,ACCOUNT_EDITED,2024-07-15T09:40:57.141723,,,,,"{""tenantId"": 1257216, ""editionType"": ""DELETE"", ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20910245,1251806,,ACCOUNT_EDITED,2024-07-15T09:40:59.619661,,,,,"{""editionType"": ""DELETE"", ""guarantorId"": 924239, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20910246,1232545,,ACCOUNT_EDITED,2024-07-15T09:40:59.997327,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929461, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20910247,1257250,,ACCOUNT_EDITED,2024-07-15T09:41:00.030419,,,,,
+20910248,1188500,,ACCOUNT_EDITED,2024-07-15T09:41:00.217178,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 866924, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20910249,1257288,,ACCOUNT_EDITED,2024-07-15T09:41:00.783649,,,,,"{""step"": ""Names""}"
+20910250,1257288,,ACCOUNT_EDITED,2024-07-15T09:41:01.037683,,,,,
+20910251,1253569,,ACCOUNT_EDITED,2024-07-15T09:41:05.200528,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 925925, ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_PASSPORT""}"
+20910252,1257176,,ACCOUNT_EDITED,2024-07-15T09:41:06.794055,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929387, ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""OWNER""}"
+20910253,1232545,,ACCOUNT_EDITED,2024-07-15T09:41:06.851616,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929461, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20910254,986914,,ACCOUNT_EDITED,2024-07-15T09:41:07.49394,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 859357, ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""OWNER""}"
+20910255,1257283,,ACCOUNT_EDITED,2024-07-15T09:41:08.069752,,,,,"{""tenantId"": 1257283, ""editionType"": ""ADD"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_RESIDENCE_PERMIT""}"
+20910256,1257233,,ACCOUNT_EDITED,2024-07-15T09:41:10.076455,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929460, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20910257,415249,,ACCOUNT_COMPLETED,2024-07-15T09:41:11.935973,,,,,
+20910258,1257286,,ACCOUNT_EDITED,2024-07-15T09:41:12.785937,,,,,"{""tenantId"": 1257286, ""editionType"": ""ADD"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_PASSPORT""}"
+20910259,1206474,,ACCOUNT_COMPLETED,2024-07-15T09:41:12.813366,,,,,
+20910260,1257257,,ACCOUNT_EDITED,2024-07-15T09:41:13.248681,,,,,"{""tenantId"": 1257257, ""editionType"": ""ADD"", ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_NAME""}"
+20910261,469628,,ACCOUNT_EDITED,2024-07-15T09:41:13.622997,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 298658, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20910262,1121093,,ACCOUNT_EDITED,2024-07-15T09:41:17.246737,,,,,"{""tenantId"": 1121093, ""editionType"": ""DELETE"", ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDD""}"
+20910263,1257149,,ACCOUNT_EDITED,2024-07-15T09:41:17.47788,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929382, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20910264,469628,,ACCOUNT_EDITED,2024-07-15T09:41:19.854595,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 298658, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20910265,1257288,,ACCOUNT_EDITED,2024-07-15T09:41:20.02944,,,,,"{""tenantId"": 1257288, ""editionType"": ""ADD"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_IDENTITY_CARD""}"
+20910266,1257284,,ACCOUNT_EDITED,2024-07-15T09:41:20.879741,,,,,"{""tenantId"": 1257284, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SOCIAL_SERVICE""}"
+20910267,1257270,,ACCOUNT_EDITED,2024-07-15T09:41:22.103156,,,,,"{""tenantId"": 1257270, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20910268,827554,,ACCOUNT_EDITED,2024-07-15T09:41:22.64611,,,,,"{""tenantId"": 827554, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SOCIAL_SERVICE""}"
+20910269,1255030,,ACCOUNT_EDITED,2024-07-15T09:41:23.911088,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929463, ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""OWNER""}"
+20910270,1121093,,ACCOUNT_EDITED,2024-07-15T09:41:24.836497,,,,,"{""tenantId"": 1121093, ""editionType"": ""ADD"", ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDD""}"
+20910271,1138280,586437,ACCOUNT_VALIDATED,2024-07-15T09:41:25.656278,,,,,
+20910272,1212496,,ACCOUNT_EDITED,2024-07-15T09:41:27.039895,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 888171, ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""TENANT""}"
+20910273,1215854,,ACCOUNT_EDITED,2024-07-15T09:41:27.672509,,,,,"{""step"": ""Names""}"
+20910274,1257285,,ACCOUNT_EDITED,2024-07-15T09:41:30.477863,,,,,"{""tenantId"": 1257285, ""editionType"": ""ADD"", ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_IDENTITY_CARD""}"
+20910275,1225513,,ACCOUNT_EDITED,2024-07-15T09:41:32.063937,,,,,"{""tenantId"": 1225513, ""editionType"": ""DELETE"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20910276,1257270,,ACCOUNT_EDITED,2024-07-15T09:41:32.222096,,,,,"{""tenantId"": 1257270, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20910277,1251749,589134,ACCOUNT_VALIDATED,2024-07-15T09:41:32.282225,,,,,
+20910278,1257208,,ACCOUNT_EDITED,2024-07-15T09:41:32.403353,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929421, ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_PASSPORT""}"
+20910279,1232545,,ACCOUNT_EDITED,2024-07-15T09:41:32.650498,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929461, ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_NAME""}"
+20910280,1138280,,ACCOUNT_EDITED,2024-07-15T09:41:35.015417,,,,,"{""tenantId"": 1138280, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SOCIAL_SERVICE""}"
+20910281,469628,,ACCOUNT_EDITED,2024-07-15T09:41:35.216694,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 298658, ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_NAME""}"
+20910282,700028,,ACCOUNT_EDITED,2024-07-15T09:41:37.173174,,,,,"{""tenantId"": 700028, ""editionType"": ""ADD"", ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20910283,1257257,,ACCOUNT_EDITED,2024-07-15T09:41:38.252333,,,,,
+20910284,1232545,,ACCOUNT_EDITED,2024-07-15T09:41:42.260914,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929461, ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_NAME""}"
+20910285,1238108,597834,ACCOUNT_DENIED,2024-07-15T09:41:42.440548,755680,,,,
+20910286,1212496,,ACCOUNT_COMPLETED,2024-07-15T09:41:42.615152,,,,,
+20910287,1257289,,ACCOUNT_CREATED_VIA_KC,2024-07-15T09:41:42.802469,,,,,
+20910288,1251270,566428,ACCOUNT_DENIED,2024-07-15T09:41:43.851989,755681,,,,
+20910289,1177166,,ACCOUNT_EDITED,2024-07-15T09:41:45.181016,,,,,"{""tenantId"": 1177166, ""editionType"": ""DELETE"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20910290,1257280,,ACCOUNT_EDITED,2024-07-15T09:41:46.32547,,,,,"{""tenantId"": 1257280, ""editionType"": ""ADD"", ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20910291,1252964,,ACCOUNT_EDITED,2024-07-15T09:41:46.877172,,,,,"{""editionType"": ""DELETE"", ""guarantorId"": 925778, ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""OWNER""}"
+20910292,1257262,,ACCOUNT_EDITED,2024-07-15T09:41:50.278095,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929459, ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""OWNER""}"
+20910293,1180514,,APPLICATION_TYPE_CHANGED,2024-07-15T09:41:50.953643,,,,,"{""newType"": ""GROUP"", ""oldType"": ""ALONE""}"
+20910294,1257290,,ACCOUNT_CREATED,2024-07-15T09:41:51.318745,,,,,
+20910295,1180514,,ACCOUNT_EDITED,2024-07-15T09:41:51.744133,,,,,
+20910296,1257270,,ACCOUNT_EDITED,2024-07-15T09:41:52.137167,,,,,"{""tenantId"": 1257270, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20910297,1255030,,ACCOUNT_EDITED,2024-07-15T09:41:53.795841,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929463, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20910298,1257273,,ACCOUNT_EDITED,2024-07-15T09:41:54.480563,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929465, ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_PASSPORT""}"
+20910299,1121093,,ACCOUNT_COMPLETED,2024-07-15T09:41:54.829507,,,,,
+20910300,1257250,,ACCOUNT_EDITED,2024-07-15T09:41:57.660582,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929464, ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_PASSPORT""}"
+20910301,1257279,,ACCOUNT_EDITED,2024-07-15T09:42:00.102433,,,,,"{""tenantId"": 1257279, ""editionType"": ""ADD"", ""documentCategory"": ""TAX"", ""documentSubCategory"": ""OTHER_TAX""}"
+20910302,1257176,,ACCOUNT_EDITED,2024-07-15T09:42:03.118472,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929400, ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""OWNER""}"
+20910303,1138280,,ACCOUNT_EDITED,2024-07-15T09:42:04.162681,,,,,"{""tenantId"": 1138280, ""editionType"": ""DELETE"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SOCIAL_SERVICE""}"
+20910304,1254428,,ACCOUNT_EDITED,2024-07-15T09:42:05.148164,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 926814, ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_NAME""}"
+20910305,1249711,,ACCOUNT_EDITED,2024-07-15T09:42:05.325923,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929462, ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_IDENTITY_CARD""}"
+20910306,1254577,589134,ACCOUNT_DENIED,2024-07-15T09:42:06.440089,755682,,,,
+20910307,1257271,,ACCOUNT_EDITED,2024-07-15T09:42:06.846798,,,,,"{""tenantId"": 1257271, ""editionType"": ""ADD"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""GUEST_PARENTS""}"
+20910308,1255030,,ACCOUNT_EDITED,2024-07-15T09:42:08.468047,,,,,"{""editionType"": ""DELETE"", ""guarantorId"": 929463, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20911749,1245493,546579,ACCOUNT_VALIDATED,2024-07-15T10:09:33.981817,,,,,
+20910309,1257216,,ACCOUNT_EDITED,2024-07-15T09:42:08.861779,,,,,"{""tenantId"": 1257216, ""editionType"": ""ADD"", ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""STUDENT""}"
+20910310,827554,,ACCOUNT_EDITED,2024-07-15T09:42:11.174585,,,,,"{""tenantId"": 827554, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SOCIAL_SERVICE""}"
+20910311,1257279,,ACCOUNT_EDITED,2024-07-15T09:42:11.318563,,,,,
+20910312,1257280,,ACCOUNT_EDITED,2024-07-15T09:42:15.628613,,,,,"{""tenantId"": 1257280, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20910313,1254464,1199667,ACCOUNT_DENIED,2024-07-15T09:42:17.601348,755683,,,,
+20910314,1255030,,ACCOUNT_EDITED,2024-07-15T09:42:17.91923,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929463, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20910315,1252964,,ACCOUNT_EDITED,2024-07-15T09:42:17.938643,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 925778, ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""OWNER""}"
+20910316,1225513,,ACCOUNT_EDITED,2024-07-15T09:42:20.309538,,,,,"{""tenantId"": 1225513, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20910317,827554,,ACCOUNT_EDITED,2024-07-15T09:42:20.988579,,,,,"{""tenantId"": 827554, ""editionType"": ""DELETE"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SOCIAL_SERVICE""}"
+20910318,1257279,,ACCOUNT_EDITED,2024-07-15T09:42:21.778497,,,,,
+20910319,1252054,589134,ACCOUNT_VALIDATED,2024-07-15T09:42:22.04919,,,,,
+20910320,1253630,,ACCOUNT_EDITED,2024-07-15T09:42:22.054442,,,,,"{""tenantId"": 1253630, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20910321,740506,,ACCOUNT_EDITED,2024-07-15T09:42:23.939339,,,,,"{""tenantId"": 740506, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20910322,1257216,,ACCOUNT_EDITED,2024-07-15T09:42:27.805644,,,,,"{""tenantId"": 1257216, ""editionType"": ""DELETE"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20910323,1257216,,ACCOUNT_EDITED,2024-07-15T09:42:28.37942,,,,,"{""tenantId"": 1257216, ""editionType"": ""DELETE"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20910324,1257216,,ACCOUNT_EDITED,2024-07-15T09:42:28.758133,,,,,"{""tenantId"": 1257216, ""editionType"": ""DELETE"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20910325,1257270,,ACCOUNT_EDITED,2024-07-15T09:42:28.945668,,,,,"{""tenantId"": 1257270, ""editionType"": ""ADD"", ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_NAME""}"
+20910326,1188500,,ACCOUNT_EDITED,2024-07-15T09:42:29.506574,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 866924, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20910327,1249052,,ACCOUNT_EDITED,2024-07-15T09:42:35.080438,,,,,"{""tenantId"": 1249052, ""editionType"": ""ADD"", ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""GUEST""}"
+20910328,1249082,,ACCOUNT_EDITED,2024-07-15T09:42:36.275016,,,,,"{""tenantId"": 1249082, ""editionType"": ""DELETE"", ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""PUBLIC""}"
+20910329,1249082,,ACCOUNT_EDITED,2024-07-15T09:42:37.380847,,,,,"{""tenantId"": 1249082, ""editionType"": ""ADD"", ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""STUDENT""}"
+20910330,636811,566428,ACCOUNT_DENIED,2024-07-15T09:42:37.82154,755684,,,,
+20910331,1257216,,ACCOUNT_EDITED,2024-07-15T09:42:44.081319,,,,,"{""tenantId"": 1257216, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""NO_INCOME""}"
+20910332,1252964,,ACCOUNT_EDITED,2024-07-15T09:42:45.134733,,,,,"{""editionType"": ""DELETE"", ""guarantorId"": 925778, ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_NAME""}"
+20910333,1257257,,ACCOUNT_EDITED,2024-07-15T09:42:47.055021,,,,,"{""tenantId"": 1257257, ""editionType"": ""DELETE"", ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_NAME""}"
+20910334,1188500,,ACCOUNT_EDITED,2024-07-15T09:42:48.509746,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 866924, ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_NAME""}"
+20910335,1247659,,ACCOUNT_EDITED,2024-07-15T09:42:48.841699,,,,,"{""tenantId"": 1247659, ""editionType"": ""ADD"", ""documentCategory"": ""TAX"", ""documentSubCategory"": ""OTHER_TAX""}"
+20910336,1254563,597834,ACCOUNT_DENIED,2024-07-15T09:42:50.322614,755685,,,,
+20910337,1257292,,ACCOUNT_CREATED_VIA_KC,2024-07-15T09:42:50.708104,,,,,
+20910338,1257273,,ACCOUNT_EDITED,2024-07-15T09:42:51.328242,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929465, ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""OWNER""}"
+20910339,1249082,,ACCOUNT_EDITED,2024-07-15T09:42:52.577798,,,,,"{""tenantId"": 1249082, ""editionType"": ""DELETE"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SCHOLARSHIP""}"
+20910340,1257257,,ACCOUNT_EDITED,2024-07-15T09:42:52.625472,,,,,"{""tenantId"": 1257257, ""editionType"": ""ADD"", ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_NAME""}"
+20910341,1188500,,ACCOUNT_EDITED,2024-07-15T09:42:53.980799,,,,,
+20910342,1099379,,ACCOUNT_EDITED,2024-07-15T09:42:54.510915,,,,,"{""tenantId"": 1099379, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20910343,469628,,ACCOUNT_COMPLETED,2024-07-15T09:42:54.85756,,,,,
+20910344,1180514,,ACCOUNT_EDITED,2024-07-15T09:42:55.618255,,,,,
+20910345,1253569,,ACCOUNT_EDITED,2024-07-15T09:42:58.392566,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 925925, ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_NAME""}"
+20910346,560775,,ACCOUNT_EDITED,2024-07-15T09:42:59.07513,,,,,"{""step"": ""Names""}"
+20910347,1254292,,ACCOUNT_EDITED,2024-07-15T09:43:00.502461,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 926733, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20910348,1188500,,ACCOUNT_EDITED,2024-07-15T09:43:01.354723,,,,,
+20910349,1246384,,ACCOUNT_EDITED,2024-07-15T09:43:02.678497,,,,,"{""tenantId"": 1246384, ""editionType"": ""DELETE"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SCHOLARSHIP""}"
+20910350,1099379,,ACCOUNT_EDITED,2024-07-15T09:43:03.458506,,,,,"{""tenantId"": 1099379, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20910351,1257279,,ACCOUNT_EDITED,2024-07-15T09:43:03.629876,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929469, ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""OWNER""}"
+20910352,486447,,ACCOUNT_EDITED,2024-07-15T09:43:05.13986,,,,,"{""tenantId"": 486447, ""editionType"": ""DELETE"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""NO_INCOME""}"
+20910353,1069199,,ACCOUNT_EDITED,2024-07-15T09:43:05.246288,,,,,"{""tenantId"": 1069199, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20910354,870545,,ACCOUNT_EDITED,2024-07-15T09:43:05.420797,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 626604, ""documentCategory"": ""GUARANTEE_PROVIDER_CERTIFICATE"", ""documentSubCategory"": ""OTHER_GUARANTEE""}"
+20910355,1134818,,ACCOUNT_EDITED,2024-07-15T09:43:05.548973,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 819927, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20910356,1246476,,ACCOUNT_EDITED,2024-07-15T09:43:06.791578,,,,,"{""tenantId"": 1246476, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20910357,1257280,,ACCOUNT_EDITED,2024-07-15T09:43:06.867189,,,,,"{""tenantId"": 1257280, ""editionType"": ""ADD"", ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_NAME""}"
+20910358,1188500,,ACCOUNT_EDITED,2024-07-15T09:43:07.137665,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929470, ""documentCategory"": ""IDENTIFICATION"", ""documentSubCategory"": ""FRENCH_IDENTITY_CARD""}"
+20910359,1257257,,ACCOUNT_EDITED,2024-07-15T09:43:07.265537,,,,,
+20910360,1257284,,ACCOUNT_EDITED,2024-07-15T09:43:08.621719,,,,,"{""tenantId"": 1257284, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SOCIAL_SERVICE""}"
+20910361,1257149,,ACCOUNT_EDITED,2024-07-15T09:43:09.404805,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929382, ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SALARY""}"
+20910362,1257250,,ACCOUNT_EDITED,2024-07-15T09:43:10.036689,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929464, ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""OWNER""}"
+20910363,1257292,,ACCOUNT_EDITED,2024-07-15T09:43:10.255097,,,,,"{""step"": ""Names""}"
+20910364,1257279,,ACCOUNT_EDITED,2024-07-15T09:43:11.845921,,,,,"{""editionType"": ""DELETE"", ""guarantorId"": 929469, ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""OWNER""}"
+20910365,1188500,,ACCOUNT_EDITED,2024-07-15T09:43:15.203909,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929470, ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""OWNER""}"
+20910366,1257273,,ACCOUNT_EDITED,2024-07-15T09:43:17.929838,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929465, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20910367,1257279,,ACCOUNT_EDITED,2024-07-15T09:43:17.944517,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929469, ""documentCategory"": ""RESIDENCY"", ""documentSubCategory"": ""OWNER""}"
+20910368,1099379,,ACCOUNT_COMPLETED,2024-07-15T09:43:19.933977,,,,,
+20910369,560775,,ACCOUNT_EDITED,2024-07-15T09:43:20.153867,,,,,"{""tenantId"": 560775, ""editionType"": ""DELETE"", ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20910370,1257284,,ACCOUNT_EDITED,2024-07-15T09:43:22.024032,,,,,"{""tenantId"": 1257284, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""SOCIAL_SERVICE""}"
+20910371,1188500,,ACCOUNT_EDITED,2024-07-15T09:43:22.320117,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 929470, ""documentCategory"": ""PROFESSIONAL"", ""documentSubCategory"": ""CDI""}"
+20910372,1252964,,ACCOUNT_EDITED,2024-07-15T09:43:25.900692,,,,,"{""editionType"": ""ADD"", ""guarantorId"": 925778, ""documentCategory"": ""TAX"", ""documentSubCategory"": ""MY_NAME""}"
+20910373,1246384,,ACCOUNT_EDITED,2024-07-15T09:43:27.069439,,,,,"{""tenantId"": 1246384, ""editionType"": ""ADD"", ""documentCategory"": ""FINANCIAL"", ""documentSubCategory"": ""NO_INCOME""}"
+20910374,1257280,,ACCOUNT_EDITED,2024-07-15T09:43:27.275848,,,,,

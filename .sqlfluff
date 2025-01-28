@@ -54,4 +54,3 @@ apply_dbt_builtins = True
 load_macros_from_path=macros
 
 [sqlfluff:templater:jinja.macros]
-dbt_json_extract = {% macro json_extract(string, string_path) %}{{string}}_{{string_path}}{% endmacro %}
