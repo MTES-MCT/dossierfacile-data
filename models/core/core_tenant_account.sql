@@ -45,12 +45,23 @@ with tenant_log_status as (
     from tenant_status
 )
 
+, tenant_api as (
+    select
+        tua.tenant_id
+        , MIN(COALESCE(name, name2)) as partner_id
+    from {{ ref('staging_tenant_userapi') }} as tua
+    left join {{ ref('staging_user_api') }} as ua on tua.userapi_id = ua.id
+    group by tenant_id
+)
+
 select
     tenant_status_details.tenant_id as id
 
     , staging_tenant.apartment_sharing_id
     , staging_tenant.tenant_type
     , staging_tenant.status
+
+    , tenant_api.partner_id
 
     , staging_user_account.last_login_date
     , staging_user_account.update_date_time
@@ -63,6 +74,9 @@ select
     , staging_user_account.france_connect_birth_date
     , staging_user_account.france_connect_birth_place
     , staging_user_account.france_connect_birth_country
+    , staging_user_account.acquisition_campaign
+    , staging_user_account.acquisition_source
+    , staging_user_account.acquisition_medium
 
     , tenant_status_details.creation_date
     , tenant_status_details.first_completion_date
@@ -79,3 +93,5 @@ left join {{ ref('staging_user_account') }} as staging_user_account
     on tenant_status_details.tenant_id = staging_user_account.id
 left join {{ ref('staging_tenant') }} as staging_tenant
     on tenant_status_details.tenant_id = staging_tenant.id
+left join tenant_api
+    on tenant_status_details.tenant_id = tenant_api.tenant_id
