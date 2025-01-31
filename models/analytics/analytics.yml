@@ -7,3 +7,17 @@ models:
         data_tests:
           - unique
           - not_null
+  - name: analytics_daily_tenant_account
+    description: "Nombre de comptes crees chaque jour"
+    columns:
+      - name: creation_date
+        data_tests:
+          - unique
+          - not_null
+  - name: analytics_daily_operations
+    description: "Nombre d'operations par jour"
+    columns:
+      - name: creation_date
+        data_tests:
+          - unique
+          - not_null
