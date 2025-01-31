@@ -37,3 +37,9 @@ sources:
           - name: id
             data_tests:
               - unique
+      - name: user_api
+        columns:
+          - name: id
+            data_tests:
+              - unique
+      - name: tenant_userapi
