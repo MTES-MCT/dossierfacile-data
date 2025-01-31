@@ -47,10 +47,10 @@ with tenant_log_status as (
 
 , tenant_api as (
     select
-        tua.tenant_id
+        staging_tenant_partner_consent.tenant_id
         , MIN(COALESCE(name, name2)) as partner_id
-    from {{ ref('staging_tenant_userapi') }} as tua
-    left join {{ ref('staging_user_api') }} as ua on tua.userapi_id = ua.id
+    from {{ ref('staging_tenant_partner_consent') }} as staging_tenant_partner_consent
+    left join {{ ref('staging_partner_client') }} as staging_partner_client on staging_tenant_partner_consent.userapi_id = staging_partner_client.id
     group by tenant_id
 )
 
