@@ -8,6 +8,8 @@ with tenant_log_status as (
         , case when log_type in ('ACCOUNT_VALIDATED', 'ACCOUNT_DENIED') then creation_date end as operation_date
         , case when log_type = 'ACCOUNT_VALIDATED' then creation_date end as validation_date
         , case when log_type = 'ACCOUNT_VALIDATED' then 1 else 0 end as validation_flag
+        , case when log_type in ('ACCOUNT_VALIDATED', 'ACCOUNT_DENIED') then 1 else 0 end as operation_flag
+        , case when log_type = 'ACCOUNT_COMPLETED' then 1 else 0 end as log_completion_flag
     from {{ ref('staging_tenant_log') }}
 
 )
@@ -25,6 +27,9 @@ with tenant_log_status as (
         , MIN(validation_date) as first_validation_date
         -- on considère que le tenant est validé dès qu'il a été validé au moins une fois
         , MAX(validation_flag) as validation_flag
+        , SUM(log_completion_flag) as nb_completions
+        , SUM(operation_flag) as nb_traitements
+        , SUM(validation_flag) as nb_validations
     from tenant_log_status
     group by
         tenant_id
@@ -39,6 +44,9 @@ with tenant_log_status as (
         , first_operation_date
         , first_validation_date
         , validation_flag
+        , nb_completions
+        , nb_traitements
+        , nb_validations
         , EXTRACT(epoch from first_completion_date - creation_date) as time_to_complete
         , EXTRACT(epoch from first_validation_date - first_completion_date) as time_to_review
         , case when first_validation_date = first_operation_date then 1 else 0 end as validation_without_denied
@@ -87,6 +95,9 @@ select
     , tenant_status_details.time_to_complete
     , tenant_status_details.time_to_review
     , tenant_status_details.validation_without_denied
+    , tenant_status_details.nb_completions
+    , tenant_status_details.nb_traitements
+    , tenant_status_details.nb_validations
 
 from tenant_status_details
 left join {{ ref('staging_user_account') }} as staging_user_account
