@@ -39,18 +39,18 @@ with tenant_log_status as (
         , first_operation_date
         , first_validation_date
         , validation_flag
-        , EXTRACT(epoch from first_completion_date - creation_date) / 3600 as time_to_complete
-        , EXTRACT(epoch from first_validation_date - first_completion_date) / 3600 as time_to_review
+        , EXTRACT(epoch from first_completion_date - creation_date) as time_to_complete
+        , EXTRACT(epoch from first_validation_date - first_completion_date) as time_to_review
         , case when first_validation_date = first_operation_date then 1 else 0 end as validation_without_denied
     from tenant_status
 )
 
-, tenant_api as (
+, tenant_partner as (
     select
         staging_tenant_partner_consent.tenant_id
         , MIN(COALESCE(name, name2)) as partner_id
     from {{ ref('staging_tenant_partner_consent') }} as staging_tenant_partner_consent
-    left join {{ ref('staging_partner_client') }} as staging_partner_client on staging_tenant_partner_consent.userapi_id = staging_partner_client.id
+    left join {{ ref('staging_partner_client') }} as staging_partner_client on staging_tenant_partner_consent.partner_client_id = staging_partner_client.id
     group by tenant_id
 )
 
@@ -61,7 +61,7 @@ select
     , staging_tenant.tenant_type
     , staging_tenant.status
 
-    , tenant_api.partner_id
+    , tenant_partner.partner_id
 
     , staging_user_account.last_login_date
     , staging_user_account.update_date_time
@@ -93,5 +93,5 @@ left join {{ ref('staging_user_account') }} as staging_user_account
     on tenant_status_details.tenant_id = staging_user_account.id
 left join {{ ref('staging_tenant') }} as staging_tenant
     on tenant_status_details.tenant_id = staging_tenant.id
-left join tenant_api
-    on tenant_status_details.tenant_id = tenant_api.tenant_id
+left join tenant_partner
+    on tenant_status_details.tenant_id = tenant_partner.tenant_id
