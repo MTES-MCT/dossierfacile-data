@@ -24,7 +24,6 @@ with log_details as (
         , CAST(case when log_details ->> 'documentSubCategory' is not null then log_details ->> 'documentSubCategory' else log_details ->> 'subCategory' end as VARCHAR) as document_sub_category
     from {{ source('dossierfacile', 'tenant_log') }}
     where log_details is not null
-    {{ filter_recent_data('creation_date') }}
 )
 
 select

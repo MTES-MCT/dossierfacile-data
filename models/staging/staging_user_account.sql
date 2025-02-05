@@ -6,10 +6,7 @@ select
     , CAST(last_name as VARCHAR) as last_name
     , CAST(last_login_date as TIMESTAMP) as last_login_date
     , CAST(update_date_time as TIMESTAMP) as update_date_time
-    , CAST(image_url as VARCHAR) as image_url
-    , CAST(provider as VARCHAR) as provider
-    , CAST(provider_id as VARCHAR) as provider_id
-    , CAST(enabled as BOOLEAN) as enabled
+    , CAST(enabled as BOOLEAN) as enabled -- information de keycloak
     , CAST(keycloak_id as VARCHAR) as keycloak_id
     , CAST(france_connect as BOOLEAN) as france_connect
     , CAST(france_connect_sub as VARCHAR) as france_connect_sub
@@ -22,4 +19,3 @@ select
     , CAST(acquisition_source as VARCHAR) as acquisition_source
     , CAST(acquisition_medium as VARCHAR) as acquisition_medium
 from {{ source('dossierfacile', 'user_account') }}
-{{ filter_recent_data('creation_date') }}
