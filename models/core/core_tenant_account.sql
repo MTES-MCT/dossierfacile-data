@@ -44,7 +44,7 @@ with tenant_log_status as (
         , first_operation_date
         , first_validation_date
         , validation_flag
-        , nb_completions
+        -- , nb_completions
         , nb_traitements
         , nb_validations
         , EXTRACT(epoch from first_completion_date - creation_date) as time_to_complete
@@ -95,7 +95,7 @@ select
     , tenant_status_details.time_to_complete
     , tenant_status_details.time_to_review
     , tenant_status_details.validation_without_denied
-    , tenant_status_details.nb_completions
+    -- , tenant_status_details.nb_completions
     , tenant_status_details.nb_traitements
     , tenant_status_details.nb_validations
 

@@ -22,3 +22,4 @@ select
     , CAST(acquisition_source as VARCHAR) as acquisition_source
     , CAST(acquisition_medium as VARCHAR) as acquisition_medium
 from {{ source('dossierfacile', 'user_account') }}
+{{ filter_recent_data('creation_date') }}

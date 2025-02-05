@@ -24,6 +24,7 @@ with log_details as (
         , CAST(case when log_details ->> 'documentSubCategory' is not null then log_details ->> 'documentSubCategory' else log_details ->> 'subCategory' end as VARCHAR) as document_sub_category
     from {{ source('dossierfacile', 'tenant_log') }}
     where log_details is not null
+    {{ filter_recent_data('creation_date') }}
 )
 
 select
@@ -44,7 +45,7 @@ select
     , CAST(tenant_log.log_type as VARCHAR) as log_type
     , CAST(tenant_log.creation_date as TIMESTAMP) as creation_date
     , CAST(tenant_log.message_id as INTEGER) as message_id
-    , CAST(tenant_log.migrate as BOOLEAN) as migrate
+    , CAST(tenant_log.migrate as BOOLEAN) as migrate -- flag migrate dans tenant_log pour indiquer les lignes qui ont été migrées (utile si on veut faire qq chose de plus fin comme par exemple dupliquer le dernier logs de suppression en un log d’archivage et de suppression - il y avait un bug précédemment qui ne permettait pas de distingué la suppression quand un archivage avait eu lieu).
     , CAST(tenant_log.json_profile as JSONB) as json_profile
     , CAST(json_profile ->> 'status' as VARCHAR) as status
     , CAST(LEFT(json_profile ->> 'zipCode', 5) as VARCHAR) as zip_code
