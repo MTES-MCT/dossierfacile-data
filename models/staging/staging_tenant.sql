@@ -2,8 +2,6 @@ select
     CAST(id as INTEGER) as id
     , CAST(tenant_type as VARCHAR) as tenant_type
     , CAST(apartment_sharing_id as INTEGER) as apartment_sharing_id
-    , CAST(satisfaction_survey as BOOLEAN) as satisfaction_survey
-    , CAST(accept_access as BOOLEAN) as accept_access
     , CAST(LEFT(zip_code, 5) as BIGINT) as zip_code -- il y a quelques erreurs dans les saisies de zip_code 
     , CAST(honor_declaration as BOOLEAN) as honor_declaration
     , CAST(last_update_date as TIMESTAMP) as last_update_date
