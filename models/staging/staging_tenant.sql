@@ -5,7 +5,7 @@ select
     , CAST(LEFT(zip_code, 5) as BIGINT) as zip_code -- il y a quelques erreurs dans les saisies de zip_code 
     , CAST(honor_declaration as BOOLEAN) as honor_declaration
     , CAST(last_update_date as TIMESTAMP) as last_update_date
-    , CAST(clarification as VARCHAR) as clarification -- commentaire de l utilisateur à destination du proprietaire
+    , CAST(clarification as VARCHAR) as tenant_comment -- colonne clarification de tenant. c'est le commentaire de l utilisateur à destination du proprietaire
     , CAST(status as VARCHAR) as status
     , CAST(operator_date_time as TIMESTAMP) as operator_date_time
     , CAST(warnings as INTEGER) as warnings
