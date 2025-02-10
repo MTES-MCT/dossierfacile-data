@@ -1,6 +1,9 @@
 select
     CAST(id as INTEGER) as id
-    , CAST(json_profile ->> 'id' as INTEGER) as tenant_id
+    , CAST(json_profile ->> 'id' as INTEGER) as owner_id
+    , CAST(json_profile -> 'creationDateTime' as VARCHAR) as owner_creation_date        -- date de creation du compte du compte proprietaire
+    , CAST(json_profile -> 'franceConnect' as VARCHAR) as owner_france_connect
+    , CAST(creation_date as TIMESTAMP) as creation_date                                 -- date du log de suppression du compte proprietaire 
     , CAST(JSONB_ARRAY_ELEMENTS(json_profile -> 'properties') ->> 'id' as INTEGER) as property_id
     , CAST(JSONB_ARRAY_ELEMENTS(json_profile -> 'properties') ->> 'name' as VARCHAR) as property_name
     , CAST(JSONB_ARRAY_ELEMENTS(json_profile -> 'properties') ->> 'type' as VARCHAR) as property_type
@@ -13,7 +16,5 @@ select
     , CAST(JSONB_ARRAY_ELEMENTS(json_profile -> 'properties') ->> 'livingSpace' as FLOAT) as property_living_space
     , CAST(JSONB_ARRAY_ELEMENTS(json_profile -> 'properties') ->> 'energyConsumption' as FLOAT) as property_energy_consumption
     , CAST(JSONB_ARRAY_ELEMENTS(json_profile -> 'properties') ->> 'propertiesApartmentSharing' as VARCHAR) as property_apartment_sharing
-    , CAST(json_profile -> 'creationDateTime' as VARCHAR) as property_creation_date
-    , CAST(json_profile -> 'franceConnect' as VARCHAR) as property_france_connect
 from owner_log
 where json_profile is not null
