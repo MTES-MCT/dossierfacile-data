@@ -56,7 +56,7 @@ with tenant_log_status as (
 , tenant_partner as (
     select
         staging_tenant_partner_consent.tenant_id
-        , MIN(COALESCE(name, name2)) as partner_id
+        , MIN(COALESCE(keycloak_client_id, partner_name)) as partner_id
     from {{ ref('staging_tenant_partner_consent') }} as staging_tenant_partner_consent
     left join {{ ref('staging_partner_client') }} as staging_partner_client on staging_tenant_partner_consent.partner_client_id = staging_partner_client.id
     group by tenant_id
@@ -71,14 +71,11 @@ select
 
     , tenant_partner.partner_id
 
-    , staging_user_account.last_login_date
-    , staging_user_account.update_date_time
-    , staging_user_account.provider
-    , staging_user_account.provider_id
+    , staging_user_account.last_login_at
+    , staging_user_account.updated_at
     , staging_user_account.enabled
     , staging_user_account.keycloak_id
     , staging_user_account.france_connect
-    , staging_user_account.france_connect_sub
     , staging_user_account.france_connect_birth_date
     , staging_user_account.france_connect_birth_place
     , staging_user_account.france_connect_birth_country
