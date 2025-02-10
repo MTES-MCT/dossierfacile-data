@@ -1,23 +1,26 @@
 with fill_na as (
-    select 
-    tenant_id, 
-    userapi_id, 
-    case when access_granted_date is null then '1970-01-01' else access_granted_date end as access_granted_date
+    select
+        tenant_id
+        , userapi_id
+        , COALESCE(access_granted_date, '1970-01-01') as access_granted_date
     from tenant_userapi
-), first_access_granted as (
-    select 
-    tenant_id, 
-    min(access_granted_date) as first_access_granted_date
+)
+
+, first_access_granted as (
+    select
+        tenant_id
+        , MIN(access_granted_date) as first_access_granted_date
     from fill_na
     group by tenant_id
 )
+
 select
-cast(fill_na.tenant_id as INTEGER) as tenant_id
-, cast(min(case when first_access_granted_date = '1970-01-01' then null else first_access_granted_date end) as TIMESTAMP) as access_granted_date
-, cast(min(fill_na.userapi_id) as INTEGER) as partner_client_id
+    CAST(fill_na.tenant_id as INTEGER) as tenant_id
+    , CAST(MIN(case when first_access_granted_date = '1970-01-01' then null else first_access_granted_date end) as TIMESTAMP) as access_granted_date
+    , CAST(MIN(fill_na.userapi_id) as INTEGER) as partner_client_id
 from fill_na
 inner join first_access_granted on fill_na.tenant_id = first_access_granted.tenant_id and fill_na.access_granted_date = first_access_granted.first_access_granted_date
-group by 1 
+group by 1
 
 
 /*
