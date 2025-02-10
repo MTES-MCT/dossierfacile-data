@@ -5,3 +5,4 @@ select
     , CAST(log_type as VARCHAR) as log_type
     , CAST(apartment_sharing_id as INTEGER) as apartment_sharing_id
 from {{ source('dossierfacile', 'property_log') }}
+{{ filter_recent_data('creation_date') }}
