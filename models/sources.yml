@@ -42,6 +42,11 @@ sources:
           - name: id
             data_tests:
               - unique
+      - name: owner_log
+        columns:
+          - name: id
+            data_tests:
+              - unique
       - name: user_api
         columns:
           - name: id
