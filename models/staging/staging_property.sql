@@ -1,7 +1,6 @@
 select
     CAST(id as INTEGER) as id
     , CAST(name as VARCHAR) as name
-    -- , CAST(token as VARCHAR) as token
     , CAST(owner_id as INTEGER) as owner_id
     , CAST(creation_date as TIMESTAMP) as creation_date
     , CAST(count_visit as INTEGER) as count_visit
