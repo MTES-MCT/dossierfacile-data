@@ -41,8 +41,35 @@ with log_details as (
     from log_details
 )
 
+, casting_log as (
+    select 
+        CAST(id as INTEGER) as id
+        , CAST(user_apis as BIGINT []) as user_apis
+        , CAST(tenant_id as INTEGER) as tenant_id
+        , CAST(operator_id as INTEGER) as operator_id
+        , CAST(log_type as VARCHAR) as log_type
+        , CAST(creation_date as TIMESTAMP) as creation_date
+        , CAST(message_id as INTEGER) as message_id
+        , CAST(migrate as BOOLEAN) as migrate -- flag migrate dans tenant_log pour indiquer les lignes qui ont été migrées (utile si on veut faire qq chose de plus fin comme par exemple dupliquer le dernier logs de suppression en un log d’archivage et de suppression - il y avait un bug précédemment qui ne permettait pas de distingué la suppression quand un archivage avait eu lieu).
+        , CAST(json_profile as JSONB) as json_profile
+        , CAST(json_profile ->> 'status' as VARCHAR) as status
+        , CAST(LEFT(tenant_log.json_profile ->> 'zipCode', 5) as VARCHAR) as zip_code
+    from {{ source('dossierfacile', 'tenant_log') }} as tenant_log
+)
 select
-    casting_log_details.step
+
+    casting_log.id
+    , casting_log.user_apis
+    , casting_log.tenant_id
+    , casting_log.operator_id
+    , casting_log.log_type
+    , casting_log.creation_date
+    , casting_log.message_id
+    , casting_log.migrate
+    , casting_log.json_profile
+    , casting_log.status
+
+    , casting_log_details.step
     , casting_log_details.oldtype
     , casting_log_details.newtype
     , casting_log_details.user_id_concerned
@@ -52,18 +79,6 @@ select
     , casting_log_details.document_category
     , casting_log_details.document_sub_category
 
-    , CAST(tenant_log.user_apis as BIGINT []) as user_apis
-    , CAST(tenant_log.id as INTEGER) as id
-    , CAST(tenant_log.tenant_id as INTEGER) as tenant_id
-    , CAST(tenant_log.operator_id as INTEGER) as operator_id
-    , CAST(tenant_log.log_type as VARCHAR) as log_type
-    , CAST(tenant_log.creation_date as TIMESTAMP) as creation_date
-    , CAST(tenant_log.message_id as INTEGER) as message_id
-    , CAST(tenant_log.migrate as BOOLEAN) as migrate -- flag migrate dans tenant_log pour indiquer les lignes qui ont été migrées (utile si on veut faire qq chose de plus fin comme par exemple dupliquer le dernier logs de suppression en un log d’archivage et de suppression - il y avait un bug précédemment qui ne permettait pas de distingué la suppression quand un archivage avait eu lieu).
-    , CAST(tenant_log.json_profile as JSONB) as json_profile
-    , CAST(tenant_log.json_profile ->> 'status' as VARCHAR) as status
-    , CAST(LEFT(tenant_log.json_profile ->> 'zipCode', 5) as VARCHAR) as zip_code
-
-from {{ source('dossierfacile', 'tenant_log') }} as tenant_log
-left join casting_log_details on tenant_log.id = casting_log_details.id
+from casting_log
+left join casting_log_details on casting_log.id = casting_log_details.id
 {{ filter_recent_data('creation_date') }}
