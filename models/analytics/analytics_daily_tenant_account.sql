@@ -1,6 +1,6 @@
 select
-    DATE(creation_date) as creation_date
+    DATE(created_at) as created_date
     , COUNT(*) as nb_creation
 from {{ ref('core_tenant_account') }}
 group by
-    DATE(creation_date)
+    DATE(created_at)

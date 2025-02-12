@@ -7,3 +7,48 @@ models:
         data_tests:
           - unique
           - not_null
+      - name: tenant_id
+        description: "The ID of the tenant associated with the log"
+        data_tests:
+          - not_null
+      - name: operator_id
+        description: "The ID of the operator who performed the action"
+      - name: log_type
+        description: "The type of log entry"
+      - name: created_at
+        description: "The timestamp when the log entry was created"
+        data_tests:
+          - not_null
+      - name: migrate
+        description: "Flag indicating if the log entry has been migrated"
+
+  - name: staging_tenant
+    description: "A dbt model to clean and transform tenant data"
+    columns:
+      - name: id
+        description: "The primary key for the tenant table"
+        data_tests:
+          - unique
+          - not_null
+      - name: tenant_type
+        description: "The type of tenant"
+      - name: apartment_sharing_id
+        description: "The ID of the apartment sharing group"
+      - name: zip_code
+        description: "The zip code of the tenant's address"
+      - name: honor_declaration
+        description: "Flag indicating if the tenant has made an honor declaration"
+      - name: last_updated_at
+        description: "The timestamp of the last update to the tenant record"
+      - name: tenant_comment
+        description: "The tenant's comment for the property owner"
+      - name: status
+        description: "The current status of the tenant"
+      - name: last_operation_at
+        description: "The timestamp of the last operation performed on the tenant record"
+      - name: deletion_warnings
+        description: "The number of warnings before deletion"
+      - name: operator_comment
+        description: "Comments made by the operator"
+      - name: tenant_abroad
+        description: "Flag indicating if the tenant is abroad"

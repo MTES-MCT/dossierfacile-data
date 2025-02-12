@@ -2,11 +2,11 @@ with tenant_log_status as (
     -- add new columns based on log_type
     select
         tenant_id
-        , case when log_type in ('ACCOUNT_CREATED', 'ACCOUNT_CREATED_VIA_KC', 'FC_ACCOUNT_CREATION') then creation_date end as creation_date
-        , case when log_type in ('ACCOUNT_COMPLETED', 'ACCOUNT_VALIDATED', 'ACCOUNT_DENIED') then creation_date end as completion_date
+        , case when log_type in ('ACCOUNT_CREATED', 'ACCOUNT_CREATED_VIA_KC', 'FC_ACCOUNT_CREATION') then created_at end as created_at
+        , case when log_type in ('ACCOUNT_COMPLETED', 'ACCOUNT_VALIDATED', 'ACCOUNT_DENIED') then created_at end as completion_at
         , case when log_type in ('ACCOUNT_COMPLETED', 'ACCOUNT_VALIDATED', 'ACCOUNT_DENIED') then 1 else 0 end as completion_flag
-        , case when log_type in ('ACCOUNT_VALIDATED', 'ACCOUNT_DENIED') then creation_date end as operation_date
-        , case when log_type = 'ACCOUNT_VALIDATED' then creation_date end as validation_date
+        , case when log_type in ('ACCOUNT_VALIDATED', 'ACCOUNT_DENIED') then created_at end as operation_at
+        , case when log_type = 'ACCOUNT_VALIDATED' then created_at end as validation_at
         , case when log_type = 'ACCOUNT_VALIDATED' then 1 else 0 end as validation_flag
         , case when log_type in ('ACCOUNT_VALIDATED', 'ACCOUNT_DENIED') then 1 else 0 end as operation_flag
         , case when log_type = 'ACCOUNT_COMPLETED' then 1 else 0 end as user_completion_flag
@@ -18,17 +18,17 @@ with tenant_log_status as (
     -- group by tenant_id and get the min/max of the new columns
     select
         tenant_id
-        , MIN(creation_date) as creation_date
-        , MIN(completion_date) as first_completion_date
+        , MIN(created_at) as created_at
+        , MIN(completion_at) as first_completion_at
         -- on considère que le tenant est complet dès qu'il a été complété, validé ou refusé au moins une fois
         -- cas des couples où l'un des deux conjoints n'a pas de log de completion
         , MAX(completion_flag) as completion_flag
-        , MIN(operation_date) as first_operation_date
-        , MIN(validation_date) as first_validation_date
+        , MIN(operation_at) as first_operation_at
+        , MIN(validation_at) as first_validation_at
         -- on considère que le tenant est validé dès qu'il a été validé au moins une fois
         , MAX(validation_flag) as validation_flag
         , SUM(user_completion_flag) as nb_completions
-        , SUM(operation_flag) as nb_traitements
+        , SUM(operation_flag) as nb_operations
         , SUM(validation_flag) as nb_validations
     from tenant_log_status
     group by
@@ -38,53 +38,39 @@ with tenant_log_status as (
 , tenant_status_details as (
     select
         tenant_id
-        , creation_date
-        , first_completion_date
+        , created_at
+        , first_completion_at
         , completion_flag
-        , first_operation_date
-        , first_validation_date
+        , first_operation_at
+        , first_validation_at
         , validation_flag
-        , nb_traitements
+        , nb_completions
+        , nb_operations
         , nb_validations
-        , EXTRACT(epoch from first_completion_date - creation_date) as time_to_complete
-        , EXTRACT(epoch from first_validation_date - first_completion_date) as time_to_review
-        , case when first_validation_date = first_operation_date then 1 else 0 end as validation_without_denied
+        , EXTRACT(epoch from first_completion_at - created_at) as time_to_complete
+        , EXTRACT(epoch from first_validation_at - first_completion_at) as time_to_validation
+        , case when first_validation_at = first_operation_at then 1 else 0 end as validation_at_first_operation
     from tenant_status
 )
 
-, tenant_partner_consent_filled as (
-    select
-        tenant_id
-        , partner_client_id
-        , partner_name
-        , COALESCE(access_granted_date, '1970-01-01') as access_granted_date
-    from {{ ref('staging_tenant_partner_consent') }} as staging_tenant_partner_consent
-    inner join {{ ref('staging_partner_client') }} as staging_partner_client on staging_tenant_partner_consent.partner_client_id = staging_partner_client.id
-    where partner_client_id <> 22 -- exclure dfconnect-proprietaire
-)
-
-, tenant_partner as (
+, tenant_partner_consent_list as (
     select distinct
         tenant_id
-        , FIRST_VALUE(access_granted_date) over (
+        , ARRAY_AGG(keycloak_client_id) over (
             partition by tenant_id
-            order by access_granted_date asc
-        ) as first_access_granted_date
-        , FIRST_VALUE(partner_client_id) over (
+            order by access_granted_at asc
+        ) as partner_consent_list
+        , FIRST_VALUE(access_granted_at) over (
             partition by tenant_id
-            order by access_granted_date asc
-        ) as partner_client_id
-        , FIRST_VALUE(partner_name) over (
+            order by access_granted_at asc
+        ) as first_access_granted_at
+        , FIRST_VALUE(keycloak_client_id) over (
             partition by tenant_id
-            order by access_granted_date asc
-        ) as partner_name
-        , FIRST_VALUE(access_granted_date) over (
-            partition by tenant_id
-            order by access_granted_date asc
-        ) < staging_user_account.creation_date + INTERVAL '1 hour' as real_partner
-    from {{ ref('staging_user_account') }} as staging_user_account
-    left join tenant_partner_consent_filled on staging_user_account.id = tenant_partner_consent_filled.tenant_id
-
+            order by access_granted_at asc
+        ) as first_partner_consent
+    from {{ ref('staging_tenant_partner_consent') }} as staging_tenant_partner_consent
+    left join {{ ref('staging_partner_api_client') }} as staging_partner_client
+        on staging_tenant_partner_consent.partner_client_id = staging_partner_client.id
 )
 
 select
@@ -96,32 +82,46 @@ select
 
     , staging_user_account.last_login_at
     , staging_user_account.updated_at
-
     , staging_user_account.enabled
     , staging_user_account.keycloak_id
-    , staging_user_account.france_connect
+    , staging_user_account.is_france_connected
     , staging_user_account.france_connect_birth_date
     , staging_user_account.france_connect_birth_place
     , staging_user_account.france_connect_birth_country
-    , tenant_status_details.creation_date
-    , tenant_status_details.first_completion_date
+    , staging_user_account.acquisition_campaign
 
+    , tenant_status_details.created_at
+    , tenant_status_details.first_completion_at
     , tenant_status_details.completion_flag
-    , tenant_status_details.first_operation_date
-    , tenant_status_details.first_validation_date
+    , tenant_status_details.first_operation_at
+    , tenant_status_details.first_validation_at
     , tenant_status_details.validation_flag
     , tenant_status_details.time_to_complete
-    , tenant_status_details.time_to_review
-    , tenant_status_details.validation_without_denied
-    , tenant_status_details.nb_traitements
+    , tenant_status_details.time_to_validation
+    , tenant_status_details.validation_at_first_operation
+    , tenant_status_details.nb_completions
+    , tenant_status_details.nb_operations
     , tenant_status_details.nb_validations
-    , case when staging_user_account.acquisition_campaign is not null then 0 when tenant_partner.real_partner then tenant_partner.partner_client_id end as partner_client_id
-    , case when staging_user_account.acquisition_campaign is not null then staging_user_account.acquisition_campaign when tenant_partner.real_partner then tenant_partner.partner_name end as partner_name
+
+    , tenant_partner_consent_list.partner_consent_list
+    , tenant_partner_consent_list.first_access_granted_at
+
+    -- Détermine l'origine du dossier locataire:
+    -- - Si une campagne d'acquisition est définie, on utilise le préfixe 'link-' suivi du nom de la campagne
+    -- - Si le premier consentement partenaire a été donné dans l'heure suivant la création du dossier
+    --   et que ce n'est pas dfconnect-proprietaire, on utilise l'identifiant du partenaire
+    -- - Sinon, on considère que c'est un dossier créé directement sur DossierFacile
+    , case 
+        when staging_user_account.acquisition_campaign is not null then 'link-' || staging_user_account.acquisition_campaign 
+        when tenant_partner_consent_list.first_access_granted_at < tenant_status_details.created_at + INTERVAL '1 hour' 
+            and tenant_partner_consent_list.first_partner_consent <> 'dfconnect-proprietaire' then tenant_partner_consent_list.first_partner_consent
+        else 'organic-dossierfacile'
+    end as partner_origin
 
 from tenant_status_details
 left join {{ ref('staging_user_account') }} as staging_user_account
     on tenant_status_details.tenant_id = staging_user_account.id
-left join staging_tenant as staging_tenant
+left join {{ ref('staging_tenant') }} as staging_tenant
     on tenant_status_details.tenant_id = staging_tenant.id
-left join tenant_partner
-    on tenant_status_details.tenant_id = tenant_partner.tenant_id
+left join tenant_partner_consent_list as tenant_partner_consent_list
+    on tenant_status_details.tenant_id = tenant_partner_consent_list.tenant_id
