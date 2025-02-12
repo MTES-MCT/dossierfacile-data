@@ -85,9 +85,6 @@ select
     , staging_user_account.enabled
     , staging_user_account.keycloak_id
     , staging_user_account.is_france_connected
-    , staging_user_account.france_connect_birth_date
-    , staging_user_account.france_connect_birth_place
-    , staging_user_account.france_connect_birth_country
     , staging_user_account.acquisition_campaign
 
     , tenant_status_details.created_at

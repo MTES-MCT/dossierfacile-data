@@ -6,18 +6,6 @@ select
     , CAST(enabled as BOOLEAN) -- information de keycloak
     , CAST(keycloak_id as VARCHAR)
     , CAST(france_connect as BOOLEAN) as is_france_connected
-    , CAST(case 
-        when france_connect_birth_date = 'birthdate' then null 
-        else france_connect_birth_date 
-    end as TIMESTAMP) as france_connect_birth_date
-    , CAST(case
-        when france_connect_birth_place = 'birthplace' then null 
-        else france_connect_birth_place 
-    end as VARCHAR) as france_connect_birth_place
-    , CAST(case 
-        when france_connect_birth_country = 'birthcountry' then null 
-        else france_connect_birth_country 
-    end as VARCHAR) as france_connect_birth_country
     , CAST(user_type as VARCHAR)
     , CAST(acquisition_campaign as VARCHAR)
     , CAST(acquisition_source as VARCHAR)
