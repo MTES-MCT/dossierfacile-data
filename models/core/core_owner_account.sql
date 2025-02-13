@@ -18,7 +18,7 @@ with owner_property_status as (
 select
     staging_user_account.id
     , staging_user_account.created_at
-    , staging_user_account.last_login_date
+    , staging_user_account.last_login_at
     , owner_property_status.nb_property_created
     , owner_property_status.nb_property_displayed
     , owner_property_status.nb_property_validated
