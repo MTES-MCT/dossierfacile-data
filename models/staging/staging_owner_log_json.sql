@@ -22,24 +22,24 @@ with json_details as (
 
 , casting_logs as (
     select
-        CAST(owner_log.id as INTEGER) as id
-        , CAST(owner_log.owner_id as INTEGER) as owner_id
+        CAST(owner_log.id as INTEGER) 
+        , CAST(owner_log.owner_id as INTEGER) 
         , CAST(owner_log.creation_date as VARCHAR) as owner_deleted_at
-        , CAST(owner_log.log_type as VARCHAR) as log_type
-        , CAST(json_details.owner_created_at as VARCHAR) as owner_created_at
-        , CAST(json_details.owner_france_connect as BOOLEAN) as owner_france_connect
-        , CAST(json_details.property_id as INTEGER) as property_id
-        , CAST(json_details.property_name as VARCHAR) as property_name
-        , CAST(json_details.property_type as VARCHAR) as property_type
-        , CAST(json_details.property_address as VARCHAR) as property_address
-        , CAST(json_details.property_rent_cost as VARCHAR) as property_rent_cost
-        , CAST(json_details.property_furniture as VARCHAR) as property_furniture
-        , CAST(json_details.property_validated as BOOLEAN) as property_validated
-        , CAST(json_details.property_charges_cost as FLOAT) as property_charges_cost
-        , CAST(json_details.property_co2_emission as FLOAT) as property_co2_emission
-        , CAST(json_details.property_living_space as FLOAT) as property_living_space
-        , CAST(json_details.property_energy_consumption as FLOAT) as property_energy_consumption
-        , CAST(json_details.property_apartment_sharing as VARCHAR) as property_apartment_sharing
+        , CAST(owner_log.log_type as VARCHAR) 
+        , CAST(json_details.owner_created_at as VARCHAR) 
+        , CAST(json_details.owner_france_connect as BOOLEAN) as is_owner_france_connect -- toujours à false (aujourdhui la valeur est uniquement dans keycloak)
+        , CAST(json_details.property_id as INTEGER) 
+        , CAST(json_details.property_name as VARCHAR) 
+        , CAST(json_details.property_type as VARCHAR) 
+        , CAST(json_details.property_address as VARCHAR) 
+        , CAST(json_details.property_rent_cost as VARCHAR) 
+        , CAST(json_details.property_furniture as VARCHAR) 
+        , CAST(json_details.property_validated as BOOLEAN) 
+        , CAST(json_details.property_charges_cost as FLOAT) 
+        , CAST(json_details.property_co2_emission as FLOAT) 
+        , CAST(json_details.property_living_space as FLOAT) 
+        , CAST(json_details.property_energy_consumption as FLOAT) 
+        , CAST(json_details.property_apartment_sharing as VARCHAR) 
     from {{ source('dossierfacile', 'owner_log') }} as owner_log
     inner join json_details on owner_log.id = json_details.id
 )
