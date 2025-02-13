@@ -31,7 +31,7 @@
 -- )
 
 with casting_log as (
-    select 
+    select
         CAST(id as INTEGER)
         , CAST(tenant_id as INTEGER)
         , CAST(operator_id as INTEGER)
@@ -41,9 +41,10 @@ with casting_log as (
         -- utile si on veut faire qq chose de plus fin comme par exemple dupliquer le dernier logs de suppression en un log d’archivage et de suppression
         -- il y avait un bug précédemment qui ne permettait pas de distinguer la suppression quand un archivage avait eu lieu.
         , CAST(migrate as BOOLEAN)
-    from {{ source('dossierfacile', 'tenant_log') }} as tenant_log
+    from {{ source('dossierfacile', 'tenant_log') }}
     {{ filter_recent_data('creation_date') }}
 )
+
 select
 
     casting_log.id
@@ -53,4 +54,3 @@ select
     , casting_log.created_at
     , casting_log.migrate
 from casting_log
-
