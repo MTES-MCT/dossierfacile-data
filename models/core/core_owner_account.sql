@@ -10,7 +10,7 @@ with owner_property_status as (
         , AVG(case when validated then staging_property.rent_cost end) as avg_rent_cost_validated
         , AVG(case when validated then staging_property.charges_cost end) as avg_charges_cost_validated
     from {{ ref('staging_user_account') }} as staging_user_account
-    inner join {{ ref('staging_property') }} as staging_property on staging_user_account.id = staging_property.owner_id
+    left join {{ ref('staging_property') }} as staging_property on staging_user_account.id = staging_property.owner_id
     where user_type = 'OWNER'
     group by staging_user_account.id
 )
@@ -28,4 +28,4 @@ select
     , owner_property_status.avg_rent_cost_validated
     , owner_property_status.avg_charges_cost_validated
 from {{ ref('staging_user_account') }} as staging_user_account
-left join owner_property_status on staging_user_account.id = owner_property_status.id
+inner join owner_property_status on staging_user_account.id = owner_property_status.id
