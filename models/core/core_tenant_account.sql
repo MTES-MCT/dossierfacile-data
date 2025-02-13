@@ -59,6 +59,7 @@ with tenant_log_status as (
         , ARRAY_AGG(keycloak_client_id) over (
             partition by tenant_id
             order by access_granted_at asc
+            rows between unbounded preceding and unbounded following
         ) as partner_consent_list
         , FIRST_VALUE(access_granted_at) over (
             partition by tenant_id
