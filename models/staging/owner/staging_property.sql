@@ -1,10 +1,9 @@
 select
     CAST(id as INTEGER)
-    , CAST(name as VARCHAR)
+    -- , CAST(name as VARCHAR)
     , CAST(owner_id as INTEGER)
     , CAST(creation_date as TIMESTAMP) as created_at
     , CAST(count_visit as INTEGER)
-    , CAST(property_id as INTEGER)
     , CAST(rent_cost as BIGINT)
     , CAST(displayed as BOOLEAN)
     , CAST(notification as BOOLEAN)
@@ -19,7 +18,7 @@ select
     , CAST(co2emission as INTEGER)
     , CAST(validated_date as TIMESTAMP)
     , CAST(ademe_number as VARCHAR)
-    , CAST(ademe_api_result as JSONB)
+    -- , CAST(ademe_api_result as JSONB)
     , CAST(dpe_date as TIMESTAMP)
     , CAST(dpe_not_required as BOOLEAN)
 from {{ source('dossierfacile', 'property') }}

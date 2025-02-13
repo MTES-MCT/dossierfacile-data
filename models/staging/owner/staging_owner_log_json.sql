@@ -1,3 +1,5 @@
+{{ config(enabled=false) }}
+
 with json_details as (
     select
         id
