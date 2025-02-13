@@ -1,18 +1,8 @@
-with casting_log as (
-    select
-        CAST(id as INTEGER) as id
-        , CAST(property_id as INTEGER) as property_id
-        , CAST(creation_date as TIMESTAMP) as creation_date
-        , CAST(log_type as VARCHAR) as log_type
-        , CAST(apartment_sharing_id as INTEGER) as apartment_sharing_id
-    from {{ source('dossierfacile', 'property_log') }}
-    {{ filter_recent_data('creation_date') }}
-)
-
 select
-    id
-    , property_id
-    , creation_date
-    , log_type
-    , apartment_sharing_id
-from casting_log
+    CAST(id as INTEGER) 
+    , CAST(property_id as INTEGER) 
+    , CAST(creation_date as TIMESTAMP) as created_at
+    , CAST(log_type as VARCHAR) 
+    , CAST(apartment_sharing_id as INTEGER)
+from {{ source('dossierfacile', 'property_log') }}
+{{ filter_recent_data('creation_date') }}

@@ -2,7 +2,7 @@ with json_details as (
     select
         id
         , json_profile ->> 'id' as owner_id
-        , json_profile ->> 'creationDateTime' as owner_creation_date        -- date de creation du compte du compte proprietaire
+        , json_profile ->> 'creationDateTime' as owner_created_at        -- date de creation du compte du compte proprietaire
         , json_profile ->> 'franceConnect' as owner_france_connect
         , JSONB_ARRAY_ELEMENTS(json_profile -> 'properties') ->> 'id' as property_id
         , JSONB_ARRAY_ELEMENTS(json_profile -> 'properties') ->> 'name' as property_name
@@ -24,9 +24,9 @@ with json_details as (
     select
         CAST(owner_log.id as INTEGER) as id
         , CAST(owner_log.owner_id as INTEGER) as owner_id
-        , CAST(owner_log.creation_date as VARCHAR) as deletion_date
+        , CAST(owner_log.creation_date as VARCHAR) as owner_deleted_at
         , CAST(owner_log.log_type as VARCHAR) as log_type
-        , CAST(json_details.owner_creation_date as VARCHAR) as owner_creation_date
+        , CAST(json_details.owner_created_at as VARCHAR) as owner_created_at
         , CAST(json_details.owner_france_connect as BOOLEAN) as owner_france_connect
         , CAST(json_details.property_id as INTEGER) as property_id
         , CAST(json_details.property_name as VARCHAR) as property_name
@@ -47,9 +47,9 @@ with json_details as (
 select
     id
     , owner_id
-    , deletion_date
+    , owner_deleted_at
     , log_type
-    , owner_creation_date
+    , owner_created_at
     , owner_france_connect
     , property_id
     , property_name
