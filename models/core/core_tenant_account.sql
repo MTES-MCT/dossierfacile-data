@@ -106,15 +106,16 @@ select
 
     -- Détermine l'origine du dossier locataire:
     -- - Si une campagne d'acquisition est définie, on utilise le préfixe 'link-' suivi du nom de la campagne
-    -- - Si le premier consentement partenaire a été donné dans l'heure suivant la création du dossier
+    -- - Si le premier consentement partenaire a été donné dans l'heure suivant la création du compte
     --   et que ce n'est pas dfconnect-proprietaire, on utilise l'identifiant du partenaire
     -- - Sinon, on considère que c'est un dossier créé directement sur DossierFacile
-    , case 
-        when staging_user_account.acquisition_campaign is not null then 'link-' || staging_user_account.acquisition_campaign 
-        when tenant_partner_consent_list.first_access_granted_at < tenant_status_details.created_at + INTERVAL '1 hour' 
+    , case
+        when staging_user_account.acquisition_campaign is not null then 'link-' || staging_user_account.acquisition_campaign
+        when
+            tenant_partner_consent_list.first_access_granted_at < tenant_status_details.created_at + INTERVAL '1 hour'
             and tenant_partner_consent_list.first_partner_consent <> 'dfconnect-proprietaire' then tenant_partner_consent_list.first_partner_consent
         else 'organic-dossierfacile'
-    end as partner_origin
+    end as tenant_origin
 
 from tenant_status_details
 left join {{ ref('staging_user_account') }} as staging_user_account
