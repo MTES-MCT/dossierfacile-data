@@ -1,2 +1,2 @@
 select *
-from staging_property
+from {{ ref('staging_property') }}
