@@ -7,7 +7,7 @@ with owner_property_status as (
         , MIN(created_at) as first_property_created_at
         , MIN(validated_date) as first_property_validation_date
         , AVG(case when validated then count_visit end) as avg_count_visit_validated
-    from {{ ref('staging_property') }} as staging_property
+    from {{ ref('staging_property') }}
     where user_type = 'OWNER'
     group by owner_id
 )
@@ -28,6 +28,6 @@ select
     , owner_property_status.first_property_validation_date
     , owner_property_status.avg_count_visit_validated
 from {{ ref('staging_user_account') }} as staging_user_account
-left join owner_property_status 
+left join owner_property_status
     on staging_user_account.id = owner_property_status.owner_id
 where staging_user_account.user_type = 'OWNER'
