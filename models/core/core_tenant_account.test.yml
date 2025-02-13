@@ -1,0 +1,61 @@
+unit_tests:
+  - name: test_tenant_origin
+    description: "Check tenant_origin logic captures all known edge cases"
+    model: core_tenant_account
+    given:
+      - input: ref('staging_tenant_log')
+        rows:
+          - { tenant_id: 1, created_at: '2024-01-01 00:00:00', log_type: 'ACCOUNT_CREATED' }
+          - { tenant_id: 2, created_at: '2024-01-01 00:00:00', log_type: 'ACCOUNT_CREATED' }
+          - { tenant_id: 3, created_at: '2024-01-01 00:00:00', log_type: 'ACCOUNT_CREATED' }
+          - { tenant_id: 4, created_at: '2024-01-01 00:00:00', log_type: 'ACCOUNT_CREATED' }
+          - { tenant_id: 5, created_at: '2024-01-01 00:00:00', log_type: 'ACCOUNT_CREATED' }
+          - { tenant_id: 6, created_at: '2024-01-01 00:00:00', log_type: 'ACCOUNT_CREATED' }
+          - { tenant_id: 7, created_at: '2024-01-01 00:00:00', log_type: 'ACCOUNT_CREATED' }
+      - input: ref('staging_tenant')
+        rows:
+          - { id: 1 }
+          - { id: 2 }
+          - { id: 3 }
+          - { id: 4 }
+          - { id: 5 }
+          - { id: 6 }
+          - { id: 7 }
+      - input: ref('staging_user_account')
+        rows:
+          - { id: 1, acquisition_campaign: null }
+          - { id: 2, acquisition_campaign: 'partner-1' }
+          - { id: 3, acquisition_campaign: null }
+          - { id: 4, acquisition_campaign: null }
+          - { id: 5, acquisition_campaign: 'partner-1' }
+          - { id: 6, acquisition_campaign: null }
+          - { id: 7, acquisition_campaign: null }
+      - input: ref('staging_tenant_partner_consent')
+        rows:
+          - { tenant_id: 3, access_granted_at: '2024-01-01 00:59:00', partner_client_id: 2 }
+          - { tenant_id: 3, access_granted_at: '2024-01-01 01:01:00', partner_client_id: 3 }
+          - { tenant_id: 4, access_granted_at: '2024-01-01 00:59:00', partner_client_id: 3 }
+          - { tenant_id: 5, access_granted_at: '2024-01-01 00:59:00', partner_client_id: 2 }
+          - { tenant_id: 6, access_granted_at: '2024-01-01 01:01:00', partner_client_id: 2 }
+          - { tenant_id: 7, access_granted_at: '2024-01-01 00:59:00', partner_client_id: 4 }
+      - input: ref('staging_partner_api_client')
+        rows:
+          - { id: 2, keycloak_client_id: 'dfconnect-partner-2' }
+          - { id: 3, keycloak_client_id: 'dfconnect-partner-3' }
+          - { id: 4, keycloak_client_id: 'dfconnect-proprietaire' }
+    expect:
+      rows:
+        # acquisition_campaign null, pas de consentement, donc organic-dossierfacile
+        - { id: 1, tenant_origin: 'organic-dossierfacile' }
+        # acquisition_campaign partner-1, pas de consentement, donc link-partner-1
+        - { id: 2, tenant_origin: 'link-partner-1' }
+        # acquisition_campaign null, consentement dfconnect-partner-2 (dans l'heure suivant la création), donc dfconnect-partner-2
+        - { id: 3, tenant_origin: 'dfconnect-partner-2' }
+        # acquisition_campaign null, consentement dfconnect-partner-3 (dans l'heure suivant la création), donc dfconnect-partner-3
+        - { id: 4, tenant_origin: 'dfconnect-partner-3' }
+        # acquisition_campaign partner-1, consentement dfconnect-partner-2 (dans l'heure suivant la création), donc link-partner-1
+        - { id: 5, tenant_origin: 'link-partner-1' }
+        # acquisition_campaign null, consentement (après l'heure suivant la création), donc organic-dossierfacile
+        - { id: 6, tenant_origin: 'organic-dossierfacile' }
+        # acquisition_campaign null, consentement dfconnect-proprietaire (dans l'heure suivant la création), donc organic-dossierfacile
+        - { id: 7, tenant_origin: 'organic-dossierfacile' }
