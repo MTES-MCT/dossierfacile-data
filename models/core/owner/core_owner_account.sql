@@ -1,14 +1,13 @@
 with owner_property_status as (
     select
         owner_id
-        , COUNT(distinct property_id) as nb_property_created
+        , COUNT(distinct id) as nb_property_created
         , SUM(case when displayed then 1 else 0 end) as nb_property_displayed
         , SUM(case when validated then 1 else 0 end) as nb_property_validated
         , MIN(created_at) as first_property_created_at
         , MIN(validated_date) as first_property_validation_date
         , AVG(case when validated then count_visit end) as avg_count_visit_validated
     from {{ ref('staging_property') }}
-    where user_type = 'OWNER'
     group by owner_id
 )
 

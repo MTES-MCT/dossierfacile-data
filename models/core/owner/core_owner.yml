@@ -1,0 +1,30 @@
+models:
+  - name: core_owner_account
+    description: "A dbt model for owner account"
+    columns:
+      - name: id
+        description: "The primary key for this table"
+        data_tests:
+          - unique
+          - not_null
+      - name: created_at
+        description: "The creation date of the owner"
+        data_tests:
+          - not_null
+  - name: core_property
+    description: "A dbt model for owner property"
+    columns:
+      - name: id
+        description: "The primary key for this table"
+        data_tests:
+          - unique
+          - not_null
+      - name: created_at
+        description: "The creation date of the property"
+        data_tests:
+          - not_null
+      - name: owner_id
+        description: "The id of the owner"
+        data_tests:
+          - not_null
+
