@@ -15,9 +15,7 @@ jobs:
       postgres:
         image: postgres:16.1
         ports:
-        # will assign a random free host port
-          - 5432/tcp
-        # Provide the password for postgres
+          - 5432:5432
         env:
           POSTGRES_PASSWORD: ${{ env.POSTGRES_PASSWORD }}
         # Set health checks to wait until postgres has started
@@ -47,9 +45,18 @@ jobs:
 
       - name: Install SQLFluff dbt templater
         run: pip install sqlfluff-templater-dbt==3.3.0
-        
+
+      - name: Test dbt database connection
+        run: dbt debug
+      
       - name: Lint with SQLFluff
         run: sqlfluff lint --dialect postgres
 
-      - name: Run dbt tests
-        run: dbt build
+      # Known issue: https://github.com/dbt-labs/dbt-redshift/issues/818
+      # - name: Run dbt empty model
+      #   run: dbt run --empty
+
+      # Known limitation: direct parents of the model unit-tested need to exist
+      # See DBT docs: https://docs.getdbt.com/docs/build/unit-tests
+      # - name: Run dbt unit-tests
+      #   run: dbt test -s test_type:unit

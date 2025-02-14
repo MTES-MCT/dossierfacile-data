@@ -1,6 +1,5 @@
 sources:
   - name: dossierfacile
-    database: dossierfacile
     schema: public
     loader: airflow
     freshness:

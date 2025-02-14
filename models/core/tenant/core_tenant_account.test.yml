@@ -59,7 +59,7 @@ unit_tests:
         - { id: 6, tenant_origin: 'organic-dossierfacile' }
         # acquisition_campaign null, consentement dfconnect-proprietaire (dans l'heure suivant la création), donc organic-dossierfacile
         - { id: 7, tenant_origin: 'organic-dossierfacile' }
-  - name: core_tenant_status
+  - name: test_tenant_status
     description: "Check tenant_origin logic captures all known edge cases"
     model: core_tenant_account
     given:
