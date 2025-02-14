@@ -16,7 +16,7 @@ models:
   - name: analytics_daily_owner_account
     description: "Daily number of owner accounts created"
     columns:
-      - name: created_at
+      - name: created_date
         data_tests:
           - unique
           - not_null

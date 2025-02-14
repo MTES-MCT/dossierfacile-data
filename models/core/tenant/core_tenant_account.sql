@@ -47,8 +47,8 @@ with tenant_log_status as (
         , nb_completions
         , nb_operations
         , nb_validations
-        , EXTRACT(epoch from first_completion_at - created_at) as time_to_complete
-        , EXTRACT(epoch from first_validation_at - first_completion_at) as time_to_validation
+        , CAST(EXTRACT(epoch from first_completion_at - created_at) as INTEGER) as time_to_complete
+        , CAST(EXTRACT(epoch from first_validation_at - first_completion_at) as INTEGER) as time_to_validation
         , case when first_validation_at = first_operation_at then 1 else 0 end as validation_at_first_operation
     from tenant_status
 )
@@ -124,3 +124,4 @@ left join {{ ref('staging_tenant') }} as staging_tenant
     on tenant_status_details.tenant_id = staging_tenant.id
 left join tenant_partner_consent_list as tenant_partner_consent_list
     on tenant_status_details.tenant_id = tenant_partner_consent_list.tenant_id
+where staging_user_account.user_type = 'TENANT'

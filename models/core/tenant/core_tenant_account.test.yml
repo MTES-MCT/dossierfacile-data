@@ -23,13 +23,13 @@ unit_tests:
           - { id: 7 }
       - input: ref('staging_user_account')
         rows:
-          - { id: 1, acquisition_campaign: null }
-          - { id: 2, acquisition_campaign: 'partner-1' }
-          - { id: 3, acquisition_campaign: null }
-          - { id: 4, acquisition_campaign: null }
-          - { id: 5, acquisition_campaign: 'partner-1' }
-          - { id: 6, acquisition_campaign: null }
-          - { id: 7, acquisition_campaign: null }
+          - { id: 1, user_type: 'TENANT', acquisition_campaign: null }
+          - { id: 2, user_type: 'TENANT', acquisition_campaign: 'partner-1' }
+          - { id: 3, user_type: 'TENANT', acquisition_campaign: null }
+          - { id: 4, user_type: 'TENANT', acquisition_campaign: null }
+          - { id: 5, user_type: 'TENANT', acquisition_campaign: 'partner-1' }
+          - { id: 6, user_type: 'TENANT', acquisition_campaign: null }
+          - { id: 7, user_type: 'TENANT', acquisition_campaign: null }
       - input: ref('staging_tenant_partner_consent')
         rows:
           - { tenant_id: 3, access_granted_at: '2024-01-01 00:59:00', partner_client_id: 2 }
@@ -59,3 +59,143 @@ unit_tests:
         - { id: 6, tenant_origin: 'organic-dossierfacile' }
         # acquisition_campaign null, consentement dfconnect-proprietaire (dans l'heure suivant la création), donc organic-dossierfacile
         - { id: 7, tenant_origin: 'organic-dossierfacile' }
+  - name: core_tenant_status
+    description: "Check tenant_origin logic captures all known edge cases"
+    model: core_tenant_account
+    given:
+      - input: ref('staging_tenant_log')
+        rows:
+          - { tenant_id: 1, created_at: '2024-01-01 00:00:00', log_type: 'ACCOUNT_CREATED' }
+          - { tenant_id: 1, created_at: '2024-01-01 00:01:00', log_type: 'ACCOUNT_COMPLETED' }
+          - { tenant_id: 1, created_at: '2024-01-01 00:02:00', log_type: 'ACCOUNT_DENIED' }
+          - { tenant_id: 1, created_at: '2024-01-01 00:03:00', log_type: 'ACCOUNT_VALIDATED' }
+
+          - { tenant_id: 2, created_at: '2024-01-01 00:00:00', log_type: 'ACCOUNT_CREATED' }
+          - { tenant_id: 2, created_at: '2024-01-01 00:01:00', log_type: 'ACCOUNT_COMPLETED' }
+          - { tenant_id: 2, created_at: '2024-01-01 00:02:00', log_type: 'ACCOUNT_VALIDATED' }
+
+          - { tenant_id: 3, created_at: '2024-01-01 00:00:00', log_type: 'ACCOUNT_CREATED' }
+          - { tenant_id: 3, created_at: '2024-01-01 00:01:00', log_type: 'ACCOUNT_DENIED' }
+          - { tenant_id: 3, created_at: '2024-01-01 00:02:00', log_type: 'ACCOUNT_VALIDATED' }
+
+          - { tenant_id: 4, created_at: '2024-01-01 00:00:00', log_type: 'ACCOUNT_CREATED_VIA_KC' }
+          - { tenant_id: 4, created_at: '2024-01-01 00:01:00', log_type: 'ACCOUNT_COMPLETED' }
+          - { tenant_id: 4, created_at: '2024-01-01 00:02:00', log_type: 'ACCOUNT_DENIED' }
+
+          - { tenant_id: 5, created_at: '2024-01-01 00:00:00', log_type: 'FC_ACCOUNT_CREATION' }
+          - { tenant_id: 5, created_at: '2024-01-01 00:01:00', log_type: 'ACCOUNT_COMPLETED' }
+          - { tenant_id: 5, created_at: '2024-01-01 00:02:00', log_type: 'ACCOUNT_DENIED' }
+          - { tenant_id: 5, created_at: '2024-01-01 00:03:00', log_type: 'ACCOUNT_DENIED' }
+          - { tenant_id: 5, created_at: '2024-01-01 00:04:00', log_type: 'ACCOUNT_VALIDATED' }
+
+          - { tenant_id: 6, created_at: '2024-01-01 00:00:00', log_type: 'ACCOUNT_CREATED' }
+          - { tenant_id: 6, created_at: '2024-01-01 00:01:00', log_type: 'ACCOUNT_VALIDATED' }
+      - input: ref('staging_tenant')
+        rows:
+         - {}
+      - input: ref('staging_user_account')
+        rows:
+          - { id: 1, user_type: 'TENANT' }
+          - { id: 2, user_type: 'TENANT' }
+          - { id: 3, user_type: 'TENANT' }
+          - { id: 4, user_type: 'TENANT' }
+          - { id: 5, user_type: 'TENANT' }
+          - { id: 6, user_type: 'TENANT' }
+      - input: ref('staging_tenant_partner_consent')
+        rows:
+          - {}
+      - input: ref('staging_partner_api_client')
+        rows:
+          - {}
+    expect:
+      rows:
+        - { 
+            id: 1,
+            created_at: '2024-01-01 00:00:00',
+            first_completion_at: '2024-01-01 00:01:00',
+            completion_flag: 1,
+            first_operation_at: '2024-01-01 00:02:00',
+            first_validation_at: '2024-01-01 00:03:00',
+            validation_flag: 1,
+            time_to_complete: 60,
+            time_to_validation: 120,
+            validation_at_first_operation: 0,
+            nb_completions: 1,
+            nb_operations: 2,
+            nb_validations: 1
+          }
+        - { 
+            id: 2,
+            created_at: '2024-01-01 00:00:00',
+            first_completion_at: '2024-01-01 00:01:00',
+            completion_flag: 1,
+            first_operation_at: '2024-01-01 00:02:00',
+            first_validation_at: '2024-01-01 00:02:00',
+            validation_flag: 1,
+            time_to_complete: 60,
+            time_to_validation: 60,
+            validation_at_first_operation: 1,
+            nb_completions: 1,
+            nb_operations: 1,
+            nb_validations: 1
+          }
+        - { 
+            id: 3,
+            created_at: '2024-01-01 00:00:00',
+            first_completion_at: '2024-01-01 00:01:00',
+            completion_flag: 1,
+            first_operation_at: '2024-01-01 00:01:00',
+            first_validation_at: '2024-01-01 00:02:00',
+            validation_flag: 1,
+            time_to_complete: 60,
+            time_to_validation: 60,
+            validation_at_first_operation: 0,
+            nb_completions: 0,
+            nb_operations: 2,
+            nb_validations: 1
+          }
+        - { 
+            id: 4,
+            created_at: '2024-01-01 00:00:00',
+            first_completion_at: '2024-01-01 00:01:00',
+            completion_flag: 1,
+            first_operation_at: '2024-01-01 00:02:00',
+            first_validation_at: null,
+            validation_flag: 0,
+            time_to_complete: 60,
+            time_to_validation: null,
+            validation_at_first_operation: 0,
+            nb_completions: 1,
+            nb_operations: 1,
+            nb_validations: 0
+          }
+        - { 
+            id: 5,
+            created_at: '2024-01-01 00:00:00',
+            first_completion_at: '2024-01-01 00:01:00',
+            completion_flag: 1,
+            first_operation_at: '2024-01-01 00:02:00',
+            first_validation_at: '2024-01-01 00:04:00',
+            validation_flag: 1,
+            time_to_complete: 60,
+            time_to_validation: 180,
+            validation_at_first_operation: 0,
+            nb_completions: 1,
+            nb_operations: 3,
+            nb_validations: 1
+          }
+        - { 
+            id: 6,
+            created_at: '2024-01-01 00:00:00',
+            first_completion_at: '2024-01-01 00:01:00',
+            completion_flag: 1,
+            first_operation_at: '2024-01-01 00:01:00',
+            first_validation_at: '2024-01-01 00:01:00',
+            validation_flag: 1,
+            time_to_complete: 60,
+            time_to_validation: 0,
+            validation_at_first_operation: 1,
+            nb_completions: 0,
+            nb_operations: 1,
+            nb_validations: 1
+          }
