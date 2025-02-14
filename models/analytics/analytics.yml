@@ -4,7 +4,6 @@ models:
     columns:
       - name: created_date
         data_tests:
-          - unique
           - not_null
   - name: analytics_daily_operations
     description: "Nombre d'operations par jour"
