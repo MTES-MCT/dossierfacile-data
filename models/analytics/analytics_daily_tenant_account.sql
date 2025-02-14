@@ -1,7 +1,7 @@
 select
-    DATE(created_at) as created_date
-    , tenant_origin
+    tenant_origin
     , tenant_type
+    , DATE(created_at) as created_date
     , COUNT(id) as nb_creation
     , COUNT(is_france_connected) as nb_france_connected
     , COUNT(completion_flag) as nb_account_completions
@@ -16,7 +16,7 @@ group by
     DATE(created_at)
     , tenant_origin
     , tenant_type
-order by 
+order by
     DATE(created_at) desc
     , tenant_origin
-    , tenant_type
+    , tenant_type asc
