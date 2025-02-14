@@ -1,0 +1,12 @@
+dossierfacile:
+  target: test
+  outputs:
+    test:
+      type: postgres
+      host: localhost
+      user: postgres
+      password: "{{ env_var('POSTGRES_PASSWORD') }}"
+      port: 5432
+      dbname: postgres
+      schema: public
+      threads: 3
