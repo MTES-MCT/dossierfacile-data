@@ -1,11 +1,31 @@
 name: Pipeline CI Data
 on: pull_request
 
+env:
+  DBT_PROFILES_DIR: ./.github/
+  POSTGRES_PASSWORD: "${{ secrets.DBT_POSTGRES_PASSWORD_TEST }}"
+
 jobs:
 
   run-ci-pipeline:
     # Containers must run in Linux based operating systems
     runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:16.1
+        ports:
+        # will assign a random free host port
+          - 5432/tcp
+        # Provide the password for postgres
+        env:
+          POSTGRES_PASSWORD: ${{ env.POSTGRES_PASSWORD }}
+        # Set health checks to wait until postgres has started
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
 
     steps:
       # Downloads a copy of the code in your repository before running CI tests
@@ -30,3 +50,6 @@ jobs:
         
       - name: Lint with SQLFluff
         run: sqlfluff lint --dialect postgres
+
+      - name: Run dbt tests
+        run: dbt build
