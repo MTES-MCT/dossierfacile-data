@@ -1,6 +1,5 @@
 sources:
   - name: dossierfacile
-    database: dossierfacile
     schema: public
     loader: airflow
     freshness:
@@ -33,6 +32,16 @@ sources:
             data_tests:
               - unique
       - name: property
+        columns:
+          - name: id
+            data_tests:
+              - unique
+      - name: property_log
+        columns:
+          - name: id
+            data_tests:
+              - unique
+      - name: owner_log
         columns:
           - name: id
             data_tests:

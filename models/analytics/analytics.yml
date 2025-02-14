@@ -13,3 +13,10 @@ models:
         data_tests:
           - unique
           - not_null
+  - name: analytics_daily_owner_account
+    description: "Daily number of owner accounts created"
+    columns:
+      - name: created_date
+        data_tests:
+          - unique
+          - not_null

@@ -1,11 +1,29 @@
 name: Pipeline CI Data
 on: pull_request
 
+env:
+  DBT_PROFILES_DIR: ./.github/
+  POSTGRES_PASSWORD: "${{ secrets.DBT_POSTGRES_PASSWORD_TEST }}"
+
 jobs:
 
   run-ci-pipeline:
     # Containers must run in Linux based operating systems
     runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:16.1
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_PASSWORD: ${{ env.POSTGRES_PASSWORD }}
+        # Set health checks to wait until postgres has started
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
 
     steps:
       # Downloads a copy of the code in your repository before running CI tests
@@ -27,6 +45,18 @@ jobs:
 
       - name: Install SQLFluff dbt templater
         run: pip install sqlfluff-templater-dbt==3.3.0
-        
+
+      - name: Test dbt database connection
+        run: dbt debug
+      
       - name: Lint with SQLFluff
         run: sqlfluff lint --dialect postgres
+
+      # Known issue: https://github.com/dbt-labs/dbt-redshift/issues/818
+      # - name: Run dbt empty model
+      #   run: dbt run --empty
+
+      # Known limitation: direct parents of the model unit-tested need to exist
+      # See DBT docs: https://docs.getdbt.com/docs/build/unit-tests
+      # - name: Run dbt unit-tests
+      #   run: dbt test -s test_type:unit

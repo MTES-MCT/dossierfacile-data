@@ -21,6 +21,50 @@ models:
           - not_null
       - name: migrate
         description: "Flag indicating if the log entry has been migrated"
+  - name: staging_owner_log
+    description: "A starter dbt model to clean owner_log table"
+    columns:
+      - name: id
+        description: "The primary key for this table"
+        data_tests:
+          - unique
+          - not_null
+      - name: owner_id
+        description: "The ID of the owner associated with the log"
+        data_tests:
+          - not_null
+      - name: created_at
+        description: "The timestamp when the log entry was created"
+        data_tests:
+          - not_null
+      - name: log_type
+        description: "The type of log entry"
+        data_tests:
+          - not_null
+  - name: staging_owner_log_json
+    description: "A starter dbt model to extract and clean the json_profile in owner_log table"
+    columns:
+      - name: id
+        description: "The primary key for this table"
+        data_tests:
+          - unique
+          - not_null
+      - name: owner_id
+        description: "The ID of the owner associated with the log"
+        data_tests:
+          - not_null
+      - name: owner_deleted_at
+        description: "The timestamp of the deletion of the owner account (when the json is created)"
+        data_tests:
+          - not_null
+      - name: log_type
+        description: "The type of log entry"
+        data_tests:
+          - not_null
+      - name: owner_created_at
+        description: "The timestamp when the owner account was created"
+        data_tests:
+          - not_null
 
   - name: staging_tenant
     description: "A dbt model to clean and transform tenant data"
