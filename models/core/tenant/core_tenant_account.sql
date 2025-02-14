@@ -47,7 +47,7 @@ with tenant_log_status as (
         , nb_completions
         , nb_operations
         , nb_validations
-        , CAST(EXTRACT(epoch from first_completion_at - created_at) as INTEGER) as time_to_complete
+        , CAST(EXTRACT(epoch from first_completion_at - created_at) as INTEGER) as time_to_completion
         , CAST(EXTRACT(epoch from first_validation_at - first_completion_at) as INTEGER) as time_to_validation
         , case when first_validation_at = first_operation_at then 1 else 0 end as validation_at_first_operation
     from tenant_status
@@ -94,7 +94,7 @@ select
     , tenant_status_details.first_operation_at
     , tenant_status_details.first_validation_at
     , tenant_status_details.validation_flag
-    , tenant_status_details.time_to_complete
+    , tenant_status_details.time_to_completion
     , tenant_status_details.time_to_validation
     , tenant_status_details.validation_at_first_operation
     , tenant_status_details.nb_completions

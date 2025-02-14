@@ -57,6 +57,14 @@ sqlfluff lint #to lint all files
 sqlfluff fix #to fix the files
 ```
 
+## Unit tests
+
+To run the unit tests, run the following command:
+
+```bash
+dbt test -s test_type:unit
+```
+
 ## Pre-commit hook
 
 Install pre-commit:
