@@ -103,3 +103,30 @@ Select a model to run:
 ```bash
 dbt run -s model_name
 ```
+
+## Managing SQL permissions
+
+To grant read access to all users in the group `sql_group` to all future tables created by `sql_user` inside the schema `sql_schema`, you can use this query:
+```sql
+alter default privileges 
+for user sql_user 
+in schema sql_schema 
+grant select on tables 
+to group sql_group;
+```
+
+To grant read access to all users in the group `sql_group` to all existing tables inside `sql_schema`:
+```sql
+alter default privileges in schema sql_schema
+grant select on tables to group sql_group;
+```
+
+To grant usage on the schema `sql_schema` to the group `sql_group`:
+```sql
+grant usage on schema sql_schema to group sql_group;
+```
+
+To grant select access to all tables in the schema `sql_schema` to the group `sql_group`:
+```sql
+grant select on all tables in schema sql_schema to group sql_group;
+```
