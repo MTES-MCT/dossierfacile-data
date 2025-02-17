@@ -31,6 +31,16 @@ sources:
           - name: id
             data_tests:
               - unique
+      - name: document_denied_reasons
+        columns:
+          - name: id
+            data_tests:
+              - unique
+      - name: document_denied_options
+        columns:
+          - name: id
+            data_tests:
+              - unique
       - name: property
         columns:
           - name: id
