@@ -1,11 +1,12 @@
 select
     tenant_origin
     , tenant_type
+    , status as tenant_status
     , DATE(created_at) as created_date
     , COUNT(id) as nb_creation
-    , COUNT(is_france_connected) as nb_france_connected
-    , COUNT(completion_flag) as nb_account_completions
-    , COUNT(validation_flag) as nb_account_validations
+    , SUM(is_france_connected::INTEGER) as nb_france_connected
+    , SUM(completion_flag) as nb_account_completions
+    , SUM(validation_flag) as nb_account_validations
     , SUM(time_to_completion) as total_time_to_completion
     , SUM(time_to_validation) as total_time_to_validation
     , SUM(nb_completions) as total_completions
@@ -16,7 +17,9 @@ group by
     DATE(created_at)
     , tenant_origin
     , tenant_type
+    , status
 order by
     DATE(created_at) desc
     , tenant_origin
     , tenant_type asc
+    , status asc
