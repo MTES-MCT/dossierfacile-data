@@ -1,6 +1,11 @@
 with checked_options_details as (
     select
         id
+        , comment
+        , message_id
+        , message_data
+        , document_id
+        , creation_date
         , UNNEST(checked_options) as checked_options
         , UNNEST(checked_options_id) as checked_options_id
     from {{ source('dossierfacile', 'document_denied_reasons') }}
@@ -9,14 +14,12 @@ with checked_options_details as (
 )
 
 select
-    CAST(document_denied_reasons.id as INTEGER)
-    , CAST(checked_options_details.checked_options as VARCHAR)
-    , CAST(document_denied_reasons.comment as VARCHAR)
-    , CAST(document_denied_reasons.message_id as INTEGER)
-    , CAST(checked_options_details.checked_options_id as INTEGER)
-    , CAST(document_denied_reasons.message_data as VARCHAR)
-    , CAST(document_denied_reasons.document_id as INTEGER)
-    , CAST(document_denied_reasons.creation_date as TIMESTAMP) as created_at
-from {{ source('dossierfacile', 'document_denied_reasons') }}
-inner join checked_options_details on document_denied_reasons.id = checked_options_details.id
-{{ filter_recent_data('creation_date') }}
+    CAST(id as INTEGER)
+    , CAST(checked_options as VARCHAR)
+    , CAST(comment as VARCHAR)
+    , CAST(message_id as INTEGER)
+    , CAST(checked_options_id as INTEGER)
+    , CAST(message_data as VARCHAR)
+    , CAST(document_id as INTEGER)
+    , CAST(creation_date as TIMESTAMP) as created_at
+from checked_options_details

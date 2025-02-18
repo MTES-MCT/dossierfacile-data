@@ -7,8 +7,8 @@ select
     , CAST(monthly_sum as INTEGER)
     -- montant des ressources déclarées par le candidat locataire
     , CAST(guarantor_id as INTEGER)
-    , CAST(document_sub_category as VARCHAR),
-    CAST(document_status as VARCHAR)
+    , CAST(document_sub_category as VARCHAR)
+    , CAST(document_status as VARCHAR)
     , CAST(no_document as BOOLEAN)
     -- à creuser
     , CAST(creation_date as TIMESTAMP) as created_at
