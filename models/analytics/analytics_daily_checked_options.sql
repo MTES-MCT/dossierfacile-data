@@ -1,5 +1,7 @@
 select
-    checked_options
+    document_category
+    , document_sub_category
+    , checked_options
     , document_user_type
     , tenant_origin
     , case when tenant_origin ilike '%hybrid%' then 'partner' else 'organic' end as funnel_type
@@ -8,6 +10,8 @@ select
 from {{ ref('core_document_denied') }}
 group by
     DATE(created_at)
+    , document_category
+    , document_sub_category
     , checked_options
     , document_user_type
     , tenant_origin
