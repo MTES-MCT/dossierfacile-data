@@ -15,5 +15,4 @@ group by
     , checked_options
     , document_user_type
     , tenant_origin
-    , case when tenant_origin ilike '%hybrid%' then 'partner' else 'organic' end 
-    
+    , case when tenant_origin ilike '%hybrid%' then 'partner' else 'organic' end
