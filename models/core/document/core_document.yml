@@ -1,0 +1,33 @@
+models:
+  - name: core_document_denied
+    description: "A dbt model to join the user, tenant or guarantor, and the reasons of the denial"
+    columns:
+      - name: document_id
+      - name: document_category
+      - name: document_sub_category
+      - name: user_id
+      - name: user_type
+      - name: tenant_origin
+      - name: id
+      - name: checked_options
+      - name: checked_options_id
+      - name: comment
+      - name: message_id
+      - name: message_data
+      - name: created_at
+      - name: message_value
+      - name: document_user_type
+      - name: code
+  - name: core_document_reference
+    description: "A dbt model to have a referential table of document categories"
+    columns:
+      - name: document_category
+        description: "The document category"
+        data_tests:
+          - unique
+          - not_null
+      - name: document_sub_category
+        description: "The document sub category"
+        data_tests:
+          - not_null
+
