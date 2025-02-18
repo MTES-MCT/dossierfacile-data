@@ -11,9 +11,9 @@ with checked_options_details as (
 select
     CAST(document_denied_reasons.id as INTEGER)
     , CAST(checked_options_details.checked_options as VARCHAR)
-    , CAST(checked_options_details.checked_options_id as INTEGER)
     , CAST(document_denied_reasons.comment as VARCHAR)
     , CAST(document_denied_reasons.message_id as INTEGER)
+    , CAST(checked_options_details.checked_options_id as INTEGER)
     , CAST(document_denied_reasons.message_data as VARCHAR)
     , CAST(document_denied_reasons.document_id as INTEGER)
     , CAST(document_denied_reasons.creation_date as TIMESTAMP) as created_at
