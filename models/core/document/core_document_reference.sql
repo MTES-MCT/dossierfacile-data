@@ -1,4 +1,4 @@
 select distinct
-    CAST(document_category as VARCHAR)
-    , CAST(document_sub_category as VARCHAR)
+    document_category
+    , document_sub_category
 from {{ ref('staging_document') }}
