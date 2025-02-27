@@ -11,8 +11,16 @@ with json_details as (
         , log_details ->> 'newType' as new_type
         , log_details ->> 'oldType' as old_type
     from {{ source('dossierfacile', 'tenant_log') }}
-    {{ filter_recent_data('creation_date') }}
-    and log_details is not null
+
+
+
+
+
+
+    
+
+{{ filter_recent_data('creation_date') }}
+        and log_details is not null
 
 )
 
