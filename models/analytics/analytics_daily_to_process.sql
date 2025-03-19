@@ -5,11 +5,11 @@
 ) }}
 
 select
-    CURRENT_DATE AS date_jour,
-    count(*) AS valeur_incremente
+    CURRENT_DATE as date_jour
+    , COUNT(*) as valeur_incremente
 from {{ ref('core_tenant_account') }}
-where status = 'TO_PROCESS'
-{% if is_incremental() %}
-and date_jour > (SELECT COALESCE(MAX(date_jour), '1900-01-01') FROM {{ this }})
-{% endif %}
-
+where
+    status = 'TO_PROCESS'
+    {% if is_incremental() %}
+        and CURRENT_DATE > (select COALESCE(MAX(date_jour), '1900-01-01') from  {{this}})
+    {% endif %}

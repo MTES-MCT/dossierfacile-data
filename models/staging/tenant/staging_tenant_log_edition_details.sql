@@ -13,6 +13,8 @@ with json_details as (
     from {{ source('dossierfacile', 'tenant_log') }}
 
 
+
+
             {{ filter_recent_data('creation_date') }}
         and log_details is not null
 
