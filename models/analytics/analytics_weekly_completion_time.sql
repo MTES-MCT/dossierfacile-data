@@ -8,7 +8,9 @@ with completion_delay as (
         end as time_to_complete
     from {{ ref('core_tenant_account') }}
     where completion_flag = 1
-), completion_percentile as (
+)
+
+, completion_percentile as (
 
     select
         created_at
@@ -26,9 +28,9 @@ with completion_delay as (
 
 )
 
-select 
-created_at
-, ROUND(q25::decimal,2) as q25
-, ROUND(q50::decimal,2) as q50
-, ROUND(q75::decimal,2) as q75
+select
+    created_at
+    , ROUND(q25::DECIMAL, 2) as q25
+    , ROUND(q50::DECIMAL, 2) as q50
+    , ROUND(q75::DECIMAL, 2) as q75
 from completion_percentile
