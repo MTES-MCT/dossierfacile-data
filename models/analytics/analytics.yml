@@ -1,10 +1,4 @@
 models:
-  - name: analytics_daily_tenant_account
-    description: "Nombre de comptes crees chaque jour"
-    columns:
-      - name: created_date
-        data_tests:
-          - not_null
   - name: analytics_daily_operations
     description: "Nombre d'operations par jour"
     columns:
@@ -43,20 +37,40 @@ models:
   - name: analytics_weekly_processed_time
     description: "Distribution of time to process a completed file"
     columns:
-      - name: completed_at
+      - name: created_date
+        data_tests:
+          - unique
+          - not_null
+  - name: analytics_daily_tenant_account
+    description: "Nombre de comptes crees chaque jour"
+    columns:
+      - name: created_date
         data_tests:
           - not_null
   - name: analytics_daily_to_process
-    description: "Daily number of files to process at 2am"
+    description: "Nombre de comptes avec le statut TO_PROCESS au moment de la copie de la base de prod"
     columns:
       - name: date_jour
         data_tests:
           - unique
           - not_null
-  - name: analytics_weekly_operations
-    description: "Nombre d'operations par semaine"
+  - name: analytics_weekly_account_operations
+    description: "Nombre de comptes concernés par une opération par semaine - pour le suivi des comptes)"
     columns:
       - name: created_date
         data_tests:
           - unique
+          - not_null
+  - name: analytics_weekly_operations
+    description: "Nombre d'operations par semaine - pour le suivi des operations"
+    columns:
+      - name: created_date  
+        data_tests:
+          - unique
+          - not_null
+  - name: analytics_weekly_processed_time
+    description: "Distribution du temps de prise en charge des dossiers complets"
+    columns:
+      - name: completed_at
+        data_tests:
           - not_null
