@@ -74,3 +74,11 @@ models:
       - name: completed_at
         data_tests:
           - not_null
+  - name: analytics_weekly_completion_time
+    description: "Percentile (25,50,75) pour le temps de complétion des dossiers"
+    columns: 
+      - name: created_at
+        data_tests:
+          - unique
+          - not_null
+
