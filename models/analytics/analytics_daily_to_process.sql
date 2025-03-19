@@ -11,5 +11,5 @@ from {{ ref('core_tenant_account') }}
 where
     status = 'TO_PROCESS'
     {% if is_incremental() %}
-        and CURRENT_DATE > (select COALESCE(MAX(date_jour), '1900-01-01') from  {{this}})
+        and CURRENT_DATE > (select COALESCE(MAX(date_jour), '1900-01-01') from {{ this }})
     {% endif %}
