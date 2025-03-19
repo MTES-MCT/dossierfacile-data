@@ -14,6 +14,8 @@ with json_details as (
         , JSONB_ARRAY_ELEMENTS(JSONB_ARRAY_ELEMENTS(json_profile -> 'guarantors') -> 'documents') ->> 'subCategory' as guarantor_document_sub_category
         , JSONB_ARRAY_ELEMENTS(JSONB_ARRAY_ELEMENTS(json_profile -> 'guarantors') -> 'documents') ->> 'documentStatus' as guarantor_document_status
     from {{ source('dossierfacile', 'tenant_log') }}
+
+
     
 
 {{ filter_recent_data('creation_date') }}

@@ -40,4 +40,23 @@ models:
       - name: nb_denied_documents
         data_tests:
           - not_null
-  
+  - name: analytics_weekly_processed_time
+    description: "Distribution of time to process a completed file"
+    columns:
+      - name: completed_at
+        data_tests:
+          - not_null
+  - name: analytics_daily_to_process
+    description: "Daily number of files to process at 2am"
+    columns:
+      - name: date_jour
+        data_tests:
+          - unique
+          - not_null
+  - name: analytics_weekly_operations
+    description: "Nombre d'operations par semaine"
+    columns:
+      - name: created_date
+        data_tests:
+          - unique
+          - not_null
