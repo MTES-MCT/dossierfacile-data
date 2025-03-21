@@ -17,6 +17,8 @@ with json_details as (
 
 
 
+
+
     
 
 {{ filter_recent_data('creation_date') }}
