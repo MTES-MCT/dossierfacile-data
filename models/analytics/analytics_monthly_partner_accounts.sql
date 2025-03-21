@@ -1,6 +1,6 @@
 select
-    DATE_TRUNC('month', created_at) as created_date
-    , tenant_origin
+    tenant_origin
+    , DATE_TRUNC('month', created_at) as created_date
     , COUNT(*) as nb_creations
     , SUM(completion_flag) as nb_completions
     , SUM(validation_flag) as nb_validations
