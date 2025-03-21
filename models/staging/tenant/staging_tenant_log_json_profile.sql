@@ -20,9 +20,9 @@ with json_details as (
 
 
 
-    
 
-{{ filter_recent_data('creation_date') }}
+
+            {{ filter_recent_data('creation_date') }}
         and json_profile is not null
 
 )

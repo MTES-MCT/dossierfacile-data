@@ -24,9 +24,9 @@ select
     , time_to_process
     , COUNT(distinct id)
 from process_delay
-group by 
+group by
     completed_at
     , time_to_process
-order by 
+order by
     completed_at
     , time_to_process
