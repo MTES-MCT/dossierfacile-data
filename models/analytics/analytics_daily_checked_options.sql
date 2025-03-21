@@ -1,6 +1,7 @@
 select
     document_category
     , document_sub_category
+    , checked_options_id
     , checked_options
     , document_user_type
     , tenant_origin
@@ -11,6 +12,7 @@ group by
     DATE(document_denied_at)
     , document_category
     , document_sub_category
+    , checked_options_id
     , checked_options
     , document_user_type
     , tenant_origin
