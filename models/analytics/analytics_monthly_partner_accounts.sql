@@ -8,4 +8,4 @@ from {{ ref('core_tenant_account') }}
 where tenant_origin in ('hybrid-pap', 'dfconnect-locservice', 'dfconnect-jinka', 'dfconnect-immojeune')
 group by
     DATE_TRUNC('month', created_at)
-    , 
+    , tenant_origin
