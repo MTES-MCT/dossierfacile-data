@@ -116,6 +116,14 @@ select
             and tenant_partner_consent_list.first_partner_consent <> 'dfconnect-proprietaire' then tenant_partner_consent_list.first_partner_consent
         else 'organic-dossierfacile'
     end as tenant_origin
+    , case
+        when staging_user_account.acquisition_campaign is not null then 'dossierfacile'
+        when
+            tenant_partner_consent_list.first_access_granted_at < tenant_status_details.created_at + INTERVAL '1 hour'
+            and tenant_partner_consent_list.first_partner_consent not ilike '%dfconnect%' then 'api'
+        when staging_user_account.acquisition_campaign is not null then 'dossierfacile'
+        else 'dossierfacile'
+    end as funnel_type
 
 from tenant_status_details
 left join {{ ref('staging_user_account') }} as staging_user_account
