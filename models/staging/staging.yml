@@ -96,7 +96,5 @@ models:
         description: "The timestamp of the last operation performed on the tenant record"
       - name: deletion_warnings
         description: "The number of warnings before deletion"
-      - name: operator_comment
-        description: "Comments made by the operator"
       - name: tenant_abroad
         description: "Flag indicating if the tenant is abroad"
