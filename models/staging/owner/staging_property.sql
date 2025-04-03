@@ -18,7 +18,6 @@ select
     , CAST(co2emission as INTEGER)
     , CAST(validated_date as TIMESTAMP)
     , CAST(ademe_number as VARCHAR)
-    -- , CAST(ademe_api_result as JSONB)
     , CAST(dpe_date as TIMESTAMP)
     , CAST(dpe_not_required as BOOLEAN)
 from {{ source('dossierfacile', 'property') }}
