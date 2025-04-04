@@ -7,6 +7,7 @@ select
     , SUM(is_france_connected::INTEGER) as nb_france_connected
     , SUM(completion_flag) as nb_account_completions
     , SUM(validation_flag) as nb_account_validations
+    , SUM(validation_at_first_operation) as nb_validation_at_first_operation
     , SUM(time_to_completion) as total_time_to_completion
     , SUM(time_to_validation) as total_time_to_validation
     , SUM(nb_completions) as total_completions
