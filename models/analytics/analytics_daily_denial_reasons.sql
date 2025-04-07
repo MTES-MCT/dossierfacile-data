@@ -7,7 +7,7 @@ select
     , document_sub_category
     , document_category_step
     , document_tenant_type
-    , DATE(document_denied_at) as document_denied_date
+    , DATE(document_denied_at) as denial_date
     , COUNT(document_id) as nb_denied_documents
 from {{ ref('core_document_denied_reasons') }}
 group by
