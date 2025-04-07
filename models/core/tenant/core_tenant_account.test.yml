@@ -46,19 +46,19 @@ unit_tests:
     expect:
       rows:
         # acquisition_campaign null, pas de consentement, donc organic-dossierfacile
-        - { id: 1, tenant_origin: 'organic-dossierfacile' }
+        - { id: 1, tenant_origin: 'organic-dossierfacile', 'funnel_type': 'dossierfacile' }
         # acquisition_campaign partner-1, pas de consentement, donc link-partner-1
-        - { id: 2, tenant_origin: 'link-partner-1' }
+        - { id: 2, tenant_origin: 'link-partner-1', 'funnel_type': 'dossierfacile' }
         # acquisition_campaign null, consentement dfconnect-partner-2 (dans l'heure suivant la création), donc dfconnect-partner-2
-        - { id: 3, tenant_origin: 'dfconnect-partner-2' }
+        - { id: 3, tenant_origin: 'dfconnect-partner-2', 'funnel_type': 'dossierfacile' }
         # acquisition_campaign null, consentement dfconnect-partner-3 (dans l'heure suivant la création), donc dfconnect-partner-3
-        - { id: 4, tenant_origin: 'dfconnect-partner-3' }
+        - { id: 4, tenant_origin: 'dfconnect-partner-3', 'funnel_type': 'dossierfacile' }
         # acquisition_campaign partner-1, consentement dfconnect-partner-2 (dans l'heure suivant la création), donc link-partner-1
-        - { id: 5, tenant_origin: 'link-partner-1' }
+        - { id: 5, tenant_origin: 'link-partner-1', 'funnel_type': 'dossierfacile' }
         # acquisition_campaign null, consentement (après l'heure suivant la création), donc organic-dossierfacile
-        - { id: 6, tenant_origin: 'organic-dossierfacile' }
+        - { id: 6, tenant_origin: 'organic-dossierfacile', 'funnel_type': 'dossierfacile' }
         # acquisition_campaign null, consentement dfconnect-proprietaire (dans l'heure suivant la création), donc organic-dossierfacile
-        - { id: 7, tenant_origin: 'organic-dossierfacile' }
+        - { id: 7, tenant_origin: 'organic-dossierfacile', 'funnel_type': 'dossierfacile' }
   - name: test_tenant_status
     description: "Check tenant_origin logic captures all known edge cases"
     model: core_tenant_account
