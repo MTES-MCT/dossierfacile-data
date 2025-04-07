@@ -1,35 +1,3 @@
--- with tenant_log_details as (
---     select
---         id
---         , case
---             when log_details ->> 'step' = 'Names' then 'TenantIdentityChanged'
---             when log_details ->> 'newType' is not null then 'ApplicationTypeChanged' 
---             when log_details ->> 'step' is null then NULL 
---         else 'DocumentChanged'
---         end as step
---         , log_details ->> 'oldType' as old_application_type
---         , log_details ->> 'newType' as new_application_type
---         , case
---             when log_details ->> 'tenantId' is not null then log_details ->> 'tenantId'
---             when log_details ->> 'guarantorId' is not null then log_details ->> 'guarantorId'
---             else ''
---         end as edited_user_id
---         , case
---             when log_details ->> 'tenantId' is not null then 'TENANT'
---             when log_details ->> 'guarantorId' is not null then 'GUARANTOR'
---             else ''
---         end as edited_user_type
---         , log_details ->> 'editionType' as edition_type
---         , log_details ->> 'documentId' as document_id
---         , log_details ->> 'documentCategory' as document_category
---         , case
---             when log_details ->> 'documentSubCategory' is not null then log_details ->> 'documentSubCategory'
---             else log_details ->> 'subCategory'
---         end as document_sub_category
---     from {{ source('dossierfacile', 'tenant_log') }}
---     where log_details is not null
--- )
-
 with casting_log as (
     select
         CAST(id as INTEGER)
@@ -46,7 +14,6 @@ with casting_log as (
 )
 
 select
-
     casting_log.id
     , casting_log.tenant_id
     , casting_log.operator_id

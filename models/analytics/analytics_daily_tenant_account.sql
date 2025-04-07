@@ -1,5 +1,6 @@
 select
     tenant_origin
+    , funnel_type
     , tenant_type
     , status as tenant_status
     , DATE(created_at) as created_date
@@ -17,10 +18,12 @@ from {{ ref('core_tenant_account') }}
 group by
     DATE(created_at)
     , tenant_origin
+    , funnel_type
     , tenant_type
     , status
 order by
     DATE(created_at) desc
     , tenant_origin
+    , funnel_type asc
     , tenant_type asc
     , status asc

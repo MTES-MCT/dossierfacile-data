@@ -11,7 +11,6 @@ with tenant_log_status as (
         , case when log_type in ('ACCOUNT_VALIDATED', 'ACCOUNT_DENIED') then 1 else 0 end as operation_flag
         , case when log_type = 'ACCOUNT_COMPLETED' then 1 else 0 end as user_completion_flag
     from {{ ref('staging_tenant_log') }}
-
 )
 
 , tenant_status as (
@@ -74,54 +73,63 @@ with tenant_log_status as (
         on staging_tenant_partner_consent.partner_client_id = staging_partner_client.id
 )
 
+, tenant_account_data as (
+    select
+        tenant_status_details.tenant_id as id
+
+        , staging_tenant.apartment_sharing_id
+        , staging_tenant.tenant_type
+        , staging_tenant.status
+
+        , staging_user_account.last_login_at
+        , staging_user_account.updated_at
+        , staging_user_account.enabled
+        , staging_user_account.keycloak_id
+        , staging_user_account.is_france_connected
+        , staging_user_account.acquisition_campaign
+
+        , tenant_status_details.created_at
+        , tenant_status_details.first_completion_at
+        , tenant_status_details.completion_flag
+        , tenant_status_details.first_operation_at
+        , tenant_status_details.first_validation_at
+        , tenant_status_details.validation_flag
+        , tenant_status_details.time_to_completion
+        , tenant_status_details.time_to_validation
+        , tenant_status_details.validation_at_first_operation
+        , tenant_status_details.nb_completions
+        , tenant_status_details.nb_operations
+        , tenant_status_details.nb_validations
+
+        , tenant_partner_consent_list.partner_consent_list
+        , tenant_partner_consent_list.first_access_granted_at
+
+        -- Détermine l'origine du dossier locataire:
+        -- - Si une campagne d'acquisition est définie, on utilise le préfixe 'link-' suivi du nom de la campagne
+        -- - Si le premier consentement partenaire a été donné dans l'heure suivant la création du compte
+        --   et que ce n'est pas dfconnect-proprietaire, on utilise l'identifiant du partenaire
+        -- - Sinon, on considère que c'est un dossier créé directement sur DossierFacile
+        , case
+            when staging_user_account.acquisition_campaign is not null then 'link-' || staging_user_account.acquisition_campaign
+            when
+                tenant_partner_consent_list.first_access_granted_at < tenant_status_details.created_at + INTERVAL '1 hour'
+                and tenant_partner_consent_list.first_partner_consent <> 'dfconnect-proprietaire' then tenant_partner_consent_list.first_partner_consent
+            else 'organic-dossierfacile'
+        end as tenant_origin
+    from tenant_status_details
+    left join {{ ref('staging_user_account') }} as staging_user_account
+        on tenant_status_details.tenant_id = staging_user_account.id
+    left join {{ ref('staging_tenant') }} as staging_tenant
+        on tenant_status_details.tenant_id = staging_tenant.id
+    left join tenant_partner_consent_list as tenant_partner_consent_list
+        on tenant_status_details.tenant_id = tenant_partner_consent_list.tenant_id
+    where staging_user_account.user_type = 'TENANT'
+)
+
 select
-    tenant_status_details.tenant_id as id
-
-    , staging_tenant.apartment_sharing_id
-    , staging_tenant.tenant_type
-    , staging_tenant.status
-
-    , staging_user_account.last_login_at
-    , staging_user_account.updated_at
-    , staging_user_account.enabled
-    , staging_user_account.keycloak_id
-    , staging_user_account.is_france_connected
-    , staging_user_account.acquisition_campaign
-
-    , tenant_status_details.created_at
-    , tenant_status_details.first_completion_at
-    , tenant_status_details.completion_flag
-    , tenant_status_details.first_operation_at
-    , tenant_status_details.first_validation_at
-    , tenant_status_details.validation_flag
-    , tenant_status_details.time_to_completion
-    , tenant_status_details.time_to_validation
-    , tenant_status_details.validation_at_first_operation
-    , tenant_status_details.nb_completions
-    , tenant_status_details.nb_operations
-    , tenant_status_details.nb_validations
-
-    , tenant_partner_consent_list.partner_consent_list
-    , tenant_partner_consent_list.first_access_granted_at
-
-    -- Détermine l'origine du dossier locataire:
-    -- - Si une campagne d'acquisition est définie, on utilise le préfixe 'link-' suivi du nom de la campagne
-    -- - Si le premier consentement partenaire a été donné dans l'heure suivant la création du compte
-    --   et que ce n'est pas dfconnect-proprietaire, on utilise l'identifiant du partenaire
-    -- - Sinon, on considère que c'est un dossier créé directement sur DossierFacile
+    *
     , case
-        when staging_user_account.acquisition_campaign is not null then 'link-' || staging_user_account.acquisition_campaign
-        when
-            tenant_partner_consent_list.first_access_granted_at < tenant_status_details.created_at + INTERVAL '1 hour'
-            and tenant_partner_consent_list.first_partner_consent <> 'dfconnect-proprietaire' then tenant_partner_consent_list.first_partner_consent
-        else 'organic-dossierfacile'
-    end as tenant_origin
-
-from tenant_status_details
-left join {{ ref('staging_user_account') }} as staging_user_account
-    on tenant_status_details.tenant_id = staging_user_account.id
-left join {{ ref('staging_tenant') }} as staging_tenant
-    on tenant_status_details.tenant_id = staging_tenant.id
-left join tenant_partner_consent_list as tenant_partner_consent_list
-    on tenant_status_details.tenant_id = tenant_partner_consent_list.tenant_id
-where staging_user_account.user_type = 'TENANT'
+        when tenant_origin like 'hybrid-%' then 'api'
+        else 'dossierfacile'
+    end as funnel_type
+from tenant_account_data
