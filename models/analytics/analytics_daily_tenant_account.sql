@@ -24,6 +24,6 @@ group by
 order by
     DATE(created_at) desc
     , tenant_origin
-    , funnel_type
+    , funnel_type asc
     , tenant_type asc
     , status asc
