@@ -117,9 +117,8 @@ models:
     description: "A dbt model to clean the document denued reasons"
     columns:
       - name: id
-        description: "The primary key for the denied reasons table"
+        description: "The id of the denied reasons (can be duplicated)"
         data_tests:
-          - unique
           - not_null
       - name: tenant_type
         description: "The type of tenant"

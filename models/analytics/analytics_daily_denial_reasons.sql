@@ -1,8 +1,8 @@
 select
-    denied_options_id
-    , denied_options_value
-    , denied_options_sub_category
-    , denied_options_code
+    denied_option_id
+    , denied_option_value
+    , denied_option_sub_category
+    , denied_option_code
     , document_category
     , document_sub_category
     , document_category_step
@@ -12,10 +12,10 @@ select
 from {{ ref('core_document_denied_reasons') }}
 group by
     DATE(document_denied_at)
-    , denied_options_id
-    , denied_options_value
-    , denied_options_sub_category
-    , denied_options_code
+    , denied_option_id
+    , denied_option_value
+    , denied_option_sub_category
+    , denied_option_code
     , document_category
     , document_sub_category
     , document_category_step
