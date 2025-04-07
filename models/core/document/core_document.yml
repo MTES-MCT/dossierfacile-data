@@ -22,15 +22,17 @@ models:
         description: "When the document was denied"
         data_tests:
           - not_null
-      - name: denied_options_id
+      - name: denied_option_id
         description: "The ID of the denial reason option"
         data_tests:
           - not_null
-      - name: denied_options_value
+      - name: denied_option_value
         description: "The value of the denial reason option"
-      - name: denied_options_sub_category
+        data_tests:
+          - not_null
+      - name: denied_option_sub_category
         description: "The sub-category associated with the denial option"
-      - name: denied_options_code
+      - name: denied_option_code
         description: "The code associated with the denial option"
       - name: operator_comment
         description: "Any comments made by the operator regarding the denial"

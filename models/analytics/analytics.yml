@@ -25,7 +25,10 @@ models:
       - name: document_denied_date
         data_tests:
           - not_null
-      - name: denied_options_id
+      - name: denied_option_id
+        data_tests:
+          - not_null
+      - name: denied_option_value
         data_tests:
           - not_null
       - name: document_category
