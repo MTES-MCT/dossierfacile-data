@@ -3,19 +3,43 @@ models:
     description: "A dbt model to join the user, tenant or guarantor, and the reasons of the denial"
     columns:
       - name: document_id
+        description: "The ID of the document that was denied"
+        data_tests:
+          - not_null
       - name: document_category
+        description: "The category of the denied document"
+        data_tests:
+          - not_null
       - name: document_sub_category
-      - name: user_id
-      - name: user_type
-      - name: tenant_origin
-      - name: id
-      - name: checked_options
-      - name: checked_options_id
-      - name: comment
-      - name: message_id
-      - name: message_data
-      - name: created_at
-      - name: message_value
-      - name: document_user_type
-      - name: code
+        description: "The sub-category of the denied document"
+      - name: document_category_step
+        description: "The step in the document category process"
+      - name: document_created_at
+        description: "When the document was created"
+        data_tests:
+          - not_null
+      - name: document_denied_at
+        description: "When the document was denied"
+        data_tests:
+          - not_null
+      - name: denied_options_id
+        description: "The ID of the denial reason option"
+        data_tests:
+          - not_null
+      - name: denied_options_value
+        description: "The value of the denial reason option"
+      - name: denied_options_sub_category
+        description: "The sub-category associated with the denial option"
+      - name: denied_options_code
+        description: "The code associated with the denial option"
+      - name: operator_comment
+        description: "Any comments made by the operator regarding the denial"
+      - name: tenant_id
+        description: "The ID of the tenant if the document belongs to a tenant"
+      - name: guarantor_id
+        description: "The ID of the guarantor if the document belongs to a guarantor"
+      - name: document_tenant_type
+        description: "Indicates whether the document belongs to a TENANT or GUARANTOR"
+        data_tests:
+          - not_null
 

@@ -19,18 +19,22 @@ models:
         data_tests:
           - unique
           - not_null
-  - name: analytics_daily_owner_account
-    description: "Daily number of owner accounts created"
+  - name: analytics_daily_denial_reasons
+    description: "Daily statistics of document denials with their reasons, categories and counts"
     columns:
-      - name: created_date
-        data_tests:
-          - unique
-          - not_null
-  - name: analytics_daily_checked_options
-    description: "Daily number of denied options per document"
-    columns:
-      - name: created_date
+      - name: document_denied_date
         data_tests:
           - not_null
-          - unique
+      - name: denied_options_id
+        data_tests:
+          - not_null
+      - name: document_category
+        data_tests:
+          - not_null
+      - name: document_tenant_type
+        data_tests:
+          - not_null
+      - name: nb_denied_documents
+        data_tests:
+          - not_null
   
