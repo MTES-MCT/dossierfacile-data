@@ -3,7 +3,7 @@ select
     , funnel_type
     , tenant_type
     , status as tenant_status
-    , DATE(created_at) as created_date
+    , DATE(created_at) as creation_date
     , COUNT(id) as nb_creation
     , SUM(is_france_connected::INTEGER) as nb_france_connected
     , SUM(completion_flag) as nb_account_completions
