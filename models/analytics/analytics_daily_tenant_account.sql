@@ -1,5 +1,6 @@
 select
     tenant_origin
+    , funnel_type
     , tenant_type
     , status as tenant_status
     , DATE(created_at) as created_date
@@ -13,15 +14,16 @@ select
     , SUM(nb_completions) as total_completions
     , SUM(nb_operations) as total_operations
     , SUM(nb_validations) as total_validations
-    , SUM(validation_at_first_operation) as total_validation_at_first_operation
 from {{ ref('core_tenant_account') }}
 group by
     DATE(created_at)
     , tenant_origin
+    , funnel_type
     , tenant_type
     , status
 order by
     DATE(created_at) desc
     , tenant_origin
+    , funnel_type
     , tenant_type asc
     , status asc

@@ -14,7 +14,6 @@ with casting_log as (
 )
 
 select
-
     casting_log.id
     , casting_log.tenant_id
     , casting_log.operator_id
