@@ -23,23 +23,31 @@ models:
         description: "The creation date of the tenant"
         data_tests:
           - not_null
-  - name: core_tenant_log
-    description: "A dbt model for tenant log"
+  - name: core_operation
+    description: "A dbt model for tenant operations (validations and denials)"
     columns:
       - name: id
         description: "The primary key for this table"
         data_tests:
           - unique
           - not_null
-      - name: tenant_id
-        description: "The id of the tenant"
+      - name: operator_id
+        description: "The id of the operator who performed the operation"
+        data_tests:
+          - not_null
+      - name: operator_email
+        description: "The email of the operator"
+        data_tests:
+          - not_null
+      - name: operator_name
+        description: "The name of the operator"
         data_tests:
           - not_null
       - name: log_type
-        description: "The type of the log"
+        description: "The type of operation (ACCOUNT_DENIED or ACCOUNT_VALIDATED)"
         data_tests:
           - not_null
       - name: created_at
-        description: "The creation date of the log"
+        description: "The date when the operation was performed"
         data_tests:
           - not_null

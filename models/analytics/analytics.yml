@@ -10,7 +10,9 @@ models:
     columns:
       - name: operation_date
         data_tests:
-          - unique
+          - not_null
+      - name: operator_id
+        data_tests:
           - not_null
   - name: analytics_daily_owner_account
     description: "Daily number of owner accounts created"

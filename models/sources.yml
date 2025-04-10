@@ -2,36 +2,57 @@ sources:
   - name: dossierfacile
     schema: public
     loader: airflow
-    freshness:
-      warn_after: { count: 28, period: hour }
-      error_after: { count: 56, period: hour }
     tables:
       - name: tenant_log
+        freshness:
+          warn_after: { count: 28, period: hour }
+          error_after: { count: 56, period: hour }
+        loaded_at_field: creation_date
         columns: 
           - name: id 
             data_tests:
               - unique 
       - name: tenant
+        freshness:
+          warn_after: { count: 28, period: hour }
+          error_after: { count: 56, period: hour }
+        loaded_at_field: last_update_date
         columns:
           - name: id
             data_tests:
               - unique
       - name: user_account
+        freshness:
+          warn_after: { count: 28, period: hour }
+          error_after: { count: 56, period: hour }
+        loaded_at_field: creation_date
         columns:
           - name: id
             data_tests:
               - unique
       - name: apartment_sharing
+        freshness:
+          warn_after: { count: 28, period: hour }
+          error_after: { count: 56, period: hour }
+        loaded_at_field: last_update_date
         columns:
           - name: id
             data_tests:
               - unique
       - name: document
+        freshness:
+          warn_after: { count: 28, period: hour }
+          error_after: { count: 56, period: hour }
+        loaded_at_field: creation_date
         columns:
           - name: id
             data_tests:
               - unique
       - name: document_denied_reasons
+        freshness:
+          warn_after: { count: 28, period: hour }
+          error_after: { count: 56, period: hour }
+        loaded_at_field: creation_date
         columns:
           - name: id
             data_tests:
@@ -47,11 +68,19 @@ sources:
             data_tests:
               - unique
       - name: property_log
+        freshness:
+          warn_after: { count: 28, period: hour }
+          error_after: { count: 56, period: hour }
+        loaded_at_field: creation_date
         columns:
           - name: id
             data_tests:
               - unique
       - name: owner_log
+        freshness:
+          warn_after: { count: 28, period: hour }
+          error_after: { count: 56, period: hour }
+        loaded_at_field: creation_date
         columns:
           - name: id
             data_tests:
@@ -62,3 +91,18 @@ sources:
             data_tests:
               - unique
       - name: tenant_userapi
+        freshness:
+          warn_after: { count: 28, period: hour }
+          error_after: { count: 56, period: hour }
+        loaded_at_field: access_granted_date
+      - name: user_operator
+        columns:
+          - name: id
+            data_tests:
+              - unique
+          - name: created_at
+          - name: email
+            data_tests:
+              - not_null
+          - name: first_name
+          - name: last_name
