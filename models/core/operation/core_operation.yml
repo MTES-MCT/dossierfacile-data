@@ -1,0 +1,37 @@
+models:
+  - name: core_operation
+    description: "A dbt model for tenant operations (validations and denials)"
+    columns:
+      - name: id
+        description: "The primary key for this table"
+        data_tests:
+          - unique
+          - not_null
+      - name: operator_id
+        description: "The id of the operator who performed the operation"
+        data_tests:
+          - not_null
+      - name: operator_email
+        description: "The email of the operator"
+        data_tests:
+          - not_null
+      - name: operator_name
+        description: "The name of the operator"
+        data_tests:
+          - not_null
+      - name: log_type
+        description: "The type of operation (ACCOUNT_DENIED or ACCOUNT_VALIDATED)"
+        data_tests:
+          - not_null
+      - name: validation_flag
+        description: "Whether the operation is a validation (1) or denial (0)"
+        data_tests:
+          - not_null
+      - name: denial_flag
+        description: "Whether the operation is a denial (1) or validation (0)"
+        data_tests:
+          - not_null
+      - name: created_at
+        description: "The date when the operation was performed"
+        data_tests:
+          - not_null
