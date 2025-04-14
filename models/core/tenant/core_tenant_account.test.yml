@@ -43,6 +43,9 @@ unit_tests:
           - { id: 2, keycloak_client_id: 'dfconnect-partner-2' }
           - { id: 3, keycloak_client_id: 'dfconnect-partner-3' }
           - { id: 4, keycloak_client_id: 'dfconnect-proprietaire' }
+      - input: ref('staging_tenant_document')
+        rows:
+          - {}
     expect:
       rows:
         # acquisition_campaign null, pas de consentement, donc organic-dossierfacile
@@ -105,6 +108,9 @@ unit_tests:
         rows:
           - {}
       - input: ref('staging_partner_api_client')
+        rows:
+          - {}
+      - input: ref('staging_tenant_document')
         rows:
           - {}
     expect:

@@ -1,0 +1,50 @@
+unit_tests:
+  - name: test_tenant_document
+    description: "Check tenant_document logic captures all known edge cases"
+    model: staging_tenant_document
+    given:
+      - input: ref('staging_document')
+        rows:
+          - { id: 1, tenant_id: 1, document_category: 'IDENTIFICATION', document_sub_category: 'FRENCH_IDENTITY_CARD', document_status: 'VALIDATED', modified_at: '2024-01-01 00:00:00' }
+          - { id: 2, tenant_id: 1, document_category: 'FINANCIAL', document_sub_category: 'SALARY', document_status: 'VALIDATED', monthly_net_income: 1000, modified_at: '2024-01-01 00:01:00' }
+          - { id: 3, tenant_id: 1, document_category: 'FINANCIAL', document_sub_category: 'PENSION', document_status: 'DENIED', monthly_net_income: 2000, modified_at: '2024-01-01 00:00:00' }
+          - { id: 4, tenant_id: 1, document_category: 'RESIDENCY', document_sub_category: 'TENANT', document_status: 'VALIDATED', modified_at: '2024-01-01 00:00:00' }
+          - { id: 5, tenant_id: 1, document_category: 'PROFESSIONAL', document_sub_category: 'CDI', document_status: 'TO_PROCESS', modified_at: '2024-01-01 00:00:00' }
+          - { id: 6, tenant_id: 1, document_category: 'TAX', document_sub_category: 'MY_NAME', document_status: 'TO_PROCESS', modified_at: '2024-01-01 00:01:00' }
+          - { id: 7, tenant_id: 1, document_category: 'TAX', document_sub_category: 'MY_NAME', document_status: 'DENIED', modified_at: '2024-01-01 00:00:00' }
+          
+          - { id: 8, tenant_id: 2, document_category: 'IDENTIFICATION', document_sub_category: 'FRENCH_PASSPORT', document_status: 'VALIDATED', modified_at: '2024-01-01 00:00:00' }
+          - { id: 9, tenant_id: 2, document_category: 'FINANCIAL', document_sub_category: 'SALARY', document_status: 'VALIDATED', monthly_net_income: 1000, modified_at: '2024-01-01 00:01:00' }
+          - { id: 10, tenant_id: 2, document_category: 'FINANCIAL', document_sub_category: 'SOCIAL_SERVICE', document_status: 'VALIDATED', monthly_net_income: 1000, modified_at: '2024-01-01 00:00:00' }
+          - { id: 11, tenant_id: 2, document_category: 'RESIDENCY', document_sub_category: 'GUEST', document_status: 'VALIDATED', modified_at: '2024-01-01 00:00:00' }
+          - { id: 12, tenant_id: 2, document_category: 'PROFESSIONAL', document_sub_category: 'INDEPENDENT', document_status: 'DENIED', modified_at: '2024-01-01 00:00:00' }
+    expect:
+      rows:
+        - { 
+            tenant_id: 1,
+            validated_net_income: 1000,
+            identification_document_status: 'VALIDATED',
+            identification_sub_category: 'FRENCH_IDENTITY_CARD',
+            financial_document_status: 'VALIDATED',
+            financial_sub_category: 'SALARY',
+            residency_document_status: 'VALIDATED',
+            residency_sub_category: 'TENANT',
+            professional_document_status: 'TO_PROCESS',
+            professional_sub_category: 'CDI',
+            tax_document_status: 'TO_PROCESS',
+            tax_sub_category: 'MY_NAME'
+          }
+        - { 
+            tenant_id: 2,
+            validated_net_income: 2000,
+            identification_document_status: 'VALIDATED',
+            identification_sub_category: 'FRENCH_PASSPORT',
+            financial_document_status: 'VALIDATED',
+            financial_sub_category: 'SALARY',
+            residency_document_status: 'VALIDATED',
+            residency_sub_category: 'GUEST',
+            professional_document_status: 'DENIED',
+            professional_sub_category: 'INDEPENDENT',
+            tax_document_status: null,
+            tax_sub_category: null
+          }

@@ -127,9 +127,12 @@ with tenant_log_status as (
 )
 
 select
-    *
+    tenant_account_data.*
+    , staging_tenant_document.*
     , case
         when tenant_origin like 'hybrid-%' then 'api'
         else 'dossierfacile'
     end as funnel_type
 from tenant_account_data
+left join {{ ref('staging_tenant_document') }} as staging_tenant_document
+    on tenant_account_data.id = staging_tenant_document.tenant_id
