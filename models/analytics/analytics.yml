@@ -33,7 +33,13 @@ models:
       - name: denied_option_value
         data_tests:
           - not_null
+      - name: denied_option_code
+        data_tests:
+          - not_null
       - name: document_category
+        data_tests:
+          - not_null
+      - name: document_sub_category
         data_tests:
           - not_null
       - name: document_tenant_type
