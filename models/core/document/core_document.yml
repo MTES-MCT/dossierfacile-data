@@ -1,22 +1,11 @@
 models:
   - name: core_document_denied_reasons
-    description: "A dbt model to join the user, tenant or guarantor, and the reasons of the denial"
+    description: "A dbt model to join the document denied reasons with their associated options and categories"
     columns:
-      - name: document_id
-        description: "The ID of the document that was denied"
+      - name: unique_id
+        description: "The ID of the denied reason record"
         data_tests:
-          - not_null
-      - name: document_category
-        description: "The category of the denied document"
-        data_tests:
-          - not_null
-      - name: document_sub_category
-        description: "The sub-category of the denied document"
-      - name: document_category_step
-        description: "The step in the document category process"
-      - name: document_created_at
-        description: "When the document was created"
-        data_tests:
+          - unique
           - not_null
       - name: document_denied_at
         description: "When the document was denied"
@@ -30,8 +19,14 @@ models:
         description: "The value of the denial reason option"
         data_tests:
           - not_null
-      - name: denied_option_sub_category
-        description: "The sub-category associated with the denial option"
+      - name: document_category
+        description: "The category of the denied document"
+        data_tests:
+          - not_null
+      - name: document_sub_category
+        description: "The sub-category of the denied document"
+        data_tests:
+          - not_null
       - name: denied_option_code
         description: "The code associated with the denial option"
       - name: operator_comment
