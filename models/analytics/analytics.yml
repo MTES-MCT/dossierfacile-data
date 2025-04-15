@@ -45,7 +45,7 @@ models:
       - name: document_tenant_type
         data_tests:
           - not_null
-      - name: nb_denied_documents
+      - name: nb_denial_reasons
         data_tests:
           - not_null
   
