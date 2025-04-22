@@ -3,7 +3,7 @@ models:
     description: "A dbt model for tenant operations (validations and denials)"
     columns:
       - name: id
-        description: "The primary key for this table"
+        description: "The primary key for this table, generated as a surrogate key from the original id and log_type"
         data_tests:
           - unique
           - not_null
@@ -12,26 +12,42 @@ models:
         data_tests:
           - not_null
       - name: operator_email
-        description: "The email of the operator"
+        description: "The email of the operator who performed the operation"
         data_tests:
           - not_null
       - name: operator_name
-        description: "The name of the operator"
+        description: "The name of the operator who performed the operation"
         data_tests:
           - not_null
       - name: log_type
-        description: "The type of operation (ACCOUNT_DENIED or ACCOUNT_VALIDATED)"
-        data_tests:
-          - not_null
-      - name: validation_flag
-        description: "Whether the operation is a validation (1) or denial (0)"
-        data_tests:
-          - not_null
-      - name: denial_flag
-        description: "Whether the operation is a denial (1) or validation (0)"
+        description: "The type of operation (ACCOUNT_DENIED, ACCOUNT_VALIDATED, ACCOUNT_VALIDATION_STARTED, or ACCOUNT_VALIDATION_STOPPED)"
         data_tests:
           - not_null
       - name: created_at
-        description: "The date when the operation was performed"
+        description: "The timestamp when the operation was performed"
+        data_tests:
+          - not_null
+      - name: processed_documents
+        description: "The number of documents processed during the operation (only populated for validation start/stop events)"
+      - name: time_spent
+        description: "The time spent on the operation in seconds (only populated for validation start/stop events)"
+      - name: operation_flag
+        description: "Binary flag indicating if the operation is either a validation or denial (1) or not (0)"
+        data_tests:
+          - not_null
+      - name: validation_flag
+        description: "Binary flag indicating if the operation is a validation (1) or not (0)"
+        data_tests:
+          - not_null
+      - name: denial_flag
+        description: "Binary flag indicating if the operation is a denial (1) or not (0)"
+        data_tests:
+          - not_null
+      - name: validation_started_flag
+        description: "Binary flag indicating if the operation is a validation start (1) or not (0)"
+        data_tests:
+          - not_null
+      - name: validation_stopped_flag
+        description: "Binary flag indicating if the operation is a validation stop (1) or not (0)"
         data_tests:
           - not_null

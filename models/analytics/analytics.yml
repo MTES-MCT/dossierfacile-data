@@ -1,13 +1,47 @@
 models:
-  - name: analytics_daily_operations
-    description: "Nombre d'operations par jour"
+  - name: analytics_hourly_operations
+    description: "Hourly operations statistics by operator"
     columns:
-      - name: operation_date
-        data_tests:
-          - not_null
       - name: operator_id
+        description: "Unique identifier of the operator"
         data_tests:
           - not_null
+      - name: operator_name
+        description: "Name of the operator"
+        data_tests:
+          - not_null
+      - name: operator_email
+        description: "Email address of the operator"
+        data_tests:
+          - not_null
+      - name: operation_hour
+        description: "Hour of the operation (truncated to hour)"
+        data_tests:
+          - not_null
+      - name: nb_operation
+        description: "Total number of operations"
+        data_tests:
+          - not_null
+      - name: nb_denied
+        description: "Number of denied operations"
+        data_tests:
+          - not_null
+      - name: nb_validation
+        description: "Number of validations"
+        data_tests:
+          - not_null
+      - name: nb_validation_started
+        description: "Number of validation processes started"
+        data_tests:
+          - not_null
+      - name: nb_validation_stopped
+        description: "Number of validation processes stopped"
+        data_tests:
+          - not_null
+      - name: nb_processed_documents
+        description: "Total number of processed documents"
+      - name: total_time_spent
+        description: "Total time spent on operations"
   - name: analytics_daily_owner_account
     description: "Daily number of owner accounts created"
     columns:
