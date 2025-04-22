@@ -106,3 +106,20 @@ sources:
               - not_null
           - name: first_name
           - name: last_name
+      - name: operator_log
+        description: "Log of operator actions on tenant applications"
+        freshness:
+          warn_after: { count: 28, period: hour }
+          error_after: { count: 56, period: hour }
+        loaded_at_field: creation_date
+        columns:
+          - name: id
+            data_tests:
+              - unique
+          - name: tenant_id
+          - name: operator_id
+          - name: tenant_status
+          - name: action_type
+          - name: creation_date
+          - name: processed_documents
+          - name: time_spent
