@@ -37,6 +37,7 @@ select
     , user_operator.id as operator_id
     , user_operator.email as operator_email
     , user_operator.name as operator_name
+    , operation.tenant_id
     , operation.log_type
     , operation.created_at
     , operation.processed_documents
