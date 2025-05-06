@@ -1,7 +1,10 @@
 with tenant_document_events as (
     select
         id
+        , {{ dbt_utils.generate_surrogate_key(['tenant_type', 'tenant_id', 'guarantor_id']) }} as tenant_unique_id
         , tenant_id
+        , guarantor_id
+        , tenant_type
         , created_at
         , document_category
         , document_sub_category
@@ -12,15 +15,18 @@ with tenant_document_events as (
 
 , last_tenant_document_status as (
     select distinct
-        tenant_id
+        tenant_unique_id
+        , tenant_id
+        , guarantor_id
+        , tenant_type
         , document_category
         , FIRST_VALUE(created_at) over (
-            partition by tenant_id, document_category
+            partition by tenant_unique_id, document_category
             order by created_at asc
             rows between unbounded preceding and unbounded following
         ) as first_added_at
         , LAST_VALUE(document_sub_category) over (
-            partition by tenant_id, document_category
+            partition by tenant_unique_id, document_category
             order by created_at asc
             rows between unbounded preceding and unbounded following
         ) as last_document_sub_category
@@ -29,7 +35,11 @@ with tenant_document_events as (
 
 , pivot_tenant_document_status as (
     select
-        tenant_id
+        tenant_unique_id
+        , tenant_id
+        , guarantor_id
+        , tenant_type
+
         , case when document_category = 'IDENTIFICATION' then last_document_sub_category end as identification_last_sub_category
         , case when document_category = 'IDENTIFICATION' then first_added_at end as identification_first_added_at
 
@@ -49,7 +59,11 @@ with tenant_document_events as (
 
 , tenant_document_table as (
     select
-        tenant_id
+        tenant_unique_id
+        , tenant_id
+        , guarantor_id
+        , tenant_type
+
         , MAX(identification_first_added_at) as identification_first_added_at
         , MAX(identification_last_sub_category) as identification_last_sub_category
 
@@ -65,7 +79,11 @@ with tenant_document_events as (
         , MAX(tax_first_added_at) as tax_first_added_at
         , MAX(tax_last_sub_category) as tax_last_sub_category
     from pivot_tenant_document_status
-    group by tenant_id
+    group by
+        tenant_unique_id
+        , tenant_id
+        , guarantor_id
+        , tenant_type
 )
 
 select

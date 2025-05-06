@@ -135,4 +135,6 @@ select
     end as funnel_type
 from tenant_account_data
 left join {{ ref('staging_tenant_document') }} as staging_tenant_document
-    on tenant_account_data.id = staging_tenant_document.tenant_id
+    on
+        tenant_account_data.id = staging_tenant_document.tenant_id
+        and staging_tenant_document.tenant_type = 'TENANT'
