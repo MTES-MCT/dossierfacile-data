@@ -80,6 +80,8 @@ with tenant_log_status as (
         , staging_tenant.apartment_sharing_id
         , staging_tenant.tenant_type
         , staging_tenant.status
+        , staging_tenant.zip_code
+        , staging_tenant.honor_declaration
 
         , staging_user_account.last_login_at
         , staging_user_account.updated_at
@@ -128,7 +130,29 @@ with tenant_log_status as (
 
 select
     tenant_account_data.*
-    , staging_tenant_document.*
+
+    , staging_tenant_document.identification_last_sub_category
+    , staging_tenant_document.identification_first_added_at
+    , staging_tenant_document.has_identification_document
+
+    , staging_tenant_document.financial_last_sub_category
+    , staging_tenant_document.financial_first_added_at
+    , staging_tenant_document.has_financial_document
+
+    , staging_tenant_document.residency_last_sub_category
+    , staging_tenant_document.residency_first_added_at
+    , staging_tenant_document.has_residency_document
+
+    , staging_tenant_document.professional_last_sub_category
+    , staging_tenant_document.professional_first_added_at
+    , staging_tenant_document.has_professional_document
+
+    , staging_tenant_document.tax_last_sub_category
+    , staging_tenant_document.tax_first_added_at
+    , staging_tenant_document.has_tax_document
+
+    , staging_tenant_document.document_completion_flag
+
     , case
         when tenant_origin like 'hybrid-%' then 'api'
         else 'dossierfacile'

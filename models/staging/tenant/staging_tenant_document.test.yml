@@ -40,7 +40,8 @@ unit_tests:
             has_financial_document: 1,
             has_residency_document: 1,
             has_professional_document: 1,
-            has_tax_document: 1
+            has_tax_document: 1,
+            document_completion_flag: true
           }
         - { 
             tenant_id: 2,
@@ -60,7 +61,8 @@ unit_tests:
             has_financial_document: 1,
             has_residency_document: 1,
             has_professional_document: 1,
-            has_tax_document: 0
+            has_tax_document: 0,
+            document_completion_flag: false
           }
         - {
             tenant_id: 1,
@@ -80,5 +82,6 @@ unit_tests:
             has_financial_document: 0,
             has_residency_document: 0,
             has_professional_document: 0,
-            has_tax_document: 0
+            has_tax_document: 0,
+            document_completion_flag: false
           }

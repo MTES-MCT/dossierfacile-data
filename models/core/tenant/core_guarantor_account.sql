@@ -23,13 +23,7 @@ select
     , staging_tenant_document.tax_first_added_at
     , staging_tenant_document.has_tax_document
 
-    , (
-        staging_tenant_document.has_identification_document
-        + staging_tenant_document.has_financial_document
-        + staging_tenant_document.has_residency_document
-        + staging_tenant_document.has_professional_document
-        + staging_tenant_document.has_tax_document
-    ) = 5 as completion_flag
+    , staging_tenant_document.document_completion_flag
 from {{ ref('staging_guarantor') }} as staging_guarantor
 left join {{ ref('staging_tenant_document') }} as staging_tenant_document
     on

@@ -93,4 +93,11 @@ select
     , case when residency_first_added_at is null then 0 else 1 end as has_residency_document
     , case when professional_first_added_at is null then 0 else 1 end as has_professional_document
     , case when tax_first_added_at is null then 0 else 1 end as has_tax_document
+    , (
+        identification_first_added_at is not null
+        and financial_first_added_at is not null
+        and residency_first_added_at is not null
+        and professional_first_added_at is not null
+        and tax_first_added_at is not null
+    ) as document_completion_flag
 from tenant_document_table
