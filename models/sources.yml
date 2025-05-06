@@ -123,3 +123,13 @@ sources:
           - name: creation_date
           - name: processed_documents
           - name: time_spent
+      - name: guarantor
+        description: "Guarantor table"
+        columns:
+          - name: id
+            data_tests:
+              - unique
+          - name: tenant_id
+            data_tests:
+              - not_null
+          - name: type_guarantor

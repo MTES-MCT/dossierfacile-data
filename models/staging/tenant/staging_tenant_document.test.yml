@@ -5,23 +5,27 @@ unit_tests:
     given:
       - input: ref('staging_tenant_log')
         rows:
-          - { id: 1, tenant_id: 1, log_type: 'ACCOUNT_EDITED', edition_type: 'ADD_DOCUMENT', document_category: 'IDENTIFICATION', document_sub_category: 'FRENCH_IDENTITY_CARD', created_at: '2024-01-01 00:00:00' }
-          - { id: 2, tenant_id: 1, log_type: 'ACCOUNT_EDITED', edition_type: 'ADD_DOCUMENT', document_category: 'FINANCIAL', document_sub_category: 'SALARY', created_at: '2024-01-01 00:01:00' }
-          - { id: 3, tenant_id: 1, log_type: 'ACCOUNT_EDITED', edition_type: 'ADD_DOCUMENT', document_category: 'FINANCIAL', document_sub_category: 'PENSION', created_at: '2024-01-01 00:00:00' }
-          - { id: 4, tenant_id: 1, log_type: 'ACCOUNT_EDITED', edition_type: 'ADD_DOCUMENT', document_category: 'RESIDENCY', document_sub_category: 'TENANT', created_at: '2024-01-01 00:00:00' }
-          - { id: 5, tenant_id: 1, log_type: 'ACCOUNT_EDITED', edition_type: 'ADD_DOCUMENT', document_category: 'PROFESSIONAL', document_sub_category: 'CDI', created_at: '2024-01-01 00:00:00' }
-          - { id: 6, tenant_id: 1, log_type: 'ACCOUNT_EDITED', edition_type: 'ADD_DOCUMENT', document_category: 'TAX', document_sub_category: 'MY_NAME', created_at: '2024-01-01 00:01:00' }
-          - { id: 7, tenant_id: 1, log_type: 'ACCOUNT_EDITED', edition_type: 'ADD_DOCUMENT', document_category: 'TAX', document_sub_category: 'MY_NAME', created_at: '2024-01-01 00:00:00' }
+          - { id: 1, tenant_id: 1, guarantor_id: null, tenant_type: 'TENANT', log_type: 'ACCOUNT_EDITED', edition_type: 'ADD_DOCUMENT', document_category: 'IDENTIFICATION', document_sub_category: 'FRENCH_IDENTITY_CARD', created_at: '2024-01-01 00:00:00' }
+          - { id: 2, tenant_id: 1, guarantor_id: null, tenant_type: 'TENANT', log_type: 'ACCOUNT_EDITED', edition_type: 'ADD_DOCUMENT', document_category: 'FINANCIAL', document_sub_category: 'SALARY', created_at: '2024-01-01 00:01:00' }
+          - { id: 3, tenant_id: 1, guarantor_id: null, tenant_type: 'TENANT', log_type: 'ACCOUNT_EDITED', edition_type: 'ADD_DOCUMENT', document_category: 'FINANCIAL', document_sub_category: 'PENSION', created_at: '2024-01-01 00:00:00' }
+          - { id: 4, tenant_id: 1, guarantor_id: null, tenant_type: 'TENANT', log_type: 'ACCOUNT_EDITED', edition_type: 'ADD_DOCUMENT', document_category: 'RESIDENCY', document_sub_category: 'TENANT', created_at: '2024-01-01 00:00:00' }
+          - { id: 5, tenant_id: 1, guarantor_id: null, tenant_type: 'TENANT', log_type: 'ACCOUNT_EDITED', edition_type: 'ADD_DOCUMENT', document_category: 'PROFESSIONAL', document_sub_category: 'CDI', created_at: '2024-01-01 00:00:00' }
+          - { id: 6, tenant_id: 1, guarantor_id: null, tenant_type: 'TENANT', log_type: 'ACCOUNT_EDITED', edition_type: 'ADD_DOCUMENT', document_category: 'TAX', document_sub_category: 'MY_NAME', created_at: '2024-01-01 00:01:00' }
+          - { id: 7, tenant_id: 1, guarantor_id: null, tenant_type: 'TENANT', log_type: 'ACCOUNT_EDITED', edition_type: 'ADD_DOCUMENT', document_category: 'TAX', document_sub_category: 'MY_NAME', created_at: '2024-01-01 00:00:00' }
           
-          - { id: 8, tenant_id: 2, log_type: 'ACCOUNT_EDITED', edition_type: 'ADD_DOCUMENT', document_category: 'IDENTIFICATION', document_sub_category: 'FRENCH_PASSPORT', created_at: '2024-01-01 00:00:00' }
-          - { id: 9, tenant_id: 2, log_type: 'ACCOUNT_EDITED', edition_type: 'ADD_DOCUMENT', document_category: 'FINANCIAL', document_sub_category: 'SALARY', created_at: '2024-01-01 00:01:00' }
-          - { id: 10, tenant_id: 2, log_type: 'ACCOUNT_EDITED', edition_type: 'ADD_DOCUMENT', document_category: 'FINANCIAL', document_sub_category: 'SOCIAL_SERVICE', created_at: '2024-01-01 00:00:00' }
-          - { id: 11, tenant_id: 2, log_type: 'ACCOUNT_EDITED', edition_type: 'ADD_DOCUMENT', document_category: 'RESIDENCY', document_sub_category: 'GUEST', created_at: '2024-01-01 00:00:00' }
-          - { id: 12, tenant_id: 2, log_type: 'ACCOUNT_EDITED', edition_type: 'ADD_DOCUMENT', document_category: 'PROFESSIONAL', document_sub_category: 'INDEPENDENT', created_at: '2024-01-01 00:00:00' }
+          - { id: 8, tenant_id: 2, guarantor_id: null, tenant_type: 'TENANT', log_type: 'ACCOUNT_EDITED', edition_type: 'ADD_DOCUMENT', document_category: 'IDENTIFICATION', document_sub_category: 'FRENCH_PASSPORT', created_at: '2024-01-01 00:00:00' }
+          - { id: 9, tenant_id: 2, guarantor_id: null, tenant_type: 'TENANT', log_type: 'ACCOUNT_EDITED', edition_type: 'ADD_DOCUMENT', document_category: 'FINANCIAL', document_sub_category: 'SALARY', created_at: '2024-01-01 00:01:00' }
+          - { id: 10, tenant_id: 2, guarantor_id: null, tenant_type: 'TENANT', log_type: 'ACCOUNT_EDITED', edition_type: 'ADD_DOCUMENT', document_category: 'FINANCIAL', document_sub_category: 'SOCIAL_SERVICE', created_at: '2024-01-01 00:00:00' }
+          - { id: 11, tenant_id: 2, guarantor_id: null, tenant_type: 'TENANT', log_type: 'ACCOUNT_EDITED', edition_type: 'ADD_DOCUMENT', document_category: 'RESIDENCY', document_sub_category: 'GUEST', created_at: '2024-01-01 00:00:00' }
+          - { id: 12, tenant_id: 2, guarantor_id: null, tenant_type: 'TENANT', log_type: 'ACCOUNT_EDITED', edition_type: 'ADD_DOCUMENT', document_category: 'PROFESSIONAL', document_sub_category: 'INDEPENDENT', created_at: '2024-01-01 00:00:00' }
+
+          - { id: 13, tenant_id: 1, guarantor_id: 1, tenant_type: 'GUARANTOR', log_type: 'ACCOUNT_EDITED', edition_type: 'ADD_DOCUMENT', document_category: 'IDENTIFICATION', document_sub_category: 'FRENCH_PASSPORT', created_at: '2024-01-01 00:01:00' }
     expect:
       rows:
         - { 
             tenant_id: 1,
+            guarantor_id: null,
+            tenant_type: 'TENANT',
             identification_last_sub_category: 'FRENCH_IDENTITY_CARD',
             financial_last_sub_category: 'SALARY',
             residency_last_sub_category: 'TENANT',
@@ -36,10 +40,13 @@ unit_tests:
             has_financial_document: 1,
             has_residency_document: 1,
             has_professional_document: 1,
-            has_tax_document: 1
+            has_tax_document: 1,
+            document_completion_flag: 1
           }
         - { 
             tenant_id: 2,
+            guarantor_id: null,
+            tenant_type: 'TENANT',
             identification_last_sub_category: 'FRENCH_PASSPORT',
             financial_last_sub_category: 'SALARY',
             residency_last_sub_category: 'GUEST',
@@ -54,5 +61,27 @@ unit_tests:
             has_financial_document: 1,
             has_residency_document: 1,
             has_professional_document: 1,
-            has_tax_document: 0
+            has_tax_document: 0,
+            document_completion_flag: 0
+          }
+        - {
+            tenant_id: 1,
+            guarantor_id: 1,
+            tenant_type: 'GUARANTOR',
+            identification_last_sub_category: 'FRENCH_PASSPORT',
+            financial_last_sub_category: null,
+            residency_last_sub_category: null,
+            professional_last_sub_category: null,
+            tax_last_sub_category: null,
+            identification_first_added_at: '2024-01-01 00:01:00',
+            financial_first_added_at: null,
+            residency_first_added_at: null,
+            professional_first_added_at: null,
+            tax_first_added_at: null,
+            has_identification_document: 1,
+            has_financial_document: 0,
+            has_residency_document: 0,
+            has_professional_document: 0,
+            has_tax_document: 0,
+            document_completion_flag: 0
           }

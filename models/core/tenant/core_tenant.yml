@@ -23,3 +23,18 @@ models:
         description: "The creation date of the tenant"
         data_tests:
           - not_null
+  - name: core_guarantor_account
+    description: "A dbt model for guarantor account"
+    columns:
+      - name: id
+        description: "The primary key for this table"
+        data_tests:
+          - unique
+      - name: tenant_id
+        description: "The tenant id"
+        data_tests:
+          - not_null
+      - name: type_guarantor
+        description: "The type of guarantor"
+      - name: completion_flag
+        description: "The completion flag"
