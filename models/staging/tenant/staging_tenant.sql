@@ -7,6 +7,7 @@ select
         else 'invalid'
     end as zip_code
     , CAST(honor_declaration as BOOLEAN)
+    , CAST(operator_comment as VARCHAR) as operator_comment
     , CAST(last_update_date as TIMESTAMP) as last_updated_at
     , CAST(COALESCE(status, 'INCOMPLETE') as VARCHAR) as status
     , CAST(operator_date_time as TIMESTAMP) as last_operation_at
