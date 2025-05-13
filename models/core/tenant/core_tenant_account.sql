@@ -82,6 +82,7 @@ with tenant_log_status as (
         , staging_tenant.status
         , staging_tenant.zip_code
         , staging_tenant.honor_declaration
+        , staging_tenant.operator_comment
 
         , staging_user_account.last_login_at
         , staging_user_account.updated_at
