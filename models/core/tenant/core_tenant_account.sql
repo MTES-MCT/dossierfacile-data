@@ -77,7 +77,7 @@ with tenant_log_status as (
     select
         tenant_status_details.tenant_id as id
 
-        , staging_tenant.apartment_sharing_id
+        , staging_tenant.application_id
         , staging_tenant.tenant_type
         , staging_tenant.status
         , staging_tenant.zip_code
@@ -132,33 +132,57 @@ with tenant_log_status as (
 select
     tenant_account_data.*
 
+    , core_application.application_type
+    , core_application.application_pdf_status
+    , core_application.is_opened as application_is_opened
+    , core_application.is_opened_full_access as application_is_opened_full_access
+    , core_application.first_opened_at as application_first_opened_at
+    , core_application.is_downloaded as application_is_downloaded
+    , core_application.first_downloaded_at as application_first_downloaded_at
+
     , staging_tenant_document.identification_last_sub_category
+
     , staging_tenant_document.identification_first_added_at
     , staging_tenant_document.has_identification_document
-
     , staging_tenant_document.financial_last_sub_category
+
     , staging_tenant_document.financial_first_added_at
     , staging_tenant_document.has_financial_document
-
     , staging_tenant_document.residency_last_sub_category
+
     , staging_tenant_document.residency_first_added_at
     , staging_tenant_document.has_residency_document
-
     , staging_tenant_document.professional_last_sub_category
+
     , staging_tenant_document.professional_first_added_at
     , staging_tenant_document.has_professional_document
-
     , staging_tenant_document.tax_last_sub_category
+
     , staging_tenant_document.tax_first_added_at
     , staging_tenant_document.has_tax_document
-
     , staging_tenant_document.document_completion_flag
+
+    -- Un dossier locataire est considéré comme partagé si une des conditions suivantes est vérifiée:
+    -- - il est validé et a été partagé via une intégration partenaire au moins une fois
+    -- - le dossier de candidature associé a été ouvert au moins une fois
+    -- - le dossier de candidature associé a été téléchargé au moins une fois
+    , case
+        when tenant_account_data.validation_flag = 1 
+            and tenant_account_data.partner_consent_list is not null 
+            and ARRAY_LENGTH(tenant_account_data.partner_consent_list, 1) > 0 
+        then 1
+        when core_application.is_opened = 1 then 1
+        when core_application.is_downloaded = 1 then 1
+        else 0
+    end as application_is_shared
 
     , case
         when tenant_origin like 'hybrid-%' then 'api'
         else 'dossierfacile'
     end as funnel_type
 from tenant_account_data
+left join {{ ref('core_application') }} as core_application
+    on tenant_account_data.application_id = core_application.id
 left join {{ ref('staging_tenant_document') }} as staging_tenant_document
     on
         tenant_account_data.id = staging_tenant_document.tenant_id

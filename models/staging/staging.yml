@@ -37,8 +37,8 @@ models:
         description: "The current status of the tenant"
         data_tests:
           - not_null
-      - name: apartment_sharing_id
-        description: "The ID of the apartment sharing group"
+      - name: application_id
+        description: "The ID of the application (apartment_sharing in code)"
       - name: zip_code
         description: "The zip code of the tenant's address"
       - name: honor_declaration

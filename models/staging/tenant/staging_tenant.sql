@@ -1,9 +1,10 @@
 select
     CAST(id as INTEGER)
     , CAST(tenant_type as VARCHAR)
-    , CAST(apartment_sharing_id as INTEGER)
+    , CAST(apartment_sharing_id as INTEGER) as application_id
     , case
         when LEFT(zip_code, 5) ~ '^[0-9]{5}$' then LEFT(zip_code, 5)
+        when zip_code is null then null
         else 'invalid'
     end as zip_code
     , CAST(honor_declaration as BOOLEAN)
