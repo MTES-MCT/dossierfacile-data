@@ -39,6 +39,24 @@ sources:
           - name: id
             data_tests:
               - unique
+      - name: apartment_sharing_link
+        freshness:
+          warn_after: { count: 28, period: hour }
+          error_after: { count: 56, period: hour }
+        loaded_at_field: creation_date
+        columns:
+          - name: id
+            data_tests:
+              - unique
+      - name: link_log
+        freshness:
+          warn_after: { count: 28, period: hour }
+          error_after: { count: 56, period: hour }
+        loaded_at_field: creation_date
+        columns:
+          - name: id
+            data_tests:
+              - unique
       - name: document
         freshness:
           warn_after: { count: 28, period: hour }
