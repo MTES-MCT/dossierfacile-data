@@ -77,7 +77,7 @@ with tenant_log_status as (
     select
         tenant_status_details.tenant_id as id
 
-        , staging_tenant.apartment_sharing_id
+        , staging_tenant.application_id
         , staging_tenant.tenant_type
         , staging_tenant.status
         , staging_tenant.zip_code

@@ -3,6 +3,6 @@ select
     , CAST(property_id as INTEGER)
     , CAST(creation_date as TIMESTAMP) as created_at
     , CAST(log_type as VARCHAR)
-    , CAST(apartment_sharing_id as INTEGER)
+    , CAST(apartment_sharing_id as INTEGER) as application_id
 from {{ source('dossierfacile', 'property_log') }}
 {{ filter_recent_data('creation_date') }}
