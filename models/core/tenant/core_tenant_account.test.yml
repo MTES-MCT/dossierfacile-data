@@ -46,6 +46,9 @@ unit_tests:
       - input: ref('staging_tenant_document')
         rows:
           - {}
+      - input: ref('core_application')
+        rows:
+          - {}
     expect:
       rows:
         # acquisition_campaign null, pas de consentement, donc organic-dossierfacile
@@ -111,6 +114,9 @@ unit_tests:
         rows:
           - {}
       - input: ref('staging_tenant_document')
+        rows:
+          - {}
+      - input: ref('core_application')
         rows:
           - {}
     expect:

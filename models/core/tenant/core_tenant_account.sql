@@ -132,6 +132,14 @@ with tenant_log_status as (
 select
     tenant_account_data.*
 
+    , core_application.application_type
+    , core_application.application_pdf_status
+    , core_application.is_opened as application_is_opened
+    , core_application.is_opened_full_access as application_is_opened_full_access
+    , core_application.first_opened_at as application_first_opened_at
+    , core_application.is_downloaded as application_is_downloaded
+    , core_application.first_downloaded_at as application_first_downloaded_at
+
     , staging_tenant_document.identification_last_sub_category
     , staging_tenant_document.identification_first_added_at
     , staging_tenant_document.has_identification_document
@@ -159,6 +167,8 @@ select
         else 'dossierfacile'
     end as funnel_type
 from tenant_account_data
+left join {{ ref('core_application') }} as core_application
+    on tenant_account_data.application_id = core_application.id
 left join {{ ref('staging_tenant_document') }} as staging_tenant_document
     on
         tenant_account_data.id = staging_tenant_document.tenant_id
