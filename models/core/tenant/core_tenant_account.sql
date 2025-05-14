@@ -141,26 +141,37 @@ select
     , core_application.first_downloaded_at as application_first_downloaded_at
 
     , staging_tenant_document.identification_last_sub_category
+
     , staging_tenant_document.identification_first_added_at
     , staging_tenant_document.has_identification_document
-
     , staging_tenant_document.financial_last_sub_category
+
     , staging_tenant_document.financial_first_added_at
     , staging_tenant_document.has_financial_document
-
     , staging_tenant_document.residency_last_sub_category
+
     , staging_tenant_document.residency_first_added_at
     , staging_tenant_document.has_residency_document
-
     , staging_tenant_document.professional_last_sub_category
+
     , staging_tenant_document.professional_first_added_at
     , staging_tenant_document.has_professional_document
-
     , staging_tenant_document.tax_last_sub_category
+
     , staging_tenant_document.tax_first_added_at
     , staging_tenant_document.has_tax_document
-
     , staging_tenant_document.document_completion_flag
+
+    -- Un dossier locataire est considéré comme partagé si une des conditions suivantes est vérifiée:
+    -- - il a été partagé via une intégration partenaire au moins une fois
+    -- - le dossier de candidature associé a été ouvert au moins une fois
+    -- - le dossier de candidature associé a été téléchargé au moins une fois
+    , case
+        when tenant_account_data.partner_consent_list is not null and ARRAY_LENGTH(tenant_account_data.partner_consent_list, 1) > 0 then 1
+        when core_application.is_opened = 1 then 1
+        when core_application.is_downloaded = 1 then 1
+        else 0
+    end as application_is_shared
 
     , case
         when tenant_origin like 'hybrid-%' then 'api'
