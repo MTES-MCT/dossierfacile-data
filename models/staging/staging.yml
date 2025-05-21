@@ -70,23 +70,35 @@ models:
       - name: code
         description: "The associated code to the denied option"
   - name: staging_document_denied_reasons
-    description: "A dbt model to clean the document denued reasons"
+    description: "A dbt model that cleans and transforms document denied reasons data from the source table"
     columns:
       - name: id
-        description: "The id of the denied reasons (can be duplicated)"
+        description: "The ID of the denied reason record"
         data_tests:
           - not_null
-      - name: tenant_type
-        description: "The type of tenant"
-      - name: checked_options
-        description: "The checked option"
-      - name: checked_options_id
-        description: "The id of the checked option"
-      - name: comment
-        description: "The comment added by the operator"
-      - name: message_id
-        description: "The id of the message"
+      - name: denied_option_id
+        description: "The ID of the denial reason option"
+        data_tests:
+          - not_null
+      - name: denied_option_value
+        description: "The value of the denial reason option"
+        data_tests:
+          - not_null
+      - name: operator_comment
+        description: "Any comments made by the operator regarding the denial"
       - name: document_id
-        description: "The id of the document concerned by the checked option"
-      - name: creation_date
-        description: "The date of the denied"
+        description: "The ID of the document that was denied"
+        data_tests:
+          - not_null
+      - name: created_at
+        description: "Timestamp when the document was denied"
+        data_tests:
+          - not_null
+      - name: document_category
+        description: "The category of the denied document"
+      - name: document_sub_category
+        description: "The sub-category of the denied document"
+      - name: document_category_step
+        description: "The step in the document category process"
+      - name: document_tenant_type
+        description: "Indicates whether the document belongs to a TENANT or GUARANTOR"

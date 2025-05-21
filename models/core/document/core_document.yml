@@ -1,14 +1,18 @@
 models:
   - name: core_document_denied_reasons
-    description: "A dbt model to join the document denied reasons with their associated options and categories"
+    description: "A dbt model that transforms document denied reasons data, including document categories and denial details"
     columns:
       - name: unique_id
-        description: "The ID of the denied reason record"
+        description: "A surrogate key generated from id and denied_option_id"
         data_tests:
           - unique
           - not_null
       - name: document_denied_at
-        description: "When the document was denied"
+        description: "Timestamp when the document was denied"
+        data_tests:
+          - not_null
+      - name: document_id
+        description: "The ID of the document that was denied"
         data_tests:
           - not_null
       - name: denied_option_id
@@ -21,22 +25,16 @@ models:
           - not_null
       - name: document_category
         description: "The category of the denied document"
-        data_tests:
-          - not_null
       - name: document_sub_category
         description: "The sub-category of the denied document"
-        data_tests:
-          - not_null
-      - name: denied_option_code
-        description: "The code associated with the denial option"
+      - name: document_category_step
+        description: "The step in the document category process"
+      - name: document_tenant_type
+        description: "Indicates whether the document belongs to a TENANT or GUARANTOR"
       - name: operator_comment
         description: "Any comments made by the operator regarding the denial"
       - name: tenant_id
         description: "The ID of the tenant if the document belongs to a tenant"
       - name: guarantor_id
         description: "The ID of the guarantor if the document belongs to a guarantor"
-      - name: document_tenant_type
-        description: "Indicates whether the document belongs to a TENANT or GUARANTOR"
-        data_tests:
-          - not_null
 
