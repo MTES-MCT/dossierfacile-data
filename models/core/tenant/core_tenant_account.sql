@@ -167,10 +167,11 @@ select
     -- - le dossier de candidature associé a été ouvert au moins une fois
     -- - le dossier de candidature associé a été téléchargé au moins une fois
     , case
-        when tenant_account_data.validation_flag = 1 
-            and tenant_account_data.partner_consent_list is not null 
-            and ARRAY_LENGTH(tenant_account_data.partner_consent_list, 1) > 0 
-        then 1
+        when
+            tenant_account_data.validation_flag = 1
+            and tenant_account_data.partner_consent_list is not null
+            and ARRAY_LENGTH(tenant_account_data.partner_consent_list, 1) > 0
+            then 1
         when core_application.is_opened = 1 then 1
         when core_application.is_downloaded = 1 then 1
         else 0
