@@ -8,6 +8,7 @@ select
     , SUM(completion_flag) as nb_account_completed
     , SUM(validation_flag) as nb_account_validated
     , SUM(time_to_completion) as total_time_to_completion
+    , SUM(time_to_operation) as total_time_to_operation
     , SUM(nb_completions) as total_completions
     , SUM(nb_operations) as total_operations
 from {{ ref('core_tenant_account') }}

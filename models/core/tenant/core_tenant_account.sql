@@ -47,6 +47,7 @@ with tenant_log_status as (
         , nb_operations
         , nb_validations
         , CAST(EXTRACT(epoch from first_completion_at - created_at) as INTEGER) as time_to_completion
+        , CAST(EXTRACT(epoch from first_operation_at - first_completion_at) as INTEGER) as time_to_operation
         , CAST(EXTRACT(epoch from first_validation_at - first_completion_at) as INTEGER) as time_to_validation
         , case when first_validation_at = first_operation_at then 1 else 0 end as validation_at_first_operation
     from tenant_status
@@ -83,6 +84,7 @@ with tenant_log_status as (
         , staging_tenant.zip_code
         , staging_tenant.honor_declaration
         , staging_tenant.operator_comment
+        , staging_tenant.owner_type
 
         , staging_user_account.last_login_at
         , staging_user_account.updated_at
@@ -98,6 +100,7 @@ with tenant_log_status as (
         , tenant_status_details.first_validation_at
         , tenant_status_details.validation_flag
         , tenant_status_details.time_to_completion
+        , tenant_status_details.time_to_operation
         , tenant_status_details.time_to_validation
         , tenant_status_details.validation_at_first_operation
         , tenant_status_details.nb_completions

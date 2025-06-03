@@ -14,5 +14,6 @@ select
     , CAST(operator_date_time as TIMESTAMP) as last_operation_at
     , CAST(warnings as INTEGER) as deletion_warnings
     , CAST(abroad as BOOLEAN) as tenant_abroad
+    , CAST(owner_type as VARCHAR) as owner_type
 from {{ source('dossierfacile', 'tenant') }}
 {{ filter_recent_data('last_update_date') }}
