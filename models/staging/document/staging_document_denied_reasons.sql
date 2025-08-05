@@ -3,7 +3,7 @@ with checked_options_details as (
         id
         , comment as operator_comment
         , document_id
-        , creation_date
+        , creation_date as created_at
         , document_category
         , document_sub_category
         , document_category_step
@@ -17,10 +17,10 @@ with checked_options_details as (
 select
     CAST(id as INTEGER)
     , CAST(denied_option_id as INTEGER)
-    , CAST(denied_option_value as VARCHAR)
+    , CAST({{ fix_encoding_character('denied_option_value') }} as VARCHAR) as denied_option_value
     , CAST(operator_comment as VARCHAR)
     , CAST(document_id as INTEGER)
-    , CAST(creation_date as TIMESTAMP) as created_at
+    , CAST(created_at as TIMESTAMP)
     , CAST(document_category as VARCHAR)
     , CAST(document_sub_category as VARCHAR)
     , CAST(document_category_step as VARCHAR)
