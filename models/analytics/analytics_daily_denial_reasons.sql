@@ -22,7 +22,7 @@ with daily_denial_reasons as (
 , daily_operations as (
     select
         DATE(operation_hour) as operation_date
-        , SUM(nb_operation) as nb_operation
+        , SUM(nb_denied) as nb_denied
     from {{ ref('analytics_hourly_operations') }}
     group by
         DATE(operation_hour)
@@ -30,7 +30,7 @@ with daily_denial_reasons as (
 
 select
     daily_denial_reasons.*
-    , daily_operations.nb_operation
+    , daily_operations.nb_denied
 from daily_denial_reasons
 left join daily_operations
     on daily_denial_reasons.denial_date = daily_operations.operation_date
