@@ -4,78 +4,91 @@ sources:
     loader: airflow
     tables:
       - name: tenant_log
-        freshness:
-          warn_after: { count: 28, period: hour }
-          error_after: { count: 56, period: hour }
         loaded_at_field: creation_date
-        columns: 
-          - name: id 
+        columns:
+          - name: id
             data_tests:
-              - unique 
+              - unique
+        config:
+          freshness:
+            warn_after: {count: 28, period: hour}
+            error_after: {count: 56, period: hour}
       - name: tenant
-        freshness:
-          warn_after: { count: 28, period: hour }
-          error_after: { count: 56, period: hour }
         loaded_at_field: last_update_date
         columns:
           - name: id
             data_tests:
               - unique
+        config:
+          freshness:
+            warn_after: {count: 28, period: hour}
+            error_after: {count: 56, period: hour}
       - name: user_account
-        freshness:
-          warn_after: { count: 28, period: hour }
-          error_after: { count: 56, period: hour }
         loaded_at_field: creation_date
         columns:
           - name: id
             data_tests:
               - unique
+        config:
+          freshness:
+            warn_after: {count: 28, period: hour}
+            error_after: {count: 56, period: hour}
       - name: apartment_sharing
-        freshness:
-          warn_after: { count: 28, period: hour }
-          error_after: { count: 56, period: hour }
         loaded_at_field: last_update_date
         columns:
           - name: id
             data_tests:
               - unique
+        config:
+          freshness:
+            warn_after: {count: 28, period: hour}
+            error_after: {count: 56, period: hour}
       - name: apartment_sharing_link
-        freshness:
-          warn_after: { count: 28, period: hour }
-          error_after: { count: 56, period: hour }
         loaded_at_field: creation_date
         columns:
           - name: id
             data_tests:
               - unique
+        config:
+          freshness:
+            warn_after: {count: 28, period: hour}
+            error_after: {count: 56, period: hour}
       - name: link_log
-        freshness:
-          warn_after: { count: 28, period: hour }
-          error_after: { count: 56, period: hour }
         loaded_at_field: creation_date
         columns:
           - name: id
             data_tests:
               - unique
+        config:
+          freshness:
+            warn_after: {count: 28, period: hour}
+            error_after: {count: 56, period: hour}
       - name: document
-        freshness:
-          warn_after: { count: 28, period: hour }
-          error_after: { count: 56, period: hour }
         loaded_at_field: creation_date
         columns:
           - name: id
             data_tests:
               - unique
+        config:
+          freshness:
+            warn_after: {count: 28, period: hour}
+            error_after: {count: 56, period: hour}
       - name: document_denied_reasons
-        freshness:
-          warn_after: { count: 28, period: hour }
-          error_after: { count: 56, period: hour }
         loaded_at_field: creation_date
         columns:
           - name: id
             data_tests:
               - unique
+        config:
+          freshness:
+            warn_after: {count: 28, period: hour}
+            error_after: {count: 56, period: hour}
       - name: document_denied_options
+        columns:
+          - name: id
+            data_tests:
+              - unique
+      - name: document_analysis_report
         columns:
           - name: id
             data_tests:
@@ -86,33 +99,36 @@ sources:
             data_tests:
               - unique
       - name: property_log
-        freshness:
-          warn_after: { count: 28, period: hour }
-          error_after: { count: 56, period: hour }
         loaded_at_field: creation_date
         columns:
           - name: id
             data_tests:
               - unique
+        config:
+          freshness:
+            warn_after: {count: 28, period: hour}
+            error_after: {count: 56, period: hour}
       - name: owner_log
-        freshness:
-          warn_after: { count: 28, period: hour }
-          error_after: { count: 56, period: hour }
         loaded_at_field: creation_date
         columns:
           - name: id
             data_tests:
               - unique
+        config:
+          freshness:
+            warn_after: {count: 28, period: hour}
+            error_after: {count: 56, period: hour}
       - name: user_api
         columns:
           - name: id
             data_tests:
               - unique
       - name: tenant_userapi
-        freshness:
-          warn_after: { count: 28, period: hour }
-          error_after: { count: 56, period: hour }
         loaded_at_field: access_granted_date
+        config:
+          freshness:
+            warn_after: {count: 28, period: hour}
+            error_after: {count: 56, period: hour}
       - name: user_operator
         columns:
           - name: id
@@ -126,9 +142,6 @@ sources:
           - name: last_name
       - name: operator_log
         description: "Log of operator actions on tenant applications"
-        freshness:
-          warn_after: { count: 28, period: hour }
-          error_after: { count: 56, period: hour }
         loaded_at_field: creation_date
         columns:
           - name: id
@@ -141,6 +154,10 @@ sources:
           - name: creation_date
           - name: processed_documents
           - name: time_spent
+        config:
+          freshness:
+            warn_after: {count: 28, period: hour}
+            error_after: {count: 56, period: hour}
       - name: guarantor
         description: "Guarantor table"
         columns:

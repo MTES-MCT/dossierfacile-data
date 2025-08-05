@@ -11,7 +11,7 @@
                                         REGEXP_REPLACE(
                                             REGEXP_REPLACE(
                                                 {{ field }}
-                                                , '<\/*[a-zA-Z0-9]*[^>]*>', '', 'g')
+                                                , '<\/*[a-zA-Z0-9]*[^>]*>', '', 'g') -- remove html tags
                                             , 'u00b7', '·', 'g')
                                         , 'u00e7', 'ç', 'g')
                                     , '&quot;', '"', 'g')
