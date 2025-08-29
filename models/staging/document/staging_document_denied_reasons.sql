@@ -20,7 +20,7 @@ select
     , CAST({{ fix_encoding_character('denied_option_value') }} as VARCHAR) as denied_option_value
     , CAST(operator_comment as VARCHAR)
     , CAST(document_id as INTEGER)
-    , CAST(created_at as TIMESTAMP)
+    , CAST(created_at as TIMESTAMP) as document_denied_at
     , CAST(document_category as VARCHAR)
     , CAST(document_sub_category as VARCHAR)
     , CAST(document_category_step as VARCHAR)
