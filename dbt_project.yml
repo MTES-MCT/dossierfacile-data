@@ -25,9 +25,13 @@ clean-targets:         # directories to be removed by `dbt clean`
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
 
+vars:
+  blurry_detection_first_document_id: 14445521  # blurry detection has been enabled on 2025-08-29 00:00:00
+
 # In this example config, we tell dbt to build all models in the example/
 # directory as views. These settings can be overridden in the individual model
 # files using the `{{ config(...) }}` macro.
+
 models:
   dossierfacile:
     # Config indicated by + and applies to all files under models/example/

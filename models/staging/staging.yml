@@ -90,7 +90,7 @@ models:
         description: "The ID of the document that was denied"
         data_tests:
           - not_null
-      - name: created_at
+      - name: document_denied_at
         description: "Timestamp when the document was denied"
         data_tests:
           - not_null
