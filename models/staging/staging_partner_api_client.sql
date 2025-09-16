@@ -5,5 +5,4 @@ select
     , CAST(disabled as BOOLEAN)
     , CAST(url_callback as VARCHAR)
     , CAST(site as VARCHAR)
-    , CAST(email as VARCHAR)
 from {{ source('dossierfacile', 'user_api') }}
