@@ -1,17 +1,14 @@
 select
     CAST(id as INTEGER)
-    -- , CAST(name as VARCHAR)
     , CAST(owner_id as INTEGER)
     , CAST(creation_date as TIMESTAMP) as created_at
     , CAST(count_visit as INTEGER)
     , CAST(rent_cost as BIGINT)
     , CAST(displayed as BOOLEAN)
     , CAST(notification as BOOLEAN)
-    , CAST(cant_email_sent_prospect as INTEGER)
     , CAST(validated as BOOLEAN)
     , CAST(type as VARCHAR)
     , CAST(furniture as VARCHAR)
-    , CAST(address as VARCHAR)
     , CAST(charges_cost as FLOAT)
     , CAST(living_space as FLOAT)
     , CAST(energy_consumption as INTEGER)
