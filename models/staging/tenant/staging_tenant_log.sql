@@ -15,6 +15,8 @@ with casting_log as (
         , CAST(log_details ->> 'documentId' as INTEGER) as document_id
         , log_details ->> 'documentCategory' as document_category
         , log_details ->> 'documentSubCategory' as document_sub_category
+        -- When the log type is OPERATOR_COMMENT, we extract the operator comment from the log details
+        , log_details ->> 'comment' as operator_comment
     from {{ source('dossierfacile', 'tenant_log') }}
     {{ filter_recent_data('creation_date') }}
 )
@@ -30,5 +32,6 @@ select
     , casting_log.edition_type
     , casting_log.document_category
     , casting_log.document_sub_category
+    , casting_log.operator_comment
     , case when casting_log.guarantor_id is not null then 'GUARANTOR' else 'TENANT' end as tenant_type
 from casting_log
