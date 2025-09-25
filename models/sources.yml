@@ -73,6 +73,16 @@ sources:
           freshness:
             warn_after: {count: 28, period: hour}
             error_after: {count: 56, period: hour}
+      - name: file
+        loaded_at_field: creation_date
+        columns:
+          - name: id
+            data_tests:
+              - unique
+        config:
+          freshness:
+            warn_after: {count: 28, period: hour}
+            error_after: {count: 56, period: hour}
       - name: document_denied_reasons
         loaded_at_field: creation_date
         columns:
