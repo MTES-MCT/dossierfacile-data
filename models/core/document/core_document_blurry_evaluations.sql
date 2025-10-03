@@ -30,6 +30,20 @@ with blurry_rule_reports as (
         and denied_option_id = 567
 )
 
+, blurry_document_analysis as (
+    select
+        document_id
+        , BOOL_OR(is_blurry) as is_blurry -- if any file is blurry, the document is blurry
+        , BOOL_OR(is_blank) as is_blank -- if any file is blank, the document is blank
+        , BOOL_AND(is_readable) as is_readable -- if all files are readable, the document is readable
+        , MAX(laplacian_variance) as max_laplacian_variance
+        , MIN(laplacian_variance) as min_laplacian_variance
+    from {{ ref('staging_file_blurry_analysis') }}
+    where
+        document_id > {{ var("blurry_detection_first_document_id") }}
+    group by document_id
+)
+
 , document as (
     select
         id
@@ -49,11 +63,17 @@ with blurry_rule_reports as (
         document.document_status
         , blurry_denied_reasons.document_denied_at
         , blurry_rule_reports.created_at as blurry_rule_created_at
+        , blurry_document_analysis.is_blurry
+        , blurry_document_analysis.is_blank
+        , blurry_document_analysis.is_readable
+        , blurry_document_analysis.max_laplacian_variance
+
+        , blurry_document_analysis.min_laplacian_variance
         , COALESCE(blurry_denied_reasons.document_id, document.id) as document_id
+
         , COALESCE(blurry_denied_reasons.document_category, document.document_category) as document_category
         , COALESCE(blurry_denied_reasons.document_sub_category, document.document_sub_category) as document_sub_category
         , COALESCE(blurry_denied_reasons.document_category_step, document.document_category_step) as document_category_step
-
         , COALESCE(blurry_denied_reasons.document_tenant_type, document.tenant_type) as document_tenant_type
         , case
             when blurry_rule_reports.rule_status = 'FAILED' then 1
@@ -76,6 +96,8 @@ with blurry_rule_reports as (
     from blurry_rule_reports
     left join blurry_denied_reasons
         on blurry_rule_reports.document_id = blurry_denied_reasons.document_id
+    left join blurry_document_analysis
+        on blurry_rule_reports.document_id = blurry_document_analysis.document_id
     left join document
         on blurry_rule_reports.document_id = document.id
     where COALESCE(blurry_denied_reasons.document_id, document.id) is not null
