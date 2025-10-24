@@ -10,6 +10,8 @@ with tenant_log_status as (
         , case when log_type = 'ACCOUNT_VALIDATED' then 1 else 0 end as validation_flag
         , case when log_type in ('ACCOUNT_VALIDATED', 'ACCOUNT_DENIED') then 1 else 0 end as operation_flag
         , case when log_type = 'ACCOUNT_COMPLETED' then 1 else 0 end as user_completion_flag
+        , case when log_type = 'ZIP_DOWNLOAD' then 1 else 0 end as zip_download_flag
+        , case when log_type = 'ZIP_DOWNLOAD' then created_at end as zip_download_at
     from {{ ref('staging_tenant_log') }}
 )
 
@@ -29,6 +31,9 @@ with tenant_log_status as (
         , SUM(user_completion_flag) as nb_completions
         , SUM(operation_flag) as nb_operations
         , SUM(validation_flag) as nb_validations
+
+        , MAX(zip_download_flag) as zip_is_downloaded
+        , MIN(zip_download_at) as first_zip_download_at
     from tenant_log_status
     group by
         tenant_id
@@ -46,6 +51,8 @@ with tenant_log_status as (
         , nb_completions
         , nb_operations
         , nb_validations
+        , zip_is_downloaded
+        , first_zip_download_at
         , CAST(EXTRACT(epoch from first_completion_at - created_at) as INTEGER) as time_to_completion
         , CAST(EXTRACT(epoch from first_operation_at - first_completion_at) as INTEGER) as time_to_operation
         , CAST(EXTRACT(epoch from first_validation_at - first_completion_at) as INTEGER) as time_to_validation
@@ -106,6 +113,9 @@ with tenant_log_status as (
         , tenant_status_details.nb_completions
         , tenant_status_details.nb_operations
         , tenant_status_details.nb_validations
+
+        , tenant_status_details.zip_is_downloaded
+        , tenant_status_details.first_zip_download_at
 
         , tenant_partner_consent_list.partner_consent_list
         , tenant_partner_consent_list.first_access_granted_at
