@@ -5,7 +5,9 @@ with tenant_log as (
 
 , operator_log as (
     select * from {{ ref('staging_operator_log') }}
-    where log_type in ('ACCOUNT_VALIDATION_STARTED', 'ACCOUNT_VALIDATION_STOPPED')
+    where
+        log_type in ('ACCOUNT_VALIDATION_STARTED', 'ACCOUNT_VALIDATION_STOPPED')
+        and operator_id is not null
 )
 
 , operation as (
