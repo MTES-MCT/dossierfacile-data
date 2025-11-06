@@ -1,5 +1,7 @@
 select
-    DATE(blurry_rule_created_at)
+    document_category
+    , document_sub_category
+    , DATE(blurry_rule_created_at)
     , SUM(true_positive) as true_positive
     , SUM(false_positive) as false_positive
     , SUM(true_negative) as true_negative
@@ -24,5 +26,9 @@ select
 from {{ ref('core_document_blurry_evaluations') }}
 group by
     DATE(blurry_rule_created_at)
+    , document_category
+    , document_sub_category
 order by
     DATE(blurry_rule_created_at) desc
+    , document_category
+    , document_sub_category asc
