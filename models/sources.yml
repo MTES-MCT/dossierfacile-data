@@ -124,6 +124,19 @@ sources:
             data_tests:
               - not_null
           - name: blurry_results
+      - name: watermark_document
+        columns:
+          - name: id
+            data_tests:
+              - unique
+          - name: created_date
+            data_tests:
+              - not_null
+          - name: token
+            data_tests:
+              - not_null
+          - name: pdf_status
+          - name: pdf_file_id
       - name: property
         columns:
           - name: id
