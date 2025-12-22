@@ -1,6 +1,8 @@
 with tenant_log as (
     select * from {{ ref('staging_tenant_log') }}
-    where log_type in ('ACCOUNT_DENIED', 'ACCOUNT_VALIDATED')
+    where
+        log_type in ('ACCOUNT_DENIED', 'ACCOUNT_VALIDATED')
+        and operator_id is not null
 )
 
 , operator_log as (
