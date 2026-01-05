@@ -67,4 +67,23 @@ models:
       - name: nb_denial_reasons
         data_tests:
           - not_null
-  
+  - name: analytics_weekly_operations_per_validation
+    description: "Weekly statistics of operations performed before first account validation, aggregated by tenant account creation week"
+    columns:
+      - name: created_week
+        description: "Week of tenant account creation (truncated to week)"
+        data_tests:
+          - unique
+          - not_null
+      - name: nb_validated_accounts
+        description: "Number of validated tenant accounts created during this week"
+        data_tests:
+          - not_null
+      - name: nb_operations_before_first_validation
+        description: "Total number of operations performed before first validation for all accounts created this week"
+        data_tests:
+          - not_null
+      - name: avg_nb_operations_before_first_validation
+        description: "Average number of operations needed before first validation for a validated account (nb_operations_before_first_validation / nb_validated_accounts)"
+        data_tests:
+          - not_null
