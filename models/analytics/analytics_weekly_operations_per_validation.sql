@@ -24,6 +24,9 @@ with operations_with_first_validation_date as (
 , validated_tenants_with_operations as (
     select
         cta.created_at
+        , cta.funnel_type
+        , cta.tenant_origin
+        , cta.status
         , ocpt.tenant_id
         , cta.id
         , ocpt.nb_operations_before_first_validation
@@ -33,10 +36,16 @@ with operations_with_first_validation_date as (
 )
 
 select
-    DATE_TRUNC('week', created_at) as created_week
+    funnel_type
+    , tenant_origin
+    , status
+    , DATE_TRUNC('week', created_at) as created_week
     , COUNT(tenant_id) as nb_validated_accounts
     , SUM(nb_operations_before_first_validation) as nb_operations_before_first_validation
-    , ROUND(SUM(nb_operations_before_first_validation) / COUNT(tenant_id) * 100) / 100 as avg_nb_operations_before_first_validation
 from validated_tenants_with_operations
-group by DATE_TRUNC('week', created_at)
+group by
+    DATE_TRUNC('week', created_at)
+    , funnel_type
+    , tenant_origin
+    , status
 order by DATE_TRUNC('week', created_at) desc
