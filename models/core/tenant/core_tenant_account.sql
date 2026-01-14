@@ -12,6 +12,8 @@ with tenant_log_status as (
         , case when log_type = 'ACCOUNT_COMPLETED' then 1 else 0 end as user_completion_flag
         , case when log_type = 'ZIP_DOWNLOAD' then 1 else 0 end as zip_download_flag
         , case when log_type = 'ZIP_DOWNLOAD' then created_at end as zip_download_at
+        , case when log_type = 'ACCOUNT_DELETE' then created_at end as deletion_at
+        , case when log_type = 'ACCOUNT_DELETE' then 1 else 0 end as deletion_flag
     from {{ ref('staging_tenant_log') }}
 )
 
@@ -34,6 +36,9 @@ with tenant_log_status as (
 
         , MAX(zip_download_flag) as zip_is_downloaded
         , MIN(zip_download_at) as first_zip_download_at
+
+        , MAX(deletion_flag) as deletion_flag
+        , MIN(deletion_at) as deletion_at
     from tenant_log_status
     group by
         tenant_id
@@ -53,6 +58,8 @@ with tenant_log_status as (
         , nb_validations
         , zip_is_downloaded
         , first_zip_download_at
+        , deletion_flag
+        , deletion_at
         , CAST(EXTRACT(epoch from first_completion_at - created_at) as INTEGER) as time_to_completion
         , CAST(EXTRACT(epoch from first_operation_at - first_completion_at) as INTEGER) as time_to_operation
         , CAST(EXTRACT(epoch from first_validation_at - first_completion_at) as INTEGER) as time_to_validation
@@ -81,24 +88,37 @@ with tenant_log_status as (
         on staging_tenant_partner_consent.partner_client_id = staging_partner_client.id
 )
 
+, tenant_user_account as (
+    select
+        id
+        , last_login_at
+        , updated_at
+        , enabled
+        , keycloak_id
+        , is_france_connected
+        , acquisition_campaign
+    from {{ ref('staging_user_account') }}
+    where user_type = 'TENANT'
+)
+
 , tenant_account_data as (
     select
         tenant_status_details.tenant_id as id
 
         , staging_tenant.application_id
         , staging_tenant.tenant_type
-        , staging_tenant.status
+        , COALESCE(staging_tenant.status, 'DELETED') as status
         , staging_tenant.zip_code
         , staging_tenant.honor_declaration
         , staging_tenant.operator_comment
         , staging_tenant.beneficiary_type
 
-        , staging_user_account.last_login_at
-        , staging_user_account.updated_at
-        , staging_user_account.enabled
-        , staging_user_account.keycloak_id
-        , staging_user_account.is_france_connected
-        , staging_user_account.acquisition_campaign
+        , tenant_user_account.last_login_at
+        , tenant_user_account.updated_at
+        , tenant_user_account.enabled
+        , tenant_user_account.keycloak_id
+        , tenant_user_account.is_france_connected
+        , tenant_user_account.acquisition_campaign
 
         , tenant_status_details.created_at
         , tenant_status_details.first_completion_at
@@ -106,6 +126,8 @@ with tenant_log_status as (
         , tenant_status_details.first_operation_at
         , tenant_status_details.first_validation_at
         , tenant_status_details.validation_flag
+        , tenant_status_details.deletion_flag
+        , tenant_status_details.deletion_at
         , tenant_status_details.time_to_completion
         , tenant_status_details.time_to_operation
         , tenant_status_details.time_to_validation
@@ -126,20 +148,20 @@ with tenant_log_status as (
         --   et que ce n'est pas dfconnect-proprietaire, on utilise l'identifiant du partenaire
         -- - Sinon, on considère que c'est un dossier créé directement sur DossierFacile
         , case
-            when staging_user_account.acquisition_campaign is not null then 'link-' || staging_user_account.acquisition_campaign
+            when tenant_user_account.acquisition_campaign is not null then 'link-' || tenant_user_account.acquisition_campaign
             when
                 tenant_partner_consent_list.first_access_granted_at < tenant_status_details.created_at + INTERVAL '1 hour'
                 and tenant_partner_consent_list.first_partner_consent <> 'dfconnect-proprietaire' then tenant_partner_consent_list.first_partner_consent
+            when tenant_status_details.deletion_flag = 1 then 'deleted'
             else 'organic-dossierfacile'
         end as tenant_origin
     from tenant_status_details
-    left join {{ ref('staging_user_account') }} as staging_user_account
-        on tenant_status_details.tenant_id = staging_user_account.id
+    left join tenant_user_account
+        on tenant_status_details.tenant_id = tenant_user_account.id
     left join {{ ref('staging_tenant') }} as staging_tenant
         on tenant_status_details.tenant_id = staging_tenant.id
     left join tenant_partner_consent_list as tenant_partner_consent_list
         on tenant_status_details.tenant_id = tenant_partner_consent_list.tenant_id
-    where staging_user_account.user_type = 'TENANT'
 )
 
 select

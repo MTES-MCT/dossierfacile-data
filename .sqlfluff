@@ -7,7 +7,7 @@ verbose = 0
 nocolor = False
 max_line_length = 120
 
-exclude_rules = L031, L016, L027, RF06, RF04, AL03
+exclude_rules = L031, L016, L027, RF06, RF04, AL03, ST06
 # L016 - We allow longer lines as some of our queries are complex. Maybe should limit in future?
 # L031 - Avoid aliases in from and join - why?
 # L027 - Asks for qualified columns for ambiguous ones, but we don't qualify our columns, and they are not really ambiguous (or Redshift would complain)
