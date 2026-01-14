@@ -24,5 +24,5 @@ select
     , CAST(document_category as VARCHAR)
     , CAST(document_sub_category as VARCHAR)
     , CAST(document_category_step as VARCHAR)
-    , CAST(document_tenant_type as VARCHAR)
+    , UPPER(CAST(document_tenant_type as VARCHAR)) as document_tenant_type
 from checked_options_details
