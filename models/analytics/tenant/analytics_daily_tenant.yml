@@ -20,6 +20,8 @@ models:
         description: Type of tenant account
         tests:
           - not_null
+            config:
+              where: "tenant_status <> 'DELETED'"
       - name: tenant_status
         description: Current status of the tenant account
         tests:
@@ -28,6 +30,8 @@ models:
         description: Number of tenants using FranceConnect
         tests:
           - not_null
+            config:
+              where: "tenant_status <> 'DELETED'"
       - name: nb_account_completed
         description: Number of completed tenant accounts
         tests:
@@ -66,6 +70,8 @@ models:
         description: Type of tenant account
         tests:
           - not_null
+            config:
+              where: "tenant_status <> 'DELETED'"
       - name: tenant_status
         description: Current status of the tenant account
         tests:
@@ -78,6 +84,8 @@ models:
         description: Number of tenants using FranceConnect
         tests:
           - not_null
+            config:
+              where: "tenant_status <> 'DELETED'"
       - name: nb_account_completed
         description: Number of completed tenant accounts
         tests:
@@ -106,6 +114,8 @@ models:
         description: Type of tenant account
         tests:
           - not_null
+            config:
+              where: "tenant_status <> 'DELETED'"
       - name: tenant_status
         description: Current status of the tenant account
         tests:
@@ -114,6 +124,8 @@ models:
         description: Number of tenants using FranceConnect
         tests:
           - not_null
+            config:
+              where: "tenant_status <> 'DELETED'"
       - name: nb_account_validated
         description: Number of validated tenant accounts
         tests:

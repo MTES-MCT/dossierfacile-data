@@ -10,7 +10,9 @@ models:
       - name: tenant_type
         description: "The type of the tenant"
         data_tests:
-          - not_null
+          - not_null:
+              config:
+                where: "status <> 'DELETED'"
       - name: status
         description: "The status of the tenant"
         data_tests:

@@ -71,11 +71,12 @@ models:
     description: "Weekly statistics of operations performed before first account validation, aggregated by tenant account creation week, funnel type, tenant origin and status"
     data_tests:
       - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - created_week
-            - funnel_type
-            - tenant_origin
-            - status
+          arguments:
+            combination_of_columns:
+              - created_week
+              - funnel_type
+              - tenant_origin
+              - status
     columns:
       - name: created_week
         description: "Week of tenant account creation (truncated to week)"
