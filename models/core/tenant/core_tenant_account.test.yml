@@ -104,13 +104,7 @@ unit_tests:
          - {}
       - input: ref('staging_user_account')
         rows:
-          - { id: 1, user_type: 'TENANT' }
-          - { id: 2, user_type: 'TENANT' }
-          - { id: 3, user_type: 'TENANT' }
-          - { id: 4, user_type: 'TENANT' }
-          - { id: 5, user_type: 'TENANT' }
-          - { id: 6, user_type: 'TENANT' }
-          - { id: 7, user_type: 'TENANT' }
+          - {}
       - input: ref('staging_tenant_partner_consent')
         rows:
           - {}

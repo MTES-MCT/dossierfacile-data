@@ -2,7 +2,7 @@ with tenant_log_status as (
     -- add new columns based on log_type
     select
         tenant_id
-        , case when log_type in ('ACCOUNT_CREATED', 'ACCOUNT_CREATED_VIA_KC', 'FC_ACCOUNT_CREATION', 'FC_ACCOUNT_LINK', 'ACCOUNT_EDITED') then created_at end as created_at
+        , case when log_type in ('ACCOUNT_CREATED', 'ACCOUNT_CREATED_VIA_KC', 'FC_ACCOUNT_CREATION', 'FC_ACCOUNT_LINK', 'ACCOUNT_EDITED', 'EMAIL_ACCOUNT_VALIDATED', 'ACCOUNT_DELETE') then created_at end as created_at
         , case when log_type in ('ACCOUNT_COMPLETED', 'ACCOUNT_VALIDATED', 'ACCOUNT_DENIED') then created_at end as completion_at
         , case when log_type in ('ACCOUNT_COMPLETED', 'ACCOUNT_VALIDATED', 'ACCOUNT_DENIED') then 1 else 0 end as completion_flag
         , case when log_type in ('ACCOUNT_VALIDATED', 'ACCOUNT_DENIED') then created_at end as operation_at
@@ -15,6 +15,7 @@ with tenant_log_status as (
         , case when log_type = 'ACCOUNT_DELETE' then created_at end as deletion_at
         , case when log_type = 'ACCOUNT_DELETE' then 1 else 0 end as deletion_flag
     from {{ ref('staging_tenant_log') }}
+    where tenant_type = 'TENANT'
 )
 
 , tenant_status as (
