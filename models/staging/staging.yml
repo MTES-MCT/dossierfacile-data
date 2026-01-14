@@ -61,12 +61,14 @@ models:
         data_tests:
           - unique
           - not_null
-      - name: message_value
-        description: "The primary key for the denied reasons"
+      - name: denied_option_value
+        description: "The message value of the denied option"
+      - name: document_category
+        description: "The category of the document"
       - name: document_sub_category
         description: "The sub category of the document"
-      - name: document_user_type
-        description: "The type of user associated to the denied option"
+      - name: document_tenant_type
+        description: "Indicates whether the document belongs to a TENANT or GUARANTOR"
       - name: code
         description: "The associated code to the denied option"
   - name: staging_document_denied_reasons

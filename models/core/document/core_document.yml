@@ -24,13 +24,20 @@ models:
         data_tests:
           - not_null
       - name: document_category
-        description: "The category of the denied document"
+        description: "The category of the denied document (from staging_document_denied_reasons, falls back to staging_document_denied_options if null)"
       - name: document_sub_category
-        description: "The sub-category of the denied document"
+        description: "The sub-category of the denied document (from staging_document_denied_reasons, falls back to staging_document_denied_options if null)"
       - name: document_category_step
         description: "The step in the document category process"
       - name: document_tenant_type
-        description: "Indicates whether the document belongs to a TENANT or GUARANTOR"
+        description: "Indicates whether the document belongs to a TENANT or GUARANTOR (from staging_document_denied_reasons, falls back to staging_document_denied_options if null)"
+        data_tests:
+          - accepted_values:
+              name: unexpected_document_tenant_type
+              arguments:
+                values: ['TENANT', 'GUARANTOR', 'ALL']
+              config:
+                where: "document_tenant_type is not null"
       - name: operator_comment
         description: "Any comments made by the operator regarding the denial"
       - name: tenant_id
