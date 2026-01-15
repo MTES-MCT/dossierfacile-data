@@ -6,49 +6,47 @@ models:
     columns:
       - name: completion_date
         description: Date when the tenant account was first completed
-        tests:
+        data_tests:
           - not_null
       - name: tenant_origin
         description: Source of the tenant account
-        tests:
+        data_tests:
           - not_null
       - name: funnel_type
         description: Type of funnel the tenant went through
-        tests:
+        data_tests:
           - not_null
       - name: tenant_type
         description: Type of tenant account
-        tests:
-          - not_null
-            config:
-              where: "tenant_status <> 'DELETED'"
+        data_tests:
+          - not_null:
+              config:
+                where: "tenant_status <> 'DELETED'"
       - name: tenant_status
         description: Current status of the tenant account
-        tests:
+        data_tests:
           - not_null
       - name: nb_france_connected
         description: Number of tenants using FranceConnect
-        tests:
+        data_tests:
           - not_null
-            config:
-              where: "tenant_status <> 'DELETED'"
       - name: nb_account_completed
         description: Number of completed tenant accounts
-        tests:
+        data_tests:
           - not_null
       - name: nb_account_validated
         description: Number of validated tenant accounts
-        tests:
+        data_tests:
           - not_null
       - name: total_time_to_completion
         description: Total time taken to complete accounts (in seconds)
       - name: total_completions
         description: Total number of completion events
-        tests:
+        data_tests:
           - not_null
       - name: total_operations
         description: Total number of operations performed
-        tests:
+        data_tests:
           - not_null
 
   - name: analytics_daily_tenant_creation
@@ -56,43 +54,41 @@ models:
     columns:
       - name: creation_date
         description: Date when the tenant account was created
-        tests:
+        data_tests:
           - not_null
       - name: tenant_origin
         description: Source of the tenant account
-        tests:
+        data_tests:
           - not_null
       - name: funnel_type
         description: Type of funnel the tenant went through
-        tests:
+        data_tests:
           - not_null
       - name: tenant_type
         description: Type of tenant account
-        tests:
-          - not_null
-            config:
-              where: "tenant_status <> 'DELETED'"
+        data_tests:
+          - not_null:
+              config:
+                where: "tenant_status <> 'DELETED'"
       - name: tenant_status
         description: Current status of the tenant account
-        tests:
+        data_tests:
           - not_null
       - name: nb_account_created
         description: Number of tenant accounts created
-        tests:
+        data_tests:
           - not_null
       - name: nb_france_connected
         description: Number of tenants using FranceConnect
-        tests:
+        data_tests:
           - not_null
-            config:
-              where: "tenant_status <> 'DELETED'"
       - name: nb_account_completed
         description: Number of completed tenant accounts
-        tests:
+        data_tests:
           - not_null
       - name: nb_account_validated
         description: Number of validated tenant accounts
-        tests:
+        data_tests:
           - not_null
 
   - name: analytics_daily_tenant_validation
@@ -100,47 +96,45 @@ models:
     columns:
       - name: validation_date
         description: Date when the tenant account was first validated
-        tests:
+        data_tests:
           - not_null
       - name: tenant_origin
         description: Source of the tenant account
-        tests:
+        data_tests:
           - not_null
       - name: funnel_type
         description: Type of funnel the tenant went through
-        tests:
+        data_tests:
           - not_null
       - name: tenant_type
         description: Type of tenant account
-        tests:
-          - not_null
-            config:
-              where: "tenant_status <> 'DELETED'"
+        data_tests:
+          - not_null:
+              config:
+                where: "tenant_status <> 'DELETED'"
       - name: tenant_status
         description: Current status of the tenant account
-        tests:
+        data_tests:
           - not_null
       - name: nb_france_connected
         description: Number of tenants using FranceConnect
-        tests:
+        data_tests:
           - not_null
-            config:
-              where: "tenant_status <> 'DELETED'"
       - name: nb_account_validated
         description: Number of validated tenant accounts
-        tests:
+        data_tests:
           - not_null
       - name: nb_validation_at_first_operation
         description: Number of validations that occurred at the first operation
-        tests:
+        data_tests:
           - not_null
       - name: total_time_to_validation
         description: Total time taken to validate accounts (in seconds)
       - name: total_operations
         description: Total number of operations performed
-        tests:
+        data_tests:
           - not_null
       - name: total_validations
         description: Total number of validation events
-        tests:
+        data_tests:
           - not_null

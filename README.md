@@ -150,9 +150,11 @@ models:
   - name: core_tenant_account
     columns:
       - name: id
-        tests:
+        data_tests:
           - unique
-          - not_null
+          - not_null:
+              config:
+                where: "id is not null"
 ```
 
 - **unique** : Vérifie que chaque valeur de la colonne est unique

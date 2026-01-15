@@ -4,7 +4,7 @@ select
     , tenant_type
     , status as tenant_status
     , DATE(first_completion_at) as completion_date
-    , SUM(is_france_connected::INTEGER) as nb_france_connected
+    , COALESCE(SUM(is_france_connected::INTEGER), 0) as nb_france_connected
     , SUM(completion_flag) as nb_account_completed
     , SUM(validation_flag) as nb_account_validated
     , SUM(time_to_completion) as total_time_to_completion

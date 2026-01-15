@@ -5,7 +5,7 @@ select
     , status as tenant_status
     , DATE(created_at) as creation_date
     , COUNT(id) as nb_account_created
-    , SUM(is_france_connected::INTEGER) as nb_france_connected
+    , COALESCE(SUM(is_france_connected::INTEGER), 0) as nb_france_connected
     , SUM(completion_flag) as nb_account_completed
     , SUM(validation_flag) as nb_account_validated
 from {{ ref('core_tenant_account') }}

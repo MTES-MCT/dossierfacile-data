@@ -4,7 +4,7 @@ select
     , tenant_type
     , status as tenant_status
     , DATE(first_validation_at) as validation_date
-    , SUM(is_france_connected::INTEGER) as nb_france_connected
+    , COALESCE(SUM(is_france_connected::INTEGER), 0) as nb_france_connected
     , SUM(validation_flag) as nb_account_validated
     , SUM(validation_at_first_operation) as nb_validation_at_first_operation
     , SUM(time_to_validation) as total_time_to_validation
