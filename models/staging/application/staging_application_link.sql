@@ -1,40 +1,15 @@
--- this table contains all the links, both email and link
--- to have both email and link in the same table, we use the token and token_public in the application table
+-- this table contains all the links. both email, partner and owner link
 select
-    {{ dbt_utils.generate_surrogate_key(['id', 'token']) }} as id
-    , id as application_id
-    , token
-    , 'LINK' as link_type
-    , null::TIMESTAMP as created_at
-    , null::TIMESTAMP as last_sent_at
-    , true as allow_full_access
-from {{ ref('staging_application') }}
-where token is not null
-
-union all
-
-select
-    {{ dbt_utils.generate_surrogate_key(['id', 'token_public']) }} as id
-    , id as application_id
-    , token_public as token
-    , 'LINK' as link_type
-    , null::TIMESTAMP as created_at
-    , null::TIMESTAMP as last_sent_at
-    , false as allow_full_access
-from {{ ref('staging_application') }}
-where token_public is not null
-
-union all
-
-select
-    {{ dbt_utils.generate_surrogate_key(['application_id', 'token']) }} as id
-    , application_id
-    , token
-    , case
-        when link_type = 'MAIL' and allow_full_access = true then 'EMAIL'
-        when link_type = 'MAIL' and allow_full_access = false then 'EMAIL'
-    end as link_type
-    , created_at
-    , last_sent_at
-    , allow_full_access
-from {{ ref('staging_application_email_link') }}
+    CAST(id as INTEGER) as id
+    , CAST(creation_date as TIMESTAMP) as created_at
+    , CAST(expiration_date as TIMESTAMP) as expires_at
+    , CAST(apartment_sharing_id as INTEGER) as application_id
+    , CAST(token as VARCHAR) as token
+    , {{ dbt_utils.generate_surrogate_key(['apartment_sharing_id', 'token']) }} as application_link_id
+    , CAST(full_data as BOOLEAN) as allow_full_access
+    , CAST(disabled as BOOLEAN) as disabled
+    , CAST(deleted as BOOLEAN) as deleted
+    , CAST(link_type as VARCHAR) as link_type -- LINK, MAIL, OWNER, PARTNER
+    , CAST(last_sent_datetime as TIMESTAMP) as last_sent_at
+from {{ source('dossierfacile', 'apartment_sharing_link') }}
+{{ filter_recent_data('creation_date') }}

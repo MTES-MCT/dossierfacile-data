@@ -22,6 +22,7 @@ select
         when log_type = 'DOCUMENT' then 'APPLICATION_DOWNLOADED'
         when log_type = 'DISABLED_LINK' then 'APPLICATION_LINK_DISABLED'
         when log_type = 'ENABLED_LINK' then 'APPLICATION_LINK_ENABLED'
+        when log_type = 'DELETED_LINK_TOKEN' then 'APPLICATION_LINK_DELETED'
         else log_type
     end as log_type
 from raw_application_link_log
