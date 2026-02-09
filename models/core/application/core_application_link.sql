@@ -3,10 +3,14 @@ with application_link as (
         id
         , application_id
         , token
+        , application_link_id
         , link_type
         , created_at
+        , expires_at
         , last_sent_at
         , allow_full_access
+        , disabled
+        , deleted
     from {{ ref('staging_application_link') }}
 )
 
@@ -29,15 +33,18 @@ with application_link as (
         , token
         , link_type
         , created_at
+        , expires_at
         , last_sent_at
         , allow_full_access
+        , disabled
+        , deleted
         , is_opened
         , first_opened_at
         , is_downloaded
         , first_downloaded_at
     from application_link
     left join application_link_log_aggregated
-        on application_link.id = application_link_log_aggregated.application_link_id
+        on application_link.application_link_id = application_link_log_aggregated.application_link_id
 )
 
 select *

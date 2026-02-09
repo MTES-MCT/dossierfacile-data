@@ -30,6 +30,7 @@ select
     , casting_log.created_at
     , casting_log.migrate
     , casting_log.edition_type
+    , casting_log.document_id
     , casting_log.document_category
     , casting_log.document_sub_category
     , casting_log.operator_comment
