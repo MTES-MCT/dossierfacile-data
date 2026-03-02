@@ -111,7 +111,6 @@ with tenant_log_status as (
         , COALESCE(staging_tenant.status, 'DELETED') as status
         , staging_tenant.zip_code
         , staging_tenant.honor_declaration
-        , staging_tenant.operator_comment
         , staging_tenant.beneficiary_type
 
         , tenant_user_account.last_login_at
