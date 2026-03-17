@@ -14,6 +14,7 @@ select
     , SUM(application_is_opened) as nb_account_opened
     , SUM(application_is_opened_full_access) as nb_account_opened_full_access
     , SUM(application_is_downloaded) as nb_account_downloaded
+    , SUM(zip_is_downloaded) as nb_account_zip_downloaded
     , SUM(application_is_shared) as nb_account_shared
 from {{ ref('core_tenant_account') }}
 where first_validation_at is not null
