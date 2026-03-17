@@ -198,19 +198,11 @@ select
     , staging_tenant_document.document_completion_flag
 
     -- Un dossier locataire est considéré comme partagé si une des conditions suivantes est vérifiée:
-    -- - il est validé et a été partagé via une intégration partenaire au moins une fois
-    -- - le dossier de candidature associé a été ouvert au moins une fois
-    -- - le dossier de candidature associé a été téléchargé au moins une fois
-    , case
-        when
-            tenant_account_data.validation_flag = 1
-            and tenant_account_data.partner_consent_list is not null
-            and ARRAY_LENGTH(tenant_account_data.partner_consent_list, 1) > 0
-            then 1
-        when core_application.is_opened = 1 then 1
-        when core_application.is_downloaded = 1 then 1
-        else 0
-    end as application_is_shared
+    -- - le dossier de candidature associé a été ouvert au moins une fois (lien ouvert ou document filigrané téléchargé)
+    -- - le dossier .pdf de candidature associé a été téléchargé au moins une fois
+    -- - le dossier .zip de candidature associé a été téléchargé (avant validation) au moins une fois
+    , GREATEST(core_application.is_opened, core_application.is_downloaded, tenant_account_data.zip_is_downloaded) as application_is_shared
+    , LEAST(core_application.first_opened_at, core_application.first_downloaded_at, tenant_account_data.first_zip_download_at) as application_first_shared_at
 
     , case
         when tenant_origin like 'hybrid-%' then 'api'
