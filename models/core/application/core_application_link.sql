@@ -17,12 +17,15 @@ with application_link as (
 , application_link_log_aggregated as (
     select
         application_link_id
-        , MAX(case when log_type = 'APPLICATION_OPENED' then 1 else 0 end) as is_opened
-        , MIN(case when log_type = 'APPLICATION_OPENED' then created_at end) as first_opened_at
-        , MAX(case when log_type = 'APPLICATION_DOWNLOADED' then 1 else 0 end) as is_downloaded
-        , MIN(case when log_type = 'APPLICATION_DOWNLOADED' then created_at end) as first_downloaded_at
+        -- on considère qu'un lien de partage a été ouvert (ou consulté) si :
+        -- - le lien de partage a été ouvert (APPLICATION_OPENED)
+        -- - un des documents du lien de partage a été téléchargé (WATERMARKED_DOCUMENT_DOWNLOADED)
+        , MAX(case when log_type in ('APPLICATION_OPENED', 'WATERMARKED_DOCUMENT_DOWNLOADED') then 1 else 0 end) as is_opened
+        , MIN(case when log_type in ('APPLICATION_OPENED', 'WATERMARKED_DOCUMENT_DOWNLOADED') then created_at end) as first_opened_at
+        , MAX(case when log_type = 'APPLICATION_PDF_DOWNLOADED' then 1 else 0 end) as is_downloaded
+        , MIN(case when log_type = 'APPLICATION_PDF_DOWNLOADED' then created_at end) as first_downloaded_at
     from {{ ref('staging_application_link_log') }}
-    where log_type in ('APPLICATION_OPENED', 'APPLICATION_DOWNLOADED')
+    where log_type in ('APPLICATION_OPENED', 'APPLICATION_PDF_DOWNLOADED', 'WATERMARKED_DOCUMENT_DOWNLOADED')
     group by application_link_id
 )
 

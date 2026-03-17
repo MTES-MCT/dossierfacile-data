@@ -19,10 +19,11 @@ select
     , case
         when log_type = 'FULL_APPLICATION' then 'APPLICATION_OPENED'
         when log_type = 'LIGHT_APPLICATION' then 'APPLICATION_OPENED'
-        when log_type = 'DOCUMENT' then 'APPLICATION_DOWNLOADED'
+        when log_type = 'DOCUMENT' then 'APPLICATION_PDF_DOWNLOADED'
         when log_type = 'DISABLED_LINK' then 'APPLICATION_LINK_DISABLED'
         when log_type = 'ENABLED_LINK' then 'APPLICATION_LINK_ENABLED'
         when log_type = 'DELETED_LINK_TOKEN' then 'APPLICATION_LINK_DELETED'
+        when log_type = 'SINGLE_DOCUMENT_DOWNLOAD' then 'WATERMARKED_DOCUMENT_DOWNLOADED'
         else log_type
     end as log_type
 from raw_application_link_log
