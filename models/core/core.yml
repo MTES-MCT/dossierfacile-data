@@ -26,7 +26,8 @@ models:
         description: "Source that created the feature assignment: HASH (assignment computed using bucket/hash logic) or PRE_DEPLOYMENT (assignment set for pre-deployment/new-user activation)"
         data_tests:
           - accepted_values:
-              values: ['HASH', 'PRE_DEPLOYMENT']
+              arguments:
+                values: ['HASH', 'PRE_DEPLOYMENT']
       - name: feature_description
         description: "Human-readable feature flag description"
       - name: feature_active
