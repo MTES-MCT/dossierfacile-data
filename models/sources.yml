@@ -212,3 +212,22 @@ sources:
             data_tests:
               - not_null
           - name: type_guarantor
+      - name: feature_flag
+        columns:
+          - name: key
+          - name: description
+          - name: active
+          - name: only_for_new_user
+          - name: rollout_pct
+          - name: deployment_date
+          - name: created_at
+          - name: updated_at
+      - name: user_feature_assignment
+        columns:
+          - name: user_id
+          - name: feature_key
+          - name: enabled
+          - name: bucket
+          - name: rollout_pct
+          - name: assigned_at
+          - name: assignment_source

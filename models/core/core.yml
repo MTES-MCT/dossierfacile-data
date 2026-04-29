@@ -1,0 +1,43 @@
+models:
+  - name: core_user_feature
+    description: "A dbt model combining user feature assignments with feature flag metadata"
+    columns:
+      - name: user_id
+        description: "The user identifier receiving feature assignment"
+        data_tests:
+          - not_null
+      - name: feature_key
+        description: "The feature flag key assigned to the user"
+        data_tests:
+          - not_null
+      - name: enabled
+        description: "Whether the feature is enabled for the user"
+        data_tests:
+          - not_null
+      - name: bucket
+        description: "The assignment bucket used for rollout logic"
+      - name: assignment_rollout_pct
+        description: "Rollout percentage applied at assignment time"
+      - name: assigned_at
+        description: "Timestamp when the assignment was created"
+        data_tests:
+          - not_null
+      - name: assignment_source
+        description: "Source that created the feature assignment: HASH (assignment computed using bucket/hash logic) or PRE_DEPLOYMENT (assignment set for pre-deployment/new-user activation)"
+        data_tests:
+          - accepted_values:
+              values: ['HASH', 'PRE_DEPLOYMENT']
+      - name: feature_description
+        description: "Human-readable feature flag description"
+      - name: feature_active
+        description: "Whether the feature flag is active"
+      - name: only_for_new_user
+        description: "Whether the flag applies only to new users"
+      - name: feature_rollout_pct
+        description: "Rollout percentage configured on the feature flag"
+      - name: deployment_date
+        description: "Planned or actual deployment timestamp"
+      - name: feature_created_at
+        description: "Feature flag creation timestamp"
+      - name: feature_updated_at
+        description: "Feature flag last update timestamp"

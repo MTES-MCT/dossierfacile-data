@@ -104,3 +104,39 @@ models:
         description: "The step in the document category process"
       - name: document_tenant_type
         description: "Indicates whether the document belongs to a TENANT or GUARANTOR"
+  - name: staging_feature_flag
+    description: "A dbt model to clean and type feature flag data"
+    columns:
+      - name: key
+        description: "The feature flag identifier"
+      - name: description
+        description: "Human-readable feature flag description"
+      - name: active
+        description: "Whether the feature flag is active"
+      - name: only_for_new_user
+        description: "Whether the flag applies only to new users"
+      - name: rollout_pct
+        description: "Rollout percentage for gradual activation"
+      - name: deployment_date
+        description: "Planned or actual deployment timestamp"
+      - name: created_at
+        description: "Feature flag creation timestamp"
+      - name: updated_at
+        description: "Feature flag last update timestamp"
+  - name: staging_user_feature
+    description: "A dbt model to clean and type user feature assignment data"
+    columns:
+      - name: user_id
+        description: "The user identifier receiving feature assignment"
+      - name: feature_key
+        description: "The feature flag key assigned to the user"
+      - name: enabled
+        description: "Whether the feature is enabled for the user"
+      - name: bucket
+        description: "The assignment bucket used for rollout logic"
+      - name: rollout_pct
+        description: "Rollout percentage applied at assignment time"
+      - name: assigned_at
+        description: "Timestamp when the assignment was created"
+      - name: assignment_source
+        description: "Source that created the feature assignment: HASH (assignment computed using bucket/hash logic) or PRE_DEPLOYMENT (assignment set for pre-deployment/new-user activation)"
