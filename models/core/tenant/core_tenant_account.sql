@@ -176,25 +176,25 @@ select
     , core_application.first_downloaded_at as application_first_downloaded_at
 
     , staging_tenant_document.identification_last_sub_category
-
     , staging_tenant_document.identification_first_added_at
     , staging_tenant_document.has_identification_document
-    , staging_tenant_document.financial_last_sub_category
 
+    , staging_tenant_document.financial_last_sub_category
     , staging_tenant_document.financial_first_added_at
     , staging_tenant_document.has_financial_document
-    , staging_tenant_document.residency_last_sub_category
 
+    , staging_tenant_document.residency_last_sub_category
     , staging_tenant_document.residency_first_added_at
     , staging_tenant_document.has_residency_document
-    , staging_tenant_document.professional_last_sub_category
 
+    , staging_tenant_document.professional_last_sub_category
     , staging_tenant_document.professional_first_added_at
     , staging_tenant_document.has_professional_document
-    , staging_tenant_document.tax_last_sub_category
 
+    , staging_tenant_document.tax_last_sub_category
     , staging_tenant_document.tax_first_added_at
     , staging_tenant_document.has_tax_document
+
     , staging_tenant_document.document_completion_flag
 
     -- Un dossier locataire est considéré comme partagé si une des conditions suivantes est vérifiée:
