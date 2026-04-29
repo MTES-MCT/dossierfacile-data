@@ -110,20 +110,6 @@ sources:
           - name: analysis_status
             data_tests:
               - not_null
-      - name: blurry_file_analysis
-        description: "Analysis results for file blurriness detection"
-        columns:
-          - name: id
-            data_tests:
-              - unique
-          - name: data_file_id
-            data_tests:
-              - not_null
-              - unique
-          - name: analysis_status
-            data_tests:
-              - not_null
-          - name: blurry_results
       - name: watermark_document
         columns:
           - name: id
