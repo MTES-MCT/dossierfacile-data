@@ -1,0 +1,1 @@
+select * from {{ ref('staging_document_analysis_report') }}

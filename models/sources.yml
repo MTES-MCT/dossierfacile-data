@@ -138,16 +138,6 @@ sources:
           freshness:
             warn_after: {count: 28, period: hour}
             error_after: {count: 56, period: hour}
-      - name: owner_log
-        loaded_at_field: creation_date
-        columns:
-          - name: id
-            data_tests:
-              - unique
-        config:
-          freshness:
-            warn_after: {count: 28, period: hour}
-            error_after: {count: 56, period: hour}
       - name: user_api
         columns:
           - name: id

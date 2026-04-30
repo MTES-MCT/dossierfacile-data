@@ -14,9 +14,8 @@ select
 
     , staging_document.monthly_net_income
 
-    , staging_document.created_at
+    , COALESCE(staging_document.created_at, staging_document_status.added_at) as created_at
     , staging_document.modified_at
-    , staging_document_status.added_at
     , staging_document_status.deleted_at
 
     , staging_document_status.total_add_document_events
