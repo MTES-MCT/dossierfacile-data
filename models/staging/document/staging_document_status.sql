@@ -22,26 +22,26 @@ with document_events as (
         , document_category
         , document_sub_category
         , FIRST_VALUE(created_at) over (
-            partition by document_id, tenant_id, guarantor_id
+            partition by document_id
             order by created_at asc
             rows between unbounded preceding and unbounded following
         ) as first_created_at
         , LAST_VALUE(created_at) over (
-            partition by document_id, tenant_id, guarantor_id
+            partition by document_id
             order by created_at asc
             rows between unbounded preceding and unbounded following
         ) as last_created_at
         , LAST_VALUE(edition_type) over (
-            partition by document_id, tenant_id, guarantor_id
+            partition by document_id
             order by created_at asc
             rows between unbounded preceding and unbounded following
         ) as last_document_events
         , SUM(case when edition_type = 'ADD_DOCUMENT' then 1 else 0 end) over (
-            partition by document_id, tenant_id, guarantor_id
+            partition by document_id
             rows between unbounded preceding and unbounded following
         ) as total_add_document_events
         , SUM(case when edition_type = 'DELETE_DOCUMENT' then 1 else 0 end) over (
-            partition by document_id, tenant_id, guarantor_id
+            partition by document_id
             rows between unbounded preceding and unbounded following
         ) as total_delete_document_events
     from document_events

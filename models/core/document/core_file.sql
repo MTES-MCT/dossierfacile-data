@@ -11,4 +11,4 @@ select
     , core_document.guarantor_id
 from {{ ref('staging_file') }} as staging_file
 left join {{ ref('core_document') }} as core_document
-    on staging_file.document_id = core_document.id
+    on staging_file.document_id = core_document.document_id

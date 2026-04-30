@@ -1,0 +1,68 @@
+models:
+  - name: core_guarantor_account
+    description: "A dbt model for guarantor account"
+    columns:
+      - name: id
+        description: "The primary key for this table"
+        data_tests:
+          - unique
+          - not_null
+      - name: tenant_id
+        description: "The linked tenant identifier"
+      - name: type_guarantor
+        description: "The type of guarantor"
+
+  - name: core_guarantor_document
+    description: "A dbt model aggregating guarantor documents by category and completion status"
+    columns:
+      - name: guarantor_id
+        description: "The guarantor identifier"
+        data_tests:
+          - unique
+          - not_null
+      - name: tenant_id
+        description: "The linked tenant identifier"
+      - name: nb_identification_documents
+        description: "Number of identification documents uploaded by the guarantor"
+      - name: identification_sub_category
+        description: "Latest identification document sub-category for the guarantor"
+      - name: identification_document_status
+        description: "Latest identification document status for the guarantor"
+      - name: nb_financial_documents
+        description: "Number of financial documents uploaded by the guarantor"
+      - name: financial_sub_category
+        description: "Latest financial document sub-category for the guarantor"
+      - name: financial_document_status
+        description: "Latest financial document status for the guarantor"
+      - name: nb_residency_documents
+        description: "Number of residency documents uploaded by the guarantor"
+      - name: residency_sub_category
+        description: "Latest residency document sub-category for the guarantor"
+      - name: residency_document_status
+        description: "Latest residency document status for the guarantor"
+      - name: nb_professional_documents
+        description: "Number of professional documents uploaded by the guarantor"
+      - name: professional_sub_category
+        description: "Latest professional document sub-category for the guarantor"
+      - name: professional_document_status
+        description: "Latest professional document status for the guarantor"
+      - name: nb_tax_documents
+        description: "Number of tax documents uploaded by the guarantor"
+      - name: tax_sub_category
+        description: "Latest tax document sub-category for the guarantor"
+      - name: tax_document_status
+        description: "Latest tax document status for the guarantor"
+      - name: monthly_net_income
+        description: "Total monthly net income summed across guarantor documents"
+      - name: has_identification_document
+        description: "Flag indicating whether the guarantor has at least one identification document"
+      - name: has_financial_document
+        description: "Flag indicating whether the guarantor has at least one financial document"
+      - name: has_residency_document
+        description: "Flag indicating whether the guarantor has at least one residency document"
+      - name: has_professional_document
+        description: "Flag indicating whether the guarantor has at least one professional document"
+      - name: has_tax_document
+        description: "Flag indicating whether the guarantor has at least one tax document"
+      - name: document_completion_flag
+        description: "Flag indicating whether all required document categories are present"

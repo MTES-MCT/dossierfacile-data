@@ -175,28 +175,6 @@ select
     , core_application.is_downloaded as application_is_downloaded
     , core_application.first_downloaded_at as application_first_downloaded_at
 
-    , staging_tenant_document.identification_last_sub_category
-    , staging_tenant_document.identification_first_added_at
-    , staging_tenant_document.has_identification_document
-
-    , staging_tenant_document.financial_last_sub_category
-    , staging_tenant_document.financial_first_added_at
-    , staging_tenant_document.has_financial_document
-
-    , staging_tenant_document.residency_last_sub_category
-    , staging_tenant_document.residency_first_added_at
-    , staging_tenant_document.has_residency_document
-
-    , staging_tenant_document.professional_last_sub_category
-    , staging_tenant_document.professional_first_added_at
-    , staging_tenant_document.has_professional_document
-
-    , staging_tenant_document.tax_last_sub_category
-    , staging_tenant_document.tax_first_added_at
-    , staging_tenant_document.has_tax_document
-
-    , staging_tenant_document.document_completion_flag
-
     -- Un dossier locataire est considéré comme partagé si une des conditions suivantes est vérifiée:
     -- - le dossier de candidature associé a été ouvert au moins une fois (lien ouvert ou document filigrané téléchargé)
     -- - le dossier .pdf de candidature associé a été téléchargé au moins une fois
@@ -211,7 +189,3 @@ select
 from tenant_account_data
 left join {{ ref('core_application') }} as core_application
     on tenant_account_data.application_id = core_application.id
-left join {{ ref('staging_tenant_document') }} as staging_tenant_document
-    on
-        tenant_account_data.id = staging_tenant_document.tenant_id
-        and staging_tenant_document.tenant_type = 'TENANT'
