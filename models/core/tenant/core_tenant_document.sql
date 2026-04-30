@@ -4,93 +4,98 @@ with tenant_documents as (
     where guarantor_id is null
 )
 
-, pivot_tenant_documents as (
-    select
-        document_id
-        , tenant_id
-        , created_at
-        , deleted_at
-        , document_status
-        , monthly_net_income
-        , case when document_category = 'IDENTIFICATION' then document_sub_category end as identification_sub_category
-        , case when document_category = 'FINANCIAL' then document_sub_category end as financial_sub_category
-        , case when document_category = 'RESIDENCY' then document_sub_category end as residency_sub_category
-        , case when document_category = 'PROFESSIONAL' then document_sub_category end as professional_sub_category
-        , case when document_category = 'TAX' then document_sub_category end as tax_sub_category
-        , case when document_category = 'IDENTIFICATION' then document_status end as identification_document_status
-        , case when document_category = 'FINANCIAL' then document_status end as financial_document_status
-        , case when document_category = 'RESIDENCY' then document_status end as residency_document_status
-        , case when document_category = 'PROFESSIONAL' then document_status end as professional_document_status
-        , case when document_category = 'TAX' then document_status end as tax_document_status
+, active_tenant_documents as (
+    select *
     from tenant_documents
     where document_status <> 'DELETED'
 )
 
 , tenant_document_status as (
-    select distinct
+    select
         tenant_id
-        , COUNT(identification_sub_category) over (partition by tenant_id) as nb_identification_documents
-        , LAST_VALUE(identification_sub_category) over (
-            partition by tenant_id
-            order by created_at asc
-            rows between unbounded preceding and unbounded following
-        ) as identification_sub_category
-        , LAST_VALUE(identification_document_status) over (
-            partition by tenant_id
-            order by created_at asc
-            rows between unbounded preceding and unbounded following
-        ) as identification_document_status
+        , COUNT(*) filter (
+            where document_category = 'IDENTIFICATION'
+        ) as nb_identification_documents
+        , (
+            ARRAY_AGG(
+                document_sub_category
+                order by created_at desc, document_id desc
+            ) filter (where document_category = 'IDENTIFICATION')
+        )[1] as identification_sub_category
+        , (
+            ARRAY_AGG(
+                document_status
+                order by created_at desc, document_id desc
+            ) filter (where document_category = 'IDENTIFICATION')
+        )[1] as identification_document_status
 
-        , COUNT(financial_sub_category) over (partition by tenant_id) as nb_financial_documents
-        , LAST_VALUE(financial_sub_category) over (
-            partition by tenant_id
-            order by created_at asc
-            rows between unbounded preceding and unbounded following
-        ) as financial_sub_category
-        , LAST_VALUE(financial_document_status) over (
-            partition by tenant_id
-            order by created_at asc
-            rows between unbounded preceding and unbounded following
-        ) as financial_document_status
+        , COUNT(*) filter (
+            where document_category = 'FINANCIAL'
+        ) as nb_financial_documents
+        , (
+            ARRAY_AGG(
+                document_sub_category
+                order by created_at desc, document_id desc
+            ) filter (where document_category = 'FINANCIAL')
+        )[1] as financial_sub_category
+        , (
+            ARRAY_AGG(
+                document_status
+                order by created_at desc, document_id desc
+            ) filter (where document_category = 'FINANCIAL')
+        )[1] as financial_document_status
 
-        , COUNT(residency_sub_category) over (partition by tenant_id) as nb_residency_documents
-        , LAST_VALUE(residency_sub_category) over (
-            partition by tenant_id
-            order by created_at asc
-            rows between unbounded preceding and unbounded following
-        ) as residency_sub_category
-        , LAST_VALUE(residency_document_status) over (
-            partition by tenant_id
-            order by created_at asc
-            rows between unbounded preceding and unbounded following
-        ) as residency_document_status
+        , COUNT(*) filter (
+            where document_category = 'RESIDENCY'
+        ) as nb_residency_documents
+        , (
+            ARRAY_AGG(
+                document_sub_category
+                order by created_at desc, document_id desc
+            ) filter (where document_category = 'RESIDENCY')
+        )[1] as residency_sub_category
+        , (
+            ARRAY_AGG(
+                document_status
+                order by created_at desc, document_id desc
+            ) filter (where document_category = 'RESIDENCY')
+        )[1] as residency_document_status
 
-        , COUNT(professional_sub_category) over (partition by tenant_id) as nb_professional_documents
-        , LAST_VALUE(professional_sub_category) over (
-            partition by tenant_id
-            order by created_at asc
-            rows between unbounded preceding and unbounded following
-        ) as professional_sub_category
-        , LAST_VALUE(professional_document_status) over (
-            partition by tenant_id
-            order by created_at asc
-            rows between unbounded preceding and unbounded following
-        ) as professional_document_status
+        , COUNT(*) filter (
+            where document_category = 'PROFESSIONAL'
+        ) as nb_professional_documents
+        , (
+            ARRAY_AGG(
+                document_sub_category
+                order by created_at desc, document_id desc
+            ) filter (where document_category = 'PROFESSIONAL')
+        )[1] as professional_sub_category
+        , (
+            ARRAY_AGG(
+                document_status
+                order by created_at desc, document_id desc
+            ) filter (where document_category = 'PROFESSIONAL')
+        )[1] as professional_document_status
 
-        , COUNT(tax_sub_category) over (partition by tenant_id) as nb_tax_documents
-        , LAST_VALUE(tax_sub_category) over (
-            partition by tenant_id
-            order by created_at asc
-            rows between unbounded preceding and unbounded following
-        ) as tax_sub_category
-        , LAST_VALUE(tax_document_status) over (
-            partition by tenant_id
-            order by created_at asc
-            rows between unbounded preceding and unbounded following
-        ) as tax_document_status
+        , COUNT(*) filter (
+            where document_category = 'TAX'
+        ) as nb_tax_documents
+        , (
+            ARRAY_AGG(
+                document_sub_category
+                order by created_at desc, document_id desc
+            ) filter (where document_category = 'TAX')
+        )[1] as tax_sub_category
+        , (
+            ARRAY_AGG(
+                document_status
+                order by created_at desc, document_id desc
+            ) filter (where document_category = 'TAX')
+        )[1] as tax_document_status
 
-        , SUM(monthly_net_income) over (partition by tenant_id) as monthly_net_income
-    from pivot_tenant_documents
+        , SUM(monthly_net_income) as monthly_net_income
+    from active_tenant_documents
+    group by tenant_id
 )
 
 select
