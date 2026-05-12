@@ -17,7 +17,14 @@ with document_events as (
 , document_status as (
     select distinct
         document_id
-        , tenant_id
+        -- Bugfix: When the primary tenant deletes a document belonging to a couple,
+        -- the tenant_log is created using the primary tenant_id rather than the associated tenant_id.
+        -- fixed in production data after 2026-05-05
+        , FIRST_VALUE(tenant_id) over (
+            partition by document_id
+            order by created_at asc
+            rows between unbounded preceding and unbounded following
+        ) as tenant_id
         , guarantor_id
         , document_category
         , document_sub_category
