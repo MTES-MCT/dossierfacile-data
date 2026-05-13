@@ -12,6 +12,8 @@ with document_events as (
     where
         log_type = 'ACCOUNT_EDITED'
         and edition_type in ('ADD_DOCUMENT', 'DELETE_DOCUMENT')
+        -- Bugfix: document_id is null for some tenant_log entries created before 2025
+        and document_id is not null
 )
 
 , document_status as (
