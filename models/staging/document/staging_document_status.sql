@@ -19,9 +19,10 @@ with document_events as (
 , document_status as (
     select distinct
         document_id
-        -- Bugfix: When the primary tenant deletes a document belonging to a couple,
+        -- bugfix: When the primary tenant deletes a document belonging to a couple,
         -- the tenant_log is created using the primary tenant_id rather than the associated tenant_id.
-        -- fixed in production data after 2026-05-05
+        -- fixed in production data after 2026-05-05 (see https://github.com/MTES-MCT/dossierfacile-backend/pull/1232)
+        -- note: this fix does not resolve cases where a couple's document history begins with a DELETE_DOCUMENT event in tenant_log...
         , FIRST_VALUE(tenant_id) over (
             partition by document_id
             order by created_at asc
