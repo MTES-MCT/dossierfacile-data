@@ -4,7 +4,7 @@ with operator_log as (
 )
 
 select
-    operation.id as id
+    operation.id
     , user_operator.id as operator_id
     , user_operator.email as operator_email
     , user_operator.name as operator_name
