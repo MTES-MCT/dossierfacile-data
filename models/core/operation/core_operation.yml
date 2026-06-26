@@ -30,7 +30,9 @@ models:
       - name: tenant_id
         description: "The id of the tenant on which the operation was performed"
         data_tests:
-          - not_null
+          - not_null:
+              config:
+                where: "log_type != 'APPLICATION_SEARCHED'"
       - name: processed_documents
         description: "The number of documents processed during the operation (only populated for validation start/stop events)"
       - name: time_spent
