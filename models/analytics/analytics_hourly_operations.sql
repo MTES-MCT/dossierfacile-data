@@ -8,6 +8,8 @@ select
     , SUM(validation_flag) as nb_validation
     , SUM(validation_started_flag) as nb_validation_started
     , SUM(validation_stopped_flag) as nb_validation_stopped
+    , SUM(application_searched_flag) as nb_application_searched
+    , SUM(application_viewed_flag) as nb_application_viewed
     , SUM(processed_documents) as nb_processed_documents
     , SUM(time_spent) as total_time_spent
 from {{ ref('core_operation') }}
