@@ -1,43 +1,10 @@
-with tenant_log as (
-    select * from {{ ref('staging_tenant_log') }}
-    where
-        log_type in ('ACCOUNT_DENIED', 'ACCOUNT_VALIDATED')
-        and operator_id is not null
-)
-
-, operator_log as (
+with operator_log as (
     select * from {{ ref('staging_operator_log') }}
-    where
-        log_type in ('ACCOUNT_VALIDATION_STARTED', 'ACCOUNT_VALIDATION_STOPPED')
-        and operator_id is not null
-)
-
-, operation as (
-    select
-        {{ dbt_utils.generate_surrogate_key(['id', 'log_type']) }} as operation_id
-        , tenant_id
-        , operator_id
-        , log_type
-        , created_at
-        , null as processed_documents
-        , null as time_spent
-    from tenant_log
-
-    union all
-
-    select
-        {{ dbt_utils.generate_surrogate_key(['id', 'log_type']) }} as operation_id
-        , tenant_id
-        , operator_id
-        , log_type
-        , created_at
-        , processed_documents
-        , time_spent
-    from operator_log
+    where operator_id is not null
 )
 
 select
-    operation.operation_id as id
+    operation.id as id
     , user_operator.id as operator_id
     , user_operator.email as operator_email
     , user_operator.name as operator_name
@@ -46,11 +13,13 @@ select
     , operation.created_at
     , operation.processed_documents
     , operation.time_spent
-    , case when log_type in ('ACCOUNT_VALIDATED', 'ACCOUNT_DENIED') then 1 else 0 end as operation_flag
-    , case when log_type = 'ACCOUNT_VALIDATED' then 1 else 0 end as validation_flag
-    , case when log_type = 'ACCOUNT_DENIED' then 1 else 0 end as denial_flag
+    , case when log_type = 'ACCOUNT_VALIDATION_STOPPED' then 1 else 0 end as operation_flag
+    , case when log_type = 'ACCOUNT_VALIDATION_STOPPED' and tenant_status = 'VALIDATED' then 1 else 0 end as validation_flag
+    , case when log_type = 'ACCOUNT_VALIDATION_STOPPED' and tenant_status = 'DECLINED' then 1 else 0 end as denial_flag
     , case when log_type = 'ACCOUNT_VALIDATION_STARTED' then 1 else 0 end as validation_started_flag
     , case when log_type = 'ACCOUNT_VALIDATION_STOPPED' then 1 else 0 end as validation_stopped_flag
-from operation
+    , case when log_type = 'APPLICATION_VIEWED' then 1 else 0 end as application_viewed_flag
+    , case when log_type = 'APPLICATION_SEARCHED' then 1 else 0 end as application_searched_flag
+from operator_log as operation
 left join {{ ref('staging_operator') }} as user_operator
     on operation.operator_id = user_operator.id
