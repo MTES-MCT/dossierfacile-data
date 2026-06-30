@@ -3,7 +3,7 @@ with operations_with_first_validation_date as (
         id
         , tenant_id
         , created_at
-        , MIN(case when log_type = 'ACCOUNT_VALIDATED' then created_at end)
+        , MIN(case when log_type = 'ACCOUNT_VALIDATION_STOPPED' then created_at end)
             over (partition by tenant_id)
         as first_validation_at
     from {{ ref('core_operation') }}
