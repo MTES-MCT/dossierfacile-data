@@ -7,7 +7,7 @@ with operations_with_first_validation_date as (
             over (partition by tenant_id)
         as first_validation_at
     from {{ ref('core_operation') }}
-    where operation_flag = 1
+    where validation_flag = 1
 )
 
 , operations_count_per_tenant as (
