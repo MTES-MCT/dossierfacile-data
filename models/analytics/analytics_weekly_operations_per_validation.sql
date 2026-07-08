@@ -3,11 +3,11 @@ with operations_with_first_validation_date as (
         id
         , tenant_id
         , created_at
-        , MIN(case when log_type = 'ACCOUNT_VALIDATION_STOPPED' then created_at end)
+        , MIN(case when validation_flag = 1 then created_at end)
             over (partition by tenant_id)
         as first_validation_at
     from {{ ref('core_operation') }}
-    where validation_flag = 1
+    where operation_flag = 1
 )
 
 , operations_count_per_tenant as (
@@ -23,7 +23,7 @@ with operations_with_first_validation_date as (
 
 , validated_tenants_with_operations as (
     select
-        cta.created_at
+        ocpt.first_validation_at as validated_at
         , cta.funnel_type
         , cta.tenant_origin
         , cta.status
@@ -39,13 +39,13 @@ select
     funnel_type
     , tenant_origin
     , status
-    , DATE_TRUNC('week', created_at) as created_week
+    , DATE_TRUNC('week', validated_at) as validated_week
     , COUNT(tenant_id) as nb_validated_accounts
     , SUM(nb_operations_before_first_validation) as nb_operations_before_first_validation
 from validated_tenants_with_operations
 group by
-    DATE_TRUNC('week', created_at)
+    DATE_TRUNC('week', validated_at)
     , funnel_type
     , tenant_origin
     , status
-order by DATE_TRUNC('week', created_at) desc
+order by DATE_TRUNC('week', validated_at) desc
