@@ -1,3 +1,22 @@
+{{ config(
+    materialized = 'incremental', 
+    unique_key = 'id',
+    indexes=[
+      {'columns': ['id'], 'unique': True},
+      {'columns': ['tenant_id']},
+      {'columns': ['guarantor_id']},
+      {'columns': ['created_at'], 'type': 'brin'} 
+    ]
+) }}
+
+{#
+  On choisit incremental pour éviter de recalculer l'index pour les millions
+  de lignes à chaque run de la table. On ne recalcule que pour les nouvelles
+  valeurs en se basant sur l'attribut created_at.
+  BRIN sur created_at : index ultra léger car utilise l'ordre chronologique
+  d'écriture (les dernières lignes = les plus récentes).
+#}
+
 with casting_log as (
     select
         CAST(id as INTEGER)
@@ -19,7 +38,18 @@ with casting_log as (
         , log_details ->> 'comment' as operator_comment
     from {{ source('dossierfacile', 'tenant_log') }}
     {{ filter_recent_data('creation_date') }}
+
+    {% if is_incremental() %}
+    WHERE created_at > (SELECT MAX(created_at) - INTERVAL '2 day' FROM {{ this }}) 
+    {% endif %}
 )
+
+{#
+  Indique de calculer les index uniquement pour les "nouvelles valeurs", 
+  celles qui sont plus récentes que la dernière valeur created_at stockée dans la table
+  On rajoute une sécurité de 2 jours en cas de mauvaise manip/bug au niveau des batch 
+  de la réplication quotidienne (pourrait être passé à 1 jour)
+#}
 
 select
     casting_log.id
