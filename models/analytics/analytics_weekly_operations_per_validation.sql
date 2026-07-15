@@ -14,11 +14,12 @@ with operations_with_first_validation_date as (
     select
         tenant_id
         , COUNT(id) as nb_operations_before_first_validation
+        , first_validation_at
     from operations_with_first_validation_date
     where
         created_at <= first_validation_at
         and first_validation_at is not null
-    group by tenant_id
+    group by tenant_id, first_validation_at
 )
 
 , validated_tenants_with_operations as (
