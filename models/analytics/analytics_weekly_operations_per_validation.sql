@@ -14,6 +14,7 @@ with operations_with_first_validation_date as (
     select
         tenant_id
         , COUNT(id) as nb_operations_before_first_validation
+        ,first_validation_at
     from operations_with_first_validation_date
     where
         created_at <= first_validation_at
@@ -23,7 +24,7 @@ with operations_with_first_validation_date as (
 
 , validated_tenants_with_operations as (
     select
-        owfvd.first_validation_at as validated_at
+        ocpt.first_validation_at as validated_at
         , cta.funnel_type
         , cta.tenant_origin
         , cta.status
@@ -33,8 +34,6 @@ with operations_with_first_validation_date as (
     from operations_count_per_tenant as ocpt
     left join {{ ref('core_tenant_account') }} as cta
         on ocpt.tenant_id = cta.id
-    left join operations_with_first_validation_date as owfvd
-        on ocpt.tenant_id = owfvd.tenant_id
 )
 
 select
