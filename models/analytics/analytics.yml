@@ -73,12 +73,12 @@ models:
       - dbt_utils.unique_combination_of_columns:
           arguments:
             combination_of_columns:
-              - created_week
               - funnel_type
               - tenant_origin
               - status
+              - validated_week
     columns:
-      - name: created_week
+      - name: validated_week
         description: "Week of tenant account creation (truncated to week)"
         data_tests:
           - not_null
