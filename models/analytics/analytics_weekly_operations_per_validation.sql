@@ -19,7 +19,7 @@ with operations_with_first_validation_date as (
     where
         created_at <= first_validation_at
         and first_validation_at is not null
-    group by tenant_id
+    group by tenant_id,first_validation_at
 )
 
 , validated_tenants_with_operations as (
