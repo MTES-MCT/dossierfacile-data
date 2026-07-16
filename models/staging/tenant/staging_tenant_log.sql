@@ -40,7 +40,7 @@ with casting_log as (
     {{ filter_recent_data('creation_date') }}
 
     {% if is_incremental() %}
-    WHERE created_at > (SELECT MAX(created_at) - INTERVAL '2 day' FROM {{ this }}) 
+        AND creation_date > (SELECT MAX(created_at) - INTERVAL '2 day' FROM {{ this }}) 
     {% endif %}
 )
 
@@ -49,6 +49,8 @@ with casting_log as (
   celles qui sont plus récentes que la dernière valeur created_at stockée dans la table
   On rajoute une sécurité de 2 jours en cas de mauvaise manip/bug au niveau des batch 
   de la réplication quotidienne (pourrait être passé à 1 jour)
+  La clause filter_recent_data crée déjà un WHERE donc 
+  pour éviter les erreurs de compilation SQL on met un AND et non un WHERE
 #}
 
 select
