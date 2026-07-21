@@ -1,3 +1,14 @@
+{{ config(
+    materialized = 'incremental', 
+    unique_key = 'id',
+    indexes=[
+      {'columns': ['id'], 'unique': True},
+      {'columns': ['tenant_id']},
+      {'columns': ['created_at'], 'type': 'brin'} 
+    ]
+) }}
+
+
 select
     CAST(id as INTEGER)
     , CAST(tenant_id as INTEGER)
@@ -14,3 +25,7 @@ select
     , CAST(time_spent as INTEGER)
 from {{ source('dossierfacile', 'operator_log') }}
 {{ filter_recent_data('creation_date') }}
+
+{% if is_incremental() %}
+    WHERE creation_date > (SELECT MAX(created_at) - INTERVAL '2 day' FROM {{ this }}) 
+{% endif %}
