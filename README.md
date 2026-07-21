@@ -15,6 +15,7 @@ Pipeline de transformation de données pour [DossierFacile](https://dossierfacil
 - [Utilisation](#utilisation)
 - [Tests](#tests)
 - [Développement](#développement)
+- [Optimisation](#optimisation)
 - [Support](#support)
 - [Licence](#licence)
 
@@ -237,6 +238,105 @@ grant usage on schema sql_schema to group sql_group;
 
 -- Accès SELECT à toutes les tables
 grant select on all tables in schema sql_schema to group sql_group;
+```
+
+## Optimisation
+
+Pour palier des problèmes de time out sur des requêtes Metabase, il est possible d'indexer les tables au niveau de dbt pour accélérer le parcours de celle-ci rendant un grand nombre de requête plus rapide et donc visualisable sur Metabase.
+
+Documentation offcielle dbt sur les index : [https://docs.getdbt.com/reference/resource-configs/materialize-configs?version=1.11#indexes]
+
+Plusieurs types d'index sont disponibles avec dbt mais de manière générale, les gains de temps sont de l'ordre de O(n) -> O(log(n))
+Par exemple, sur une table sans index de 20M de lignes, la recherche d'un id unique coûte 20M d'opérations en moyenne, avec index, on passe à environ 20 opérations.
+De manière générale, plus le nombre de valeurs distinctes d'une colonne est grand, plus le gain de temps par indexation est important.
+
+### Syntaxe 
+
+```sql
+{{ config(
+    materialized = {'table','incremental'},  
+    unique_key = '', -- sécurité qui permet d'éviter les doublons (quasi-obligatoire pour un type incremental)
+    indexes=[ -- Liste des colonnes sur lesquelles on construit un index
+      {'columns': {['id']}, 'unique': True}, 
+      {'columns': ['tenant_id']},
+      {'columns': ['guarantor_id']},
+      {'columns': ['created_at'], 'type': 'brin'} --
+    ]
+) }}
+```
+
+### Paramètres supplémentaires
+
+#### Materialized
+
+table -> l'index est reconstruit à chaque fois que la table est exécutée | sûr mais très coûteux 
+
+incremental -> l'index est reconstruit uniquement pour les "nouvelles valeurs" de la table | précautions nécessaires mais beaucoup plus performant
+
+Pour indiquer les "nouvelles valeurs" d'une table incremental, i.e, les lignes à ajouter aux index; il est nécessaire d'inclure un filtre : 
+
+```sql
+{% if is_incremental() %}
+        AND creation_date > (SELECT MAX(created_at) - INTERVAL '2 day' FROM {{ this }}) 
+        -- Le fait de rajouter un INTERVAL est une sécurité pour éviter de ne pas indexer des lignes en cas d'erreur de réplication
+    {% endif %}
+````
+
+Il est important de placer ce filtre au niveau de la lecture de la table source ou avant jointure de tables coûteuses.
+
+*Attention* : Si placé après un GROUP BY ou une fonction de fenêtrage, il ne sert à rien car l'aggrégation aura déjà été faite sur toute la table
+
+#### Colmuns
+
+'unique': permet de s'assurer de l'unicité des valeurs de la colonne
+'type' : `btree` (par défaut), `brin` (d'autres types existent, cf la doc dbt)
+
+De manière générale, il faut privilégier les `btree` (balanced tree = recherche dichotomique).
+Un index de type `brin` est utile lorsque l'agencement de la colonne est corollée à la logique d'écriture (ex: created_at : les 100 dernières dates les plus récentes correspondent aux 100 dernières lignes d'écriture). Il est beaucoup plus rapide et léger qu'un 'btree' mais ne sert que sur les colonnes avec une date ou un index parfaitement rangé (pas de UUID)
+
+### Tests
+
+Une fois les index mis en place, 
+
+```bash
+dbt run/build -s ma_table --full-refresh (pour le forcer à construire l'index sur toute la table)
+```
+
+Cela peut prendre plus de temps que d'habitude car la construction d'index est un processus assez lourd
+
+Pour vérifier que les index ont bien été construits, on exécute la requête suivante sur DBeaver : 
+
+```sql
+SELECT indexname, indexdef 
+FROM pg_indexes 
+WHERE tablename = 'ma_table';
+```
+Une fois qu'on est sûr que les index existent on peut faire les tests suivant pour avoir une idée des gains : 
+
+```sql
+EXPLAIN ANALYZE
+SELECT * FROM ma_table WHERE my_column = my_value ;
+```
+=> On vérifie qu'on a bien un Index scan et pas un Seq scan et on regarde le Execution time
+
+Ensuite, on relance la même requête en désactivant les index 
+
+```sql
+SET enable_indexscan = off;
+SET enable_bitmapscan = off;
+SET enable_indexonlyscan = off;
+
+EXPLAIN ANALYZE
+SELECT * FROM ma_table WHERE my_column = my_value;
+```
+Si dans la fenêtre d'analyse on a un Seq scan c'est qu'ils sont bien désactivés. On peut comparer les Execution time.
+
+Et on les remets avec : 
+
+```sql
+RESET enable_indexscan;
+RESET enable_bitmapscan;
+RESET enable_indexonlyscan;
 ```
 
 ## Support
