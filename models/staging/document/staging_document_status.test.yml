@@ -1,1 +1,20 @@
-# TODO: add unit tests for the staging_document_status model
+models:
+  - name: staging_document_status
+    description: "A dbt model that builds a view of every accepted or denied documents with tenant informations"
+    columns:
+      - name: document_id
+        description: "The document identifier"
+        data_tests:
+          - not_null
+      - name: tenant_id
+        description: "The tenant identifier"
+        data_tests:
+          - not_null
+      - name: document_category
+        description: "Describe wich of the 5 categories this document belongs to"
+        data_tests:
+          - not_null
+      - name: document_status
+        description: "This column specifies if the document was added or deleted"
+        data_tests:
+          - not_null

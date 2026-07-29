@@ -4,6 +4,7 @@ with document_events as (
         , document_id
         , tenant_id
         , guarantor_id
+        ,log_type
         , created_at
         , document_category
         , document_sub_category
