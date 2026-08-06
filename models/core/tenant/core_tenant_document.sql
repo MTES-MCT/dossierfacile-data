@@ -1,3 +1,11 @@
+{{ config(
+    materialized = 'incremental',  
+    unique_key = 'tenant_id', 
+    indexes=[
+      {'columns': ['tenant_id'], 'unique': True}
+    ]
+) }}
+
 with tenant_documents as (
     select *
     from {{ ref('core_document') }}
@@ -96,6 +104,10 @@ with tenant_documents as (
         , SUM(monthly_net_income) as monthly_net_income
     from active_tenant_documents
     group by tenant_id
+
+    {% if is_incremental() %}
+        AND tenant_id > MAX(tenant_id) FROM {{ this }}
+    {% endif %}
 )
 
 select
