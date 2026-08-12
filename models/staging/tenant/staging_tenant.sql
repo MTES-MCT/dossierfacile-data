@@ -14,5 +14,6 @@ select
     , CAST(warnings as INTEGER) as deletion_warnings
     , CAST(abroad as BOOLEAN) as tenant_abroad
     , CAST(owner_type as VARCHAR) as beneficiary_type
+    , CAST(validation_requested as BOOLEAN)
 from {{ source('dossierfacile', 'tenant') }}
 {{ filter_recent_data('last_update_date') }}
