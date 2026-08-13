@@ -53,6 +53,8 @@ models:
         description: "The number of warnings before deletion"
       - name: tenant_abroad
         description: "Flag indicating if the tenant is abroad"
+      - name: validation_requested
+        description: "Explicit choice of the tenant about operator validation (COMPLETED opt-in): null = never answered, true = requested a validation, false = explicitly declined"
   - name: staging_document_denied_options
     description: "A dbt model to clean the document_denied_options table"
     columns:

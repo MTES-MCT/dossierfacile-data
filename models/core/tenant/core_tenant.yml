@@ -17,6 +17,8 @@ models:
         description: "The status of the tenant"
         data_tests:
           - not_null
+      - name: validation_requested
+        description: "Explicit choice of the tenant about operator validation (COMPLETED opt-in): null = never answered, true = requested a validation, false = explicitly declined"
       - name: tenant_origin
         description: "The origin of the tenant"
         data_tests:

@@ -112,6 +112,7 @@ with tenant_log_status as (
         , staging_tenant.zip_code
         , staging_tenant.honor_declaration
         , staging_tenant.beneficiary_type
+        , staging_tenant.validation_requested
 
         , tenant_user_account.last_login_at
         , tenant_user_account.updated_at
