@@ -29,10 +29,11 @@ with casting_log as (
         -- When the log type is OPERATOR_COMMENT, we extract the operator comment from the log details
         , log_details ->> 'comment' as operator_comment
     from {{ source('dossierfacile', 'tenant_log') }}
-    {{ filter_recent_data('creation_date') }}
 
     {% if is_incremental() %}
-        AND creation_date > (SELECT MAX(created_at) - INTERVAL '2 day' FROM {{ this }}) 
+        where creation_date > (select MAX(created_at) - INTERVAL '2 day' from {{ this }})
+    {% else %}
+        {{ filter_recent_data('creation_date') }}
     {% endif %}
 )
 
