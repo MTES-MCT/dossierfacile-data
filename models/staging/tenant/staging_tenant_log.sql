@@ -9,14 +9,6 @@
     ]
 ) }}
 
-{#
-  On choisit incremental pour éviter de recalculer l'index pour les millions
-  de lignes à chaque run de la table. On ne recalcule que pour les nouvelles
-  valeurs en se basant sur l'attribut created_at.
-  BRIN sur created_at : index ultra léger car utilise l'ordre chronologique
-  d'écriture (les dernières lignes = les plus récentes).
-#}
-
 with casting_log as (
     select
         CAST(id as INTEGER)
@@ -43,15 +35,6 @@ with casting_log as (
         AND creation_date > (SELECT MAX(created_at) - INTERVAL '2 day' FROM {{ this }}) 
     {% endif %}
 )
-
-{#
-  Indique de calculer les index uniquement pour les "nouvelles valeurs", 
-  celles qui sont plus récentes que la dernière valeur created_at stockée dans la table
-  On rajoute une sécurité de 2 jours en cas de mauvaise manip/bug au niveau des batch 
-  de la réplication quotidienne (pourrait être passé à 1 jour)
-  La clause filter_recent_data crée déjà un WHERE donc 
-  pour éviter les erreurs de compilation SQL on met un AND et non un WHERE
-#}
 
 select
     casting_log.id

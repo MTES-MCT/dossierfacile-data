@@ -5,9 +5,7 @@
       {'columns': ['document_id'], 'unique': True},
       {'columns': ['tenant_id']},
       {'columns': ['guarantor_id']},
-      {'columns': ['created_at'], 'type': 'brin'},
       {'columns': ['created_at'], 'type': 'btree'},
-      {'columns': ['modified_at'], 'type': 'brin'},
       {'columns': ['modified_at'], 'type': 'btree'} 
     ]
 ) }}
