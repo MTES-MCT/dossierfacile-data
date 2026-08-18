@@ -1,3 +1,11 @@
+{{ config(
+    materialized = 'table',
+    unique_key = ['user_id', 'feature_key'],
+    indexes=[
+      {'columns': ['user_id', 'feature_key'], 'unique': True}
+    ]
+) }}
+
 select
     suf.user_id
     , suf.feature_key

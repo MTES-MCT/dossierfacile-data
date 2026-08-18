@@ -1,3 +1,14 @@
+{{ config(
+    materialized = 'incremental', 
+    unique_key = 'id',
+    indexes=[
+      {'columns': ['id'], 'unique': True},
+      {'columns': ['tenant_id']},
+      {'columns': ['guarantor_id']},
+      {'columns': ['created_at'], 'type': 'brin'} 
+    ]
+) }}
+
 with casting_log as (
     select
         CAST(id as INTEGER)
@@ -19,6 +30,10 @@ with casting_log as (
         , log_details ->> 'comment' as operator_comment
     from {{ source('dossierfacile', 'tenant_log') }}
     {{ filter_recent_data('creation_date') }}
+
+    {% if is_incremental() %}
+        AND creation_date > (SELECT MAX(created_at) - INTERVAL '2 day' FROM {{ this }}) 
+    {% endif %}
 )
 
 select

@@ -1,3 +1,11 @@
+{{ config( 
+    materialized = 'table',
+    unique_key = 'tenant_id', 
+    indexes=[
+      {'columns': ['tenant_id'], 'unique': True}
+    ]
+) }}
+
 with tenant_documents as (
     select *
     from {{ ref('core_document') }}
