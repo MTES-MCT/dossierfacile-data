@@ -1,3 +1,12 @@
+{{ config(
+    materialized = 'table',
+    unique_key = 'id',
+    indexes=[
+      {'columns': ['id'], 'unique': True},
+      {'columns': ['created_at'], 'type': 'btree'}
+    ]
+) }}
+
 with tenant_log_status as (
     -- add new columns based on log_type
     select
