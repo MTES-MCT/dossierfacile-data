@@ -104,7 +104,6 @@ with tenant_log_status as (
         , last_login_at
         , updated_at
         , enabled
-        , keycloak_id
         , is_france_connected
         , acquisition_campaign
     from {{ ref('staging_user_account') }}
@@ -126,7 +125,6 @@ with tenant_log_status as (
         , tenant_user_account.last_login_at
         , tenant_user_account.updated_at
         , tenant_user_account.enabled
-        , tenant_user_account.keycloak_id
         , tenant_user_account.is_france_connected
         , tenant_user_account.acquisition_campaign
 

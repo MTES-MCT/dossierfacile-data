@@ -17,7 +17,6 @@ select
     , staging_user_account.last_login_at
     , staging_user_account.updated_at
     , staging_user_account.enabled
-    , staging_user_account.keycloak_id
     , staging_user_account.is_france_connected
 
     , owner_property_status.nb_property_created
