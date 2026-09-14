@@ -1,13 +1,12 @@
 models:
-  - name: core_user_feature
-    description: "A dbt model combining user feature assignments with feature flag metadata"
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          arguments:
-            combination_of_columns:
-              - user_id
-              - feature_key
+  - name: core_user_feature_history
+    description: "A dbt model combining user feature assignments history with feature flag metadata"
     columns:
+      - name: id
+        description: "The primary key for the user feature assignment history table"
+        data_tests:
+          - unique
+          - not_null
       - name: user_id
         description: "The user identifier receiving feature assignment"
         data_tests:
@@ -22,22 +21,20 @@ models:
           - not_null
       - name: bucket
         description: "The assignment bucket used for rollout logic"
-      - name: assignment_rollout_pct
+      - name: rollout_pct
         description: "Rollout percentage applied at assignment time"
-      - name: assigned_at
+      - name: changed_at
         description: "Timestamp when the assignment was created"
         data_tests:
           - not_null
-      - name: assignment_source
-        description: "Source that created the feature assignment: HASH (assignment computed using bucket/hash logic) or PRE_DEPLOYMENT (assignment set for pre-deployment/new-user activation)"
+      - name: reason
+        description: "Reason that changed the feature assignment: FIRST_CHECK, ROLLOUT_INCREASED"
         data_tests:
           - accepted_values:
               arguments:
-                values: ['HASH', 'PRE_DEPLOYMENT']
+                values: ['FIRST_CHECK', 'ROLLOUT_INCREASED']
       - name: feature_description
         description: "Human-readable feature flag description"
-      - name: feature_active
-        description: "Whether the feature flag is active"
       - name: only_for_new_user
         description: "Whether the flag applies only to new users"
       - name: feature_rollout_pct
