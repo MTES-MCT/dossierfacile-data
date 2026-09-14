@@ -125,9 +125,14 @@ models:
         description: "Feature flag creation timestamp"
       - name: updated_at
         description: "Feature flag last update timestamp"
-  - name: staging_user_feature
+  - name: staging_user_feature_history
     description: "A dbt model to clean and type user feature assignment data"
     columns:
+      - name: id
+        description: "The primary key for the user feature assignment history table"
+        data_tests:
+          - unique
+          - not_null
       - name: user_id
         description: "The user identifier receiving feature assignment"
       - name: feature_key
@@ -138,7 +143,7 @@ models:
         description: "The assignment bucket used for rollout logic"
       - name: rollout_pct
         description: "Rollout percentage applied at assignment time"
-      - name: assigned_at
-        description: "Timestamp when the assignment was created"
-      - name: assignment_source
-        description: "Source that created the feature assignment: HASH (assignment computed using bucket/hash logic) or PRE_DEPLOYMENT (assignment set for pre-deployment/new-user activation)"
+      - name: changed_at
+        description: "Timestamp when the assignment was changed"
+      - name: reason
+        description: "Reason that changed the feature assignment: FIRST_CHECK, ROLLOUT_INCREASED"

@@ -198,12 +198,13 @@ sources:
           - name: deployment_date
           - name: created_at
           - name: updated_at
-      - name: user_feature_assignment
+      - name: user_feature_assignment_history
         columns:
+          - name: id
           - name: user_id
           - name: feature_key
           - name: enabled
           - name: bucket
           - name: rollout_pct
-          - name: assigned_at
-          - name: assignment_source
+          - name: changed_at
+          - name: reason
