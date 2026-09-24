@@ -19,8 +19,6 @@ models:
         description: "The timestamp when the log entry was created"
         data_tests:
           - not_null
-      - name: migrate
-        description: "Flag indicating if the log entry has been migrated"
   - name: staging_tenant
     description: "A dbt model to clean and transform tenant data"
     columns:
