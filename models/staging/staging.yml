@@ -1,6 +1,6 @@
 models:
   - name: staging_tenant_log
-    description: "A starter dbt model to clean tenant_log table"
+    description: "One row per tenant log. Casts source columns and extracts guarantor, document, and comment fields from log_details. tenant_type is GUARANTOR when guarantor_id is set, otherwise TENANT."
     columns:
       - name: id
         description: "The primary key for this table"
@@ -19,10 +19,8 @@ models:
         description: "The timestamp when the log entry was created"
         data_tests:
           - not_null
-      - name: migrate
-        description: "Flag indicating if the log entry has been migrated"
   - name: staging_tenant
-    description: "A dbt model to clean and transform tenant data"
+    description: "One row per tenant. Maps apartment_sharing_id to application_id and owner_type to beneficiary_type. zip_code keeps the first five digits, stays null when missing, and becomes 'invalid' otherwise. Null status is stored as INCOMPLETE."
     columns:
       - name: id
         description: "The primary key for the tenant table"
@@ -45,18 +43,12 @@ models:
         description: "Flag indicating if the tenant has made an honor declaration"
       - name: last_updated_at
         description: "The timestamp of the last update to the tenant record"
-      - name: tenant_comment
-        description: "The tenant's comment for the property owner"
-      - name: last_operation_at
-        description: "The timestamp of the last operation performed on the tenant record"
       - name: deletion_warnings
         description: "The number of warnings before deletion"
-      - name: tenant_abroad
-        description: "Flag indicating if the tenant is abroad"
       - name: validation_requested
         description: "Explicit choice of the tenant about operator validation (COMPLETED opt-in): null = never answered, true = requested a validation, false = explicitly declined"
   - name: staging_document_denied_options
-    description: "A dbt model to clean the document_denied_options table"
+    description: "One row per denial option in the catalog. Renames message_value to denied_option_value and uppercases document_user_type as document_tenant_type."
     columns:
       - name: id
         description: "The primary key for the denied options table"
@@ -74,7 +66,7 @@ models:
       - name: code
         description: "The associated code to the denied option"
   - name: staging_document_denied_reasons
-    description: "A dbt model that cleans and transforms document denied reasons data from the source table"
+    description: "One row per checked denial option on a document denial. Unnests checked_options_id and checked_options, so the source id is repeated. Fixes the encoding of the option text and uppercases document_tenant_type."
     columns:
       - name: id
         description: "The ID of the denied reason record"
@@ -88,8 +80,6 @@ models:
         description: "The value of the denial reason option"
         data_tests:
           - not_null
-      - name: operator_comment
-        description: "Any comments made by the operator regarding the denial"
       - name: document_id
         description: "The ID of the document that was denied"
         data_tests:
@@ -107,7 +97,7 @@ models:
       - name: document_tenant_type
         description: "Indicates whether the document belongs to a TENANT or GUARANTOR"
   - name: staging_feature_flag
-    description: "A dbt model to clean and type feature flag data"
+    description: "One row per feature flag. Typed cast of the feature_flag source."
     columns:
       - name: key
         description: "The feature flag identifier"
@@ -126,7 +116,7 @@ models:
       - name: updated_at
         description: "Feature flag last update timestamp"
   - name: staging_user_feature_history
-    description: "A dbt model to clean and type user feature assignment data"
+    description: "One row per change in a user's feature assignment. Typed cast of user_feature_assignment_history."
     columns:
       - name: id
         description: "The primary key for the user feature assignment history table"
