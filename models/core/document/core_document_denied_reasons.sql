@@ -14,7 +14,8 @@ select
     , sdr.document_category_step
     , COALESCE(sdr.document_tenant_type, sdo.document_tenant_type) as document_tenant_type
 
-    , sdr.operator_comment
+    -- DEPRECATED: operator_comment is no longer stored in the database
+    , '[REDACTED]' as operator_comment
 from {{ ref('staging_document_denied_reasons') }} as sdr
 left join {{ ref('staging_document_denied_options') }} as sdo
     on sdr.denied_option_id = sdo.id

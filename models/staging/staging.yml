@@ -88,8 +88,6 @@ models:
         description: "The value of the denial reason option"
         data_tests:
           - not_null
-      - name: operator_comment
-        description: "Any comments made by the operator regarding the denial"
       - name: document_id
         description: "The ID of the document that was denied"
         data_tests:
