@@ -118,9 +118,6 @@ sources:
           - name: created_date
             data_tests:
               - not_null
-          - name: token
-            data_tests:
-              - not_null
           - name: pdf_status
           - name: pdf_file_id
       - name: property
