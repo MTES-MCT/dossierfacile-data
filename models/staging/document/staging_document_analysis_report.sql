@@ -5,7 +5,8 @@ with unest_broken_rules as (
         , CAST(data_document_id as INTEGER) as document_id
         , CAST(analysis_status as VARCHAR) as overall_status
         , JSONB_ARRAY_ELEMENTS(CAST(failed_rules as JSONB)) as rule
-        , CAST(comment as VARCHAR) as tenant_comment
+        -- DEPRECATED: tenant_comment is no longer stored in the database
+        , '[REDACTED]' as tenant_comment
         , CAST(created_at as TIMESTAMP) as created_at
     from {{ source('dossierfacile', 'document_analysis_report') }}
 )
@@ -18,7 +19,8 @@ with unest_broken_rules as (
         , CAST(data_document_id as INTEGER) as document_id
         , CAST(analysis_status as VARCHAR) as overall_status
         , JSONB_ARRAY_ELEMENTS(CAST(passed_rules as JSONB)) as rule
-        , CAST(comment as VARCHAR) as tenant_comment
+        -- DEPRECATED: tenant_comment is no longer stored in the database
+        , '[REDACTED]' as tenant_comment
         , CAST(created_at as TIMESTAMP) as created_at
     from {{ source('dossierfacile', 'document_analysis_report') }}
 )
@@ -31,7 +33,8 @@ with unest_broken_rules as (
         , CAST(data_document_id as INTEGER) as document_id
         , CAST(analysis_status as VARCHAR) as overall_status
         , JSONB_ARRAY_ELEMENTS(CAST(inconclusive_rules as JSONB)) as rule
-        , CAST(comment as VARCHAR) as tenant_comment
+        -- DEPRECATED: tenant_comment is no longer stored in the database
+        , '[REDACTED]' as tenant_comment
         , CAST(created_at as TIMESTAMP) as created_at
     from {{ source('dossierfacile', 'document_analysis_report') }}
 )
