@@ -5,8 +5,6 @@ with unest_broken_rules as (
         , CAST(data_document_id as INTEGER) as document_id
         , CAST(analysis_status as VARCHAR) as overall_status
         , JSONB_ARRAY_ELEMENTS(CAST(failed_rules as JSONB)) as rule
-        -- DEPRECATED: tenant_comment is no longer stored in the database
-        , '[REDACTED]' as tenant_comment
         , CAST(created_at as TIMESTAMP) as created_at
     from {{ source('dossierfacile', 'document_analysis_report') }}
 )
@@ -19,8 +17,6 @@ with unest_broken_rules as (
         , CAST(data_document_id as INTEGER) as document_id
         , CAST(analysis_status as VARCHAR) as overall_status
         , JSONB_ARRAY_ELEMENTS(CAST(passed_rules as JSONB)) as rule
-        -- DEPRECATED: tenant_comment is no longer stored in the database
-        , '[REDACTED]' as tenant_comment
         , CAST(created_at as TIMESTAMP) as created_at
     from {{ source('dossierfacile', 'document_analysis_report') }}
 )
@@ -33,8 +29,6 @@ with unest_broken_rules as (
         , CAST(data_document_id as INTEGER) as document_id
         , CAST(analysis_status as VARCHAR) as overall_status
         , JSONB_ARRAY_ELEMENTS(CAST(inconclusive_rules as JSONB)) as rule
-        -- DEPRECATED: tenant_comment is no longer stored in the database
-        , '[REDACTED]' as tenant_comment
         , CAST(created_at as TIMESTAMP) as created_at
     from {{ source('dossierfacile', 'document_analysis_report') }}
 )
@@ -46,7 +40,6 @@ with unest_broken_rules as (
         , overall_status
         , rule_status
         , rule
-        , tenant_comment
         , created_at
     from unest_broken_rules
 
@@ -58,7 +51,6 @@ with unest_broken_rules as (
         , overall_status
         , rule_status
         , rule
-        , tenant_comment
         , created_at
     from unest_inconclusive_rules
 
@@ -70,7 +62,6 @@ with unest_broken_rules as (
         , overall_status
         , rule_status
         , rule
-        , tenant_comment
         , created_at
     from unest_passed_rules
 )
@@ -81,7 +72,6 @@ with unest_broken_rules as (
         , document_id
         , overall_status
         , rule_status
-        , tenant_comment
         , created_at
         , rule ->> 'rule' as rule_name
         , rule ->> 'level' as rule_level
@@ -92,4 +82,6 @@ with unest_broken_rules as (
 select
     {{ dbt_utils.generate_surrogate_key(['id', 'rule_status', 'rule_name']) }} as unique_id
     , *
+    -- DEPRECATED: tenant_comment is no longer stored in the database
+    , '[REDACTED]' as tenant_comment
 from flatten_all_rules
