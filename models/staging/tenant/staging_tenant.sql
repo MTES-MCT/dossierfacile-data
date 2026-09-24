@@ -10,9 +10,7 @@ select
     , CAST(honor_declaration as BOOLEAN)
     , CAST(last_update_date as TIMESTAMP) as last_updated_at
     , CAST(COALESCE(status, 'INCOMPLETE') as VARCHAR) as status
-    , CAST(operator_date_time as TIMESTAMP) as last_operation_at
     , CAST(warnings as INTEGER) as deletion_warnings
-    , CAST(abroad as BOOLEAN) as tenant_abroad
     , CAST(owner_type as VARCHAR) as beneficiary_type
     , CAST(validation_requested as BOOLEAN)
 from {{ source('dossierfacile', 'tenant') }}

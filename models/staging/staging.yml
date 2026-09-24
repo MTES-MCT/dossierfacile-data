@@ -47,12 +47,8 @@ models:
         description: "The timestamp of the last update to the tenant record"
       - name: tenant_comment
         description: "The tenant's comment for the property owner"
-      - name: last_operation_at
-        description: "The timestamp of the last operation performed on the tenant record"
       - name: deletion_warnings
         description: "The number of warnings before deletion"
-      - name: tenant_abroad
-        description: "Flag indicating if the tenant is abroad"
       - name: validation_requested
         description: "Explicit choice of the tenant about operator validation (COMPLETED opt-in): null = never answered, true = requested a validation, false = explicitly declined"
   - name: staging_document_denied_options
