@@ -1,1 +1,77 @@
-# TODO: add unit tests for the staging_document_status model
+unit_tests:
+  - name: test_document_lifecycle_legacy_and_current_events
+    description: Preserve legacy history, admit dedicated document events, and ignore file events.
+    model: staging_document_status
+    config:
+      tags: [document_events]
+    given:
+      - input: ref('staging_tenant_log')
+        rows:
+          - {id: 1, document_id: 100, tenant_id: 1, created_at: '2026-06-20 10:00:00', log_type: ACCOUNT_EDITED, edition_type: ADD_DOCUMENT, document_category: FINANCIAL}
+          - {id: 2, document_id: 100, tenant_id: 1, created_at: '2026-06-21 10:00:00', log_type: ACCOUNT_EDITED, edition_type: ADD_DOCUMENT, document_category: FINANCIAL}
+          - {id: 3, document_id: 100, tenant_id: 1, created_at: '2026-06-22 10:00:00', log_type: ACCOUNT_EDITED, edition_type: DELETE_DOCUMENT, document_category: FINANCIAL}
+          - {id: 4, document_id: 200, tenant_id: 2, created_at: '2026-06-25 10:00:00', log_type: ACCOUNT_EDITED, edition_type: ADD_DOCUMENT, document_category: TAX}
+          # The editor can differ from the document owner for a couple.
+          - {id: 5, document_id: 200, tenant_id: 99, created_at: '2026-07-02 10:00:00', log_type: DOCUMENT_DELETED, edition_type: DELETE_DOCUMENT, document_category: TAX}
+          - {id: 6, document_id: 300, tenant_id: 3, created_at: '2026-07-03 10:00:00', log_type: DOCUMENT_ADDED, edition_type: ADD_DOCUMENT, document_category: RESIDENCY}
+          - {id: 7, document_id: 400, tenant_id: 4, guarantor_id: 40, created_at: '2026-07-04 10:00:00', log_type: DOCUMENT_ADDED, edition_type: ADD_DOCUMENT, document_category: IDENTIFICATION}
+          - {id: 8, document_id: null, tenant_id: 5, created_at: '2026-07-04 10:00:00', log_type: ACCOUNT_EDITED, edition_type: ADD_DOCUMENT}
+          - {id: 9, document_id: 500, tenant_id: 5, created_at: '2026-07-04 10:00:00', log_type: FILE_ADDED, edition_type: ADD_DOCUMENT}
+          - {id: 10, document_id: 300, tenant_id: 3, created_at: '2026-07-05 10:00:00', log_type: FILE_DELETED, edition_type: DELETE_DOCUMENT}
+          - {id: 11, document_id: 600, tenant_id: 6, created_at: '2026-07-04 10:00:00', log_type: ACCOUNT_EDITED, edition_type: UPDATE_DOCUMENT}
+    expect:
+      rows:
+        - {document_id: 100, tenant_id: 1, guarantor_id: null, document_status: DELETED, added_at: '2026-06-20 10:00:00', deleted_at: '2026-06-22 10:00:00', total_add_document_events: 2, total_delete_document_events: 1}
+        - {document_id: 200, tenant_id: 2, guarantor_id: null, document_status: DELETED, added_at: '2026-06-25 10:00:00', deleted_at: '2026-07-02 10:00:00', total_add_document_events: 1, total_delete_document_events: 1}
+        - {document_id: 300, tenant_id: 3, guarantor_id: null, document_status: ADDED, added_at: '2026-07-03 10:00:00', deleted_at: null, total_add_document_events: 1, total_delete_document_events: 0}
+        - {document_id: 400, tenant_id: 4, guarantor_id: 40, document_status: ADDED, added_at: '2026-07-04 10:00:00', deleted_at: null, total_add_document_events: 1, total_delete_document_events: 0}
+
+  - name: test_document_lifecycle_equal_timestamps
+    description: Use the event ID to resolve creation and deletion at the same timestamp.
+    model: staging_document_status
+    config:
+      tags: [document_events]
+    given:
+      - input: ref('staging_tenant_log')
+        rows:
+          - {id: 21, document_id: 700, tenant_id: 99, created_at: '2026-07-06 10:00:00', log_type: DOCUMENT_DELETED, edition_type: DELETE_DOCUMENT}
+          - {id: 20, document_id: 700, tenant_id: 7, created_at: '2026-07-06 10:00:00', log_type: DOCUMENT_ADDED, edition_type: ADD_DOCUMENT}
+    expect:
+      rows:
+        - {document_id: 700, tenant_id: 7, document_status: DELETED, added_at: '2026-07-06 10:00:00', deleted_at: '2026-07-06 10:00:00', total_add_document_events: 1, total_delete_document_events: 1}
+
+  - name: test_document_lifecycle_changed_metadata
+    description: Keep one row per document with the latest event metadata and original owner.
+    model: staging_document_status
+    config:
+      tags: [document_events]
+    given:
+      - input: ref('staging_tenant_log')
+        rows:
+          - {id: 30, document_id: 800, tenant_id: 8, guarantor_id: 80, created_at: '2026-06-01', log_type: ACCOUNT_EDITED, edition_type: ADD_DOCUMENT, document_category: IDENTIFICATION, document_sub_category: PASSPORT}
+          - {id: 31, document_id: 800, tenant_id: 8, guarantor_id: 80, created_at: '2026-06-02', log_type: ACCOUNT_EDITED, edition_type: ADD_DOCUMENT, document_category: IDENTIFICATION, document_sub_category: ID_CARD}
+          - {id: 32, document_id: 800, tenant_id: 99, guarantor_id: 80, created_at: '2026-07-01', log_type: DOCUMENT_DELETED, edition_type: DELETE_DOCUMENT, document_category: IDENTIFICATION, document_sub_category: ID_CARD}
+          # A later add resets the deletion date, including when timestamps tie.
+          - {id: 34, document_id: 900, tenant_id: 9, created_at: '2026-07-02', log_type: DOCUMENT_ADDED, edition_type: ADD_DOCUMENT, document_category: TAX, document_sub_category: MY_NAME}
+          - {id: 33, document_id: 900, tenant_id: 9, created_at: '2026-07-02', log_type: DOCUMENT_DELETED, edition_type: DELETE_DOCUMENT, document_category: TAX, document_sub_category: MY_PARENTS}
+    expect:
+      rows:
+        - {document_id: 800, tenant_id: 8, guarantor_id: 80, document_category: IDENTIFICATION, document_sub_category: ID_CARD, document_status: DELETED, added_at: '2026-06-01', deleted_at: '2026-07-01', total_add_document_events: 2, total_delete_document_events: 1}
+        - {document_id: 900, tenant_id: 9, guarantor_id: null, document_category: TAX, document_sub_category: MY_NAME, document_status: ADDED, added_at: '2026-07-02', deleted_at: null, total_add_document_events: 1, total_delete_document_events: 1}
+
+  - name: test_document_lifecycle_explicit_owner
+    description: Use the document owner from the payload when a different tenant edits a couple's document.
+    model: staging_document_status
+    config:
+      tags: [document_events]
+    given:
+      - input: ref('staging_tenant_log')
+        rows:
+          - {id: 40, document_id: 1000, tenant_id: 99, document_tenant_id: 10, created_at: '2026-07-01', log_type: DOCUMENT_ADDED, edition_type: ADD_DOCUMENT}
+          - {id: 41, document_id: 1000, tenant_id: 99, document_tenant_id: 10, created_at: '2026-07-02', log_type: DOCUMENT_DELETED, edition_type: DELETE_DOCUMENT}
+          # A deletion-only history still has a reliable owner when it is explicit.
+          - {id: 42, document_id: 1100, tenant_id: 99, document_tenant_id: 11, created_at: '2026-07-03', log_type: DOCUMENT_DELETED, edition_type: DELETE_DOCUMENT}
+    expect:
+      rows:
+        - {document_id: 1000, tenant_id: 10, document_status: DELETED, added_at: '2026-07-01', deleted_at: '2026-07-02', total_add_document_events: 1, total_delete_document_events: 1}
+        - {document_id: 1100, tenant_id: 11, document_status: DELETED, added_at: '2026-07-03', deleted_at: '2026-07-03', total_add_document_events: 0, total_delete_document_events: 1}

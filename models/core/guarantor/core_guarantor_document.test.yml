@@ -1,1 +1,23 @@
-# TODO: add unit tests for the core_guarantor_document model
+unit_tests:
+  - name: test_guarantor_document_completion_and_income
+    description: Keep each guarantor's active documents and income separate from tenant documents.
+    model: core_guarantor_document
+    config:
+      tags: [document_events]
+    given:
+      - input: ref('core_document')
+        rows:
+          - {document_id: 1, tenant_id: 1, guarantor_id: 10, document_category: IDENTIFICATION, document_status: VALIDATED, created_at: '2026-07-01'}
+          - {document_id: 2, tenant_id: 1, guarantor_id: 10, document_category: RESIDENCY, document_status: VALIDATED, created_at: '2026-07-01'}
+          - {document_id: 3, tenant_id: 1, guarantor_id: 10, document_category: PROFESSIONAL, document_status: VALIDATED, created_at: '2026-07-01'}
+          - {document_id: 4, tenant_id: 1, guarantor_id: 10, document_category: TAX, document_status: VALIDATED, created_at: '2026-07-01'}
+          - {document_id: 5, tenant_id: 1, guarantor_id: 10, document_category: FINANCIAL, document_status: VALIDATED, monthly_net_income: 2000, created_at: '2026-07-01'}
+          - {document_id: 6, tenant_id: 1, guarantor_id: 10, document_category: FINANCIAL, document_status: VALIDATED, monthly_net_income: 500, created_at: '2026-07-02'}
+          - {document_id: 7, tenant_id: 1, guarantor_id: 10, document_category: FINANCIAL, document_status: DELETED, monthly_net_income: 9000, created_at: '2026-07-03'}
+          - {document_id: 8, tenant_id: 1, document_category: FINANCIAL, document_status: VALIDATED, monthly_net_income: 8000, created_at: '2026-07-03'}
+          - {document_id: 9, tenant_id: 1, guarantor_id: 20, document_category: TAX, document_status: ADDED, created_at: '2026-07-01'}
+          - {document_id: 10, tenant_id: 2, guarantor_id: 30, document_category: TAX, document_status: DELETED, created_at: '2026-07-01'}
+    expect:
+      rows:
+        - {tenant_id: 1, guarantor_id: 10, nb_identification_documents: 1, nb_residency_documents: 1, nb_professional_documents: 1, nb_tax_documents: 1, nb_financial_documents: 2, monthly_net_income: 2500, document_completion_flag: 1}
+        - {tenant_id: 1, guarantor_id: 20, nb_identification_documents: 0, nb_residency_documents: 0, nb_professional_documents: 0, nb_tax_documents: 1, nb_financial_documents: 0, monthly_net_income: null, document_completion_flag: 0}

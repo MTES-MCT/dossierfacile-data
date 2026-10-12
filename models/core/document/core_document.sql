@@ -15,8 +15,15 @@ select
     , staging_document_status.tenant_id
     , staging_document_status.guarantor_id
 
-    , staging_document_status.document_category
-    , staging_document_status.document_sub_category
+    -- Dedicated lifecycle events no longer describe edits to existing documents.
+    , case
+        when staging_document.id is null then staging_document_status.document_category
+        else staging_document.document_category
+    end as document_category
+    , case
+        when staging_document.id is null then staging_document_status.document_sub_category
+        else staging_document.document_sub_category
+    end as document_sub_category
     , case
         when staging_document.id is null then 'UNKNOWN'
         else staging_document.document_category_step
