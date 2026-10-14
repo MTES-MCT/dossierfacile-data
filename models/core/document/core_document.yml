@@ -1,4 +1,22 @@
 models:
+  - name: core_document
+    description: >-
+      Document lifecycle joined to current source attributes, including category
+      edits that do not emit document lifecycle events. Retains documents absent
+      from the current source without inferring an unlogged deletion.
+    columns:
+      - name: document_id
+        data_tests:
+          - unique
+          - not_null
+      - name: total_add_document_events
+        description: >-
+          Count of retained add events from staging_document_status. Legacy events
+          included saves and replacements, while DOCUMENT_ADDED records creation
+          only. Values across the backend PR #1240 deployment are not a continuous
+          replacement metric.
+      - name: total_delete_document_events
+        description: Count of retained legacy or dedicated document deletion events.
   - name: core_document_denied_reasons
     description: "A dbt model that transforms document denied reasons data, including document categories and denial details"
     columns:
@@ -39,9 +57,4 @@ models:
               config:
                 where: "document_tenant_type is not null"
       - name: operator_comment
-        description: "Any comments made by the operator regarding the denial"
-      - name: tenant_id
-        description: "The ID of the tenant if the document belongs to a tenant"
-      - name: guarantor_id
-        description: "The ID of the guarantor if the document belongs to a guarantor"
-
+        description: "Deprecated compatibility column; always contains '[REDACTED]'."

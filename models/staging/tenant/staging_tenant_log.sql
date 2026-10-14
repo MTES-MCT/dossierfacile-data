@@ -10,7 +10,13 @@
     ]
 ) }}
 
-with casting_log as (
+with recent_logs as (
+    select *
+    from {{ source('dossierfacile', 'tenant_log') }}
+    {{ filter_recent_data('creation_date') }}
+)
+
+, casting_log as (
     select
         CAST(id as INTEGER)
         , CAST(tenant_id as INTEGER)
@@ -18,19 +24,27 @@ with casting_log as (
         , CAST(operator_id as INTEGER)
         , CAST(log_type as VARCHAR)
         , CAST(creation_date as TIMESTAMP) as created_at
-        -- When the log type is ACCOUNT_EDITED and the log details are not null, we extract the edition type, document category and sub category from the log details
-        , log_details ->> 'editionType' || '_DOCUMENT' as edition_type
+        -- Backend PR #1240 replaces ACCOUNT_EDITED + editionType with dedicated document events.
+        -- Normalize both formats; file events remain separate from document lifecycle events.
+        , case
+            when log_type = 'DOCUMENT_ADDED' then 'ADD_DOCUMENT'
+            when log_type = 'DOCUMENT_DELETED' then 'DELETE_DOCUMENT'
+            else log_details ->> 'editionType' || '_DOCUMENT'
+        end as edition_type
         , CAST(log_details ->> 'documentId' as INTEGER) as document_id
+        -- The event tenant_id is the editor, which can differ from a couple's document owner.
+        , CAST(log_details ->> 'tenantId' as INTEGER) as document_tenant_id
         , log_details ->> 'documentCategory' as document_category
         , log_details ->> 'documentSubCategory' as document_sub_category
         -- When the log type is OPERATOR_COMMENT, we extract the operator comment from the log details
         , log_details ->> 'comment' as operator_comment
-    from {{ source('dossierfacile', 'tenant_log') }}
+    from recent_logs
 
     {% if is_incremental() %}
-        where creation_date > (select MAX(created_at) - INTERVAL '2 day' from {{ this }})
-    {% else %}
-        {{ filter_recent_data('creation_date') }}
+        where creation_date > COALESCE(
+            (select MAX(created_at) - INTERVAL '2 day' from {{ this }})
+            , CAST('-infinity' as TIMESTAMP)
+        )
     {% endif %}
 )
 
@@ -43,6 +57,7 @@ select
     , casting_log.created_at
     , casting_log.edition_type
     , casting_log.document_id
+    , casting_log.document_tenant_id
     , casting_log.document_category
     , casting_log.document_sub_category
     , casting_log.operator_comment

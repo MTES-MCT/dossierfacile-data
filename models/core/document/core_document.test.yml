@@ -1,1 +1,24 @@
-# TODO: add unit tests for the core_document model
+unit_tests:
+  - name: test_document_current_state_and_retained_history
+    description: Prefer current source attributes while retaining documents absent from the source.
+    model: core_document
+    config:
+      tags: [document_events]
+    overrides:
+      macros:
+        is_incremental: false
+    given:
+      - input: ref('staging_document_status')
+        rows:
+          - {document_id: 100, tenant_id: 1, document_category: FINANCIAL, document_sub_category: SCHOLARSHIP, document_status: ADDED, added_at: '2026-07-01', total_add_document_events: 1, total_delete_document_events: 0}
+          - {document_id: 200, tenant_id: 2, guarantor_id: 20, document_category: TAX, document_status: DELETED, added_at: '2026-06-01', deleted_at: '2026-07-02', total_add_document_events: 2, total_delete_document_events: 1}
+          # Absence from the current source alone does not establish a deletion.
+          - {document_id: 300, tenant_id: 3, document_category: RESIDENCY, document_status: ADDED, added_at: '2026-06-02', total_add_document_events: 1, total_delete_document_events: 0}
+      - input: ref('staging_document')
+        rows:
+          - {id: 100, document_status: VALIDATED, document_category: FINANCIAL, document_sub_category: SALARY, document_category_step: SALARIED, monthly_net_income: 1500, created_at: '2026-06-30', modified_at: '2026-07-03'}
+    expect:
+      rows:
+        - {document_id: 100, tenant_id: 1, guarantor_id: null, document_category: FINANCIAL, document_sub_category: SALARY, document_status: VALIDATED, document_category_step: SALARIED, monthly_net_income: 1500, created_at: '2026-06-30', modified_at: '2026-07-03', deleted_at: null, total_add_document_events: 1, total_delete_document_events: 0}
+        - {document_id: 200, tenant_id: 2, guarantor_id: 20, document_category: TAX, document_sub_category: null, document_status: DELETED, document_category_step: UNKNOWN, monthly_net_income: null, created_at: '2026-06-01', modified_at: null, deleted_at: '2026-07-02', total_add_document_events: 2, total_delete_document_events: 1}
+        - {document_id: 300, tenant_id: 3, guarantor_id: null, document_category: RESIDENCY, document_sub_category: null, document_status: ADDED, document_category_step: UNKNOWN, monthly_net_income: null, created_at: '2026-06-02', modified_at: null, deleted_at: null, total_add_document_events: 1, total_delete_document_events: 0}

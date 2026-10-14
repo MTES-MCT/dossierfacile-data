@@ -11,6 +11,8 @@ models:
         description: "The ID of the tenant associated with the log"
         data_tests:
           - not_null
+      - name: document_tenant_id
+        description: "Document owner from log_details.tenantId when supplied. Separate from tenant_id, which identifies the event's editor. Null for guarantor documents or older payloads without an explicit owner."
       - name: operator_id
         description: "The ID of the operator who performed the action"
       - name: log_type

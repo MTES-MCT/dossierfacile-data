@@ -1,0 +1,37 @@
+models:
+  - name: staging_document_status
+    description: >-
+      Document lifecycle reconstructed from legacy ACCOUNT_EDITED events with
+      editionType ADD or DELETE and dedicated DOCUMENT_ADDED or DOCUMENT_DELETED
+      events. File events are excluded. Events are ordered by created_at and id.
+      One row per document, using status and category metadata from the latest
+      retained event. Ownership comes from the earliest retained event, preferring
+      its explicit document_tenant_id to the editor's tenant_id. The earliest
+      event also supplies guarantor_id. Missing creation logs or owner payloads
+      can leave ownership incomplete; absence from the current document table
+      does not establish a deletion.
+    columns:
+      - name: document_id
+        data_tests:
+          - unique
+          - not_null
+      - name: document_status
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['ADDED', 'DELETED']
+      - name: added_at
+        description: >-
+          Timestamp of the first retained lifecycle event. When creation logs
+          are missing, this can be a deletion timestamp rather than the true
+          document creation date.
+      - name: total_add_document_events
+        description: >-
+          Number of retained add events. Legacy ACCOUNT_EDITED ADD events could
+          include document saves and replacements; DOCUMENT_ADDED records document
+          creation only. The backend change in PR #1240 therefore changes the
+          meaning of this count. Confirm its production deployment date before
+          comparing periods; this is not a continuous replacement metric.
+      - name: total_delete_document_events
+        description: Number of retained legacy or dedicated document deletion events.

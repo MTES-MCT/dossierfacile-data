@@ -1,0 +1,72 @@
+unit_tests:
+  - name: test_document_event_normalization_full_refresh
+    description: Normalize dedicated document events without changing legacy events or file payloads.
+    model: staging_tenant_log
+    config:
+      tags: [document_events]
+    overrides:
+      macros:
+        is_incremental: false
+    given:
+      - input: source('dossierfacile', 'tenant_log')
+        rows:
+          - {id: 1, tenant_id: 10, creation_date: '2026-06-20', log_type: ACCOUNT_EDITED, log_details: '{"editionType":"ADD","documentId":100,"documentCategory":"TAX","documentSubCategory":"TAX_NOTICE"}'}
+          - {id: 2, tenant_id: 10, creation_date: '2026-06-21', log_type: ACCOUNT_EDITED, log_details: '{"editionType":"DELETE","documentId":100}'}
+          - {id: 3, tenant_id: 20, creation_date: '2026-07-01', log_type: DOCUMENT_ADDED, log_details: '{"documentId":200,"documentCategory":"FINANCIAL","documentSubCategory":"SALARY","guarantorId":30}'}
+          - {id: 4, tenant_id: 20, creation_date: '2026-07-02', log_type: DOCUMENT_DELETED, log_details: '{"documentId":200,"guarantorId":30}'}
+          - {id: 5, tenant_id: 10, creation_date: '2026-07-03', log_type: FILE_ADDED, log_details: '{"documentId":100}'}
+          - {id: 6, tenant_id: 10, creation_date: '2026-07-04', log_type: FILE_DELETED, log_details: '{"documentId":100}'}
+          - {id: 7, tenant_id: 10, creation_date: '2026-07-05', log_type: ACCOUNT_CREATED, log_details: null}
+          - {id: 8, tenant_id: 99, creation_date: '2026-07-06', log_type: DOCUMENT_ADDED, log_details: '{"tenantId":40,"documentId":400}'}
+    expect:
+      rows:
+        - {id: 1, tenant_id: 10, document_tenant_id: null, edition_type: ADD_DOCUMENT, document_id: 100, document_category: TAX, document_sub_category: TAX_NOTICE, guarantor_id: null, tenant_type: TENANT}
+        - {id: 2, tenant_id: 10, document_tenant_id: null, edition_type: DELETE_DOCUMENT, document_id: 100, document_category: null, document_sub_category: null, guarantor_id: null, tenant_type: TENANT}
+        - {id: 3, tenant_id: 20, document_tenant_id: null, edition_type: ADD_DOCUMENT, document_id: 200, document_category: FINANCIAL, document_sub_category: SALARY, guarantor_id: 30, tenant_type: GUARANTOR}
+        - {id: 4, tenant_id: 20, document_tenant_id: null, edition_type: DELETE_DOCUMENT, document_id: 200, document_category: null, document_sub_category: null, guarantor_id: 30, tenant_type: GUARANTOR}
+        - {id: 5, tenant_id: 10, document_tenant_id: null, edition_type: null, document_id: 100, document_category: null, document_sub_category: null, guarantor_id: null, tenant_type: TENANT}
+        - {id: 6, tenant_id: 10, document_tenant_id: null, edition_type: null, document_id: 100, document_category: null, document_sub_category: null, guarantor_id: null, tenant_type: TENANT}
+        - {id: 7, tenant_id: 10, document_tenant_id: null, edition_type: null, document_id: null, document_category: null, document_sub_category: null, guarantor_id: null, tenant_type: TENANT}
+        - {id: 8, tenant_id: 99, document_tenant_id: 40, edition_type: ADD_DOCUMENT, document_id: 400, document_category: null, document_sub_category: null, guarantor_id: null, tenant_type: TENANT}
+
+  - name: test_document_event_normalization_incremental
+    description: Normalize current events inside the existing two-day incremental lookback.
+    model: staging_tenant_log
+    config:
+      tags: [document_events]
+    overrides:
+      macros:
+        is_incremental: true
+    given:
+      - input: this
+        rows:
+          - {id: 10, created_at: '2026-07-04 00:00:00'}
+      - input: source('dossierfacile', 'tenant_log')
+        rows:
+          - {id: 1, tenant_id: 1, creation_date: '2026-07-01', log_type: DOCUMENT_ADDED, log_details: '{"documentId":100}'}
+          - {id: 2, tenant_id: 1, creation_date: '2026-07-02', log_type: DOCUMENT_ADDED, log_details: '{"documentId":200}'}
+          - {id: 3, tenant_id: 1, creation_date: '2026-07-03', log_type: DOCUMENT_ADDED, log_details: '{"documentId":300}'}
+          - {id: 4, tenant_id: 1, creation_date: '2026-07-05', log_type: DOCUMENT_DELETED, log_details: '{"documentId":300}'}
+    expect:
+      rows:
+        - {id: 3, document_id: 300, edition_type: ADD_DOCUMENT}
+        - {id: 4, document_id: 300, edition_type: DELETE_DOCUMENT}
+
+  - name: test_document_event_incremental_empty_target
+    description: Load eligible history when an existing incremental table is empty.
+    model: staging_tenant_log
+    config:
+      tags: [document_events]
+    overrides:
+      macros:
+        is_incremental: true
+    given:
+      - input: this
+        rows: []
+      - input: source('dossierfacile', 'tenant_log')
+        rows:
+          - {id: 1, tenant_id: 1, creation_date: '2022-12-31', log_type: DOCUMENT_ADDED, log_details: '{"documentId":100}'}
+          - {id: 2, tenant_id: 1, creation_date: '2025-01-01', log_type: DOCUMENT_ADDED, log_details: '{"documentId":200}'}
+    expect:
+      rows:
+        - {id: 2, document_id: 200, edition_type: ADD_DOCUMENT}
