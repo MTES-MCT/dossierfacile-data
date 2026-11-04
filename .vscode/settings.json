@@ -1,0 +1,6 @@
+{
+  "dbt.environmentVariables": {
+    "DBT_ALLOW_EXPERIMENTAL_ADAPTERS": "true"
+  },
+  "dbt.dbtMajorVersion": "v1"
+}
