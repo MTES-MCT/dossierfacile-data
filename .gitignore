@@ -171,3 +171,8 @@ cython_debug/
 #.idea/
 
 .cursor/
+
+docs/
+analyses/
+scripts/
+dbt_internal_packages/

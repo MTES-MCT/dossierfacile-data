@@ -1,5 +1,6 @@
 {{ config(
-    materialized = 'incremental', 
+    materialized = 'incremental',
+    incremental_strategy = 'analyzed_delete_insert',
     unique_key = 'document_id',
     indexes=[
       {'columns': ['document_id'], 'unique': True},
