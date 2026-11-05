@@ -3,3 +3,4 @@ dbt_packages/
 dbt_modules/
 macros/
 env/
+.github/ci-sources.sql

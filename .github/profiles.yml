@@ -3,10 +3,10 @@ dossierfacile:
   outputs:
     test:
       type: postgres
-      host: localhost
+      host: 127.0.0.1
       user: postgres
       password: "{{ env_var('POSTGRES_PASSWORD') }}"
-      port: 5432
+      port: "{{ env_var('PGPORT', '5432') | int }}"
       dbname: postgres
-      schema: public
+      schema: dbt_ci
       threads: 3

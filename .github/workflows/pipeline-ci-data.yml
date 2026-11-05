@@ -1,64 +1,66 @@
 name: Pipeline CI Data
 on: pull_request
 
+permissions:
+  contents: read
+
 env:
-  DBT_PROFILES_DIR: ./.github/
-  POSTGRES_PASSWORD: "${{ secrets.DBT_POSTGRES_PASSWORD_TEST }}"
+  DBT_PROFILES_DIR: .github
+  POSTGRES_PASSWORD: ${{ secrets.DBT_POSTGRES_PASSWORD_TEST }}
 
 jobs:
   run-ci-pipeline:
-    # Containers must run in Linux based operating systems
     runs-on: ubuntu-latest
 
     services:
       postgres:
-        image: postgres:16.1
+        image: postgres:16.15
         ports:
-          - 5432:5432
+          - "127.0.0.1:5432:5432"
         env:
           POSTGRES_PASSWORD: ${{ env.POSTGRES_PASSWORD }}
         # Set health checks to wait until postgres has started
         options: >-
-          --health-cmd pg_isready
+          --health-cmd "pg_isready -h 127.0.0.1 -U postgres"
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
 
     steps:
-      # Downloads a copy of the code in your repository before running CI tests
       - name: Check out repository code
-        uses: actions/checkout@v3
-
-      - uses: actions/setup-python@v4
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          python-version: "3.11.x"
+          persist-credentials: false
 
-      - name: Install dbt
-        run: pip install dbt-postgres==1.9.0
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.14.x"
 
-      - name: Instal dbt deps
+      - name: Install Python dependencies
+        run: python -m pip install -r requirements.txt
+
+      - name: Install dbt packages
         run: dbt deps
-
-      - name: Install SQLFluff
-        run: pip install sqlfluff==3.3.0
-
-      - name: Install SQLFluff dbt templater
-        run: pip install sqlfluff-templater-dbt==3.3.0
 
       - name: Test dbt database connection
         run: dbt debug
+
+      - name: Create empty PostgreSQL sources
+        env:
+          POSTGRES_CONTAINER_ID: ${{ job.services.postgres.id }}
+        run: |
+          docker exec -i "$POSTGRES_CONTAINER_ID" psql -X --set ON_ERROR_STOP=1 --username postgres --dbname postgres < .github/ci-sources.sql
+
+      # --empty adds a second alias to some ref() subqueries on PostgreSQL.
+      # https://github.com/dbt-labs/dbt-core/issues/9967
+      - name: Build models on the empty sources
+        run: dbt run
+
+      - name: Run dbt unit tests
+        run: dbt test --select test_type:unit --warn-error-options '{"error":["NothingToDo"]}'
 
       - name: Test core_document incremental updates
         run: python tests/integration/core_document_incremental.py
 
       - name: Lint with SQLFluff
         run: sqlfluff lint --dialect postgres
-
-      # Known issue: https://github.com/dbt-labs/dbt-redshift/issues/818
-      # - name: Run dbt empty model
-      #   run: dbt run --empty
-
-      # Known limitation: direct parents of the model unit-tested need to exist
-      # See DBT docs: https://docs.getdbt.com/docs/build/unit-tests
-      # - name: Run dbt unit-tests
-      #   run: dbt test -s test_type:unit

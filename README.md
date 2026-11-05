@@ -1,7 +1,7 @@
 # dossierfacile-data
 
 [![License](https://img.shields.io/badge/licence-MIT-blue.svg)](LICENSE)
-[![DBT](https://img.shields.io/badge/dbt-v1.9.0-orange)](https://www.getdbt.com/)
+[![dbt Core](https://img.shields.io/badge/dbt%20Core-1.12.6-orange)](https://www.getdbt.com/)
 [![Startup d'État](https://img.shields.io/badge/Startup%20d'État-DossierFacile-green)](https://dossierfacile.logement.gouv.fr)
 
 Pipeline de transformation de données pour [DossierFacile](https://dossierfacile.fr).
@@ -58,9 +58,8 @@ Les modèles sont organisés en 3 couches techniques :
 
 ### Prérequis
 
-- Python 3.10+
+- Python 3.10 ou plus récent. La CI utilise Python 3.14.
 - PostgreSQL 15+
-- DBT Core 1.9.0+
 - Accès à la base de données DossierFacile
 
 ### Installation des dépendances
@@ -71,14 +70,15 @@ python -m venv .venv
 source .venv/bin/activate
 
 # Installation des dépendances
-pip install dbt-core dbt-postgres
+python -m pip install -r requirements.txt
+dbt deps
 ```
 
 ## Configuration
 
 ### Configuration de DBT
 
-1. Créez un fichier `profiles.yml` à la racine du projet :
+1. Créez un fichier `~/.dbt/profiles.yml` :
 
 ```yml
 dossierfacile:
@@ -100,12 +100,6 @@ dossierfacile:
 3. Testez la connexion :
 ```bash
 dbt debug
-```
-
-### Configuration de Sqlfluff
-
-```bash
-pip install sqlfluff sqlfluff-templater-dbt
 ```
 
 ## Utilisation
@@ -195,26 +189,18 @@ dbt test -s test_type:unit
 dbt test -s core_tenant_account
 ```
 
+### Tests en pull request
+
+GitHub Actions crée les [tables sources vides](.github/ci-sources.sql) dans un PostgreSQL jetable. `dbt run` construit les modèles dans le schéma `dbt_ci` pour que les tests unitaires puissent lire les types de leurs entrées. La CI exécute ensuite les tests unitaires, le test d'intégration de `core_document` et SQLFluff.
+
+Ajoutez les tables et colonnes nécessaires à `.github/ci-sources.sql` lorsqu'un modèle change de sources.
+
 ## Développement
 
 ### Pré-commit hooks
 
-1. Installation :
-```bash
-pip install pre-commit
-```
+Installez les hooks après avoir exécuté `dbt deps` et configuré le profil dbt. Pre-commit installe SQLFluff et le templater dbt dans son propre environnement.
 
-2. Configuration dans `.pre-commit-config.yaml` :
-```yaml
-repos:
-  - repo: https://github.com/sqlfluff/sqlfluff
-    rev: 3.3.0
-    hooks:
-      - id: sqlfluff-lint
-      - id: sqlfluff-fix
-```
-
-3. Activation :
 ```bash
 pre-commit install
 ```

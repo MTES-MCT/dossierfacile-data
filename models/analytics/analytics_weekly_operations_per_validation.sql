@@ -5,7 +5,7 @@ with operations_with_first_validation_date as (
         , created_at
         , MIN(case when validation_flag = 1 then created_at end)
             over (partition by tenant_id)
-        as first_validation_at
+            as first_validation_at
     from {{ ref('core_operation') }}
     where operation_flag = 1
 )
