@@ -1,1 +1,2 @@
-select * from {{ ref('staging_document_analysis_report') }}
+select * -- noqa: AM04
+from {{ ref('staging_document_analysis_report') }}

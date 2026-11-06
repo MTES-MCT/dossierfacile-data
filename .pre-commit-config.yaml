@@ -1,6 +1,14 @@
+exclude: ^\.github/ci-sources\.sql$
+
 repos:
-- repo: https://github.com/sqlfluff/sqlfluff
-  rev: 3.3.0
-  hooks:
-    - id: sqlfluff-lint
-    - id: sqlfluff-fix
+  - repo: https://github.com/sqlfluff/sqlfluff
+    rev: 4.5.0
+    hooks:
+      - id: sqlfluff-lint
+        # Keep the SQLFluff and dbt versions aligned with requirements.txt.
+        additional_dependencies: &dbt_dependencies
+          - sqlfluff-templater-dbt==4.5.0
+          - dbt-core==1.12.6
+          - dbt-postgres==1.11.0
+      - id: sqlfluff-fix
+        additional_dependencies: *dbt_dependencies

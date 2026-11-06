@@ -1,0 +1,8 @@
+dbt-core==1.12.6
+dbt-postgres==1.11.0
+sqlfluff==4.5.0
+sqlfluff-templater-dbt==4.5.0
+psycopg2-binary==2.9.13
+PyYAML==6.0.3
+pre-commit==4.6.2; python_version < "3.11"
+pre-commit==4.7.0; python_version >= "3.11"
